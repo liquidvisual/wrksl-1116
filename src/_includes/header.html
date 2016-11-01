@@ -1,0 +1,44 @@
+{% assign settings = site.data.settings %}
+{% assign logo = "/assets/img/content/logo.png" %}
+
+<!-- HEADER TOP -->
+<div class="global-header-top hidden-sm-down">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <a target="_blank" href="tel:{{ settings.offices[0].phone }}"><i class="fa fa-phone"></i>&nbsp;  1300 Workskil ({{ settings.offices[0].phone }})</a>
+                <span class="spacer m-x-1"></span>
+                <a target="_blank" href="{{ settings.google_map }}"><i class="fa fa-map-marker"></i>&nbsp;  Find a location</a>
+            </div>
+            <div class="col-md-4 text-md-right">
+                <a href=""><i class="fa fa-search"></i>&nbsp; Search</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- HEADER BODY -->
+<div class="global-header-body">
+    <div class="container">
+        <div class="display-table">
+            <div class="display-cell">
+
+                <!-- LOGO -->
+                <a class="logo" href="/" title="{{ settings.seo_title }}" itemprop="url">
+                    <img src="{{ logo }}" alt="{{ settings.company_title }}" itemprop="logo">
+                </a>
+
+                <!-- HAMBURGER -->
+                <div class="global-mobile-menu hidden-xl-up">
+                    <div class="lv-hamburger" data-menu-toggle>
+                        <span class="lv-hamburger-top"></span>
+                        <span class="lv-hamburger-middle"></span>
+                        <span class="lv-hamburger-bottom"></span>
+                        <span class="lv-hamburger-hit"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

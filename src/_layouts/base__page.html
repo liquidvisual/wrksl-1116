@@ -1,0 +1,16 @@
+---
+layout: base
+---
+
+{% assign hero = page.hero | default: "/assets/img/content/hero-1.png" %}
+
+<!-- HERO -->
+<div class="lv-hero-wrapper">
+    <div class="lv-hero has-fixed-height">
+        <div class="lv-hero-item" style="background-image: url('{{ hero }}')"></div>
+    </div>
+</div>
+
+<div class="spacer m-b-2"></div>
+
+{{ content }}

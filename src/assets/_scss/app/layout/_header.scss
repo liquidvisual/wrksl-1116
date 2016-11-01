@@ -1,0 +1,191 @@
+/*
+    HEADER.CSS
+
+    - Last updated: 06.10.16
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+
+$header-height-sm: 60px !default; // optimal
+$header-height-md: 130px !default;
+$header-height-lg: 220px !default;
+
+//-----------------------------------------------------------------
+// HEADROOM
+//-----------------------------------------------------------------
+
+.headroom {
+    will-change: transform;
+    transition: transform 200ms linear;
+}
+
+//=========================================
+
+.headroom--pinned {
+    transform: translateY(0%);
+}
+
+.headroom--unpinned {
+	@include media-breakpoint-down(lg) {
+	    transform: translateY(-100%);
+	}
+}
+
+//========================================= TABLETS UP
+
+.headroom--not-top {
+	@include media-breakpoint-up(md) {
+	    .logo img {
+	    	width: 200px !important;
+	    }
+	    .global-header-top {
+	    	height: 0;
+	    	padding: 0;
+	    	overflow: hidden;
+	    }
+	    .global-navigation .topbar {
+	    	bottom: 28px;
+	    }
+	}
+}
+
+//-----------------------------------------------------------------
+// HEADER GENERAL
+//-----------------------------------------------------------------
+
+.global-header {
+	position: fixed; // covers more use cases
+	top: 0;
+	width: 100%;
+	z-index: 999;
+}
+
+.global-header-top  > .container,
+.global-header-body > .container {
+	position: relative;
+}
+
+//-----------------------------------------------------------------
+// HEADER TOP
+//-----------------------------------------------------------------
+
+.global-header-top {
+	position: relative;
+	background: $brand-primary;
+	// font-size: rem-calc(16);
+	color: white;
+	padding: 15px 0;
+	transition: all ease 150ms;
+
+	i {
+		position: relative;
+		top: 2px;
+		font-size: rem-calc(23);
+		line-height: 0;
+	}
+
+	a {
+		color: white;
+	}
+}
+
+//-----------------------------------------------------------------
+// HEADER BODY
+//-----------------------------------------------------------------
+
+.global-header-body {
+	background: white;
+	box-shadow: 0 0 3px 1px rgba(black, 0.2);
+
+	@include media-breakpoint-up(md) {
+	    background: rgba(white, 0.8);
+	}
+}
+
+//=========================================
+// HEADER HEIGHT [LOCKED]
+//=========================================
+
+.global-header,
+.global-header .display-table {
+
+
+	@include media-breakpoint-down(sm) {
+	    height: $header-height-sm;
+	}
+
+	@include media-breakpoint-up(md) {
+	    // height: $header-height-md;
+	}
+
+	@include media-breakpoint-up(xl) {
+		// height: $header-height-lg;
+	}
+}
+
+//=========================================
+// FIXED MOBILE [LOCKED]
+//=========================================
+
+.global-header {
+	@include media-breakpoint-down(sm) {
+	    position: fixed;
+	}
+}
+
+//-----------------------------------------------------------------
+// LOGO
+//-----------------------------------------------------------------
+
+.global-header .logo {
+	position: relative;
+	top: 0;
+	display: inline-block;
+
+	@include media-breakpoint-up(md) {
+	    top: 0;
+	}
+
+	@include media-breakpoint-up(lg) {
+	    top: 0;
+	}
+
+	@include media-breakpoint-up(xl) {
+	    top: 0;
+	}
+
+	img {
+		width: 75px;
+
+		@include media-breakpoint-up(md) {
+			width: 309px;
+		    padding: rem-calc(15 0);
+		}
+
+		@include media-breakpoint-up(xl) {
+		    padding: none;
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// HAMBURGER
+//-----------------------------------------------------------------
+
+.global-mobile-menu {
+	position: absolute;
+	top: 18px;//$container-gutter;
+	right: $container-gutter/2;
+	overflow: hidden;
+
+	@include media-breakpoint-up(md) {
+	    top: 38px;
+	    right: $container-gutter;
+	}
+}
+
+//=========================================
+//
+//=========================================

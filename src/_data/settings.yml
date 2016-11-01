@@ -1,0 +1,41 @@
+# GLOBAL SITE SETTINGS
+
+cname: workskil.yourwebvisual.com
+
+# META
+title: Workskil Australia
+seo_title: Workskil Australia
+company: Workskil Australia
+description:
+
+# SITE DEFAULTS
+site_tagline:
+
+# DEVELOPER
+allow_robots: false
+github_repo_owner: liquidvisual
+github_repo_path: https://github.com/liquidvisual/wrksl-1116
+github_repo_name:
+jekyll_version: 3.0.3
+
+# OFFICES
+offices:
+  - title: Head Office
+    address: Level 1, 1069 South Road<br>Melrose Park, SA 5039
+    phone: 1300 967 575
+
+# SOCIAL MEDIA
+facebook: https://www.facebook.com/workskil
+twitter: https://twitter.com/workskil_aus
+linked_in: https://www.linkedin.com/company/workskil-incorporated
+
+# GOOGLE
+google_analytics: "UA-XXXXXXXX-X"
+google_map:
+
+# AUTHOR
+author:
+  title: Much Media
+  url: http://muchmedia.com.au
+  logo: /assets/img/ui/much-media-logo.svg
+  description: Website by Much Media

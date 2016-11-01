@@ -1,0 +1,24 @@
+- title: Home
+  url: /
+
+- title: Employment
+  url: /employment/
+  include_children_in_nav: true
+
+- title: Health
+  url:  /404/
+
+- title: Youth
+  url: /404/
+
+- title: Indigenous
+  url: /404/
+
+- title: Locations
+  url: /404/
+
+- title: About
+  url: /404/
+
+- title: Contact
+  url: /404/

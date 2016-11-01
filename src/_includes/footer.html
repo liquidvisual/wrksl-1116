@@ -1,0 +1,61 @@
+{% assign settings = site.data.settings %}
+
+<!-- FOOTER BODY -->
+<section class="global-footer-body">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<h3 class="p-b-1">{{ settings.company }}</h3>
+				<h4>{{ settings.offices[0].title }}</h4>
+				<p>
+					{{ settings.offices[0].address }}<br>
+					<a href="{{ settings.google_map }}">View map <i class="fa fa-angle-right"></i></a>
+				</p>
+				<p>Ph. {{ settings.offices[0].phone }}</p>
+			</div>
+			<div class="col-md-3">
+				<ul class="list-inline social-media">
+					<li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+					<li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
+					<li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+				</ul>
+			</div>
+			<div class="col-md-6 text-md-right">
+
+				<div class="btn-group" role="group" aria-label="Basic example">
+					<div class="btn btn-special"><i class="fa fa-comment-o"></i>&nbsp; <strong>Stay up to date</strong></div>
+					<a class="btn btn-primary" href="">Join our newsletter <i class="fa fa-angle-right"></i></a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- FOOTER BOTTOM -->
+<section class="global-footer-bottom p-y-1">
+    <div class="container">
+
+		<div class="row">
+			<div class="col-md-2">
+				<a href=""><i class="fa fa-angle-down"></i> Site Map</a>
+			</div>
+			<div class="col-md-8">
+
+				<span>&copy; {{ site.time | date: '%Y' }} {{ settings.company }}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/contact/">Contact Us</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/404/">Privacy Statement</a>
+
+			</div>
+			<div class="col-md-2">
+				<small>
+					<a class="author-logo pull-xs-right" target="_blank" href="{{ settings.author.url }}">
+				    	<span class="text">{{ settings.author.description }}</span>&nbsp;
+				    	<img width="20" height="20" src="{{ settings.author.logo }}" alt="Created by {{ settings.author.title }}">
+					</a>
+				</small>
+			</div>
+		</div>
+
+    </div>
+</section>

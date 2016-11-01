@@ -1,0 +1,72 @@
+{% comment %}
+    LIQUIDVISUAL-HERO
+
+    - updated: 06.10.16
+    - notes:
+        * Multiple items in carousel_slides.yml triggers carousel mode
+        * .has-auto-height - caption will detemine height
+        * .has-fixed-height - used for internal pages to set a height
+{% endcomment %}
+
+{% assign hero_images = site.data.carousel_slides %}
+
+<div class="lv-hero-wrapper">
+
+    <!-- HERO -->
+    <div class="lv-hero">
+        {% for hero in hero_images %}
+            <div class="lv-hero-item" style="background-image: url('{{ hero.image }}')"></div>
+        {% endfor %}
+    </div> <!-- /.lv-hero -->
+
+    <!-- HERO CAPTION -->
+    <div class="lv-hero-caption">
+        <div class="display-table">
+            <div class="display-cell v-align-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h3 class="m-b-1">Introduction text content, lorem ipsum dolor sit amet, consectetuer adipiscing elit.</h3>
+                            <p class="lead">Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+                        </div>
+                        <div class="col-lg-6">
+
+                            <a href="/404/" class="btn btn-hero-feature"><i class="fa fa-users"></i> <span class="text">Looking for staff?</span> <i class="fa fa-angle-right"></i></a>
+
+                            <div class="lv-hero-caption-feature">
+                                <h3 class="text-md-right">Our Services</h3>
+                                <ul class="block-grid-md-2">
+                                    <li><a href="/404/">Youth <i class="fa fa-angle-right"></i></a></li>
+                                    <li><a href="/404/">Employment <i class="fa fa-angle-right"></i></a></li>
+                                    <li><a href="/404/">Indigenous <i class="fa fa-angle-right"></i></a></li>
+                                    <li><a href="/404/">Health <i class="fa fa-angle-right"></i></a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CAROUSEL CONTROLS -->
+    <div class="lv-hero-carousel-controls">
+        <div class="container">
+            <span href="#" class="lv-hero-carousel-prev-btn"><i class="fa fa-angle-left"></i></span>
+            <span href="#" class="lv-hero-carousel-next-btn"><i class="fa fa-angle-right"></i></span>
+        </div>
+    </div>
+
+    {% comment %}
+    <!-- CAROUSEL BULLETS -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="lv-hero-carousel-bullets"></div>
+            </div>
+        </div>
+    </div>
+    {% endcomment %}
+
+</div> <!-- /.lv-hero-wrapper -->
