@@ -351,7 +351,7 @@
                 <h3>
                     <i class="fa fa-facebook"></i>&nbsp; Worksil Australia &nbsp;&nbsp;
                     <i class="fa fa-facebook"></i>&nbsp; Worksil Indigenous</h3>
-                <div class=social-feed-container></div>
+                <div class="social-feed-container block-grid-xs-1 block-grid-md-2 block-grid-lg-3 block-grid-xl-4"></div>
             </div>
         </section>
 
@@ -537,13 +537,6 @@
 
     <!-- **** JAVASCRIPT **** -->
     <script src=/assets/scripts/minified.js></script>
-
-    <!-- NO JAVASCRIPT WARNING -->
-    <noscript>
-        <div class="lv-alert-bar">
-            <p>Your browser has Javascript disabled. Some features may be limited.</p>
-        </div>
-    </noscript>
     <script>
     $(window).on('load', function() {
         $('.social-feed-container').socialfeed({
@@ -565,6 +558,7 @@
             // GENERAL SETTINGS
             length: 200,
             show_media: true,
+            template: "/social-feed/",
             // When all the posts are collected and displayed - this function is evoked
             callback: function() {
                 console.log('all posts are collected');
@@ -579,10 +573,11 @@
     });
     </script>
 
-    <!-- DELETE BELOW FOR PRODUCTION -->
-    <script>
-    localStorage.setItem("pageURL", "/");
-    localStorage.setItem("pageNotes", JSON.stringify(null));
-    </script>
+    <!-- NO JAVASCRIPT WARNING -->
+    <noscript>
+        <div class="lv-alert-bar">
+            <p>Your browser has Javascript disabled. Some features may be limited.</p>
+        </div>
+    </noscript>
 </body>
 </html>

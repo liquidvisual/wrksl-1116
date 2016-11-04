@@ -713,13 +713,6 @@
 
     <!-- **** JAVASCRIPT **** -->
     <script src=/assets/scripts/minified.js></script>
-
-    <!-- NO JAVASCRIPT WARNING -->
-    <noscript>
-        <div class="lv-alert-bar">
-            <p>Your browser has Javascript disabled. Some features may be limited.</p>
-        </div>
-    </noscript>
     <script>
     $(window).on('load', function() {
         $('.social-feed-container').socialfeed({
@@ -741,6 +734,7 @@
             // GENERAL SETTINGS
             length: 200,
             show_media: true,
+            template: "/social-feed/",
             // When all the posts are collected and displayed - this function is evoked
             callback: function() {
                 console.log('all posts are collected');
@@ -755,10 +749,11 @@
     });
     </script>
 
-    <!-- DELETE BELOW FOR PRODUCTION -->
-    <script>
-    localStorage.setItem("pageURL", "/docs/component-library/");
-    localStorage.setItem("pageNotes", JSON.stringify(null));
-    </script>
+    <!-- NO JAVASCRIPT WARNING -->
+    <noscript>
+        <div class="lv-alert-bar">
+            <p>Your browser has Javascript disabled. Some features may be limited.</p>
+        </div>
+    </noscript>
 </body>
 </html>
