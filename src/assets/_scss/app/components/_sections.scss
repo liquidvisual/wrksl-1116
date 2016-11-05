@@ -1,0 +1,100 @@
+/*
+    SECTIONS.CSS
+
+    - Last updated: 16.10.16
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//--------------------------------------------------------------------
+// SECTIONS
+//--------------------------------------------------------------------
+
+.section {
+	padding: $spacer * 2 0;
+
+	&.section-inverse {
+		color: white;
+
+		h1, h2, h3, h4, h5, h6 {
+			color: white;
+		}
+	}
+}
+
+
+
+.section-secondary {
+	background: $brand-secondary;
+}
+
+//--------------------------------------------------------------------
+// SECTION SPLIT (Appears on Homepage)
+//--------------------------------------------------------------------
+
+.section-split {
+	overflow: hidden;
+
+	.list-block li {
+		border-color: rgba(white, 0.2);
+	}
+
+	h1, h2, h3, h4, h5, h6,
+	p {
+		color: white;
+	}
+
+	date {
+		display: block;
+		color: #5188ab;
+		font-weight: bold;
+		margin-bottom: rem-calc(10);
+	}
+
+	.col-md-6:first-child,
+	.col-md-6:last-child {
+		&:after {
+			content: "";
+			position: absolute;
+			top: -$spacer*2;
+			width: 100vw;
+			height: 200%;
+			z-index: -1;
+		}
+	}
+
+	.col-md-6:first-child {
+		padding-right: $spacer-x * 2;
+
+		.anchor {
+			color: $brand-quinary;
+		}
+
+		&:after {
+			right: 0;
+			background: $brand-primary;
+		}
+	}
+
+
+	.col-md-6:last-child {
+		padding-left: $spacer-x * 2;
+
+		.anchor {
+			color: $brand-primary;
+		}
+
+		&:after {
+			left: 0;
+			background: $brand-quinary;
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
+//=========================================
+//
+//=========================================

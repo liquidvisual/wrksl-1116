@@ -5,29 +5,72 @@ layout: base
 {% assign settings = site.data.settings %}
 {% assign featured = site.data.sitemap[3].children | where: "featured", true %}
 
-<!-- { % include hero.html %} -->
+{% include hero.html %}
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<!-- NEWS & EVENTS -->
+<section class="section section-split">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<h2 class="m-b-1"><i class="fa fa-newspaper-o"></i> News</h2>
+				<ul class="list-block">
+					{% for item in site.data.placeholder_articles | limit: 3 %}
+					<li>
+						<a href="/404/">
+							<article class="media">
+								<div class="media-body">
+									<h4 class="media-heading card-title">{{ item.title }}</h4>
+									<!-- TRUNCATE (150 max chars) -->
+									<p class="m-b-0">{{ item.body | truncate: 150 }}
+										<span class="anchor">Read more <i class="fa fa-angle-right"></i></span></p>
+								</div>
+								<div class="media-right hidden-sm-down p-l-1">
+									<img class="media-object" width="170" src="/assets/img/ui/placeholder.png" alt="Thumbnail">
+								</div>
+							</article>
+						</a>
+					</li>
+					{% endfor %}
+				</ul>
+				<p class="text-xs-right"><a class="btn" href="/404/">More News <i class="fa fa-angle-right"></i></a></p>
+			</div>
+			<div class="col-md-6">
+				<h2 class="m-b-1"><i class="fa fa-calendar-o"></i> Upcoming Events</h2>
+				<ul class="list-block">
+					{% for item in site.data.placeholder_articles | limit: 3 %}
+					<li>
+						<a href="/404/">
+							<article class="media">
+								<div class="media-body">
+									<h4 class="media-heading card-title">{{ item.title }}</h4>
+									<date>{{ item.date }}</date>
+									<!-- TRUNCATE (150 max chars) -->
+									<p class="m-b-0">{{ item.body | truncate: 150 }}
+										<span class="anchor">Read more <i class="fa fa-angle-right"></i></span></p>
+								</div>
+								<div class="media-right hidden-sm-down p-l-1">
+									<img class="media-object" width="170" src="/assets/img/ui/placeholder.png" alt="Thumbnail">
+								</div>
+							</article>
+						</a>
+					</li>
+					{% endfor %}
+				</ul>
+				<p class="text-xs-right"><a class="btn" href="/404/">More Events <i class="fa fa-angle-right"></i></a></p>
+			</div>
+		</div>
+	</div>
+</section>
 
-<div class="container">
-    {% for i in (1..10) %}
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    {% endfor %}
-</div>
+<!-- SOCIAL FEED -->
+<section class="section section-inverse section-secondary">
+	<div class="container">
+		<h3><i class="fa fa-facebook"></i>&nbsp; Worksil Australia &nbsp;&nbsp;<i class="fa fa-facebook"></i>&nbsp; Worksil Indigenous</h3>
+		<div class="social-feed-container block-grid-xs-1 block-grid-md-2 block-grid-lg-3 block-grid-xl-4"></div>
+	</div>
+</section>
 
+<!-- PARTNERS -->
 <section class="section p-y-3">
 	<div class="container">
 		<h3 class="m-b-2">We are proudly associated with</h3>

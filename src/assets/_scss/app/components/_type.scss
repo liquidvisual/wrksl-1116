@@ -46,6 +46,19 @@ p, ul, ol {
 //-----------------------------------------------------------------
 //
 //-----------------------------------------------------------------
+
+h3 .fa {
+	position: relative;
+	top: -3px;
+	background: rgba(white, 0.5);
+	width: 35px;
+	height: 35px;
+	border-radius: 100%;
+	text-align: center;
+	line-height: 35px;
+	font-size: rem-calc(20);
+	color: $brand-secondary; // this will need to change
+}
 //=========================================
 //
 //=========================================

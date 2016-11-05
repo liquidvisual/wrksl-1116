@@ -12,6 +12,7 @@
 //--------------------------------------------------------------------
 
 .btn {
+	font-family: 'Montserrat', sans-serif;
 	border: 0;
 	border-radius: 0;
 	background: $brand-quinary;
@@ -25,6 +26,115 @@
 		margin-left: 5px;
 		font-size: rem-calc(30);
 		line-height: 0;
+	}
+}
+
+//--------------------------------------------------------------------
+// BTN CTA
+//--------------------------------------------------------------------
+
+.btn-cta {
+	padding-top: rem-calc(34);
+	padding-bottom: rem-calc(5);
+	font-size: rem-calc(24);
+	font-weight: bold;
+	text-align: right;
+
+	i {
+		position: relative;
+		top: 1px;
+	}
+}
+
+//--------------------------------------------------------------------
+// COLORS
+//--------------------------------------------------------------------
+
+.btn-primary {
+	background: $brand-primary;
+
+	&:hover {
+		background: darken($brand-primary, 5%);
+		color: white;
+	}
+}
+
+.btn-secondary {
+	background: $brand-secondary;
+
+	&:hover {
+		background: darken($brand-secondary, 5%);
+		color: white;
+	}
+}
+
+.btn-tertiary {
+	background: $brand-tertiary;
+
+	&:hover {
+		background: darken($brand-tertiary, 5%);
+		color: white;
+	}
+}
+
+.btn-quaternary {
+	background: $brand-quaternary;
+
+	&:hover {
+		background: darken($brand-quaternary, 5%);
+		color: white;
+	}
+}
+
+.btn-quinary {
+	background: $brand-quinary;
+
+	&:hover {
+		background: darken($brand-quinary, 5%);
+		color: white;
+	}
+}
+
+//--------------------------------------------------------------------
+// BTN HERO FEATURE
+//--------------------------------------------------------------------
+
+.btn-hero-feature {
+	position: relative;
+	background: $brand-primary;
+	width: 100%;
+	height: rem-calc(96);
+	font-size: rem-calc(27);
+	font-weight: bold;
+	margin-bottom: 13px;
+
+	.text {
+		position: absolute;
+		bottom: 20px;
+		right: 45px;
+	}
+
+	.fa-angle-right {
+		position: absolute;
+		bottom: 0;
+		background: red;
+		top: auto;
+		bottom: 36px;
+		right: 20px;
+		font-size: rem-calc(35);
+	}
+
+	.fa-users {
+		position: absolute;
+		top: 48px;
+		left: 40px;
+		font-size: rem-calc(60);
+		line-height: 0;
+	}
+
+	&:hover {
+		background: lighten($brand-primary, 10%);
+		color: white;
 	}
 }
 
