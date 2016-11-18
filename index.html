@@ -396,10 +396,10 @@
                 <div class=row>
                     <div class=col-md-6>
                         <h2 class=m-b-1>
-                            <i class="fa fa-newspaper-o"></i> News</h2>
+                            <i class="fa fa-newspaper-o"></i>&nbsp; News</h2>
                         <ul class=list-block>
                             <li>
-                                <a href="/404/">
+                                <a href="/about/news/news-item/">
                                     <article class=media>
                                         <div class=media-body>
                                             <h4 class="media-heading card-title">That's Pie Country. They Do a Lot of Baking Up There.</h4>
@@ -411,14 +411,14 @@
                                                 </span>
                                             </p>
                                         </div>
-                                        <div class="media-right hidden-sm-down p-l-1">
+                                        <div class="media-right hidden-md-down p-l-1">
                                             <img class=media-object width=170 src=/assets/img/ui/placeholder.png alt=Thumbnail>
                                         </div>
                                     </article>
                                 </a>
                             </li>
                             <li>
-                                <a href="/404/">
+                                <a href="/about/news/news-item/">
                                     <article class=media>
                                         <div class=media-body>
                                             <h4 class="media-heading card-title">What's the Deal with Airline Peanuts?</h4>
@@ -430,14 +430,14 @@
                                                 </span>
                                             </p>
                                         </div>
-                                        <div class="media-right hidden-sm-down p-l-1">
+                                        <div class="media-right hidden-md-down p-l-1">
                                             <img class=media-object width=170 src=/assets/img/ui/placeholder.png alt=Thumbnail>
                                         </div>
                                     </article>
                                 </a>
                             </li>
                             <li>
-                                <a href="/404/">
+                                <a href="/about/news/news-item/">
                                     <article class=media>
                                         <div class=media-body>
                                             <h4 class="media-heading card-title">Nothing's Finer Than Being in Your Diner</h4>
@@ -449,7 +449,7 @@
                                                 </span>
                                             </p>
                                         </div>
-                                        <div class="media-right hidden-sm-down p-l-1">
+                                        <div class="media-right hidden-md-down p-l-1">
                                             <img class=media-object width=170 src=/assets/img/ui/placeholder.png alt=Thumbnail>
                                         </div>
                                     </article>
@@ -457,17 +457,17 @@
                             </li>
                         </ul>
                         <p class=text-xs-right>
-                            <a class=btn href="/404/">More News
+                            <a class="btn btn-opaque" href="/about/news/">More News
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </p>
                     </div>
                     <div class=col-md-6>
                         <h2 class=m-b-1>
-                            <i class="fa fa-calendar-o"></i> Upcoming Events</h2>
+                            <i class="fa fa-calendar-o"></i>&nbsp; Upcoming Events</h2>
                         <ul class=list-block>
                             <li>
-                                <a href="/404/">
+                                <a href="/about/events-calendar/events-calendar-item/">
                                     <article class=media>
                                         <div class=media-body>
                                             <h4 class="media-heading card-title">That's Pie Country. They Do a Lot of Baking Up There.</h4>
@@ -480,14 +480,14 @@
                                                 </span>
                                             </p>
                                         </div>
-                                        <div class="media-right hidden-sm-down p-l-1">
+                                        <div class="media-right hidden-md-down p-l-1">
                                             <img class=media-object width=170 src=/assets/img/ui/placeholder.png alt=Thumbnail>
                                         </div>
                                     </article>
                                 </a>
                             </li>
                             <li>
-                                <a href="/404/">
+                                <a href="/about/events-calendar/events-calendar-item/">
                                     <article class=media>
                                         <div class=media-body>
                                             <h4 class="media-heading card-title">What's the Deal with Airline Peanuts?</h4>
@@ -500,14 +500,14 @@
                                                 </span>
                                             </p>
                                         </div>
-                                        <div class="media-right hidden-sm-down p-l-1">
+                                        <div class="media-right hidden-md-down p-l-1">
                                             <img class=media-object width=170 src=/assets/img/ui/placeholder.png alt=Thumbnail>
                                         </div>
                                     </article>
                                 </a>
                             </li>
                             <li>
-                                <a href="/404/">
+                                <a href="/about/events-calendar/events-calendar-item/">
                                     <article class=media>
                                         <div class=media-body>
                                             <h4 class="media-heading card-title">Nothing's Finer Than Being in Your Diner</h4>
@@ -520,7 +520,7 @@
                                                 </span>
                                             </p>
                                         </div>
-                                        <div class="media-right hidden-sm-down p-l-1">
+                                        <div class="media-right hidden-md-down p-l-1">
                                             <img class=media-object width=170 src=/assets/img/ui/placeholder.png alt=Thumbnail>
                                         </div>
                                     </article>
@@ -528,7 +528,7 @@
                             </li>
                         </ul>
                         <p class=text-xs-right>
-                            <a class=btn href="/404/">More Events
+                            <a class="btn btn-opaque" href="/about/events-calendar/">More Events
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </p>
@@ -1039,6 +1039,27 @@
             </li>
         </ul>
     </nav>
+
+    <!-- SEARCH -->
+    <div class="global-search is-hidden" data-search>
+        <div class="container text-xs-right">
+            <div class=global-search-form-wrapper>
+                <button type=btn class=close data-dismiss=alert aria-label=Close title=Close>
+                    <span aria-hidden=true>&times;</span>
+                </button>
+                <form class=global-search-form action="/search/" method=get novalidate>
+                    <div class=input-group>
+                        <input type=text class=form-control name=q id=global-search placeholder=SEARCH>
+                        <span class=input-group-btn>
+                            <button type=submit class=btn>
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!-- PAGE LOADER -->
     <div class=lv-page-loader data-page-loader>

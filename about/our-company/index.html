@@ -877,6 +877,27 @@
         </ul>
     </nav>
 
+    <!-- SEARCH -->
+    <div class="global-search is-hidden" data-search>
+        <div class="container text-xs-right">
+            <div class=global-search-form-wrapper>
+                <button type=btn class=close data-dismiss=alert aria-label=Close title=Close>
+                    <span aria-hidden=true>&times;</span>
+                </button>
+                <form class=global-search-form action="/search/" method=get novalidate>
+                    <div class=input-group>
+                        <input type=text class=form-control name=q id=global-search placeholder=SEARCH>
+                        <span class=input-group-btn>
+                            <button type=submit class=btn>
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- PAGE LOADER -->
     <div class=lv-page-loader data-page-loader>
         <div class=display-table>
