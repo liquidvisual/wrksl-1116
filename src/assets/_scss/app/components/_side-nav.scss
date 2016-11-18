@@ -1,0 +1,84 @@
+/*
+    SIDE-NAV.CSS
+
+    - Last updated: 18.11.16
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// Variables
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// Side Nav
+//-----------------------------------------------------------------
+
+.side-nav {
+    list-style: none;
+    padding: rem-calc(10 0);
+    font-family: $font-family-sans-serif;
+    background: $brand-quinary;
+
+    @include media-breakpoint-up(xl) {
+        margin-right: rem-calc(70);
+    }
+
+    ul {
+        padding: 0;
+        list-style: none;
+    }
+
+    li {
+        padding: 0;
+        border-top: 1px solid rgba(white, 0.1);
+    }
+
+    ul ul li {
+        border-top: 1px solid rgba(white, 0.15);
+    }
+
+    > li:last-child {
+        border-bottom: 1px solid rgba(white, 0.1);
+    }
+
+    li > a {
+        padding: rem-calc(15 20);
+    }
+
+    ul ul > li > a {
+        padding: rem-calc(15 25);
+        background: #0c4062;
+    }
+
+    .active {
+        position: relative;
+        background: #024f83;
+
+        &:after {
+            content: "\f105";
+            position: absolute;
+            top: 8px;
+            right: 15px;
+            font-family: "FontAwesome";
+            font-size: rem-calc(24);
+            font-weight: bold;
+            color: white;
+        }
+    }
+
+    a {
+        display: block;
+        font-size: rem-calc(16);
+        font-weight: 600;
+        color: white;
+        transition: background ease 200ms;
+
+        &:hover {
+            @include media-breakpoint-up(xl) {
+                background: rgba(white, 0.1);
+            }
+        }
+    }
+}
+
+//=========================================
+//
+//=========================================

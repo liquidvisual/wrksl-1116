@@ -12,7 +12,7 @@ $body-bg: white !default;
 $menu-bg-color: #111;
 $menu-width-xs: 260px;
 $menu-width-md: 350px;
-$hamburger-width: 30px;
+$hamburger-width: 28px;
 $hamburger-height: $hamburger-width - $hamburger-width/5;
 $hamburger-slit-height: 4px;
 
@@ -266,7 +266,7 @@ $hamburger-slit-height: 4px;
 		position: absolute;
 		width: 100%;
 		height: $hamburger-slit-height;
-		background: #444;
+		background: $brand-quinary;
 
 		@include media-breakpoint-up(md) {
 		    // background: white;
@@ -312,13 +312,5 @@ $hamburger-slit-height: 4px;
 		width: 100%;
 		height: 100vh;
 		z-index: 1;
-	}
-
-	.lv-hamburger-hit {
-		position: fixed;
-		// top: 0;
-		left: 0;
-		width: 100vw; // seems to fix safari
-		height: 100vh;
 	}
 }

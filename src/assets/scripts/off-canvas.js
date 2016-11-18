@@ -1,5 +1,7 @@
 /*
-    OFF-CANVAS.JS - Last updated: 06.10.16
+    OFF-CANVAS.JS - Last updated: 14.11.16
+
+    - Notes: Latest Nov version fixes major problem with 3rd lvls
 */
 //-----------------------------------------------------------------
 //
@@ -21,35 +23,37 @@
     var $submenuTrigger = $('<span class="submenu-trigger"><i class="fa fa-angle-right"></i></span>');
 
     //-----------------------------------------------------------------
-    // INIT
-    //-----------------------------------------------------------------
-
-    $('.lv-off-canvas .has-dropdown > a').append($submenuTrigger);
-
-    //-----------------------------------------------------------------
     // HAMBURGER CLICK
     //-----------------------------------------------------------------
 
-    $('[data-menu-toggle]').click(function(){
-
-        var menuIsOpen = $('.has-open-menu').length;
+    $('[data-menu-toggle]').click(function(event){
 
         //==================================================
         // OPEN MENU
         //==================================================
 
-        if (!menuIsOpen) {
+        if (!$('.has-open-menu').length) {
             $html.removeClass('has-closed-menu').addClass('has-open-menu');
             pollFixedTop();
 
-        //==================================================
-        // CLOSE MENU
-        //==================================================
+            //==================================================
+            // CLOSE MENU
+            // Assign the close to .lv-page container
+            // Requires timeout so not to contradict above
+            //==================================================
 
-        } else {
-            $globalHeader.removeAttr('style');
-            clearInterval(intervalId);
-            $html.removeClass('has-open-menu').addClass('has-closed-menu');
+            setTimeout(function(){
+                $lvPage.click(function(event){
+                    event.stopPropagation();
+
+                    if ($('.has-open-menu').length) {
+                        $globalHeader.removeAttr('style');
+                        clearInterval(intervalId);
+                        $html.removeClass('has-open-menu').addClass('has-closed-menu');
+                        $(this).unbind('click');
+                    }
+                });
+            }, 10)
         }
     });
 
@@ -87,6 +91,14 @@
             }
         }, 100);
     }
+
+    //-----------------------------------------------------------------
+    // CREATE SUBMENU TRIGGER
+    // Not sure why, but this has to come LAST
+    //-----------------------------------------------------------------
+
+    $('.lv-off-canvas .has-dropdown > a').append($submenuTrigger);
+
 //--
 }(jQuery));
 

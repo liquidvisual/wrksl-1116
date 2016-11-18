@@ -4,21 +4,105 @@
 - title: Employment
   url: /employment/
   include_children_in_nav: true
+  children:
+    - title: Employers
+      url: /404/
+    - title: jobactive
+      url: /404/
+    - title: Disability Employment
+      url: /404/
+    - title: Services
+      url: /404/
+    - title: Return to Work SA
+      url: /404/
+    - title: Job Placement
+      url: /404/
+    - title: Services
+      url: /404/
+    - title: Work for the Dole
+      url: /404/
 
 - title: Health
-  url:  /404/
+  url:  /health/
+  include_children_in_nav: true
+  children:
+    - title: Personal Helpers and Mentors
+      url: /404/
+    - title: Partners in Recovery
+      url: /404/
+    - title: Allied Health
+      url: /404/
 
 - title: Youth
-  url: /404/
+  url: /youth/
+  include_children_in_nav: true
+  children:
+    - title: ICAN FLO
+      url: /404/
+    - title: POP
+      url: /404/
+    - title: Fee for Service Youth
+      url: /404/
+    - title: Services
+      url: /404/
+    - title: Green Army
+      url: /404/
+    - title: Youth Specialist
+      url: /404/
+    - title: Support
+      url: /404/
+    - title: Successful Transitions
+      url: /404/
+    - title: Transition to Work
+      url: /404/
 
 - title: Indigenous
-  url: /404/
+  url: /indigenous/
 
 - title: Locations
-  url: /404/
+  url: /locations/
+  include_children_in_nav: true
+  children:
+    - title: South Australia
+      url: /404/
+    - title: Victoria
+      url: /404/
+    - title: New South Wales
+      url: /404/
 
 - title: About
-  url: /404/
+  url: /about/
+  include_children_in_nav: true
+  children:
+    - title: Our Company
+      url: /about/our-company/
+      include_children_in_nav: false
+      children:
+        - title: Our Board
+          url: /about/our-company/our-board/
+        - title: Our Executives
+          url: /404/
+        - title: Our People
+          url: /404/
+        - title: Vision, Mission & Values
+          url: /404/
+        - title: Publications
+          url: /404/
+
+    - title: Media
+      url: /404/
+    - title: Careers @ Workskil
+      url: /404/
+    - title: Quality, Safety and Risk
+      url: /404/
+    - title: Our Partners
+      url: /404/
+    - title: Events Calendar
+      url: /about/events/
+    - title: News
+      url: /about/news/
+    - title: Success Stories
+      url: /404/
 
 - title: Contact
-  url: /404/
+  url: /contact/

@@ -1,7 +1,7 @@
 /*
     FOOTER.CSS
 
-    - Last updated: 00.00.00
+    - Last updated: 18.11.16
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -9,7 +9,9 @@
 //-----------------------------------------------------------------
 
 .global-footer {
-
+	h1, h2, h3, h4, h5, h6 {
+		color: white;
+	}
 }
 
 //-----------------------------------------------------------------
@@ -68,8 +70,33 @@
 }
 
 //-----------------------------------------------------------------
-// FOOTER BOTTOM
+// FOOTER SITEMAP
 //-----------------------------------------------------------------
+
+.global-footer-sitemap {
+	background: darken($gray-dark, 5%);
+	padding: $spacer-y*2 0;
+	transition: height ease 300ms, padding ease 300ms;
+
+	h1, h2, h3, h4, h5, h6 {
+		color: $brand-primary;
+	}
+
+	a {
+		color: rgba(white, 0.5);
+
+		&:hover {
+			color: white;
+		}
+	}
+
+	&.is-collapsed {
+		padding: 0;
+		height: 0;
+		overflow: hidden;
+		transition: padding ease 300ms;
+	}
+}
 
 //=========================================
 //

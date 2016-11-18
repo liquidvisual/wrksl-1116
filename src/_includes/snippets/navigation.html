@@ -26,7 +26,7 @@
             {% if forloop.first and page.url == "/" %} active {% endif %}
             {% if forloop.index > 1 and page.url contains item.url %} active {% endif %}
             {% if item.children %} has-dropdown {% endif %}
-            {% if item.children and forloop.index >= 4 %} has-dropdown-right-aligned {% endif %}
+            {% if item.children and forloop.index >= 6 %} has-dropdown-right-aligned {% endif %}
         {% endcapture %}
 
         <li class="{{ parent_classes }}">

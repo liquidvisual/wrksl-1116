@@ -1,0 +1,72 @@
+{% assign settings = site.data.settings %}
+
+<div class="modal fade" id="modal-newsletter" tabindex="-1" role="dialog" aria-labelledby="modal-newsletter" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body animated fadeInDown">
+
+				<h3 class="m-b-2">Join Our Newsletter</h3>
+
+				<div class="modal-body-form">
+
+					<!-- IF SUCCESS -->
+					<div class="alert alert-success" hidden>
+						<h4>Success!</h4>
+						<p>Your form has been submitted.</p>
+					</div>
+
+					<!-- IF FAILURE -->
+					<div class="alert alert-danger alert-dismissible fade in" role="alert" hidden>
+					    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					        <span aria-hidden="true">&times;</span>
+					    </button>
+					    <h4>Oops!</h4>
+					    <p>Something went wrong. Please check your details.</p>
+					</div>
+
+					<form data-toggle="validator">
+					    <fieldset>
+					        <div class="row">
+					            <div class="col-lg-3">
+
+					                <!-- FIRST NAME -->
+					                <div class="form-group">
+					                    <input class="form-control" id="first-name" name="First Name" type="text" placeholder="FIRST NAME" required>
+					                    <small class="error">Your first name is required.</small>
+					                </div>
+					            </div>
+					            <div class="col-lg-3">
+
+					            	<!-- LAST NAME -->
+					            	<div class="form-group">
+					            	    <input class="form-control" id="last-name" name="Last Name" type="text" placeholder="LAST NAME">
+					            	    <small class="error">Your last name is required.</small>
+					            	</div>
+					            </div>
+					            <div class="col-lg-4">
+
+					                <!-- EMAIL -->
+					                <div class="form-group">
+					                    <input class="form-control" id="email" name="Email" type="email" placeholder="EMAIL" required>
+					                    <small class="error">A valid email is required.</small>
+					                </div>
+					            </div>
+
+					            <div class="col-lg-2">
+
+					            	<!-- SUBMIT -->
+					            	<button type="submit" class="btn btn-primary">Join</button>
+					            </div>
+					        </div>
+					    </fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

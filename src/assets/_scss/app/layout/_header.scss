@@ -8,9 +8,9 @@
 // VARIABLES
 //-----------------------------------------------------------------
 
-$header-height-sm: 60px !default; // optimal
-$header-height-md: 130px !default;
-$header-height-lg: 220px !default;
+//$header-height-sm: 60px !default; // optimal
+//$header-height-md: 130px !default;
+//$header-height-lg: 220px !default;
 
 //-----------------------------------------------------------------
 // HEADROOM
@@ -28,7 +28,7 @@ $header-height-lg: 220px !default;
 }
 
 .headroom--unpinned {
-	@include media-breakpoint-down(lg) {
+	@include media-breakpoint-down(sm) {
 	    transform: translateY(-100%);
 	}
 }
@@ -36,19 +36,14 @@ $header-height-lg: 220px !default;
 //========================================= TABLETS UP
 
 .headroom--not-top {
-	@include media-breakpoint-up(md) {
-	    .logo img {
-	    	width: 200px !important;
-	    }
-	    .global-header-top {
-	    	height: 0;
-	    	padding: 0;
-	    	overflow: hidden;
-	    }
-	    .global-navigation .topbar {
-	    	bottom: 28px;
-	    }
-	}
+    .global-header-top {
+    	height: 0;
+    	padding: 0;
+    	overflow: hidden;
+    }
+    .global-navigation .topbar {
+    	bottom: 35px;
+    }
 }
 
 //-----------------------------------------------------------------
@@ -68,7 +63,7 @@ $header-height-lg: 220px !default;
 }
 
 //-----------------------------------------------------------------
-// HEADER TOP
+// HEADER TOP (BLUE)
 //-----------------------------------------------------------------
 
 .global-header-top {
@@ -76,8 +71,12 @@ $header-height-lg: 220px !default;
 	background: $brand-primary;
 	// font-size: rem-calc(16);
 	color: white;
-	padding: 15px 0;
+	padding: rem-calc(10 0);
 	transition: all ease 150ms;
+
+	@include media-breakpoint-up(md) {
+	    padding: rem-calc(15 0);
+	}
 
 	i {
 		position: relative;
@@ -92,16 +91,12 @@ $header-height-lg: 220px !default;
 }
 
 //-----------------------------------------------------------------
-// HEADER BODY
+// HEADER BODY (WHITE)
 //-----------------------------------------------------------------
 
 .global-header-body {
-	background: white;
+	background: rgba(white, 0.8);
 	box-shadow: 0 0 3px 1px rgba(black, 0.2);
-
-	@include media-breakpoint-up(md) {
-	    background: rgba(white, 0.8);
-	}
 }
 
 //=========================================
@@ -111,10 +106,9 @@ $header-height-lg: 220px !default;
 .global-header,
 .global-header .display-table {
 
-
-	@include media-breakpoint-down(sm) {
-	    height: $header-height-sm;
-	}
+	//@include media-breakpoint-down(sm) {
+	    //height: $header-height-sm;
+	//}
 
 	@include media-breakpoint-up(md) {
 	    // height: $header-height-md;
@@ -157,14 +151,16 @@ $header-height-lg: 220px !default;
 	}
 
 	img {
-		width: 75px;
+		width: 150px;
+		padding: rem-calc(15 0);
 
 		@include media-breakpoint-up(md) {
-			width: 309px;
-		    padding: rem-calc(15 0);
+			width: 250px;
+		    padding: rem-calc(29 0);
 		}
 
 		@include media-breakpoint-up(xl) {
+			width: 309px;
 		    padding: none;
 		}
 	}
@@ -176,13 +172,63 @@ $header-height-lg: 220px !default;
 
 .global-mobile-menu {
 	position: absolute;
-	top: 18px;//$container-gutter;
+	top: 50%;
 	right: $container-gutter/2;
 	overflow: hidden;
+	transform: translateY(calc(-50% + 5px));
 
 	@include media-breakpoint-up(md) {
-	    top: 38px;
 	    right: $container-gutter;
+	}
+}
+
+//-----------------------------------------------------------------
+// PAGE HEADER
+//-----------------------------------------------------------------
+
+.page-header {
+	position: relative;
+	background: $brand-primary;
+	color: white;
+	font-weight: bold;
+	padding: rem-calc(20 40);
+	margin-top: rem-calc(240);
+
+	@include media-breakpoint-down(sm) {
+		left: -15px;
+		width: calc(100% + 15px*2);
+		padding: $spacer-x;
+	}
+
+	@include media-breakpoint-up(md) {
+	    margin-top: rem-calc(400);
+	    padding: rem-calc(30 40);
+	}
+
+	@include media-breakpoint-up(lg) {
+		margin-top: rem-calc(586);
+	    margin-right: $spacer*2;
+	}
+
+	h1 {
+		@include media-breakpoint-down(sm) {
+		    font-size: rem-calc(35);
+		}
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		margin-bottom: 0;
+		color: white;
+	}
+}
+
+//-----------------------------------------------------------------
+// CONTROL HEIGHT OF HEIGHT VIA PAGE HEADER
+//-----------------------------------------------------------------
+
+.is-short .page-header {
+	@include media-breakpoint-up(md) {
+	    margin-top: rem-calc(380);
 	}
 }
 

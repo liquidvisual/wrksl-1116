@@ -1,15 +1,103 @@
 /*
     THEMES.CSS
 
-    - Last updated: 00.00.00
+    - Last updated: 16.11.00
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
 // VARIABLES
 //-----------------------------------------------------------------
 //-----------------------------------------------------------------
-// THEMES
+// THEME HOME
 //-----------------------------------------------------------------
+
+.theme-home {
+	 .logo img {
+		@include media-breakpoint-down(sm) {
+		    width: 200px;
+		}
+	 }
+
+	.headroom--not-top {
+	    .logo img {
+	   		@include media-breakpoint-down(sm) {
+	   		    width: 150px;
+	   		}
+	    }
+	}
+}
+
+//-----------------------------------------------------------------
+// THEME RED
+//-----------------------------------------------------------------
+
+.theme-red {
+	.page-header { background: $brand-quaternary; }
+
+	.sidebar-color-box {
+	    background: lighten($brand-quaternary, 5%);
+	    .fa-info { color: $brand-quaternary; }
+	    &.is-muted { background: $brand-quaternary; }
+	}
+
+	.global-footer-sitemap {
+		h1, h2, h3, h4, h5, h6 {
+			color: $brand-quaternary;
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// THEME GREEN
+//-----------------------------------------------------------------
+
+.theme-green {
+	.page-header { background: $brand-secondary; }
+
+	.sidebar-color-box {
+	    background: lighten($brand-secondary, 5%);
+	    .fa-info { color: $brand-secondary; }
+	    &.is-muted { background: $brand-secondary; }
+	}
+
+	.global-footer-sitemap {
+		h1, h2, h3, h4, h5, h6 {
+			color: $brand-secondary;
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// THEME ORANGE
+//-----------------------------------------------------------------
+
+.theme-orange {
+	.page-header { background: $brand-tertiary; }
+
+	.sidebar-color-box {
+	    background: lighten($brand-tertiary, 5%);
+	    .fa-info { color: $brand-tertiary; }
+	    &.is-muted { background: $brand-tertiary; }
+	}
+
+	.global-footer-sitemap {
+		h1, h2, h3, h4, h5, h6 {
+			color: $brand-tertiary;
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// THEME ABOUT
+//-----------------------------------------------------------------
+
+.theme-about {
+	.sidebar-color-box.is-muted {
+	    background: lighten($brand-secondary, 5%);
+	    .fa-info { color: $brand-secondary; }
+	}
+}
+
 //=========================================
 //
 //=========================================

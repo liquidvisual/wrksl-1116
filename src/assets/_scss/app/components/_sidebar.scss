@@ -1,0 +1,93 @@
+/*
+    SIDEBAR.CSS
+
+    - Last updated: 16.11.16
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// SIDEBAR
+//-----------------------------------------------------------------
+
+.sidebar {
+    h1, h2, h3, h4, h5, h6 {
+        color: white;
+    }
+
+    h2 {
+        font-size: rem-calc(25);
+    }
+
+    @include media-breakpoint-down(sm) {
+        > .row > [class*=col] {
+            padding: 0;
+        }
+    }
+    @include media-breakpoint-up(lg) {
+        padding-right: $spacer-x*2;
+    }
+}
+
+//-----------------------------------------------------------------
+// COLLAPSE - Used on Sidebar and Page Header
+//-----------------------------------------------------------------
+
+.collapse-p-x-sm-down {
+    @include media-breakpoint-down(sm) {
+        padding: 0;
+    }
+}
+
+//-----------------------------------------------------------------
+// SIDEBAR COLOR BOX
+//-----------------------------------------------------------------
+
+.sidebar-color-box {
+    padding: $spacer-x; // place padding on the box - not the grid (collpasing)
+    background: lighten($brand-primary, 5%);
+    color: white;
+
+    &.is-muted {
+        background: $brand-primary;
+    }
+
+    @include media-breakpoint-up(md) {
+        padding: $spacer-x*2;
+    }
+}
+
+//-----------------------------------------------------------------
+// SIDEBAR INFO BOX
+//-----------------------------------------------------------------
+
+.sidebar-info-box {
+    padding-top: rem-calc(30);
+    padding-bottom: rem-calc(30);
+    color: white;
+
+    a {
+        font-weight: bold;
+        color: white;
+    }
+
+    .fa-info {
+        display: inline-block;
+        width: rem-calc(54);
+        height: rem-calc(54);
+        border-radius: 100%;
+        line-height: rem-calc(54);
+        font-size: rem-calc(44);
+        text-align: center;
+        color: $brand-primary;
+        background: rgba(white, 0.5);
+    }
+}
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
+//=========================================
+//
+//=========================================

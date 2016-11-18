@@ -1,17 +1,21 @@
 {% assign settings = site.data.settings %}
-{% assign logo = "/assets/img/content/logo.png" %}
+{% assign logo = page.logo | default: "/assets/img/content/logo.png" %}
 
 <!-- HEADER TOP -->
-<div class="global-header-top hidden-sm-down">
+<div class="global-header-top">
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
-                <a target="_blank" href="tel:{{ settings.offices[0].phone }}"><i class="fa fa-phone"></i>&nbsp;  1300 Workskil ({{ settings.offices[0].phone }})</a>
-                <span class="spacer m-x-1"></span>
-                <a target="_blank" href="{{ settings.google_map }}"><i class="fa fa-map-marker"></i>&nbsp;  Find a location</a>
+            <div class="col-xs-6 col-md-8">
+                <a target="_blank" href="tel:{{ settings.offices[0].phone }}">
+                    <i class="fa fa-phone"></i>&nbsp;
+                    <span class="text hidden-sm-down">1300 Workskil ({{ settings.offices[0].phone }})</span>
+                    <span class="text hidden-md-up">{{ settings.offices[0].phone }}</span>
+                </a>
+                <span class="spacer m-x-1 hidden-sm-down"></span>
+                <a class="hidden-sm-down" target="_blank" href="/locations/"><i class="fa fa-map-marker"></i>&nbsp;  Find a location</a>
             </div>
-            <div class="col-md-4 text-md-right">
-                <a href=""><i class="fa fa-search"></i>&nbsp; Search</a>
+            <div class="col-xs-6 col-md-4 text-xs-right">
+                <a href="#" data-search-trigger><i class="fa fa-search"></i><span class="text hidden-sm-down">&nbsp; Search</span></a>
             </div>
         </div>
     </div>
@@ -34,7 +38,6 @@
                         <span class="lv-hamburger-top"></span>
                         <span class="lv-hamburger-middle"></span>
                         <span class="lv-hamburger-bottom"></span>
-                        <span class="lv-hamburger-hit"></span>
                     </div>
                 </div>
 

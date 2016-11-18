@@ -1,0 +1,61 @@
+---
+layout: base__page
+---
+
+{% assign settings = site.data.settings %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-6 collapse-p-x-sm-down">
+			<aside class="sidebar">
+
+				<div class="sidebar-color-box">
+					{{ content | markdownify }}
+				</div>
+
+				<div class="sidebar-info-box sidebar-color-box is-muted">
+					<div class="media">
+						<span class="media-left p-r-1 media-top">
+							<i class="fa fa-info"></i>
+						</span>
+						<div class="media-body">
+							<h4>For more information</h4>
+							<a href="mailto:{{ settings.offices[0].email }}"><i class="fa fa-envelope"></i>&nbsp;&nbsp;{{ settings.offices[0].email }}</a>
+							<span class="spacer m-r-1 hidden-sm-down"></span>
+							<div class="spacer hidden-xl-up"></div>
+							<a href="tel:{{ settings.offices[0].phone }}"><i class="fa fa-phone"></i>&nbsp;&nbsp;{{ settings.offices[0].phone }}</a>
+						</div>
+					</div>
+				</div>
+
+				<!-- SUPPORTING IMAGE -->
+				<p><img width="100%" src="/assets/img/content/community.jpg" alt="Community"></p>
+
+			</aside>
+		</div>
+		<div class="col-lg-6">
+			<h3 class="m-t-3 m-b-2">{{ page.tagline }}</h3>
+
+			<ul class="block-grid-md-2 block-grid-lg-2">
+				{% for i in (1..7) %}
+				<li>
+					<a href="#" class="btn-tile">
+						<h3>Fee for Service Youth Services</h3>
+						<p>Skills of Life is a flexible program run for disengaged young people. The program includes five topics, with a variety of modules within each topic.</p>
+						<i class="fa fa-angle-right"></i>
+					</a>
+				</li>
+				{% endfor %}
+				<li>
+					<a href="#" class="btn-tile">
+						<h3>ICAN FLO</h3>
+						<p>Skills of Life is a flexible program run for disengaged young people. The program includes five topics, with a variety of modules within each topic.</p>
+						<i class="fa fa-angle-right"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="spacer m-b-3"></div>

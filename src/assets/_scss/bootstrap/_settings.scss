@@ -82,7 +82,7 @@ $brand-quinary:             #03314e !default;
 // // You can add more entries to the $spacers map, should you need more variation.
 
 $spacer:   rem-calc(20); //1rem !default;
-$spacer-x: $spacer !default;
+$spacer-x: rem-calc(20) !default;
 $spacer-y: $spacer !default;
 // $spacers: (
 //   0: (
@@ -110,7 +110,7 @@ $spacer-y: $spacer !default;
 // // Settings for the `<body>` element.
 
 // $body-bg:    #fff !default;
-// $body-color: $gray-dark !default;
+$body-color: #838383; //$gray-dark !default;
 
 
 // // Links
@@ -184,7 +184,7 @@ body {
 // //
 // // Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif: 'PF Bague Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$font-family-sans-serif: 'Montserrat','PF Bague Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
 // $font-family-serif:      Georgia, "Times New Roman", Times, serif !default;
 // $font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 // $font-family-base:       $font-family-sans-serif !default;
@@ -193,18 +193,19 @@ $font-family-sans-serif: 'PF Bague Sans', -apple-system, BlinkMacSystemFont, "Se
 // $font-size-root: 16px !default;
 
 // $font-size-base: 1rem !default;
-$font-size-lg:   rem-calc(14); //1.25rem !default;
+$font-size-lg: rem-calc(14); //1.25rem !default;
+$font-size-md: rem-calc(14);
 // $font-size-sm:   .875rem !default;
 $font-size-xs:   .875rem; //.75rem !default;
 
-// $line-height-base: 1.5 !default;
+$line-height-base: 1.3; //1.5 !default;
 
-// $font-size-h1: 2.5rem !default;
-// $font-size-h2: 2rem !default;
-// $font-size-h3: 1.75rem !default;
-// $font-size-h4: 1.5rem !default;
-// $font-size-h5: 1.25rem !default;
-// $font-size-h6: 1rem !default;
+$font-size-h1: rem-calc(48); //2.5rem !default;
+$font-size-h2: rem-calc(32); //2rem !default;
+$font-size-h3: rem-calc(25); //1.75rem !default;
+$font-size-h4: rem-calc(20); //1.5rem !default;
+$font-size-h5: rem-calc(16); //1.25rem !default;
+$font-size-h6: rem-calc(14); //1rem !default;
 
 // $display1-size: 6rem !default;
 // $display2-size: 5.5rem !default;
@@ -222,8 +223,8 @@ $headings-font-weight:   600 !default;
 // $headings-line-height:   1.1 !default;
 // $headings-color:         inherit !default;
 
-// $lead-font-size:   1.25rem !default;
-// $lead-font-weight: 300 !default;
+$lead-font-size:   rem-calc(25); //1.25rem !default;
+$lead-font-weight: bold;
 
 // $small-font-size: 80% !default;
 
@@ -338,7 +339,7 @@ $headings-font-weight:   600 !default;
 // // Forms
 
 // $input-padding-x:                .75rem !default;
-// $input-padding-y:                .5rem !default;
+$input-padding-y:                rem-calc(10); //.5rem !default;
 // $input-line-height:              1.25 !default;
 
 // $input-bg:                       #fff !default;
@@ -349,16 +350,16 @@ $headings-font-weight:   600 !default;
 // $input-btn-border-width:         $border-width !default; // For form controls and buttons
 // $input-box-shadow:               inset 0 1px 1px rgba(0,0,0,.075) !default;
 
-// $input-border-radius:            $border-radius !default;
-// $input-border-radius-lg:         $border-radius-lg !default;
-// $input-border-radius-sm:         $border-radius-sm !default;
+$input-border-radius:            0; //$border-radius !default;
+$input-border-radius-lg:         0; //$border-radius-lg !default;
+$input-border-radius-sm:         0; //$border-radius-sm !default;
 
 // $input-bg-focus:                 $input-bg;
 // $input-border-focus:             #66afe9 !default;
 // $input-box-shadow-focus:         rgba(102,175,233,.6) !default;
 // $input-color-focus:              $input-color;
 
-// $input-color-placeholder:        #999 !default;
+$input-color-placeholder:        #a9a9a9; //#999 !default;
 
 // $input-padding-x-sm:             .5rem !default;
 // $input-padding-y-sm:             .25rem !default;
@@ -702,7 +703,7 @@ $headings-font-weight:   600 !default;
 // $modal-header-border-width:   $modal-content-border-width !default;
 // $modal-footer-border-width:   $modal-header-border-width !default;
 
-// $modal-lg:                    900px !default;
+$modal-lg:                    990px !default;
 // $modal-md:                    600px !default;
 // $modal-sm:                    300px !default;
 

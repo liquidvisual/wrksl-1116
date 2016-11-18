@@ -39,7 +39,7 @@ $dropdowns-have-anchor-borders : true;
 
 .topbar {
     position: absolute; // [LOCKED]
-    bottom: 40px;
+    bottom: 54px;
     right: $container-gutter / 2;
     // width: 100%; // [LOCKED]
 }
@@ -112,8 +112,8 @@ $dropdowns-have-anchor-borders : true;
     transition: 200ms ease background;
 
     &:hover {
-        background: rgba(black, 0.3); //lighten($top-parent-anchor-bg-color, 10%);
-        color: white;
+        background: rgba(black, 0.1); //lighten($top-parent-anchor-bg-color, 10%);
+        // color: white;
     }
 
     // Optional

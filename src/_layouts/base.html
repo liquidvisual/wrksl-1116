@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
     <title>
         {% if page.url == '/' %}
@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="/css/main.css">
     <!-- endbuild -->
 </head>
-<body data-environment="{{ site.environment }}">
+<body class="{{ page.theme }}" data-environment="{{ site.environment }}">
 
     <div class="lv-page">
 
@@ -61,6 +61,25 @@
         {% include snippets/navigation.html %}
     </nav>
 
+    <!-- SEARCH -->
+    <div class="global-search is-hidden" data-search>
+        <div class="container text-xs-right">
+            <div class="global-search-form-wrapper">
+               <button type="btn" class="close" data-dismiss="alert" aria-label="Close" title="Close">
+                   <span aria-hidden="true">&times;</span>
+               </button>
+               <form class="global-search-form" action="/search/" method="get" novalidate>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="q" id="global-search" placeholder="SEARCH">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+               </form>
+           </div>
+        </div>
+    </div>
+
     <!-- PAGE LOADER -->
     <div class="lv-page-loader" data-page-loader>
         <div class="display-table">
@@ -72,6 +91,8 @@
             </div>
         </div>
     </div>
+
+    {% include modal.html %}
 
     <!--[if lt IE 9]>
     <div class="lv-alert-bar">
@@ -90,21 +111,18 @@
     <script src="/_bower_components/bootstrap-validator/dist/validator.min.js"></script>
     <script src="/_bower_components/bxSlider/dist/jquery.bxslider.min.js"></script>
     <script src="/_bower_components/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
-
     <script src="/_bower_components/codebird-js/codebird.js"></script>
     <script src="/_bower_components/doT/doT.min.js"></script>
     <script src="/_bower_components/moment/min/moment.min.js"></script>
     <script src="/_bower_components/moment/locale/it.js"></script>
     <script src="/_bower_components/social-feed/js/jquery.socialfeed.js"></script>
     <script src="/_bower_components/isotope/dist/isotope.pkgd.min.js"></script>
-
     <script src="/assets/webvisual/assets/scripts/liquidvisual/alert-bar.js"></script>
     <script src="/assets/webvisual/assets/scripts/liquidvisual/equal-height.js"></script>
     <script src="/assets/webvisual/assets/scripts/liquidvisual/hero.js"></script>
     <script src="/assets/webvisual/assets/scripts/liquidvisual/utilities.js"></script>
     <script src="/assets/webvisual/assets/scripts/liquidvisual/responsive-utility.js"></script>
     <script src="/assets/webvisual/assets/scripts/liquidvisual/key.js"></script>
-
     <script src="/assets/scripts/vendor/headroom.js"></script>
     <script src="/assets/scripts/off-canvas.js"></script>
     <script src="/assets/scripts/main.js"></script>

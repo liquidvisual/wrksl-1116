@@ -1,0 +1,68 @@
+/*
+    SEARCH.CSS
+
+    - Last updated: 18.11.16
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// SEARCH
+//-----------------------------------------------------------------
+
+.global-search {
+	background: rgba($brand-quinary, 0.9);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding-top: rem-calc(6);
+	z-index: 10;
+	transition: opacity ease 300ms;
+	opacity: 1;
+
+	&.is-hidden {
+		left: -100%;
+		opacity: 0;
+	}
+
+	.close {
+		font-size: rem-calc(44);
+		color: white;
+		opacity: 1;
+		margin-bottom: rem-calc(10);
+	}
+
+	.global-search-form-wrapper {
+		width: 100%;
+		display: inline-block;
+
+		@include media-breakpoint-up(md) {
+		    width: rem-calc(380);
+		}
+	}
+
+	input {
+		height: 44px;
+		border: 0 !important;
+	}
+
+	.btn {
+		position: relative;
+		background: $brand-primary;
+		height: 44px;
+		padding: rem-calc(0 15);
+		border: 0;
+		z-index: 1 !important;
+
+		i {
+			font-size: rem-calc(25);
+		}
+	}
+}
+
+//=========================================
+//
+//=========================================

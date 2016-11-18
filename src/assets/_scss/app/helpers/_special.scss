@@ -12,8 +12,24 @@
 //-----------------------------------------------------------------
 
 .block-grid-special-gaps {
+	margin: rem-calc(-4);
+
 	li {
 		padding: rem-calc(4);
+
+	}
+}
+
+.special-content {
+	@include media-breakpoint-up(xl) {
+	    position: relative;
+	    left: -80px;
+	}
+}
+
+.special-content-xl-p-r {
+	@include media-breakpoint-up(xl) {
+	    padding-right: rem-calc(145);
 	}
 }
 

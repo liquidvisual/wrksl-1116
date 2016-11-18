@@ -9,67 +9,54 @@
 {% endcomment %}
 
 {% assign hero_images = site.data.carousel_slides %}
+{% assign hero_header = page.hero_header %}
+{% assign hero_body = page.hero_body %}
 
 <div class="lv-hero-wrapper">
 
     <!-- HERO -->
     <div class="lv-hero">
-        {% for hero in hero_images %}
-            <div class="lv-hero-item" style="background-image: url('{{ hero.image }}')"></div>
-        {% endfor %}
-    </div> <!-- /.lv-hero -->
 
-    <!-- HERO CAPTION -->
-    <div class="lv-hero-caption">
-        <div class="display-table">
-            <div class="display-cell v-align-bottom">
+        <!-- HERO ITEM -->
+        <div class="lv-hero-item" style="background-image: url('/assets/img/content/hero/hero-1.jpg')">
+            <div class="lv-hero-item-caption">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <h3 class="m-b-1">Introduction text content, lorem ipsum dolor sit amet, consectetuer adipiscing elit.</h3>
-                            <p class="lead">Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+
+                    <div class="row table-row">
+                        <div class="col-xl-6 v-align-bottom">
+                            <h3 class="m-b-1">{{ hero_header }}</h3>
+                            <p class="m-b-0 h4">{{ hero_body }}</p>
+                            <div class="spacer m-b-1 hidden-xl-up"></div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-xl-6 v-align-bottom">
 
                             <div class="lv-hero-caption-feature">
-
-                                <a href="/404/" class="btn btn-hero-feature"><i class="fa fa-users"></i> <span class="text">Looking for staff?</span> <i class="fa fa-angle-right"></i></a>
-
+                                <a href="/about/our-company/our-board/" class="btn btn-hero-feature"><i class="fa fa-users"></i> <span class="text">Looking for staff?</span> <i class="fa fa-angle-right"></i></a>
+                                <div class="spacer m-b-1 hidden-md-up"></div>
                                 <div class="lv-hero-caption-feature-case">
-                                    <h3 class="text-md-right">Our Services</h3>
-                                    <div class="spacer m-b-1"></div>
-                                    <ul class="m-b-0 block-grid-xs-2 block-grid-special-gaps">
-                                        <li><a class="btn btn-cta btn-secondary btn-block" href="/404/">Youth <i class="fa fa-angle-right"></i></a></li>
-                                        <li><a class="btn btn-cta btn-primary btn-block" href="/404/">Employment <i class="fa fa-angle-right"></i></a></li>
-                                        <li><a class="btn btn-cta btn-tertiary btn-block" href="/404/">Indigenous <i class="fa fa-angle-right"></i></a></li>
-                                        <li><a class="btn btn-cta btn-quaternary btn-block" href="/404/">Health <i class="fa fa-angle-right"></i></a></li>
+                                    <h3 class="text-xl-right">Our Services</h3>
+                                    <ul class="m-b-0 block-grid-xs-1 block-grid-md-2 block-grid-special-gaps">
+                                        <li><a class="btn btn-cta btn-secondary btn-block" href="/youth/">Youth <i class="fa fa-angle-right"></i></a></li>
+                                        <li><a class="btn btn-cta btn-primary btn-block" href="/employment/">Employment <i class="fa fa-angle-right"></i></a></li>
+                                        <li><a class="btn btn-cta btn-tertiary btn-block" href="/indigenous/">Indigenous <i class="fa fa-angle-right"></i></a></li>
+                                        <li><a class="btn btn-cta btn-quaternary btn-block" href="/health/">Health <i class="fa fa-angle-right"></i></a></li>
                                     </ul>
                                 </div>
-
                             </div> <!-- /.lv-hero-caption-feature -->
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                        </div> <!-- /. col -->
+                    </div> <!-- /.row -->
+                </div> <!-- /.container -->
+            </div> <!-- /.lv-hero-item-caption -->
+        </div> <!-- /.lv-hero-item -->
+    </div> <!-- /.lv-hero -->
 
+    {% comment %}
     <!-- CAROUSEL CONTROLS -->
     <div class="lv-hero-carousel-controls">
         <div class="container">
             <span href="#" class="lv-hero-carousel-prev-btn"><i class="fa fa-angle-left"></i></span>
             <span href="#" class="lv-hero-carousel-next-btn"><i class="fa fa-angle-right"></i></span>
-        </div>
-    </div>
-
-    {% comment %}
-    <!-- CAROUSEL BULLETS -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="lv-hero-carousel-bullets"></div>
-            </div>
         </div>
     </div>
     {% endcomment %}

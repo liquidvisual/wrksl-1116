@@ -17,6 +17,27 @@ $(function() {
     });
 
     //-----------------------------------------------------------------
+    // SITEMAP TRIGGER
+    //-----------------------------------------------------------------
+
+    $('[data-sitemap-trigger]').click(function(event){
+        $('.fa', $(this)).toggleClass('fa-angle-down');
+        $('[data-sitemap]').toggleClass('is-collapsed');
+    });
+
+    //-----------------------------------------------------------------
+    // SEARCH TRIGGER
+    //-----------------------------------------------------------------
+
+    $('[data-search-trigger]').click(function(event){
+        $('[data-search]').toggleClass('is-hidden');
+    });
+
+    $('[data-search] .close').click(function(event){
+        $('[data-search]').addClass('is-hidden');
+    });
+
+    //-----------------------------------------------------------------
     // LAUNCH MANAGE ON KEYPRESS
     //-----------------------------------------------------------------
 

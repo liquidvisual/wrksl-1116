@@ -1,7 +1,7 @@
 /*
     HERO.CSS
 
-    - updated: 18.03.16
+    - updated: 18.11.16
     - notes:
         * liquidvisual recommends bxSlider for hero carousels
         * fixed overflow problem when removing JS
@@ -11,9 +11,8 @@
 //-----------------------------------------------------------------
 
 $hero-height-sm:            auto          !default; // IMPORTANT: if carousel slides, you need a fixed height
-$hero-height-md:            rem-calc(575) !default;
-$hero-height-md-fixed:      rem-calc(575) !default;
-$hero-height-lg:            rem-calc(895) !default;
+$hero-height-md:            auto          !default;
+$hero-height-lg:            auto          !default;
 $hero-carousel-bullet-size: rem-calc(16)  !default;
 
 //-----------------------------------------------------------------
@@ -62,15 +61,15 @@ $hero-carousel-bullet-size: rem-calc(16)  !default;
     //=========================================
 
     &.has-fixed-height {
-        height: rem-calc(150); //$hero-height-sm;
-        background-position: center center;
+        // height: rem-calc(150); //$hero-height-sm;
+        // background-position: center center;
 
         @include media-breakpoint-up(md) { // added - refactor
-           height: rem-calc(300);
+           // height: rem-calc(300);
         }
 
         @include media-breakpoint-up(xl) {
-           height: $hero-height-md-fixed;
+           // height: rem-calc(694);
         }
     }
 }
@@ -112,40 +111,50 @@ $hero-carousel-bullet-size: rem-calc(16)  !default;
 //-----------------------------------------------------------------
 
 .lv-hero-item-caption {
-    display: inline-block; /* more flexibility */
-    width: 100%; /* mobile */
-    margin: rem-calc(50 0);
     color: white;
+    padding-top: calc(#{rem-calc(110)} + #{$header-height-sm});
+
+    h1, h2, h3, h4, h5, h6, .lead {
+        color: white;
+    }
+
+    p {
+        font-weight: normal;
+    }
 
     @include media-breakpoint-up(md) {
-        width: auto;
+        padding-top: calc(#{rem-calc(100)} + #{$header-height-lg});
+        padding-bottom: rem-calc(110);
     }
-}
 
-//
+    @include media-breakpoint-up(lg) {
+        padding-top: calc(#{rem-calc(100)} + #{$header-height-lg});
+        padding-bottom: rem-calc(90);
+    }
 
-.lv-hero-caption {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: white;
-    padding-bottom: 110px;
+    @include media-breakpoint-up(xl) {
+        padding-top: calc(#{rem-calc(190)} + #{$header-height-lg});
+        padding-bottom: rem-calc(120);
+    }
 }
 
 .lv-hero-caption-feature {
     @include media-breakpoint-up(xl) {
-        position: absolute;
-        top: -100px;
-        width: 100%;
-        padding-left: 30px;
+        padding-left: $spacer-x*3;
     }
 }
 
 .lv-hero-caption-feature-case {
-    background: rgba($brand-quinary, 0.67);
-    padding: 30px;
+    position: relative;
+    padding: rem-calc(30);
+    padding-bottom: calc(#{$spacer-x*2} - 14px);
+    background: rgba(black, 0.5);
+
+    @include media-breakpoint-down(sm) {
+        left: -24px;
+        width: calc(100% + 24px*2);
+        background: rgba(black, 0.6);
+    }
 }
 
 //-----------------------------------------------------------------
@@ -200,37 +209,4 @@ $hero-carousel-bullet-size: rem-calc(16)  !default;
     .lv-hero-carousel-next-btn {
         right: $container-gutter/2;
     }
-}
-
-//-----------------------------------------------------------------
-// Hero - Carousel Bullets
-//-----------------------------------------------------------------
-
-.lv-hero-carousel-bullets {
-    position: absolute;
-    bottom: rem-calc(30);
-    // left: 0;
-    // width: 100%;
-    z-index: 1000;
-}
-
-.bx-pager-item {
-    display: inline-block;
-    margin: 0 3px;
-}
-
-.bx-pager-item a {
-    display: inline-block;
-    width: $hero-carousel-bullet-size;
-    height: $hero-carousel-bullet-size;
-    background: rgba(black, 0.7);
-    border-radius: 100%;
-    border: 1px solid #BFBFBF;
-    overflow: hidden;
-    text-indent: -9999px;
-}
-
-.bx-pager-item a.active {
-    background: grey; //$secondary-color;
-    border: 1px solid #676767;
 }

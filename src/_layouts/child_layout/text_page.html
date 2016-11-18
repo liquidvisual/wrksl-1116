@@ -1,11 +1,31 @@
 ---
-layout: base__page
+layout: base__page--short-header
 ---
+
+{% assign settings = site.data.settings %}
+
+<div class="spacer m-b-3 hidden-sm-down"></div>
+<div class="spacer m-b-2 hidden-md-up"></div>
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-6">
-			{{ content }}
+		<div class="col-lg-8 push-lg-4">
+			<div class="special-content">
+				{% if page.lead %}
+					<p class="lead m-b-2">{{ page.lead }}</p>
+				{% endif %}
+				<div class="m-b-2 special-content-xl-p-r">
+					{{ content }}
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 pull-lg-8">
+			<aside class="sidebar">
+				{% include snippets/side_nav.html %}
+			</aside>
 		</div>
 	</div>
 </div>
+
+<div class="spacer m-b-3 hidden-sm-down"></div>
+<div class="spacer m-b-2 hidden-md-up"></div>

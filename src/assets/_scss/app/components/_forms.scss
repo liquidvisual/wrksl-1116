@@ -19,6 +19,11 @@ textarea {
 	-webkit-appearance: none; // removes shadow on iOS
 }
 
+// ::-webkit-input-placeholder { font-weight: normal !important; }
+// ::-moz-placeholder { font-weight: normal !important; }
+// :-ms-input-placeholder { font-weight: normal !important; }
+// input:-moz-placeholder { font-weight: normal!important ; }
+
 //-----------------------------------------------------------------
 // BOOTSTRAP VALIDATION
 // http://1000hz.github.io/bootstrap-validator/#validator-events
@@ -42,8 +47,21 @@ form[data-toggle="validator"] .has-error > .error {
 }
 
 //-----------------------------------------------------------------
-//
+// Need to find why the styling is off
 //-----------------------------------------------------------------
+
+.alert-success {
+	h1, h2, h3, h4, h5, h6 {
+		color: $brand-success !important;
+	}
+}
+
+.alert-danger {
+	h1, h2, h3, h4, h5, h6 {
+		color: $brand-danger !important;
+	}
+}
+
 //=========================================
 //
 //=========================================

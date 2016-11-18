@@ -12,8 +12,17 @@
 //--------------------------------------------------------------------
 
 html {
-  @include media-breakpoint-down(xs) { font-size: $font-size-xs; }
-  // @include media-breakpoint-up(md) { font-size: $font-size-lg; }
+	@include media-breakpoint-down(lg) { font-size: 14px; } // LG
+	@include media-breakpoint-down(md) { font-size: 14px; } // MD
+	@include media-breakpoint-down(sm) { font-size: $font-size-xs; } // XS
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: $brand-quinary;
+}
+
+.lead {
+	// line-height: 1.2;
 }
 
 //-----------------------------------------------------------------
@@ -32,6 +41,11 @@ p, ul, ol {
 	@include media-breakpoint-up(lg) {
 	    font-size: $font-size-lg;
 	}
+}
+
+.lead {
+	font-family: "Montserrat";
+	color: $brand-quinary;
 }
 
 //-----------------------------------------------------------------

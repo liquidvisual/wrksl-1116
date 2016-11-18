@@ -1,0 +1,85 @@
+/*
+    MODAL.CSS
+
+    - Last updated: 18.11.16
+    - liquidvisual.com
+*/
+//--------------------------------------------------------------------
+// VARIABLES
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+// MODAL
+//--------------------------------------------------------------------
+
+.modal-dialog {
+	@include media-breakpoint-up(sm) {
+	    padding: $spacer;
+	}
+}
+
+//--------------------------------------------------------------------
+// MODAL CONTENT
+//--------------------------------------------------------------------
+
+.modal-dialog .modal-content {
+	min-height: rem-calc(400);
+	border: 0;
+	border-radius: 0;
+	box-shadow: 0 0 10px rgba(30,0,0,0.3);
+
+	.modal-header {
+		border-bottom: 0;
+		padding-left: $spacer;
+		padding-right: $spacer;
+
+		.close {
+			font-size: rem-calc(40);
+			font-weight: normal;
+			opacity: 0.4;
+			transition: opacity ease 300ms;
+
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: normal;
+		color: #aeb1b3;
+	}
+
+	.modal-body {
+		@include media-breakpoint-up(sm) {
+		    padding: $spacer * 3;
+		    padding-top: $spacer-y;
+		}
+
+		.modal-body-form {
+			padding: rem-calc(30 0);
+			border-top: 1px solid #d9d9d9;
+			border-bottom: 1px solid #d9d9d9;
+
+			@include media-breakpoint-up(lg) {
+			    padding-bottom: rem-calc(10);
+			}
+
+			.btn {
+				line-height: rem-calc(12);
+			}
+		}
+	}
+}
+
+//--------------------------------------------------------------------
+// Bootstrap messed up - check to see if removed in future versions
+//--------------------------------------------------------------------
+
+body.modal-open [style] {
+	padding-right: 0 !important;
+
+}
+
+//=========================================
+//
+//=========================================

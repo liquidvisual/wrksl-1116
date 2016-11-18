@@ -11,7 +11,7 @@
 // GLOBAL
 //-----------------------------------------------------------------
 
-html, body {
+html {
 	overflow-x: hidden;
 }
 
@@ -21,7 +21,7 @@ html, body {
 
 .lv-page {
 	@include media-breakpoint-down(sm) {
-	    padding-top: $header-height-sm;
+	    // padding-top: $header-height-sm;
 	}
 }
 
@@ -33,6 +33,26 @@ html, body {
 	@include media-breakpoint-up(md) {
 	    padding: 0 $container-gutter;
 	}
+}
+
+//-----------------------------------------------------------------
+// MIMICK FLEX
+//-----------------------------------------------------------------
+
+.table-row {
+    @include media-breakpoint-up(xl) {
+        display: table;
+        width: 100%;
+        margin: 0;
+    }
+
+    [class*='col-'] {
+        @include media-breakpoint-up(xl) {
+            display: table-cell;
+            float: none;
+            padding: 0;
+        }
+    }
 }
 
 //=========================================

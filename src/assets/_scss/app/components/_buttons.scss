@@ -15,7 +15,7 @@
 	font-family: 'Montserrat', sans-serif;
 	border: 0;
 	border-radius: 0;
-	background: $brand-quinary;
+	background: $brand-primary;
 	font-size: rem-calc(18);
 	padding: rem-calc(15 25 15 30);
 	color: white;
@@ -26,6 +26,25 @@
 		margin-left: 5px;
 		font-size: rem-calc(30);
 		line-height: 0;
+	}
+}
+
+.btn-opaque {
+	background: rgba(white, 0.3);
+	color: $brand-quinary;
+	padding: rem-calc(8 16 8 16);
+	font-size: rem-calc(14);
+	text-transform: uppercase;
+
+	i {
+		position: relative;
+		top: 1px;
+		font-size: rem-calc(20);
+	}
+
+	&:hover {
+		color: $brand-quinary;
+		background: rgba(white, 0.5);
 	}
 }
 
@@ -43,6 +62,49 @@
 	i {
 		position: relative;
 		top: 1px;
+	}
+}
+
+//--------------------------------------------------------------------
+// Button Tile
+//--------------------------------------------------------------------
+
+.btn-tile {
+	display: block;
+	position: relative;
+	width: 100%;
+	padding: rem-calc(24);
+	background: $brand-quinary;
+	overflow: hidden;
+	color: white;
+
+	h1, h2, h3, h4, h5, h6 {
+		color: white;
+	}
+
+	h3 {
+		min-height: rem-calc(70);
+	}
+
+	p {
+		color: rgba(white, 0.56);
+		margin-bottom: 0;
+	}
+
+	.fa {
+		position: absolute;
+		bottom: 10px;
+		right: 10px;
+		color: white;
+		font-size: rem-calc(26);
+		font-weight: bold;
+	}
+
+	&:hover {
+		color: white;
+		@include media-breakpoint-up(xl) {
+		    background: darken($brand-quinary, 5%);
+		}
 	}
 }
 
@@ -133,7 +195,7 @@
 	}
 
 	&:hover {
-		background: lighten($brand-primary, 10%);
+		background: darken($brand-primary, 5%);
 		color: white;
 	}
 }
