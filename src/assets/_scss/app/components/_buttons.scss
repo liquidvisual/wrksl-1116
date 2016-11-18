@@ -166,20 +166,25 @@
 	background: $brand-primary;
 	width: 100%;
 	height: rem-calc(96);
-	font-size: rem-calc(27);
+	font-size: rem-calc(23);
 	font-weight: bold;
 	margin-bottom: 13px;
+	text-align: left;
+	padding: rem-calc(20);
+
+	@include media-breakpoint-up(md) {
+	    font-size: rem-calc(27);
+	}
 
 	.text {
-		position: absolute;
-		bottom: 20px;
-		right: 45px;
+	    position: absolute;
+	    bottom: 20px;
+	    right: 45px;
 	}
 
 	.fa-angle-right {
 		position: absolute;
 		bottom: 0;
-		background: red;
 		top: auto;
 		bottom: 36px;
 		right: 20px;
@@ -188,10 +193,20 @@
 
 	.fa-users {
 		position: absolute;
-		top: 48px;
-		left: 40px;
-		font-size: rem-calc(60);
+		top: 45px;
+		margin-bottom: rem-calc(20);
+		font-size: rem-calc(30);
 		line-height: 0;
+
+		@include media-breakpoint-up(md) {
+			top: 40px;
+			left: 40px;
+		    font-size: rem-calc(50);
+		}
+
+		@include media-breakpoint-up(lg) {
+		    top: 48px;
+		}
 	}
 
 	&:hover {
