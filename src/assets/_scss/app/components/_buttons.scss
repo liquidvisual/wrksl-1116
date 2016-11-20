@@ -29,7 +29,8 @@
 	}
 }
 
-.btn-opaque {
+.btn-opaque,
+.btn-slim {
 	background: rgba(white, 0.3);
 	color: $brand-quinary;
 	padding: rem-calc(8 16 8 16);
@@ -46,6 +47,10 @@
 		color: $brand-quinary;
 		background: rgba(white, 0.5);
 	}
+}
+
+.btn-slim {
+	color: white;
 }
 
 //--------------------------------------------------------------------

@@ -12,21 +12,36 @@ layout: base__page--short-header
 	<div class="row">
 		<div class="col-lg-8 push-lg-4">
 			<div class="special-content special-content-extended">
-				<ul class="block-grid-lg-3">
-					{% for item in news %}
-						<li>
-							<a href="/about/news/news-item/">
-								<article class="media">
-									<img class="m-b-1" width="100%" src="/assets/img/ui/placeholder.png" alt="...">
-									<h3 class="h4">{{ item.title }}</h3>
-									<date>{{ item.date }}</date>
-									<p class="m-b-0">{{ item.body | truncate: 200 }}</p>
-									<span class="anchor">Read More <i class="fa fa-angle-right"></i></span>
-								</article>
-							</a>
-						</li>
+
+				<h2 class="m-b-2 special-header-green">Upcoming Events</h2>
+
+				{% capture events_list %}
+					{% for item in news | limit: 2 %}
+						<a href="/about/events-calendar/events-calendar-item/">
+							<article class="media p-y-1">
+								<div class="row">
+									<div class="col-md-3">
+										<img class="hidden-sm-down" width="100%" src="/assets/img/ui/placeholder.png" alt="...">
+									</div>
+									<div class="col-md-9">
+										<h3 class="h4">{{ item.title }}</h3>
+										<date>{{ item.date }}</date>
+										<p class="m-b-0">{{ item.body | truncate: 450 }} <span class="anchor">Read More <i class="fa fa-angle-right"></i></span></p>
+									</div>
+								</div>
+							</article>
+						</a>
+						{% unless forloop.last %}
+						<hr>
+						{% endunless %}
 					{% endfor %}
-				</ul>
+				{% endcapture %}
+
+				{{ events_list }}
+
+				<h2 class="m-y-2 special-header-green">Past Events</h2>
+
+				{{ events_list }}
 
 				<div class="spacer m-b-2"></div>
 

@@ -26,6 +26,14 @@
         list-style: none;
     }
 
+    ul ul {
+        display: none;
+    }
+
+    .active ul {
+        display: block;
+    }
+
     li {
         padding: 0;
         border-top: 1px solid rgba(white, 0.1);

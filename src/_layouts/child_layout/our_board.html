@@ -1,0 +1,60 @@
+---
+layout: base__page--short-header
+---
+
+{% assign settings = site.data.settings %}
+{% assign news = site.data.placeholder_articles %}
+
+<div class="spacer m-b-3 hidden-sm-down"></div>
+<div class="spacer m-b-2 hidden-md-up"></div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8 push-lg-4">
+			<div class="special-content special-content-extended">
+
+				<h2 class="m-b-2 special-header-green">Chairman</h2>
+
+				{% capture events_list %}
+					{% for item in news | limit: 2 %}
+						<article class="media p-y-1">
+							<div class="row">
+								<div class="col-md-3">
+									<p><img width="100%" src="/assets/img/content/no-face.png" alt="..."></p>
+								</div>
+								<div class="col-md-9">
+									<h3>Mr David Smith</h3>
+									<p class="m-b-0">{{ item.body | truncate: 450 }}</p>
+								</div>
+							</div>
+						</article>
+						{% unless forloop.last %}
+						<hr>
+						{% endunless %}
+					{% endfor %}
+				{% endcapture %}
+
+				{{ events_list }}
+
+				<h2 class="m-y-2 special-header-green">Deputy Chairman</h2>
+
+				{{ events_list }}
+
+				<h2 class="m-y-2 special-header-green">Board Members</h2>
+
+				{{ events_list }}
+
+				<div class="spacer m-b-2"></div>
+
+			</div>
+		</div>
+		<div class="col-lg-4 pull-lg-8">
+			<aside class="sidebar">
+				{% include snippets/side_nav.html %}
+			</aside>
+		</div>
+	</div>
+</div>
+
+<div class="spacer m-b-3 hidden-sm-down"></div>
+<div class="spacer m-b-2 hidden-md-up"></div>

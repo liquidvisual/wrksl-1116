@@ -27,10 +27,31 @@
 	}
 }
 
+.special-content-extended {
+	@include media-breakpoint-up(xl) {
+		width: calc(100% + 80px);
+	}
+}
+
 .special-content-xl-p-r {
 	@include media-breakpoint-up(xl) {
 	    padding-right: rem-calc(145);
 	}
+}
+
+.special-pager {
+	background: #1c618d;
+
+	i {
+		margin: 0;
+	}
+}
+
+.special-header-green {
+	background: $brand-secondary;
+	color: white;
+	padding: rem-calc(20 25);
+	// font-size: rem-calc(30);
 }
 
 //=========================================

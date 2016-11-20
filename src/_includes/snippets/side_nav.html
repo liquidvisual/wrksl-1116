@@ -34,7 +34,7 @@
                 <ul>
                     {% comment %} Second Level {% endcomment %}
                     {% for item in sitemap[side_nav_id].children %}
-                        <li class="{% if item.url == page.url %} active {% endif %}">
+                        <li class="{% if item.url == page.url or item.url contains item.url %} active {% endif %}">
                             <a href="{{ item.url }}">{{ item.title }}</a>
 
                             <ul>
