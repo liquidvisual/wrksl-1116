@@ -38,7 +38,8 @@
 	    padding: 0;
 	}
 
-	.list-block li {
+	.list-block li,
+	hr {
 		border-color: rgba(white, 0.2);
 	}
 
@@ -110,6 +111,10 @@
 			@include media-breakpoint-up(md) {
 			    left: 0;
 			}
+		}
+
+		.media .anchor {
+			color: $brand-primary;
 		}
 	}
 }

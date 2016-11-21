@@ -18,8 +18,8 @@ layout: base
 							<article class="media">
 								<div class="media-body">
 									<h4 class="media-heading card-title">{{ item.title }}</h4>
-									<!-- TRUNCATE (150 max chars) -->
-									<p class="m-b-0">{{ item.body | truncate: 150 }}
+									<!-- TRUNCATE (200 max chars) -->
+									<p class="m-b-0">{{ item.body | truncate: 200 }}
 										<span class="anchor">Read more <i class="fa fa-angle-right"></i></span></p>
 								</div>
 								<div class="media-right hidden-md-down p-l-1">
@@ -30,6 +30,7 @@ layout: base
 					</li>
 					{% endfor %}
 				</ul>
+				<hr class="m-b-2">
 				<p class="text-xs-right"><a class="btn btn-opaque" href="/about/news/">More News <i class="fa fa-angle-right"></i></a></p>
 			</div>
 			<div class="col-md-6">
@@ -42,8 +43,8 @@ layout: base
 								<div class="media-body">
 									<h4 class="media-heading card-title">{{ item.title }}</h4>
 									<date>{{ item.date }}</date>
-									<!-- TRUNCATE (150 max chars) -->
-									<p class="m-b-0">{{ item.body | truncate: 150 }}
+									<!-- TRUNCATE (200 max chars) -->
+									<p class="m-b-0">{{ item.body | truncate: 200 }}
 										<span class="anchor">Read more <i class="fa fa-angle-right"></i></span></p>
 								</div>
 								<div class="media-right hidden-md-down p-l-1">
@@ -54,6 +55,7 @@ layout: base
 					</li>
 					{% endfor %}
 				</ul>
+				<hr class="m-b-2">
 				<p class="text-xs-right"><a class="btn btn-opaque" href="/about/events-calendar/">More Events <i class="fa fa-angle-right"></i></a></p>
 			</div>
 		</div>
