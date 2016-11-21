@@ -22,7 +22,7 @@
     <link rel="shortcut icon" href=/assets/favicon.ico>
     <link rel=stylesheet href=/assets/css/minified.css>
 </head>
-<body class="" data-environment=production>
+<body class=theme-contact data-environment=production>
     <div class=lv-page>
 
         <!-- HEADER -->
@@ -341,9 +341,265 @@
         </div>
         <div class=container>
             <div class=row>
-                <div class=col-md-6></div>
+                <div class="col-lg-6 collapse-p-x-sm-down">
+                    <aside class=sidebar>
+                        <div class=sidebar-color-box>
+                            <h3>Head Office</h3>
+                            <div class=row>
+                                <div class=col-md-5>
+                                    <p>Level 1, 1069 South Road
+                                        <br>Melrose Park, SA 5039
+                                        <br>
+                                        <a class=brand-primary href="/locations/">View on map
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </p>
+                                    <p>PO Box 433
+                                        <br>Melrose Park, SA 5039</p>
+                                </div>
+                                <div class=col-md-5>
+                                    <p>Phone:
+                                        <a href="tel:1300 967 575">1300 967 575</a>
+                                        <br>Fax:</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sidebar-location-box sidebar-color-box">
+                            <h3>Locations</h3>
+                            <p class=m-b-1>Search our locations in
+                                <a href=#>South Australia</a>.
+                                <a href=#>Victoria</a>. or
+                                <a href=#>New South Wales</a>.</p>
+                            <img width=100% src=/assets/img/layout/aus-locations.png usemap=#aus-map alt="Australia Map">
+                            <map name=aus-map id=aus-map>
+                                <area alt="" title="" href=#SA shape=poly coords=197,194,352,193,352,373,199,284>
+                                <area alt="" title="" href=#NSW shape=poly coords=354,231,511,234,470,355,353,319>
+                                <area alt="" title="" href=#VIC shape=poly coords=355,321,356,376,455,395,468,357>
+                            </map>
+                        </div>
+                        <div class="sidebar-info-box sidebar-color-box is-muted">
+                            <h3 class=m-b-1>Join us on</h3>
+                            <ul class="block-grid-xs-1 block-grid-md-2 social-media">
+                                <li>
+                                    <a href=https://www.facebook.com/workskil>
+                                        <span class=display-table-cell>
+                                            <i class="fa fa-facebook"></i>
+                                        </span>
+                                        <span class=display-table-cell>
+                                            <span class=text>Workskil Australia</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=https://www.facebook.com/workskil>
+                                        <span class=display-table-cell>
+                                            <i class="fa fa-facebook"></i>
+                                        </span>
+                                        <span class=display-table-cell>
+                                            <span class=text>Workskil Indigenous</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=https://www.linkedin.com/company/workskil-incorporated>
+                                        <span class=display-table-cell>
+                                            <i class="fa fa-linkedin"></i>
+                                        </span>
+                                        <span class=display-table-cell>
+                                            <span class=text>LinkedIn</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=https://twitter.com/workskil_aus>
+                                        <span class=display-table-cell>
+                                            <i class="fa fa-twitter"></i>
+                                        </span>
+                                        <span class=display-table-cell>
+                                            <span class=text>Twitter</span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+                <div class=col-lg-6>
+                    <h3 class="m-t-3 m-b-2">Compliments, comments and complains - customer feedback form:</h3>
+
+                    <!-- IF SUCCESS -->
+                    <div class="alert alert-success" hidden>
+                        <h4>Success!</h4>
+                        <p>Your form has been submitted.</p>
+                    </div>
+
+                    <!-- IF FAILURE -->
+                    <div class="alert alert-danger alert-dismissible fade in" role=alert hidden>
+                        <button type=button class=close data-dismiss=alert aria-label=Close>
+                            <span aria-hidden=true>&times;</span>
+                        </button>
+                        <h4>Oops!</h4>
+                        <p>Something went wrong. Please check your details.</p>
+                    </div>
+                    <form class="form-quote form-quote-outlined" data-toggle=validator>
+                        <fieldset>
+
+                            <!-- FULL NAME -->
+                            <div class=form-group>
+
+                                <!-- <label for="name">Full Name*</label> -->
+                                <input class=form-control id=name name=Name type=text placeholder=Name* required>
+                                <small class=error>Your name is required.</small>
+                            </div>
+
+                            <!-- PHONE -->
+                            <div class=form-group>
+
+                                <!-- <label for="phone">Phone</label> -->
+                                <input class=form-control id=phone name=Phone type=text placeholder=Phone>
+                                <small class=error>A valid phone number is required.</small>
+                            </div>
+
+                            <!-- CLIENT ID -->
+                            <div class=form-group>
+
+                                <!-- <label for="name">Client ID*</label> -->
+                                <input class=form-control id=client-id name="Client ID" type=text placeholder="Client ID (JSID etc)" required>
+                                <small class=error>Your client ID is required.</small>
+                            </div>
+
+                            <!-- EMAIL -->
+                            <div class=form-group>
+
+                                <!-- <label for="email">Email*</label> -->
+                                <input class=form-control id=email name=Email type=email placeholder=Email* required>
+                                <small class=error>A valid email is required.</small>
+                            </div>
+
+                            <!-- PROGRAM -->
+                            <div class=form-group>
+                                <div class=row>
+                                    <div class=col-md-6>
+                                        <label for=program class=form-control-label>Which Workskil program is your feedback about? *</label>
+                                    </div>
+                                    <div class=col-md-6>
+                                        <select class="form-control c-select" name=State id=program required>
+                                            <option selected disabled>Select a program</option>
+                                            <option>Option 1</option>
+                                            <option>Option 2</option>
+                                            <option>Option 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- STAFF MEMBER -->
+                            <div class=form-group>
+                                <div class=row>
+                                    <div class=col-md-6>
+                                        <label for=staff-member class=form-control-label>Which Workskil staff member is your feedback about?</label>
+                                    </div>
+                                    <div class=col-md-6>
+                                        <input class=form-control id=staff-member name="Staff Member" type=text placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- RESPONSE? -->
+                            <div class=form-group>
+                                <div class=row>
+                                    <div class=col-md-6>
+                                        <label for=response-back class=form-control-label>Would you like a response to your feedback from Workskil? *</label>
+                                    </div>
+                                    <div class=col-md-6>
+                                        <label class="form-check-inline m-r-1">
+                                            <input class=form-check-input name=response-back type=radio value=true>&nbsp;&nbsp; Yes</label>
+                                        <label class=form-check-inline>
+                                            <input class=form-check-input name=response-back type=radio value=false>&nbsp;&nbsp; No</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- PREVIOUSLY DISCUSSED -->
+                            <div class=form-group>
+                                <div class=row>
+                                    <div class=col-md-6>
+                                        <label for=previously-discussed class=form-control-label>Has this matter been previously discussed with a Workskil staff member *</label>
+                                    </div>
+                                    <div class=col-md-6>
+                                        <label class="form-check-inline m-r-1">
+                                            <input class=form-check-input name=previously-discussed type=radio value=true>&nbsp;&nbsp; Yes</label>
+                                        <label class=form-check-inline>
+                                            <input class=form-check-input name=previously-discussed type=radio value=false>&nbsp;&nbsp; No</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- PREVIOUS STAFF MEMBER -->
+                            <div class=form-group>
+                                <div class=row>
+                                    <div class=col-md-6>
+                                        <label for=previous-staff-member class=form-control-label>If yes, with whom did you discuss this?</label>
+                                    </div>
+                                    <div class=col-md-6>
+                                        <input class=form-control id=previous-staff-member name="Previous Staff Member" type=text placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CATEGORY -->
+                            <div class=form-group>
+                                <div class=row>
+                                    <div class=col-md-2>
+                                        <label for=category class=form-control-label>This is a *</label>
+                                    </div>
+                                    <div class=col-md-10>
+                                        <label class="form-check-inline m-r-1">
+                                            <input class=form-check-input name=previously-discussed type=radio value=Compliment>&nbsp;&nbsp; Compliment</label>
+                                        <label class="form-check-inline m-r-1">
+                                            <input class=form-check-input name=previously-discussed type=radio value=Comment>&nbsp;&nbsp; Comment</label>
+                                        <label class="form-check-inline m-r-1">
+                                            <input class=form-check-input name=previously-discussed type=radio value=Complaint>&nbsp;&nbsp; Complaint</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+
+                            <!-- MESSAGE -->
+                            <div class=form-group>
+                                <label for=message>Feedback relating to any Workskil service (please give a detailed description using dates and times where possible) *</label>
+                                <textarea class=form-control id=message name=Message rows=6 placeholder="" required></textarea>
+                                <small class=error>A message is required.</small>
+                            </div>
+
+                            <!-- CATEGORY -->
+                            <div class=form-group>
+                                <div class=row>
+                                    <div class=col-md-6>
+                                        <label for=privacy class=form-control-label>We may use your comments in our publicity such as newsletters and on the Workskil website, if you don't want us to do this, please tick here</label>
+                                    </div>
+                                    <div class=col-md-1>
+                                        <label class="form-check-inline m-r-1">
+                                            <input class=form-check-input name=privacy type=checkbox value=true>
+                                        </label>
+                                    </div>
+                                    <div class=col-md-5>
+
+                                        <!-- SUBMIT -->
+                                        <div class=text-xs-right>
+                                            <button type=submit class="btn btn-primary">Send &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <i class="fa fa-angle-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
         </div>
+        <div class="spacer m-b-3"></div>
 
         <!-- FOOTER -->
         <footer class=global-footer>
