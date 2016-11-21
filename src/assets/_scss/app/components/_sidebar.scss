@@ -12,14 +12,6 @@
 //-----------------------------------------------------------------
 
 .sidebar {
-    h1, h2, h3, h4, h5, h6 {
-        color: white;
-    }
-
-    h2 {
-        font-size: rem-calc(25);
-    }
-
     @include media-breakpoint-down(sm) {
         > .row > [class*=col] {
             padding: 0;
@@ -28,6 +20,16 @@
     @include media-breakpoint-up(lg) {
         padding-right: $spacer-x*2;
     }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: white;
+    }
+
+    h2 {
+        font-size: rem-calc(25);
+    }
+
+
 }
 
 //-----------------------------------------------------------------

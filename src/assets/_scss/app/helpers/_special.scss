@@ -21,6 +21,7 @@
 }
 
 .special-content {
+	z-index: 1;
 	@include media-breakpoint-up(xl) {
 	    position: relative;
 	    left: -80px;
@@ -52,6 +53,26 @@
 	color: white;
 	padding: rem-calc(20 25);
 	// font-size: rem-calc(30);
+}
+
+.special-list-block {
+	@include media-breakpoint-up(xl) {
+	    margin-right: rem-calc(70);
+	}
+
+	h3 {
+		color: $brand-quinary;
+	}
+
+	h4 {
+		font-size: rem-calc(17);
+		color: $brand-primary;
+		transition: color ease 300ms;
+
+		&:hover {
+			color: darken($brand-primary, 10%);
+		}
+	}
 }
 
 //=========================================

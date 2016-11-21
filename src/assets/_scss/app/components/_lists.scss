@@ -23,6 +23,10 @@
 	list-style: none;
 	padding: 0;
 
+	&.is-condensed li {
+		padding: rem-calc(20 0);
+	}
+
 	li {
 		border-top: 1px solid #e7e7e7;
 		padding: rem-calc(30 0);

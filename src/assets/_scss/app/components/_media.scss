@@ -34,9 +34,37 @@
 	}
 }
 
+.media-link {
+	display: block;
+
+	.anchor {
+		color: $brand-primary;
+		transition: color ease 300ms;
+	}
+
+	&:hover .anchor {
+		color: darken($brand-primary, 20%);
+	}
+}
+
 //-----------------------------------------------------------------
 //
 //-----------------------------------------------------------------
+
+.media-article {
+	h1, h2, h3, h4, h5, h6 {
+		color: $brand-quinary;
+	}
+
+	date {
+		display: block;
+		font-size: rem-calc(18);
+		font-weight: bold;
+		margin-bottom: rem-calc(30);
+		color: #b0b1b2;
+	}
+}
+
 //=========================================
 //
 //=========================================
