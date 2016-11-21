@@ -439,7 +439,7 @@
                             <span aria-hidden=true>&times;</span>
                         </button>
                         <h4>Oops!</h4>
-                        <p>Something went wrong. Please check your details.</p>
+                        <p>Something went wrong. Please check the fields marked in red below.</p>
                     </div>
                     <form class="form-quote form-quote-outlined" data-toggle=validator>
                         <fieldset>
@@ -483,8 +483,8 @@
                                         <label for=program class=form-control-label>Which Workskil program is your feedback about? *</label>
                                     </div>
                                     <div class=col-md-6>
-                                        <select class="form-control c-select" name=State id=program required>
-                                            <option selected disabled>Select a program</option>
+                                        <select class=custom-select name=Program id=program required>
+                                            <option selected value="" disabled>Select a program</option>
                                             <option>Option 1</option>
                                             <option>Option 2</option>
                                             <option>Option 3</option>
@@ -512,10 +512,16 @@
                                         <label for=response-back class=form-control-label>Would you like a response to your feedback from Workskil? *</label>
                                     </div>
                                     <div class=col-md-6>
-                                        <label class="form-check-inline m-r-1">
-                                            <input class=form-check-input name=response-back type=radio value=true>&nbsp;&nbsp; Yes</label>
-                                        <label class=form-check-inline>
-                                            <input class=form-check-input name=response-back type=radio value=false>&nbsp;&nbsp; No</label>
+                                        <label class="custom-control custom-radio m-r-1">
+                                            <input class=custom-control-input name=response-back type=radio value=true required>
+                                            <span class=custom-control-indicator></span>
+                                            <span class=custom-control-description>Yes</span>
+                                        </label>
+                                        <label class="custom-control custom-radio m-r-1">
+                                            <input class=custom-control-input name=response-back type=radio value=false required>
+                                            <span class=custom-control-indicator></span>
+                                            <span class=custom-control-description>No</span>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -527,10 +533,16 @@
                                         <label for=previously-discussed class=form-control-label>Has this matter been previously discussed with a Workskil staff member *</label>
                                     </div>
                                     <div class=col-md-6>
-                                        <label class="form-check-inline m-r-1">
-                                            <input class=form-check-input name=previously-discussed type=radio value=true>&nbsp;&nbsp; Yes</label>
-                                        <label class=form-check-inline>
-                                            <input class=form-check-input name=previously-discussed type=radio value=false>&nbsp;&nbsp; No</label>
+                                        <label class="custom-control custom-radio m-r-1">
+                                            <input class=custom-control-input name=previously-discussed type=radio value=true required>
+                                            <span class=custom-control-indicator></span>
+                                            <span class=custom-control-description>Yes</span>
+                                        </label>
+                                        <label class="custom-control custom-radio m-r-1">
+                                            <input class=custom-control-input name=previously-discussed type=radio value=false required>
+                                            <span class=custom-control-indicator></span>
+                                            <span class=custom-control-description>No</span>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -547,19 +559,28 @@
                                 </div>
                             </div>
 
-                            <!-- CATEGORY -->
+                            <!-- THIS IS... (CATEGORY) -->
                             <div class=form-group>
                                 <div class=row>
                                     <div class=col-md-2>
                                         <label for=category class=form-control-label>This is a *</label>
                                     </div>
                                     <div class=col-md-10>
-                                        <label class="form-check-inline m-r-1">
-                                            <input class=form-check-input name=previously-discussed type=radio value=Compliment>&nbsp;&nbsp; Compliment</label>
-                                        <label class="form-check-inline m-r-1">
-                                            <input class=form-check-input name=previously-discussed type=radio value=Comment>&nbsp;&nbsp; Comment</label>
-                                        <label class="form-check-inline m-r-1">
-                                            <input class=form-check-input name=previously-discussed type=radio value=Complaint>&nbsp;&nbsp; Complaint</label>
+                                        <label class="custom-control custom-radio">
+                                            <input class=custom-control-input name=category type=radio value=Compliment required>
+                                            <span class=custom-control-indicator></span>
+                                            <span class=custom-control-description>Compliment</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input class=custom-control-input name=category type=radio value=Comment required>
+                                            <span class=custom-control-indicator></span>
+                                            <span class=custom-control-description>Comment</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input class=custom-control-input name=category type=radio value=Complaint required>
+                                            <span class=custom-control-indicator></span>
+                                            <span class=custom-control-description>Complaint</span>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -571,16 +592,19 @@
                                 <textarea class=form-control id=message name=Message rows=6 placeholder="" required></textarea>
                                 <small class=error>A message is required.</small>
                             </div>
+                            <br>
 
-                            <!-- CATEGORY -->
+                            <!-- PRIVACY -->
                             <div class=form-group>
                                 <div class=row>
                                     <div class=col-md-6>
                                         <label for=privacy class=form-control-label>We may use your comments in our publicity such as newsletters and on the Workskil website, if you don't want us to do this, please tick here</label>
                                     </div>
                                     <div class=col-md-1>
-                                        <label class="form-check-inline m-r-1">
-                                            <input class=form-check-input name=privacy type=checkbox value=true>
+                                        <label class="form-check-inline custom-control m-r-1">
+                                            <span class=custom-control-description></span>
+                                            <input id=privacy class="form-check-input custom-control-input" name=privacy type=checkbox value=true>
+                                            <span class=custom-control-indicator></span>
                                         </label>
                                     </div>
                                     <div class=col-md-5>
