@@ -17,7 +17,7 @@ layout: base__page--short-header
 						<li>
 							<a href="/about/news/news-item/">
 								<article class="media">
-									<img class="m-b-1" width="100%" src="/assets/img/ui/placeholder.png" alt="...">
+									<img class="m-b-1 hidden-md-down" width="100%" src="/assets/img/ui/placeholder.png" alt="...">
 									<h3 class="h4">{{ item.title }}</h3>
 									<date>{{ item.date }}</date>
 									<p class="m-b-0">{{ item.body | truncate: 200 }}</p>
@@ -30,7 +30,7 @@ layout: base__page--short-header
 
 				<div class="spacer m-b-2"></div>
 
-				<div class="special-pager">
+				<div class="special-pager m-b-1">
 					<a class="btn btn-quinary btn-slim" href="#"><i class="fa fa-angle-left"></i>&nbsp; Previous</a>
 					<a class="btn btn-quinary btn-slim pull-right" href="#">More &nbsp;<i class="fa fa-angle-right"></i></a>
 				</div>

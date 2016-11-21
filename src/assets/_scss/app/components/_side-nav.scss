@@ -56,6 +56,10 @@
         background: #0c4062;
     }
 
+    .nested.active a {
+        background: rgba(white, 0.1);
+    }
+
     .active {
         position: relative;
         background: #024f83;

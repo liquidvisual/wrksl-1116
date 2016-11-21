@@ -22,6 +22,8 @@
 {% assign side_nav_id = page.side_nav_id | default: 0 %}
 {% assign include_top_level = include.exclude_top_level | default: false %}
 
+
+
 {% if side_nav_id %}
 
     <ul class="side-nav">
@@ -34,7 +36,7 @@
                 <ul>
                     {% comment %} Second Level {% endcomment %}
                     {% for item in sitemap[side_nav_id].children %}
-                        <li class="{% if item.url == page.url or item.url contains item.url %} active {% endif %}">
+                        <li class="{% if item.url == page.url or page.url contains item.url %} active {% endif %}">
                             <a href="{{ item.url }}">{{ item.title }}</a>
 
                             <ul>
