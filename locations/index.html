@@ -11,7 +11,7 @@
     <meta http-equiv=X-UA-Compatible content="IE=edge">
     <meta name=viewport content="width=device-width,initial-scale=1,user-scalable=no">
     <meta name=description content="">
-    <title>Locations - Workskil Australia</title>
+    <title>Workskil Locations - Workskil Australia</title>
 
     <!-- CDN -->
     <link rel=stylesheet href="http://fonts.googleapis.com/css?family=Montserrat:400,700">
@@ -329,7 +329,7 @@
                                 <div class=row>
                                     <div class=col-lg-6>
                                         <header class=page-header>
-                                            <h1>Locations</h1>
+                                            <h1>Workskil Locations</h1>
                                         </header>
                                     </div>
                                 </div>
@@ -339,10 +339,34 @@
                 </div>
             </div>
         </div>
+        <div class="spacer m-b-3 hidden-sm-down"></div>
+        <div class="spacer m-b-2 hidden-md-up"></div>
         <div class=container>
-            <div class=row>
-                <div class=col-md-6></div>
+            <h2 class="h3 m-b-1">Find our locations by suburb or postcode</h2>
+
+            <!-- IF FAILURE -->
+            <div class="alert alert-danger alert-dismissible fade in" role=alert hidden>
+                <button type=button class=close data-dismiss=alert aria-label=Close>
+                    <span aria-hidden=true>&times;</span>
+                </button>
+                <h4>Oops!</h4>
+                <p>Something went wrong. Please try again.</p>
             </div>
+            <form id=form-locations class="form-contact m-b-3" data-toggle=validator>
+                <div class=form-group>
+                    <div class=row>
+                        <div class=col-md-6>
+
+                            <!-- <label for="form-locations">Enter suburb or postcode</label> -->
+                            <input id=form-locations class=form-control name="Suburb or Postcode" type=text placeholder="Enter suburb or postcode" required>
+                            <small class=error>Your name is required.</small>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <img width=100% src=http://placehold.it/1400x530 alt="Map Placeholder">
+            <div class="spacer m-b-3"></div>
+            <h2 class=h3>Or browse our locations by state</h2>
         </div>
 
         <!-- FOOTER -->
