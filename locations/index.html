@@ -352,21 +352,45 @@
                 <h4>Oops!</h4>
                 <p>Something went wrong. Please try again.</p>
             </div>
-            <form id=form-locations class="form-contact m-b-3" data-toggle=validator>
-                <div class=form-group>
-                    <div class=row>
-                        <div class=col-md-6>
+            <form id=form-locations class=form-locations action="/search/" method=get novalidate>
+                <div class=row>
+                    <div class=col-md-6>
+                        <div class=input-group>
 
                             <!-- <label for="form-locations">Enter suburb or postcode</label> -->
-                            <input id=form-locations class=form-control name="Suburb or Postcode" type=text placeholder="Enter suburb or postcode" required>
-                            <small class=error>Your name is required.</small>
+                            <input id=locations-search class=form-control name=q type=text placeholder="Enter suburb or postcode">
+                            <span class=input-group-btn style="padding-left: 8px">
+                                <button type=submit class=btn>
+                                    <i class="fa fa-angle-right"></i>
+                                </button>
+                            </span>
                         </div>
                     </div>
                 </div>
             </form>
-            <img width=100% src=http://placehold.it/1400x530 alt="Map Placeholder">
+            <img width=100% src="http://placehold.it/1400x530/a3ccff/ffffff&text=GOOGLE MAP" alt="Map Placeholder">
             <div class="spacer m-b-3"></div>
             <h2 class=h3>Or browse our locations by state</h2>
+            <ul class="block-grid-xs-1 block-grid-md-3 block-grid-condensed">
+                <li>
+                    <a class="btn-tile btn-tile-dropdown" href=#south-australia>
+                        <span class="h4 text">South Australia</span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn-tile btn-tile-dropdown" href=#victoria>
+                        <span class="h4 text">Victoria</span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn-tile btn-tile-dropdown" href=#new-south-wales>
+                        <span class="h4 text">New South Wales</span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
 
         <!-- FOOTER -->
