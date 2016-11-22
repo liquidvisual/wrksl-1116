@@ -350,7 +350,7 @@
                                     <p>Level 1, 1069 South Road
                                         <br>Melrose Park, SA 5039
                                         <br>
-                                        <a class=brand-primary href="/locations/">View on map
+                                        <a class=brand-quinary href="/locations/">View on map
                                             <i class="fa fa-angle-right"></i>
                                         </a>
                                     </p>
@@ -360,26 +360,26 @@
                                 <div class=col-md-5>
                                     <p>Phone:
                                         <a href="tel:1300 967 575">1300 967 575</a>
-                                        <br>Fax:</p>
+                                        <br>Fax: 08 7088 8099</p>
                                 </div>
                             </div>
                         </div>
                         <div class="sidebar-location-box sidebar-color-box">
                             <h3>Locations</h3>
                             <p class=m-b-1>Search our locations in
-                                <a href=#>South Australia</a>.
-                                <a href=#>Victoria</a>. or
-                                <a href=#>New South Wales</a>.</p>
+                                <a class=brand-quinary href=/locations/#sa>South Australia</a>.
+                                <a class=brand-quinary href=/locations/#vic>Victoria</a>. or
+                                <a class=brand-quinary href=/locations/#nsw>New South Wales</a>.</p>
                             <img width=100% src=/assets/img/layout/aus-locations.png usemap=#aus-map alt="Australia Map">
                             <map name=aus-map id=aus-map>
-                                <area alt="" title="" href=#SA shape=poly coords=197,194,352,193,352,373,199,284>
-                                <area alt="" title="" href=#NSW shape=poly coords=354,231,511,234,470,355,353,319>
-                                <area alt="" title="" href=#VIC shape=poly coords=355,321,356,376,455,395,468,357>
+                                <area alt="South Australia" title="South Australia" href=/locations/#sa shape=poly coords=197,194,352,193,352,373,199,284>
+                                <area alt="New South Wales" title="New South Wales" href=/locations/#nsw shape=poly coords=354,231,511,234,470,355,353,319>
+                                <area alt=Victoria title=Victoria href=#VIC shape=/locations/#vic coords=355,321,356,376,455,395,468,357>
                             </map>
                         </div>
                         <div class="sidebar-info-box sidebar-color-box is-muted">
                             <h3 class=m-b-1>Join us on</h3>
-                            <ul class="block-grid-xs-1 block-grid-md-2 social-media">
+                            <ul class="block-grid-xs-1 block-grid-md-2 social-media list-condensed">
                                 <li>
                                     <a href=https://www.facebook.com/workskil>
                                         <span class=display-table-cell>
@@ -441,14 +441,14 @@
                         <h4>Oops!</h4>
                         <p>Something went wrong. Please check the fields marked in red below.</p>
                     </div>
-                    <form class="form-quote form-quote-outlined" data-toggle=validator>
+                    <form id=form-contact class=form-contact data-toggle=validator>
                         <fieldset>
 
-                            <!-- FULL NAME -->
+                            <!-- NAME -->
                             <div class=form-group>
 
-                                <!-- <label for="name">Full Name*</label> -->
-                                <input class=form-control id=name name=Name type=text placeholder=Name* required>
+                                <!-- <label for="name">Name*</label> -->
+                                <input id=name class=form-control name=Name type=text placeholder=Name* required>
                                 <small class=error>Your name is required.</small>
                             </div>
 
@@ -456,15 +456,15 @@
                             <div class=form-group>
 
                                 <!-- <label for="phone">Phone</label> -->
-                                <input class=form-control id=phone name=Phone type=text placeholder=Phone>
+                                <input id=phone class=form-control name=Phone type=text placeholder=Phone>
                                 <small class=error>A valid phone number is required.</small>
                             </div>
 
                             <!-- CLIENT ID -->
                             <div class=form-group>
 
-                                <!-- <label for="name">Client ID*</label> -->
-                                <input class=form-control id=client-id name="Client ID" type=text placeholder="Client ID (JSID etc)" required>
+                                <!-- <label for="client-id">Client ID*</label> -->
+                                <input id=client-id class=form-control name="Client ID" type=text placeholder="Client ID (JSID etc)" required>
                                 <small class=error>Your client ID is required.</small>
                             </div>
 
@@ -472,7 +472,7 @@
                             <div class=form-group>
 
                                 <!-- <label for="email">Email*</label> -->
-                                <input class=form-control id=email name=Email type=email placeholder=Email* required>
+                                <input id=email name=Email class=form-control type=email placeholder=Email* required>
                                 <small class=error>A valid email is required.</small>
                             </div>
 
@@ -483,7 +483,7 @@
                                         <label for=program class=form-control-label>Which Workskil program is your feedback about? *</label>
                                     </div>
                                     <div class=col-md-6>
-                                        <select class=custom-select name=Program id=program required>
+                                        <select id=program class=custom-select name=Program required>
                                             <option selected value="" disabled>Select a program</option>
                                             <option>Option 1</option>
                                             <option>Option 2</option>
@@ -500,7 +500,7 @@
                                         <label for=staff-member class=form-control-label>Which Workskil staff member is your feedback about?</label>
                                     </div>
                                     <div class=col-md-6>
-                                        <input class=form-control id=staff-member name="Staff Member" type=text placeholder="">
+                                        <input id=staff-member class=form-control name="Staff Member" type=text placeholder="">
                                     </div>
                                 </div>
                             </div>
@@ -509,16 +509,16 @@
                             <div class=form-group>
                                 <div class=row>
                                     <div class=col-md-6>
-                                        <label for=response-back class=form-control-label>Would you like a response to your feedback from Workskil? *</label>
+                                        <label for=response-req class=form-control-label>Would you like a response to your feedback from Workskil? *</label>
                                     </div>
                                     <div class=col-md-6>
                                         <label class="custom-control custom-radio m-r-1">
-                                            <input class=custom-control-input name=response-back type=radio value=true required>
+                                            <input class=custom-control-input name="Response Req" type=radio value=true required>
                                             <span class=custom-control-indicator></span>
                                             <span class=custom-control-description>Yes</span>
                                         </label>
                                         <label class="custom-control custom-radio m-r-1">
-                                            <input class=custom-control-input name=response-back type=radio value=false required>
+                                            <input class=custom-control-input name="Response Req" type=radio value=false required>
                                             <span class=custom-control-indicator></span>
                                             <span class=custom-control-description>No</span>
                                         </label>
@@ -526,20 +526,20 @@
                                 </div>
                             </div>
 
-                            <!-- PREVIOUSLY DISCUSSED -->
+                            <!-- PREVIOUSLY DISCUSSED WITH -->
                             <div class=form-group>
                                 <div class=row>
                                     <div class=col-md-6>
-                                        <label for=previously-discussed class=form-control-label>Has this matter been previously discussed with a Workskil staff member *</label>
+                                        <label for=previously-discussed-with class=form-control-label>Has this matter been previously discussed with a Workskil staff member *</label>
                                     </div>
                                     <div class=col-md-6>
                                         <label class="custom-control custom-radio m-r-1">
-                                            <input class=custom-control-input name=previously-discussed type=radio value=true required>
+                                            <input class=custom-control-input name="Previously Discussed With" type=radio value=true required>
                                             <span class=custom-control-indicator></span>
                                             <span class=custom-control-description>Yes</span>
                                         </label>
                                         <label class="custom-control custom-radio m-r-1">
-                                            <input class=custom-control-input name=previously-discussed type=radio value=false required>
+                                            <input class=custom-control-input name="Previously Discussed With" type=radio value=false required>
                                             <span class=custom-control-indicator></span>
                                             <span class=custom-control-description>No</span>
                                         </label>
@@ -554,7 +554,7 @@
                                         <label for=previous-staff-member class=form-control-label>If yes, with whom did you discuss this?</label>
                                     </div>
                                     <div class=col-md-6>
-                                        <input class=form-control id=previous-staff-member name="Previous Staff Member" type=text placeholder="">
+                                        <input id=previous-staff-member class=form-control name="Previous Staff Member" type=text placeholder="">
                                     </div>
                                 </div>
                             </div>
@@ -567,17 +567,17 @@
                                     </div>
                                     <div class=col-md-10>
                                         <label class="custom-control custom-radio">
-                                            <input class=custom-control-input name=category type=radio value=Compliment required>
+                                            <input class=custom-control-input name=Category type=radio value=Compliment required>
                                             <span class=custom-control-indicator></span>
                                             <span class=custom-control-description>Compliment</span>
                                         </label>
                                         <label class="custom-control custom-radio">
-                                            <input class=custom-control-input name=category type=radio value=Comment required>
+                                            <input class=custom-control-input name=Category type=radio value=Comment required>
                                             <span class=custom-control-indicator></span>
                                             <span class=custom-control-description>Comment</span>
                                         </label>
                                         <label class="custom-control custom-radio">
-                                            <input class=custom-control-input name=category type=radio value=Complaint required>
+                                            <input class=custom-control-input name=Category type=radio value=Complaint required>
                                             <span class=custom-control-indicator></span>
                                             <span class=custom-control-description>Complaint</span>
                                         </label>
@@ -589,7 +589,7 @@
                             <!-- MESSAGE -->
                             <div class=form-group>
                                 <label for=message>Feedback relating to any Workskil service (please give a detailed description using dates and times where possible) *</label>
-                                <textarea class=form-control id=message name=Message rows=6 placeholder="" required></textarea>
+                                <textarea id=message class=form-control name=Message rows=6 placeholder="" required></textarea>
                                 <small class=error>A message is required.</small>
                             </div>
                             <br>
@@ -603,7 +603,7 @@
                                     <div class=col-md-1>
                                         <label class="form-check-inline custom-control m-r-1">
                                             <span class=custom-control-description></span>
-                                            <input id=privacy class="form-check-input custom-control-input" name=privacy type=checkbox value=true>
+                                            <input id=privacy class="form-check-input custom-control-input" name=Privacy type=checkbox value=true>
                                             <span class=custom-control-indicator></span>
                                         </label>
                                     </div>
