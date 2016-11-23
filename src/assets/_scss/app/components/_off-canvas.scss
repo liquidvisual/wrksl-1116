@@ -61,7 +61,7 @@ $hamburger-slit-height: 4px;
 		list-style: none;
 		padding: 0 0 50px 0;
 		margin: 0;
-		font-size: rem-calc(16);
+		font-size: 15px; //rem-calc(15);
 		overflow: hidden;
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
@@ -313,4 +313,13 @@ $hamburger-slit-height: 4px;
 		height: 100vh;
 		z-index: 1;
 	}
+}
+
+//-----------------------------------------------------------------
+// OFF CANVAS SEARCH
+//-----------------------------------------------------------------
+
+li.lv-off-canvas-search {
+	padding: rem-calc(20 0);
+	border-bottom: 0;
 }

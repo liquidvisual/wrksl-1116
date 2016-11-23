@@ -15,9 +15,23 @@ layout: base__page--short-header
 		<div class="col-lg-8 push-lg-4">
 			<div class="special-content special-content-extended">
 				<article class="media-article">
-					<h1 class="h2">{{ news_item.title }}</h1>
-					<date>{{ news_item.date }}</date>
+					<h1 class="h2 m-b-2">{{ news_item.title }}</h1>
 					<p><img class="img-right" src="http://placehold.it/496x312" alt="..."></p>
+
+					<h4 class="m-b-0">When:</h4>
+					<p class="lead-gray">Thursday 13 November 2016, 1.30 - 4.30pm</p>
+
+					<h4 class="m-b-0">Location:</h4>
+					<p class="lead-gray m-b-0">Tatiara District Council Offices<br>
+					43 Woolshed Street Bordertown SA</p>
+					<p><b><a href="/locations/">View Map <i class="fa fa-angle-right"></i></a></b></p>
+
+					<h4 class="m-b-0">Contact:</h4>
+					<p class="lead-gray">Phone Park on 0409 642 or email<br>
+					greenarmy@workskilyouth.com.au</p>
+
+					<div class="spacer m-b-1"></div>
+
 					{{ content | markdownify }}
 
 					<div class="m-t-1 m-b-2">
@@ -30,22 +44,6 @@ layout: base__page--short-header
 		<div class="col-lg-4 pull-lg-8">
 			<aside class="sidebar">
 				{% include snippets/side_nav.html %}
-
-				<div class="spacer m-b-1"></div>
-
-				<div class="special-list-block">
-					<h3>Other News</h3>
-					<ul class="list-block is-condensed">
-						{% for item in news | limit: 3 %}
-							<li>
-								<a href="/about/news/news-item/">
-									<h4 class="m-b-0">{{ item.title }} <i class="fa fa-angle-right"></i></h4>
-								</a>
-							</li>
-						{% endfor %}
-					</ul>
-				</div>
-
 			</aside>
 		</div>
 	</div>

@@ -25,6 +25,12 @@ h1, h2, h3, h4, h5, h6 {
 	// line-height: 1.2;
 }
 
+.lead-gray {
+	font-size: rem-calc(20);
+	font-weight: bold;
+	color: #b1b1b1;
+}
+
 .icon-header {
 	display: table;
 

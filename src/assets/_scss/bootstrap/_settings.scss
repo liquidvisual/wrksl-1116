@@ -221,7 +221,7 @@ $font-size-h6: rem-calc(14); //1rem !default;
 $headings-font-family:   'Montserrat', sans-serif;
 $headings-font-weight:   600 !default;
 // $headings-line-height:   1.1 !default;
-// $headings-color:         inherit !default;
+$headings-color:         $brand-quinary; //inherit !default;
 
 $lead-font-size:   rem-calc(25); //1.25rem !default;
 $lead-font-weight: bold;
@@ -339,7 +339,7 @@ $lead-font-weight: bold;
 // // Forms
 
 // $input-padding-x:                .75rem !default;
-$input-padding-y:                rem-calc(10); //.5rem !default;
+$input-padding-y:                rem-calc(13); //.5rem !default;
 // $input-line-height:              1.25 !default;
 
 // $input-bg:                       #fff !default;

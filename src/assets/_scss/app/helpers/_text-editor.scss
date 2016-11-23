@@ -21,7 +21,7 @@ $spacer: rem-calc(20) !default;
 	    width: 100%;
 	}
 
-	@include media-breakpoint-up(md) {
+	@include media-breakpoint-up(xl) {
 	    float: left;
 	    margin: $spacer $spacer 0 0;
 	}
@@ -34,7 +34,7 @@ $spacer: rem-calc(20) !default;
 	    width: 100%;
 	}
 
-	@include media-breakpoint-up(md) {
+	@include media-breakpoint-up(xl) {
 	    float: right;
 	    margin: 0 0 $spacer $spacer;
 	}

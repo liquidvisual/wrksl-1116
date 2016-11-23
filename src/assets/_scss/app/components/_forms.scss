@@ -15,14 +15,37 @@ input[type="text"],
 input[type="email"],
 input[type="phone"],
 input[type="password"],
-textarea {
+textarea,
+.custom-control-indicator,
+.custom-select {
 	-webkit-appearance: none; // removes shadow on iOS
+	border: 2px solid #e2e1e1;
+	background-color: #f3f3f5;
+	border-radius: 0;
 }
 
-// ::-webkit-input-placeholder { font-weight: normal !important; }
-// ::-moz-placeholder { font-weight: normal !important; }
-// :-ms-input-placeholder { font-weight: normal !important; }
-// input:-moz-placeholder { font-weight: normal!important ; }
+select {
+	background-color: #f3f3f5;
+	font-weight: bold;
+	height: 50px;
+	width: 100%;
+}
+
+label {
+	font-weight: bold;
+}
+
+form button {
+	transition: background ease 300ms;
+	&:hover {
+		background: darken($brand-primary, 10%);
+	}
+}
+
+::-webkit-input-placeholder { color: #545353 !important; font-weight: bold; }
+::-moz-placeholder { color: #545353 !important; font-weight: bold; }
+:-ms-input-placeholder { color: #545353 !important; font-weight: bold; }
+input:-moz-placeholder { color: #545353 !important; font-weight: bold; }
 
 //-----------------------------------------------------------------
 // BOOTSTRAP VALIDATION
@@ -60,6 +83,10 @@ form[data-toggle="validator"] .has-error > .error {
 	h1, h2, h3, h4, h5, h6 {
 		color: $brand-danger !important;
 	}
+}
+
+.form-locations {
+	margin-bottom: rem-calc(45);
 }
 
 //=========================================

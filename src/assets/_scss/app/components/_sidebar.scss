@@ -28,8 +28,6 @@
     h2 {
         font-size: rem-calc(25);
     }
-
-
 }
 
 //-----------------------------------------------------------------
@@ -84,6 +82,22 @@
         text-align: center;
         color: $brand-primary;
         background: rgba(white, 0.5);
+    }
+}
+
+//-----------------------------------------------------------------
+// SIDEBAR LOCATION BOX (USED IN CONTACT US)
+//-----------------------------------------------------------------
+
+.sidebar-location-box {
+    background: $brand-secondary;
+
+    p {
+        font-size: rem-calc(18) !important;
+    }
+
+    a {
+        color: $brand-quinary;
     }
 }
 

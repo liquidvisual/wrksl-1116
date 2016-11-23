@@ -98,6 +98,38 @@
 	}
 }
 
+//-----------------------------------------------------------------
+// THEME CONTACT
+//-----------------------------------------------------------------
+
+.theme-contact {
+	.sidebar-color-box.is-muted {
+	    background: lighten($brand-secondary, 5%);
+	    .fa-info { color: $brand-secondary; }
+	}
+
+	.sidebar-color-box {
+		color: white;
+
+		p {
+			font-size: rem-calc(16);
+			// font-weight: 600;
+		}
+
+		a {
+			color: white;
+		}
+
+		.brand-quinary {
+			color: $brand-quinary;
+
+			&:hover {
+				color: darken($brand-quinary, 10%);
+			}
+		}
+	}
+}
+
 //=========================================
 //
 //=========================================

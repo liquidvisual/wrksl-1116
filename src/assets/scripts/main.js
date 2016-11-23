@@ -17,6 +17,12 @@ $(function() {
     });
 
     //-----------------------------------------------------------------
+    // IMAGE MAP RESZIER
+    //-----------------------------------------------------------------
+
+    $('#aus-map').imageMapResize();
+
+    //-----------------------------------------------------------------
     // SITEMAP TRIGGER
     //-----------------------------------------------------------------
 
@@ -30,11 +36,23 @@ $(function() {
     //-----------------------------------------------------------------
 
     $('[data-search-trigger]').click(function(event){
-        $('[data-search]').toggleClass('is-hidden');
+
+        var $search = $('[data-search]');
+        //var searchIsHidden = $search.hasClass('is-hidden');
+
+        $search.removeClass('is-hidden');
+
+        $(document).on('scroll', function(){
+            $search.addClass('is-hidden');
+            // automatically close the keyboard on iOS
+            document.activeElement.blur();
+        });
     });
 
-    $('[data-search] .close').click(function(event){
+    $('[data-search] .close').on('click', function(){
         $('[data-search]').addClass('is-hidden');
+        // automatically close the keyboard on iOS
+        document.activeElement.blur();
     });
 
     //-----------------------------------------------------------------
@@ -43,6 +61,23 @@ $(function() {
 
     key('⌘+shift+m, ctrl+shift+m', function(){
       window.location = '/manage/';
+    });
+
+    //-----------------------------------------------------------------
+    // SCROLL TO
+    //-----------------------------------------------------------------
+
+    $('a[href*="#"]:not([href="#"]):not(.accordion a)').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+                $('html,body').animate({
+                    scrollTop: target.offset().top
+                }, 800);
+                return false;
+            }
+        }
     });
 
     //-----------------------------------------------------------------
@@ -93,6 +128,29 @@ $(function() {
     });
 
 //--
+});
+
+//-----------------------------------------------------------------
+// ACCORDION - USED IN LOCATIONS
+//-----------------------------------------------------------------
+
+$('[data-accordion-trigger] a').on('click', function(event){
+    var $this = $(this);
+    var id = $this.attr('href');
+    var isOpen = $this.hasClass('active');
+
+    if ($(window).width > 540) event.preventDefault();
+
+    if (isOpen) {
+        $('[data-accordion-trigger] a').removeClass('active');
+        $('[data-accordion]').removeClass('active');
+    } else {
+        // remove all active classes
+        $('[data-accordion-trigger] a').removeClass('active');
+        $this.addClass('active');
+        $('[data-accordion]').removeClass('active');
+        $(id).addClass('active');
+    }
 });
 
 //==================================================

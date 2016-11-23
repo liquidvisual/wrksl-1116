@@ -1,55 +1,33 @@
 /*
-    SOCIAL-MEDIA.CSS
+    CARDS.CSS
 
-    - Last updated: 30.11.16
+    - Last updated: 22.11.16
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
 // VARIABLES
 //-----------------------------------------------------------------
 //--------------------------------------------------------------------
-// SOCIAL MEDIA
+// CARDS
 //--------------------------------------------------------------------
 
-.social-media a {
-	display: inline-block;
+.card-location {
+	background: #eeeeee;
+	padding: rem-calc(30);
 
 	i {
-		width: rem-calc(44);
-		height: rem-calc(44);
-		line-height: rem-calc(44);
-		font-size: rem-calc(25);
-		text-align: center;
-		background: white;
-		border-radius: 100%;
 		color: $brand-primary;
-		transition: background ease 300ms;
-	}
+		font-size: rem-calc(16);
 
-	&:hover i {
-		background: rgba(white, 0.8);
+		@include media-breakpoint-up(xl) {
+		    font-size: rem-calc(20);
+		}
 	}
 }
 
 //-----------------------------------------------------------------
 //
 //-----------------------------------------------------------------
-
-.sidebar-info-box .social-media {
-	a {
-		display: table;
-	}
-
-	i {
-		color: $brand-secondary;
-		margin-right: rem-calc(10);
-	}
-
-	.text {
-		font-size: rem-calc(18);
-	}
-}
-
 //=========================================
 //
 //=========================================

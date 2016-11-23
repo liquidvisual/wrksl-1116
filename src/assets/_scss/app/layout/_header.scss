@@ -42,7 +42,10 @@
     	overflow: hidden;
     }
     .global-navigation .topbar {
-    	bottom: 35px;
+    	bottom: 43px;
+    }
+    .global-header-body .logo img {
+    	width: 209px;
     }
 }
 
@@ -153,6 +156,7 @@
 	img {
 		width: 150px;
 		padding: rem-calc(15 0);
+		transition: width 200ms ease, height 200ms ease;
 
 		@include media-breakpoint-up(md) {
 			width: 250px;

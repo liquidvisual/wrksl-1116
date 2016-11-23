@@ -1,5 +1,13 @@
 /*
-	EQUAL-HEIGHT.JS - Last updated: 27.10.15
+	EQUAL-HEIGHT.JS - Last updated: 23.11.16
+
+    USAGE: place data-equal-height on each element
+
+    Thanks to CSS Tricks for pointing out this bit of jQuery
+    http://css-tricks.com/equal-height-blocks-in-rows/
+    It's been modified into a function called at page load and then each time the page is resized. One large modification was to remove the set height before each new calculation.
+
+    http://codepen.io/micahgodbolt/pen/FgqLc
 */
 //-----------------------------------------------------------------
 // EQUAL HEIGHT
@@ -12,13 +20,7 @@
     // Variables
     //==================================================
 
-    var equalHeightElement = $('[data-match-height]');
-
-    /* Thanks to CSS Tricks for pointing out this bit of jQuery
-    http://css-tricks.com/equal-height-blocks-in-rows/
-    It's been modified into a function called at page load and then each time the page is resized. One large modification was to remove the set height before each new calculation. */
-
-    // http://codepen.io/micahgodbolt/pen/FgqLc
+    var equalHeightElement = $('[data-equal-height]');
 
     //==================================================
     // Launch

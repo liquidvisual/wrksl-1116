@@ -47,6 +47,7 @@
 	input {
 		height: 44px;
 		border: 0 !important;
+		font-size: 15px;
 	}
 
 	.btn {
@@ -60,6 +61,50 @@
 		i {
 			font-size: rem-calc(25);
 		}
+	}
+}
+
+//-----------------------------------------------------------------
+// GLOBAL SEARCH (CONTEXT)
+//-----------------------------------------------------------------
+
+.lv-off-canvas .global-search.is-hidden {
+	position: static;
+	opacity: 1;
+	background: none;
+
+	.container {
+		padding: 0;
+		text-align: left !important;
+		padding-right: 15px;
+		width: 100%;
+	}
+
+	.global-search-form-wrapper {
+		width: 100%;
+	}
+
+	input {
+		background: #4a4a4a;
+		color: white;
+		font-size: 15px;
+	}
+
+	::-webkit-input-placeholder { color: white !important; }
+	::-moz-placeholder { color: white !important; }
+	:-ms-input-placeholder { color: white !important; }
+	input:-moz-placeholder { color: white !important; }
+
+	.btn {
+		background: #313030;
+
+		&:hover {
+			background: darken(#313030, 5%);
+		}
+	}
+
+	.close {
+		display: none;
 	}
 }
 

@@ -1,0 +1,55 @@
+/*
+    ACCORDION.CSS
+
+    - Last updated: 22.11.16
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//--------------------------------------------------------------------
+// ACCORDION
+//--------------------------------------------------------------------
+
+.accordion-trigger {
+	cursor: pointer;
+	// padding-bottom: $spacer;
+	a.active {
+		background: $brand-primary;
+	}
+}
+
+.accordion {
+	max-height: 0;
+	overflow: hidden;
+	opacity: 0;
+	transition: opacity ease 800ms;
+	// transition: max-height .8s cubic-bezier(0, 1, 0, 1) -.1s;
+
+	&.active {
+		opacity: 1;
+		max-height: none;
+		padding-top: rem-calc(5);
+		border-top: 30px solid $brand-primary;
+		// max-height: 9999px;
+		// transition-timing-function: cubic-bezier(0.5, 0, 1, 0);
+		// transition-delay: 0s;
+	}
+}
+
+//-----------------------------------------------------------------
+// SPECIAL BLOCK STRIP - USED IN LOCATIONS AT BOTTOM OF TABS
+//-----------------------------------------------------------------
+
+.accordion-block {
+	height: rem-calc(25);
+	background: $brand-primary;
+	margin-bottom: rem-calc(7);
+}
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
+//=========================================
+//
+//=========================================

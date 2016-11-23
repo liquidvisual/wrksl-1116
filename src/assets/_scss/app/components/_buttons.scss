@@ -17,7 +17,8 @@
 	border-radius: 0;
 	background: $brand-primary;
 	font-size: rem-calc(18);
-	padding: rem-calc(15 25 15 30);
+	// padding: rem-calc(15 25 15 30);
+	padding: rem-calc(14 20 14 20);
 	color: white;
 
 	i {
@@ -110,6 +111,27 @@
 		@include media-breakpoint-up(xl) {
 		    background: darken($brand-quinary, 5%);
 		}
+	}
+}
+
+//--------------------------------------------------------------------
+// Button Tile Dropdown
+//--------------------------------------------------------------------
+
+.btn-tile-dropdown {
+	padding-top: rem-calc(70);
+
+	.text {
+		color: white;
+
+		@include media-breakpoint-down(md) {
+		    font-size: rem-calc(18);
+		}
+	}
+
+	.fa {
+		right: 20px;
+		font-size: rem-calc(40);
 	}
 }
 
