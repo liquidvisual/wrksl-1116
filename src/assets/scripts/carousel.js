@@ -16,8 +16,6 @@
         var isTablet = $(window).width() < 1025;
         var pause = $('.lv-hero-item-carousel').attr('data-pause');
 
-        console.log(pause);
-
         $('.lv-hero-item-carousel').bxSlider({
             auto: true,
             mode: 'fade', // fade (much have fixed height or won't work)
