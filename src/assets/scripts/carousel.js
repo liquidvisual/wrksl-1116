@@ -14,6 +14,9 @@
 
     function launchHeroCarousel() {
         var isTablet = $(window).width() < 1025;
+        var pause = $('.lv-hero-item-carousel').attr('data-pause');
+
+        console.log(pause);
 
         $('.lv-hero-item-carousel').bxSlider({
             auto: true,
@@ -22,7 +25,7 @@
             responsive: true,
             touchEnabled: false,
             speed: 2000,
-            pause: 8000,
+            pause: pause,
             slideMargin: 0,
             slideSelector: ".lv-hero-item-carousel-slide",
             minSlides: 1,
