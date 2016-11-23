@@ -42,10 +42,11 @@
     	overflow: hidden;
     }
     .global-navigation .topbar {
-    	bottom: 43px;
+    	bottom: 29px;
     }
     .global-header-body .logo img {
     	width: 209px;
+    	padding: rem-calc(15 0);
     }
 }
 
@@ -161,6 +162,7 @@
 		@include media-breakpoint-up(md) {
 			width: 250px;
 		    padding: rem-calc(29 0);
+		    // padding: none;
 		}
 
 		@include media-breakpoint-up(xl) {
@@ -214,7 +216,8 @@
 	    margin-right: $spacer*2;
 	}
 
-	h1 {
+	h1,
+	.h1 {
 		@include media-breakpoint-down(sm) {
 		    font-size: rem-calc(35);
 		}

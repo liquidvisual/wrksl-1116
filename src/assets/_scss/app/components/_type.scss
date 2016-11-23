@@ -12,8 +12,8 @@
 //--------------------------------------------------------------------
 
 html {
-	@include media-breakpoint-down(lg) { font-size: 14px; } // LG
-	@include media-breakpoint-down(md) { font-size: 14px; } // MD
+	@include media-breakpoint-down(lg) { font-size: 15px; } // LG
+	@include media-breakpoint-down(md) { font-size: 15px; } // MD
 	@include media-breakpoint-down(sm) { font-size: $font-size-xs; } // XS
 }
 
@@ -60,9 +60,9 @@ a {
 // PARAGRAPHS
 //-----------------------------------------------------------------
 
-p, ul, ol {
+p, ul, ol, td {
 	@include media-breakpoint-up(lg) {
-	    font-size: $font-size-lg;
+	    font-size: $font-size-lg; //15
 	}
 }
 

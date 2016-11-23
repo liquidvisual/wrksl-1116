@@ -1,0 +1,59 @@
+/*
+    CAROUSEL.CSS
+
+    - Last updated: 23.11.16
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//--------------------------------------------------------------------
+// CAROUSEL
+//--------------------------------------------------------------------
+
+.lv-hero-item-carousel-wrapper,
+.lv-hero-item-carousel {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.lv-hero-item-carousel-wrapper {
+	.bx-wrapper,
+	.bx-viewport {
+		height: 100%;
+		// overflow: hidden;
+	}
+}
+
+.lv-hero-item-carousel {
+	.lv-hero-item-carousel-slide {
+		position: relative;
+		height: 600px;
+		display: block;
+		width: 100%;
+		height: 100%;
+		float: left;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+	}
+}
+
+// MOVED TO HERO
+
+// .lv-hero-item-caption {
+// 	position: relative;
+// 	z-index: 1;
+// }
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
+//=========================================
+//
+//=========================================

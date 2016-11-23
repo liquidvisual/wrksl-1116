@@ -61,9 +61,9 @@
     // Loader - to replace NProgress
     //-----------------------------------------------------------------
 
-    $(window).on('load',function() {
-        $('[data-page-loader]').addClass('has-loaded');
-    });
+    // $(window).on('load',function() {
+    //     $('[data-page-loader]').addClass('has-loaded');
+    // });
 
 }(jQuery));
 

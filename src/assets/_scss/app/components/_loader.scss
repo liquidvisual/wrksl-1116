@@ -12,19 +12,20 @@
 //-----------------------------------------------------------------
 
 .lv-page-loader {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: #333333;
-	z-index: 2147483647;
-	transition: opacity ease 1s, visibility ease 1s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #333333;
+    z-index: 2147483647;
+    transition: opacity ease 1s, visibility ease 1s;
+    display: none;
+}
 
-	&.has-loaded {
-		opacity: 0;
-		visibility: hidden;
-	}
+.has-loaded .lv-page-loader {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .lt-ie10 .lv-page-loader {

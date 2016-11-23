@@ -15,7 +15,11 @@ layout: base
 						<div class="row">
 							<div class="col-lg-6">
 								<header class="page-header">
-									<h1>{{ page.title }}</h1>
+									{% if page.title_override %}
+										<h2 class="h1">{{ page.title_override }}</h2>
+									{% else %}
+										<h1>{{ page.title }}</h1>
+									{% endif %}
 								</header>
 							</div>
 						</div>
