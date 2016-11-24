@@ -17,7 +17,7 @@
         var pause = $('.lv-hero-item-carousel').attr('data-pause');
 
         $('.lv-hero-item-carousel').bxSlider({
-            auto: true,
+            auto: false,
             mode: 'fade', // fade (much have fixed height or won't work)
             adaptiveHeight: true,
             responsive: true,
