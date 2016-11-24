@@ -36,18 +36,18 @@ html {
 }
 
 //-----------------------------------------------------------------
-// MIMICK FLEX
+// MIMICK FLEX - USED IN HOMEPAGE HERO
 //-----------------------------------------------------------------
 
 .table-row {
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lg) {
         display: table;
         width: 100%;
         margin: 0;
     }
 
     [class*='col-'] {
-        @include media-breakpoint-up(xl) {
+        @include media-breakpoint-up(lg) {
             display: table-cell;
             float: none;
             padding: 0;
