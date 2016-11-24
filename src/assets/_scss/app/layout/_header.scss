@@ -45,8 +45,11 @@
     	bottom: 29px;
     }
     .global-header-body .logo img {
-    	width: 209px;
     	padding: rem-calc(15 0);
+
+    	@include media-breakpoint-up(md) {
+    	    width: 209px;
+    	}
     }
 }
 
