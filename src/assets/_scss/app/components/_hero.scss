@@ -131,8 +131,8 @@ $hero-carousel-bullet-size: rem-calc(16)  !default;
     }
 
     @include media-breakpoint-up(lg) {
-        padding-top: calc(#{rem-calc(100)} + #{$header-height-lg});
-        padding-bottom: rem-calc(90);
+        padding-top: calc(#{rem-calc(100)} + #{rem-calc(210)});
+        padding-bottom: rem-calc(30);
     }
 
     @include media-breakpoint-up(xl) {

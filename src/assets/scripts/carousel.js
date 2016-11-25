@@ -13,11 +13,11 @@
     //-----------------------------------------------------------------
 
     function launchHeroCarousel() {
-        var isTablet = $(window).width() < 1025;
+        //var isTablet = $(window).width() > 992;
         var pause = $('.lv-hero-item-carousel').attr('data-pause');
 
         $('.lv-hero-item-carousel').bxSlider({
-            auto: false,
+            auto: true,
             mode: 'fade', // fade (much have fixed height or won't work)
             adaptiveHeight: true,
             responsive: true,

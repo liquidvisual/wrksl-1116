@@ -25,6 +25,25 @@
 	   		}
 	    }
 	}
+
+	.lv-hero-item-carousel-wrapper {
+		@include media-breakpoint-down(md) {
+		    // visibility: hidden;
+		    display: none;
+		}
+	}
+
+	.lv-hero-item {
+		@include media-breakpoint-down(md) {
+		    background-position: bottom right;
+		}
+	}
+
+	.lv-hero-item-caption {
+		@include media-breakpoint-down(sm) {
+		    padding-top: calc(#{rem-calc(110)} + #{$header-height-sm} + #{rem-calc(32)});
+		}
+	}
 }
 
 //-----------------------------------------------------------------

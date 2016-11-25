@@ -11,6 +11,43 @@
 $spacer: rem-calc(20) !default;
 
 //-----------------------------------------------------------------
+// WYSIWYG
+//-----------------------------------------------------------------
+
+.wysiwyg {
+	h2, .h2 {
+		font-size: $font-size-h3;
+		margin-bottom: $spacer*2;
+	}
+
+	h3, .h3 {
+		font-size: $font-size-h4;
+		margin-bottom: $spacer;
+		color: #979596;
+	}
+
+	h3, h4, h5, h6 {
+		color: #979596;
+	}
+
+	p {
+		margin-bottom: $spacer*2;
+	}
+
+	*:not(h2) {
+		@include media-breakpoint-up(xl) {
+		    padding-right: rem-calc(145);
+		}
+	}
+}
+
+// .special-content-xl-p-r {
+// 	@include media-breakpoint-up(xl) {
+// 	    padding-right: rem-calc(145);
+// 	}
+// }
+
+//-----------------------------------------------------------------
 // IMAGE ALIGNMENT
 //-----------------------------------------------------------------
 

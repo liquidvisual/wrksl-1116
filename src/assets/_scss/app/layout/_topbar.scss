@@ -188,7 +188,8 @@ $dropdowns-have-anchor-borders : true;
     // padding: rem-calc(10); // optional
     top: auto;
     left: 0;
-    width: rem-calc(240);
+    // width: rem-calc(240);
+    width: rem-calc(400);
     // background: lighten($brand-primary, 12%);
     background: white;
     border-radius: 0 0 $global-radius $global-radius;

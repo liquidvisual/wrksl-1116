@@ -49,6 +49,14 @@
     background: lighten($brand-primary, 5%);
     color: white;
 
+    a {
+        color: rgba(black, 0.6);
+
+        &:hover {
+            color: rgba(black, 0.9);
+        }
+    }
+
     &.is-muted {
         background: $brand-primary;
     }
