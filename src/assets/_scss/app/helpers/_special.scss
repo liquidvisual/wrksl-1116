@@ -29,14 +29,16 @@
 	@include media-breakpoint-up(xl) {
 	    position: relative;
 	    left: -80px;
+	    width: calc(100% + 80px);
 	}
 }
 
-.special-content-extended {
-	@include media-breakpoint-up(xl) {
-		width: calc(100% + 80px);
-	}
-}
+// LEGACY
+// .special-content-extended {
+// 	@include media-breakpoint-up(xl) {
+// 		width: calc(100% + 80px);
+// 	}
+// }
 
 //-----------------------------------------------------------------
 // PAGER

@@ -33,19 +33,7 @@ $spacer: rem-calc(20) !default;
 	p {
 		margin-bottom: $spacer*2;
 	}
-
-	*:not(h2) {
-		@include media-breakpoint-up(xl) {
-		    padding-right: rem-calc(145);
-		}
-	}
 }
-
-// .special-content-xl-p-r {
-// 	@include media-breakpoint-up(xl) {
-// 	    padding-right: rem-calc(145);
-// 	}
-// }
 
 //-----------------------------------------------------------------
 // IMAGE ALIGNMENT
