@@ -49,6 +49,22 @@
     background: lighten($brand-primary, 5%);
     color: white;
 
+    h2 {
+        margin-bottom: $spacer;
+
+        @include media-breakpoint-up(md) {
+            margin-bottom: rem-calc(30);
+        }
+    }
+
+    h3 {
+        font-size: $font-size-h4;
+    }
+
+    h4 {
+        font-size: $font-size-h5;
+    }
+
     a {
         color: rgba(black, 0.6);
 

@@ -7,11 +7,11 @@ theme: theme-about
 tagline: Find out more about Workskil Australia
 ---
 
-## Workskil Australia is a national not-for-profit organisation, with over 30 proud years of supporting Australians to achieve sustained economic and social self-reliance.
+<h2>Workskil Australia is a national not-for-profit organisation, with over 30 proud years of supporting Australians to achieve sustained economic and social self-reliance.</h2>
 
-<div class="spacer m-b-1"></div>
+We do this by providing a range of employment, work experience, disability, youth, Indigenous and health services across New South Wales, South Australia and Victoria. [This is a link](/)
 
-We do this by providing a range of employment, work experience, disability, youth, Indigenous and health services across New South Wales, South Australia and Victoria.
+<h3>This is a H3 Heading</h3>
 
 We work hard every day to:
 

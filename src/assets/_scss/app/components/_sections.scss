@@ -28,7 +28,7 @@
 }
 
 //--------------------------------------------------------------------
-// SECTION SPLIT (Appears on Homepage)
+// SECTION SPLIT (Appears on Homepage only)
 //--------------------------------------------------------------------
 
 .section-split {
@@ -79,6 +79,7 @@
 
 		.anchor {
 			color: $brand-quinary;
+			transition: color ease 300ms;
 		}
 	}
 
@@ -96,6 +97,14 @@
 			@include media-breakpoint-up(md) {
 			    right: 0;
 			}
+		}
+
+		.media .anchor {
+			color: rgba($brand-quinary, 0.8);
+		}
+
+		a:hover .media .anchor {
+			color: $brand-quinary;
 		}
 	}
 
@@ -115,6 +124,10 @@
 
 		.media .anchor {
 			color: $brand-primary;
+		}
+
+		a:hover .media .anchor {
+			color: darken($brand-primary, 10%);
 		}
 	}
 }
