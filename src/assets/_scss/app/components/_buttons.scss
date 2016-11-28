@@ -76,7 +76,7 @@
 //--------------------------------------------------------------------
 
 .btn-tile {
-	display: block;
+	display: table;
 	position: relative;
 	width: 100%;
 	padding: rem-calc(24);
@@ -89,12 +89,18 @@
 	}
 
 	h3 {
-		min-height: rem-calc(70);
+		// min-height: rem-calc(70);
+		display: table-row;
 	}
 
 	p {
+		display: table-cell;
+		vertical-align: bottom;
+		width: 100%;
 		color: rgba(white, 0.56);
 		margin-bottom: 0;
+
+		padding-top: rem-calc(32);
 	}
 
 	.fa {

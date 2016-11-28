@@ -20,14 +20,24 @@ $(function() {
     // EQUAL HEIGHT
     //-----------------------------------------------------------------
 
-    $('[data-equal-height]').matchHeight(
-     {
-         byRow: false,
-         property: 'height',
-         target: null,
-         remove: false,
-         mq: "(min-width: 768px)"
-     });
+    if ($('.lt-ie10').length) {
+        $('[data-equal-height]').matchHeight(
+         {
+             byRow: false,
+             property: 'height',
+             target: null,
+             remove: false
+         });
+    } else {
+        $('[data-equal-height]').matchHeight(
+         {
+             byRow: false,
+             property: 'height',
+             target: null,
+             remove: false,
+             mq: "(min-width: 768px)"
+         });
+    }
 
     //-----------------------------------------------------------------
     // IMAGE MAP RESZIER

@@ -15,23 +15,26 @@ $spacer: rem-calc(20) !default;
 //-----------------------------------------------------------------
 
 .wysiwyg {
-	h2, .h2 {
+	h2 {
 		font-size: $font-size-h3;
-		margin-bottom: $spacer*2;
-	}
-
-	h3, .h3 {
-		font-size: $font-size-h4;
-		margin-bottom: $spacer;
-		color: #979596;
 	}
 
 	h3, h4, h5, h6 {
+		font-size: $font-size-h4;
 		color: #979596;
 	}
 
-	p {
-		margin-bottom: $spacer*2;
+	h2, h3, h4, p, ul, ol {
+		margin-bottom: rem-calc(32);
+	}
+
+	ul li,
+	ol li {
+		margin-bottom: rem-calc(8);
+	}
+
+	iframe {
+		max-width: 100%;
 	}
 }
 
