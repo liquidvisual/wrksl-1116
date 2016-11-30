@@ -75,9 +75,8 @@
 // Bootstrap messed up - check to see if removed in future versions
 //--------------------------------------------------------------------
 
-body.modal-open [style] {
+.modal-open[style] {
 	padding-right: 0 !important;
-
 }
 
 //=========================================

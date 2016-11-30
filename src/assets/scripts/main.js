@@ -17,6 +17,16 @@ $(function() {
     });
 
     //-----------------------------------------------------------------
+    // FORM
+    //-----------------------------------------------------------------
+
+    // https://github.com/1000hz/bootstrap-validator/issues/336
+    // PROBLEMS WITH MODAL - hot patch
+    $('#modal-newsletter').on('shown.bs.modal', function () {
+        $(this).find('form').validator('destroy').validator()
+    });
+
+    //-----------------------------------------------------------------
     // EQUAL HEIGHT
     //-----------------------------------------------------------------
 

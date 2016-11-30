@@ -99,8 +99,11 @@
 		width: 100%;
 		color: rgba(white, 0.56);
 		margin-bottom: 0;
-
 		padding-top: rem-calc(32);
+	}
+
+	p.v-align-middle {
+		vertical-align: middle;
 	}
 
 	.fa {
