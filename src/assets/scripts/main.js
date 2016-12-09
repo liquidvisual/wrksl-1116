@@ -100,18 +100,18 @@ $(function() {
     // SCROLL TO
     //-----------------------------------------------------------------
 
-    $('a[href*="#"]:not([href="#"]):not(.accordion a)').click(function() {
-        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-            if (target.length) {
-                $('html,body').animate({
-                    scrollTop: target.offset().top
-                }, 800);
-                return false;
-            }
-        }
-    });
+    // $('a[href*="#"]:not([href="#"])').click(function(event) {
+    //     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+    //         var target = $(this.hash);
+    //         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    //         if (target.length) {
+    //             $('html,body').animate({
+    //                 scrollTop: target.offset().top
+    //             }, 800);
+    //             // /return false;
+    //         }
+    //     }
+    // });
 
     //-----------------------------------------------------------------
     // HEADROOM.js
@@ -159,33 +159,30 @@ $(function() {
         // callback when moving away from bottom of page, `this` is headroom object
         onNotBottom : function() {}
     });
-
 //--
 });
 
 //-----------------------------------------------------------------
-// ACCORDION - USED IN LOCATIONS
+// SCROLLTO ANYTHING WITH AN ID
+// USAGE:
+// pass #id as target - window will scroll to it
 //-----------------------------------------------------------------
 
-$('[data-accordion-trigger] a').on('click', function(event){
-    var $this = $(this);
-    var id = $this.attr('href');
-    var isOpen = $this.hasClass('active');
+function scrollTo(id) {
+    var href = id;
+    var offset = $(window).width() > 540 ? 250 : 0;
+    var offsetTop = href === "#" ? 0 : $(href).offset().top - offset;
 
-    if ($(window).width > 540) event.preventDefault();
+    $('html, body').stop().animate({
+        scrollTop: offsetTop
+    }, 800);
+}
 
-    if (isOpen) {
-        $('[data-accordion-trigger] a').removeClass('active');
-        $('[data-accordion]').removeClass('active');
-    } else {
-        // remove all active classes
-        $('[data-accordion-trigger] a').removeClass('active');
-        $this.addClass('active');
-        $('[data-accordion]').removeClass('active');
-        $(id).addClass('active');
-    }
+//==================================================
+// PLACE ON CLICKS
+//==================================================
+
+$('a[href*="#"]:not([href="#"])').click(function(event) {
+    // event.preventDefault();
+    scrollTo($(this).attr('href'));
 });
-
-//==================================================
-//
-//==================================================
