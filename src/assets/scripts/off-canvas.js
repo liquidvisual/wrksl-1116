@@ -1,7 +1,8 @@
 /*
-    OFF-CANVAS.JS - Last updated: 14.11.16
+    OFF-CANVAS.JS - Last updated: 13.12.16
 
     - Notes: Latest Nov version fixes major problem with 3rd lvls
+    * off-canvas closes when clicking hash tag anchor
 */
 //-----------------------------------------------------------------
 //
@@ -20,6 +21,7 @@
     var $dropdowns = $('.lv-off-canvas .dropdown');
     var $lvPage = $('.lv-page');
     var $lvOffCanvas = $('.lv-off-canvas');
+    var $hashAnchor = $('a[href*="#"]:not([href="#"])', $lvOffCanvas);
     var $submenuTrigger = $('<span class="submenu-trigger"><i class="fa fa-angle-right"></i></span>');
 
     //-----------------------------------------------------------------
@@ -55,6 +57,19 @@
                 });
             }, 10)
         }
+    });
+
+    //-----------------------------------------------------------------
+    // HASH ANCHOR CLICK - NEW -
+    //-----------------------------------------------------------------
+
+    $hashAnchor.click(function(event){
+        event.preventDefault();
+        event.stopPropagation();
+        $globalHeader.removeAttr('style');
+        clearInterval(intervalId);
+        $html.removeClass('has-open-menu').addClass('has-closed-menu');
+        $lvPage.unbind('click');
     });
 
     //-----------------------------------------------------------------
