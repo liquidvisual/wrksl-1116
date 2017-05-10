@@ -2,164 +2,142 @@
     MAIN.JS - Last updated: 06.10.16
 */
 //-----------------------------------------------------------------
-//
+// ON LOAD
 //-----------------------------------------------------------------
 
-$(function() {
+$(window).on('load', function() {
+    $('html').addClass('has-loaded');
+    $('input, textarea').placeholder(); // IE9 Patch
+});
 
-    //-----------------------------------------------------------------
-    // WINDOW LOAD
-    //-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// FORM
+//-----------------------------------------------------------------
 
-    $(window).on('load', function() {
-        $('html').addClass('has-loaded');
-        $('input, textarea').placeholder(); // IE9 Patch
-    });
+// https://github.com/1000hz/bootstrap-validator/issues/336
+// PROBLEMS WITH MODAL - hot patch
+$('#modal-newsletter').on('shown.bs.modal', function () {
+    $(this).find('form').validator('destroy').validator()
+});
 
-    //-----------------------------------------------------------------
-    // FORM
-    //-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// EQUAL HEIGHT
+//-----------------------------------------------------------------
 
-    // https://github.com/1000hz/bootstrap-validator/issues/336
-    // PROBLEMS WITH MODAL - hot patch
-    $('#modal-newsletter').on('shown.bs.modal', function () {
-        $(this).find('form').validator('destroy').validator()
-    });
+if ($('.lt-ie10').length) {
+    $('[data-equal-height]').matchHeight(
+     {
+         byRow: false,
+         property: 'height',
+         target: null,
+         remove: false
+     });
+} else {
+    $('[data-equal-height]').matchHeight(
+     {
+         byRow: false,
+         property: 'height',
+         target: null,
+         remove: false,
+         mq: "(min-width: 768px)"
+     });
+}
 
-    //-----------------------------------------------------------------
-    // EQUAL HEIGHT
-    //-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// IMAGE MAP RESZIER
+//-----------------------------------------------------------------
 
-    if ($('.lt-ie10').length) {
-        $('[data-equal-height]').matchHeight(
-         {
-             byRow: false,
-             property: 'height',
-             target: null,
-             remove: false
-         });
-    } else {
-        $('[data-equal-height]').matchHeight(
-         {
-             byRow: false,
-             property: 'height',
-             target: null,
-             remove: false,
-             mq: "(min-width: 768px)"
-         });
-    }
+$('#aus-map').imageMapResize();
 
-    //-----------------------------------------------------------------
-    // IMAGE MAP RESZIER
-    //-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// SITEMAP TRIGGER
+//-----------------------------------------------------------------
 
-    $('#aus-map').imageMapResize();
+$('[data-sitemap-trigger]').click(function(event){
+    $('.fa', $(this)).toggleClass('fa-angle-down');
+    $('[data-sitemap]').toggleClass('is-collapsed');
+});
 
-    //-----------------------------------------------------------------
-    // SITEMAP TRIGGER
-    //-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// SEARCH TRIGGER
+//-----------------------------------------------------------------
 
-    $('[data-sitemap-trigger]').click(function(event){
-        $('.fa', $(this)).toggleClass('fa-angle-down');
-        $('[data-sitemap]').toggleClass('is-collapsed');
-    });
+$('[data-search-trigger]').click(function(event){
 
-    //-----------------------------------------------------------------
-    // SEARCH TRIGGER
-    //-----------------------------------------------------------------
+    var $search = $('[data-search]');
+    //var searchIsHidden = $search.hasClass('is-hidden');
+    $search.removeClass('is-hidden');
 
-    $('[data-search-trigger]').click(function(event){
-
-        var $search = $('[data-search]');
-        //var searchIsHidden = $search.hasClass('is-hidden');
-
-        $search.removeClass('is-hidden');
-
-        $(document).on('scroll', function(){
-            $search.addClass('is-hidden');
-            // automatically close the keyboard on iOS
-            document.activeElement.blur();
-        });
-    });
-
-    $('[data-search] .close').on('click', function(){
-        $('[data-search]').addClass('is-hidden');
+    $(document).on('scroll', function(){
+        $search.addClass('is-hidden');
         // automatically close the keyboard on iOS
         document.activeElement.blur();
     });
+});
 
-    //-----------------------------------------------------------------
-    // LAUNCH MANAGE ON KEYPRESS
-    //-----------------------------------------------------------------
+//==============================================
+// LAUNCH MANAGE ON KEYPRESS
+//==============================================
 
-    key('⌘+shift+m, ctrl+shift+m', function(){
-      window.location = '/manage/';
-    });
+$('[data-search] .close').on('click', function(){
+    $('[data-search]').addClass('is-hidden');
+    // automatically close the keyboard on iOS
+    document.activeElement.blur();
+});
 
-    //-----------------------------------------------------------------
-    // SCROLL TO
-    //-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// LAUNCH MANAGE ON KEYPRESS
+//-----------------------------------------------------------------
 
-    // $('a[href*="#"]:not([href="#"])').click(function(event) {
-    //     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-    //         var target = $(this.hash);
-    //         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-    //         if (target.length) {
-    //             $('html,body').animate({
-    //                 scrollTop: target.offset().top
-    //             }, 800);
-    //             // /return false;
-    //         }
-    //     }
-    // });
+key('⌘+shift+m, ctrl+shift+m', function(){
+  window.location = '/manage/';
+});
 
-    //-----------------------------------------------------------------
-    // HEADROOM.js
-    //-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// HEADROOM.js
+//-----------------------------------------------------------------
 
-    $(".global-header").headroom({
-        // vertical offset in px before element is first unpinned
-        offset : 60,
-        // scroll tolerance in px before state changes
-        tolerance : 0,
-        // or you can specify tolerance individually for up/down scroll
-        tolerance : {
-            up : 5,
-            down : 0
-        },
-        // css classes to apply
-        classes : {
-            // when element is initialised
-            initial : "headroom",
-            // when scrolling up
-            pinned : "headroom--pinned",
-            // when scrolling down
-            unpinned : "headroom--unpinned",
-            // when above offset
-            top : "headroom--top",
-            // when below offset
-            notTop : "headroom--not-top",
-            // when at bottom of scoll area
-            bottom : "headroom--bottom",
-            // when not at bottom of scroll area
-            notBottom : "headroom--not-bottom"
-        },
-        // element to listen to scroll events on, defaults to `window`
-        // scroller : someElement,
-        // callback when pinned, `this` is headroom object
-        onPin : function() {},
-        // callback when unpinned, `this` is headroom object
-        onUnpin : function() {},
-        // callback when above offset, `this` is headroom object
-        onTop : function() {},
-        // callback when below offset, `this` is headroom object
-        onNotTop : function() {},
-        // callback when at bottom of page, `this` is headroom object
-        onBottom : function() {},
-        // callback when moving away from bottom of page, `this` is headroom object
-        onNotBottom : function() {}
-    });
-//--
+$(".global-header").headroom({
+    // vertical offset in px before element is first unpinned
+    offset : 60,
+    // scroll tolerance in px before state changes
+    tolerance : 0,
+    // or you can specify tolerance individually for up/down scroll
+    tolerance : {
+        up : 5,
+        down : 0
+    },
+    // css classes to apply
+    classes : {
+        // when element is initialised
+        initial : "headroom",
+        // when scrolling up
+        pinned : "headroom--pinned",
+        // when scrolling down
+        unpinned : "headroom--unpinned",
+        // when above offset
+        top : "headroom--top",
+        // when below offset
+        notTop : "headroom--not-top",
+        // when at bottom of scoll area
+        bottom : "headroom--bottom",
+        // when not at bottom of scroll area
+        notBottom : "headroom--not-bottom"
+    },
+    // element to listen to scroll events on, defaults to `window`
+    // scroller : someElement,
+    // callback when pinned, `this` is headroom object
+    onPin : function() {},
+    // callback when unpinned, `this` is headroom object
+    onUnpin : function() {},
+    // callback when above offset, `this` is headroom object
+    onTop : function() {},
+    // callback when below offset, `this` is headroom object
+    onNotTop : function() {},
+    // callback when at bottom of page, `this` is headroom object
+    onBottom : function() {},
+    // callback when moving away from bottom of page, `this` is headroom object
+    onNotBottom : function() {}
 });
 
 //-----------------------------------------------------------------
