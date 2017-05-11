@@ -98,7 +98,7 @@
     // Display if body has 'dev-mode' attribute
     //-----------------------------------------------------------------
 
-    if ($('body[data-environment!=production]').length) {
+    if ($('html[data-dev-mode]').length) {
 
         // Launch it
         responsiveHelper();
