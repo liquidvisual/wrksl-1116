@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--[if lt IE 9]>       <html class="lt-ie9"> <![endif]-->
 <!--[if IE 9]>          <html class="lt-ie10"> <![endif]-->
-<!--[if gt IE 9]><!-->  <html> <!--<![endif]-->
+<!--[if gt IE 9]><!-->  <html class="no-js" {{ site.environment }}> <!--<![endif]-->
 
 <head>
     <meta charset="utf-8">
@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="/css/main.css">
     <!-- endbuild -->
 </head>
-<body class="{{ page.theme }}" data-environment="{{ site.environment }}">
+<body class="{{ page.theme }}">
 
     {% include loader.html %}
 
@@ -131,7 +131,7 @@
 
                 // When all the posts are collected and displayed - this function is evoked
                 callback: function () {
-                    console.log('all posts are collected');
+                    console.log('All Instagram/Facebook posts are collected');
                     setTimeout(function(){
                       $('.social-feed-container').masonry();
 

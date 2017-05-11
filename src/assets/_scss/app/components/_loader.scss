@@ -1,7 +1,7 @@
 /*
     LOADER.CSS
 
-    - Last updated: 00.00.00
+    - Last updated: 11.05.17
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -12,96 +12,86 @@
 //-----------------------------------------------------------------
 
 .lv-page-loader {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: #333333;
+    background: #333;
     z-index: 2147483647;
-    transition: opacity ease 1s, visibility ease 1s;
-    display: none;
+    opacity: 1;
+
+    &.force-finish {
+        animation: page-loader-fadeout 1s ease 0s alternate 1 forwards;
+    }
 }
 
-.has-loaded .lv-page-loader {
-    opacity: 0;
+html.has-loaded .lv-page-loader {
+    animation: page-loader-fadeout 1s ease 0.1s alternate 1 forwards;
+}
+
+//-----------------------------------------------------------------
+// DEV LOADER TURNED OFF FOR SPEED
+//-----------------------------------------------------------------
+
+html[data-dev-mode] .lv-page-loader {
     visibility: hidden;
 }
 
-.lt-ie10 .lv-page-loader {
-    display: none;
+//-----------------------------------------------------------------
+// DISAPPEAR AFTER DELAY
+//-----------------------------------------------------------------
+
+@keyframes page-loader-fadeout {
+    from {
+        opacity: 1;
+    } to {
+        opacity: 0;
+        visibility: hidden;
+    }
 }
 
 //-----------------------------------------------------------------
 // SPINNER
 //-----------------------------------------------------------------
 
-.lv-page-loader .display-table-cell {
-    text-align: center;
-    // padding-bottom: 200px;
-}
-
-//-----------------------------------------------------------------
-// SPINNER
-//-----------------------------------------------------------------
-
-.lv-spinner {
+.lv-page-loader-spinner {
+    position: relative;
     width: 60px;
     height: 60px;
-    display: inline-block;
-    position: relative;
-    margin: 100px auto;
-}
-
-.double-bounce1,
-.double-bounce2 {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: white;
-  opacity: 0.6;
-  position: absolute;
-  top: 0;
-  left: 0;
-  animation: sk-bounce 2.0s infinite ease-in-out;
-}
-
-.double-bounce2 {
-  animation-delay: -1.0s;
-}
-
-@keyframes sk-bounce {
-  0%, 100% {
-    transform: scale(0.0);
-  } 50% {
-    transform: scale(1.0);
-  }
+    margin: auto;
 }
 
 //-----------------------------------------------------------------
-// SPINNER
+// ANIMATED ELEMENTS
 //-----------------------------------------------------------------
 
-// .lv-spinner {
-//     width: 60px;
-//     height: 60px;
-//     background: white;
-//     display: inline-block;
-//     animation: sk-rotateplane 1.2s infinite ease-in-out;
-// }
+.double-bounce-1,
+.double-bounce-2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: loader-bounce 2.0s infinite ease-in-out;
+}
 
-// @-webkit-keyframes sk-rotateplane {
-//   0% { -webkit-transform: perspective(120px) }
-//   50% { -webkit-transform: perspective(120px) rotateY(180deg) }
-//   100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
-// }
+.double-bounce-2 {
+    animation-delay: -1.0s;
+}
 
-// @keyframes sk-rotateplane {
-//     0% {
-//         transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-//     } 50% {
-//         transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-//     } 100% {
-//         transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
-//     }
-// }
+@keyframes loader-bounce {
+    0%, 100% {
+        transform: scale(0.0);
+    } 50% {
+        transform: scale(1.0);
+    }
+}
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------

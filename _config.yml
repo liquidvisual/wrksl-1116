@@ -16,6 +16,7 @@ include: ['.htaccess', '_pages']
 # _config.build.yml sets future and show_drafts to false on `grunt build`
 future: true
 show_drafts: true
+environment: data-dev-mode
 
 # Docs
 collections:
