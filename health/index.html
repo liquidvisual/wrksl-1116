@@ -3,7 +3,7 @@
 <!--[if lt IE 9]>       <html class="lt-ie9"> <![endif]-->
 
 <!--[if IE 9]>          <html class="lt-ie10"> <![endif]-->
-<!--[if gt IE 9]><!--><html>
+<!--[if gt IE 9]><!--><html class="no-js">
 
 <!--<![endif]-->
 <head>
@@ -22,23 +22,24 @@
     <link rel="shortcut icon" href="/assets/favicon.ico">
     <link rel="stylesheet" href="/assets/css/minified.css">
 </head>
-<body class="theme-red" data-environment="production">
+<body class="theme-red">
 
     <!-- PAGE LOADER -->
-    <div id="lv-page-loader" class="lv-page-loader" data-page-loader>
-        <div class="display-table">
-            <div class="display-table-cell">
-                <div class="lv-spinner">
-                    <div class="double-bounce1"></div>
-                    <div class="double-bounce2"></div>
-                </div>
-            </div>
+    <div id="lv-page-loader" class="lv-page-loader">
+        <div class="lv-page-loader-spinner">
+            <div class="double-bounce-1"></div>
+            <div class="double-bounce-2"></div>
         </div>
     </div>
 
     <!-- WON'T SHOW IF JAVASCRIPT IS DISABLED -->
     <script>
-    document.getElementById('lv-page-loader').style.display = 'block';
+    var loader = document.getElementById('lv-page-loader');
+    loader.style.display = 'flex';
+    // Prevent loader from getting stuck if body takes too long
+    setTimeout(function() {
+        loader.className += ' force-finish';
+    }, 3100);
     </script>
     <div class="lv-page">
 
