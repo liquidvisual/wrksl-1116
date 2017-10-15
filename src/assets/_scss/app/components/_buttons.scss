@@ -215,7 +215,7 @@
 	}
 
 	.text {
-		margin: 0 10px 0 auto;
+		margin: auto 10px 0 auto;
 
 	    @include media-breakpoint-up(sm) {
 	        margin: 22px 10px 0 auto;
@@ -223,10 +223,13 @@
 	}
 
 	.fa-angle-right {
+		position: relative;
+		top: 12px;
 		font-size: rem-calc(35);
+		line-height: 1;
 
 		@include media-breakpoint-up(sm) {
-		    margin-top: 18px;
+			top: 10px;
 		}
 	}
 
