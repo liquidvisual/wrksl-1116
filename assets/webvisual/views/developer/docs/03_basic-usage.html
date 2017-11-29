@@ -28,18 +28,18 @@
 <div class="spacer m-b-2"></div>
 <h2 id="quick-start">Quick Start</h2>
 <div class="spacer m-b-2"></div>
-<h3 id="copy-assets-folder">01. Copy Assets Folder</h3>
+<h3 id="01-copy-assets-folder">01. Copy Assets Folder</h3>
 <p>Jump into the
     <a href="https://github.com/liquidvisual/wrksl-1116/tree/gh-pages" target="_blank">dist directory</a> and copy the
     <strong>/assets</strong> folder. This contains all compiled CSS, fonts, images and JavaScript.
     <strong>Place it into your project’s root directory</strong>. This is important, since all paths are root relative to the
     <strong>/assets</strong> folder.</p>
 <div class="spacer m-b-2"></div>
-<h3 id="copy-html-partials">02. Copy HTML Partials</h3>
+<h3 id="02-copy-html-partials">02. Copy HTML Partials</h3>
 <p>All partials are found inside
     <a href="https://github.com/liquidvisual/wrksl-1116/tree/master/src/_includes" target="_blank">src/_includes</a>. Layouts will reference partials from inside this folder so copy them into your environment.</p>
 <div class="spacer m-b-2"></div>
-<h3 id="create-base-layout">03. Create Base Layout</h3>
+<h3 id="03-create-base-layout">03. Create Base Layout</h3>
 <p>You’ll want to start by creating a base layout in your environment. Open
     <a href="https://github.com/liquidvisual/wrksl-1116/blob/master/src/_layouts/base.html" target="_blank">base.html</a> and copy the contents. Make sure to substitute any template logic for your own. When it comes to assets, they compile into
     <strong>/assets</strong> on build so you’ll only need to do a bit of substitution.</p>
@@ -58,7 +58,7 @@
 <p>The same applies to JavaScript. The end result will look like this:</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>&lt;script src="/assets/scripts/minified.js"&gt;&lt;/script&gt; &lt;!-- Before closing body --&gt;
 </code></pre></div>
-<h3 id="create-child-layouts">04. Create Child Layouts</h3>
+<h3 id="04-create-child-layouts">04. Create Child Layouts</h3>
 <p>Once your
     <strong>base.html</strong> is in place and pointing to your assets correctly, you can then move through the child layouts one by one - again, substituting Liquid template syntax for your own. At this stage, you should be able to view your website as it starts taking shape.</p>
 <p>When you’re ready to start integrating editable content fields, you can start pulling data from the markdown files inside
