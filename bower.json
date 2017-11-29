@@ -4,7 +4,7 @@
   "dependencies": {
     "animate.css": "3.1.1",
     "bxSlider": "^4.2.5",
-    "font-awesome": "^4.6.3",
+    "font-awesome": "^4.7.0",
     "jquery-placeholder": "^2.3.1",
     "jquery.scrollTo": "~1.4.12",
     "jquery.transit": "~0.9.12",

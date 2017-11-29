@@ -5,6 +5,6 @@ permalink: /
 regenerate: true
 theme: theme-home
 
-hero_header: Introduction text content, lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-hero_body: Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+hero_header: Workskil Australia is a leader in the provision of quality services.
+hero_body: We are a not-for-profit and charitable organisation committed to transforming people's lives through employment, health, indigenous and disability services. We care about our clients, employers and staff.
 ---

@@ -149,14 +149,19 @@ $hero-carousel-bullet-size: rem-calc(16)  !default;
 
 .lv-hero-caption-feature-case {
     position: relative;
+    margin-bottom: $spacer;
     padding: rem-calc(30);
     padding-bottom: calc(#{$spacer-x*2} - 14px);
-    background: rgba(black, 0.5);
+    background: rgba($brand-quinary, 0.67);
 
     @include media-breakpoint-down(sm) {
         left: -24px;
         width: calc(100% + 24px*2);
-        background: rgba(black, 0.6);
+        // background: rgba(black, 0.6);
+    }
+
+    @include media-breakpoint-up(md) {
+        margin-bottom: 6px;
     }
 }
 

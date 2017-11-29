@@ -1,8 +1,8 @@
 {% comment %}
     LIQUIDVISUAL-HERO
 
-    - updated: 18.11.16
-    - notes:
+    - Updated: 29.11.17, 18.11.16
+    - Notes:
         * Multiple items in carousel_slides.yml triggers carousel mode
         * .has-auto-height - caption will detemine height
         * .has-fixed-height - used for internal pages to set a height
@@ -18,11 +18,12 @@
     <div class="lv-hero">
 
         <!-- HERO ITEM -->
-        <div class="lv-hero-item" style="background-image: url('/assets/img/content/hero/hero-1.jpg')">
+        <div class="lv-hero-item" style="background-image: url('/assets/img/content/hero/hero-7.jpg')">
 
             <!-- HERO CAROUSEL -->
             <div class="lv-hero-item-carousel-wrapper">
                 <div class="lv-hero-item-carousel" data-pause="8000">
+                    <span class="lv-hero-item-carousel-slide" style="background-image: url(/assets/img/content/hero/hero-7.jpg)"></span>
                     <span class="lv-hero-item-carousel-slide" style="background-image: url(/assets/img/content/hero/hero-1.jpg)"></span>
                     <span class="lv-hero-item-carousel-slide" style="background-image: url(/assets/img/content/hero/hero-2.jpg)"></span>
                     <span class="lv-hero-item-carousel-slide" style="background-image: url(/assets/img/content/hero/hero-3.jpg)"></span>
@@ -42,9 +43,10 @@
                         </div>
                         <div class="col-lg-7 col-xl-6 v-align-bottom">
 
+                            <!-- HERO CAPTION FEATURE -->
                             <div class="lv-hero-caption-feature">
-                                <a href="/about/our-company/our-board/" class="btn btn-hero-feature"><i class="fa fa-users"></i> <span class="text">Information for Employers</span> <i class="fa fa-angle-right"></i></a>
-                                <div class="spacer m-b-1 hidden-md-up"></div>
+
+                                <!-- FEATURE CASE -->
                                 <div class="lv-hero-caption-feature-case">
                                     <h3 class="text-xl-right">Our Services</h3>
                                     <ul class="m-b-0 block-grid-xs-1 block-grid-md-2 block-grid-special-gaps">
@@ -54,6 +56,21 @@
                                         <li><a class="btn btn-cta btn-quaternary btn-block" href="/health/">Health <i class="fa fa-angle-right"></i></a></li>
                                     </ul>
                                 </div>
+
+                                <!-- CTAS -->
+                                <a href="/about/our-company/our-board/" class="btn btn-hero-feature">
+                                    <i class="fa fa-users"></i> <span class="text">Information for Employers</span> <i class="fa fa-angle-right"></i>
+                                </a>
+                                <a href="/about/our-company/our-board/" class="btn btn-hero-feature">
+                                    <i class="fa fa-id-card"></i> <span class="text">Register Job Vacancies</span> <i class="fa fa-angle-right"></i>
+                                </a>
+                                <a href="/about/our-company/our-board/" class="btn btn-hero-feature">
+                                    <i class="fa fa-id-card-o"></i> <span class="text">Job Seeker Registration</span> <i class="fa fa-angle-right"></i>
+                                </a>
+
+                                <!-- MIND THE GAP -->
+                                <div class="spacer m-b-3 hidden-md-up"></div>
+
                             </div> <!-- /.lv-hero-caption-feature -->
 
                         </div> <!-- /. col -->

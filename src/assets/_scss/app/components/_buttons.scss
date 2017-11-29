@@ -201,55 +201,51 @@
 	display: flex;
 	align-items: center;
 	width: 100%;
-	height: rem-calc(96);
-	margin-bottom: 13px;
-	padding: rem-calc(20);
-	background: $brand-primary;
+	margin-bottom: 6px;
+	padding-left: rem-calc(26);
+	background: $brand-quinary;
 	font-size: rem-calc(23);
 	font-weight: bold;
 	text-align: left;
 	white-space: normal;
+
+	@include media-breakpoint-down(sm) {
+	    padding: rem-calc(20);
+	}
 
 	@include media-breakpoint-up(md) {
 	    font-size: rem-calc(27);
 	}
 
 	.text {
-		margin: auto 10px 0 auto;
-
-	    @include media-breakpoint-up(sm) {
-	        margin: 22px 10px 0 auto;
-	    }
+		margin: 0 10px 0 auto;
 	}
 
 	.fa-angle-right {
 		position: relative;
-		top: 12px;
-		font-size: rem-calc(35);
+		top: -1px;
+		font-size: rem-calc(36);
 		line-height: 1;
-
-		@include media-breakpoint-up(sm) {
-			top: 10px;
-		}
 	}
 
-	.fa-users {
+	.fa-users,
+	.fa-id-card,
+	.fa-id-card-o {
 		font-size: rem-calc(30);
-		line-height: 0;
+		line-height: 1;
 		margin-right: 15px;
 
 		@include media-breakpoint-up(md) {
-		    font-size: rem-calc(50);
-		}
-
-		@include media-breakpoint-up(lg) {
-		    margin-left: 26px;
+		    font-size: rem-calc(46);
 		}
 	}
 
 	&:hover {
-		background: darken($brand-primary, 5%);
 		color: white;
+
+		@include media-breakpoint-up(lg) {
+		    background: darken($brand-primary, 5%);
+		}
 	}
 }
 
