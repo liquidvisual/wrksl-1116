@@ -42,7 +42,13 @@ layout: base__page
 
 	<!-- ACCORDION TRIGGER -->
 	<div class="accordion-trigger" data-accordion-trigger>
-		<ul class="block-grid-xs-1 block-grid-md-3 block-grid-condensed">
+		<ul class="block-grid-xs-1 block-grid-md-2 block-grid-xl-4 block-grid-condensed">
+			<li>
+				<a class="btn-tile btn-tile-dropdown" href="#wa">
+					<span class="h4 text">Western Australia</span>
+					<i class="fa fa-angle-up fa-angle-down"></i>
+				</a>
+			</li>
 			<li>
 				<a class="btn-tile btn-tile-dropdown" href="#sa">
 					<span class="h4 text">South Australia</span>
@@ -133,6 +139,36 @@ layout: base__page
 				<li>
 					<div class="card-location" data-equal-height>
 						<h3>New South Wales</h3>
+						<div class="row">
+							<div class="col-md-6">
+								<p>{{ settings.offices[0].address }} <br>
+								<a href="#">View on map <i class="fa fa-angle-right"></i></a></p>
+							</div>
+							<div class="col-md-6">
+								<p>Phone: <a href="tel:{{ settings.offices[0].phone }}">{{ settings.offices[0].phone }}</a><br>
+								Fax: {{ settings.offices[0].fax }}</a></p>
+							</div>
+						</div>
+						<h4 class="h6">Services</h4>
+						<ul class="block-grid-xs-1 block-grid-md-2 list-condensed">
+							<li><i class="fa fa-check-circle"></i>&nbsp; Workskil Employment</li>
+							<li><i class="fa fa-check-circle"></i>&nbsp; Workskil Youth</li>
+							<li><i class="fa fa-check-circle"></i>&nbsp; Workskil Health</li>
+							<li><i class="fa fa-check-circle"></i>&nbsp; Workskil Indigenous</li>
+						</ul>
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+	<!-- ACCORDION CONTENT 4 -->
+	<div id="wa" class="accordion" data-accordion>
+		<ul class="block-grid-xs-1 block-grid-md-2 block-grid-xl-3">
+			{% for i in (1..9) %}
+				<li>
+					<div class="card-location" data-equal-height>
+						<h3>Western Australia</h3>
 						<div class="row">
 							<div class="col-md-6">
 								<p>{{ settings.offices[0].address }} <br>
