@@ -124,6 +124,35 @@
 }
 
 //--------------------------------------------------------------------
+// BTN TILE GLASS - used exclusively on hero
+//--------------------------------------------------------------------
+
+.btn-tile-glass {
+	display: flex;
+	flex-direction: column;
+	padding: rem-calc(20 20 15 20); // special, magic
+	background: rgba(white, 0.8);
+	text-align: right;
+	color: $brand-quinary;
+
+	.fa {
+		display: inline;
+	}
+
+	p {
+		font-size: rem-calc(21);
+		color: $brand-quinary !important;
+		line-height: 1.1;
+	}
+
+	&:hover {
+		@include media-breakpoint-up(xl) {
+			background: rgba(white, 0.9);
+		}
+	}
+}
+
+//--------------------------------------------------------------------
 // Button Tile Dropdown
 //--------------------------------------------------------------------
 
@@ -203,7 +232,7 @@
 	width: 100%;
 	margin-bottom: 6px;
 	padding-left: rem-calc(26);
-	background: $brand-quinary;
+	background: rgba($brand-quinary, 0.9);
 	font-size: rem-calc(23);
 	font-weight: bold;
 	text-align: left;

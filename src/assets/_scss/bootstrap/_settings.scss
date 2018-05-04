@@ -135,7 +135,7 @@ $grid-breakpoints: (
   sm: 544px,
   md: 768px,
   lg: 992px,
-  xl: 1200px + $container-gutter*2,
+  xl: 1240px + $container-gutter*2, //1200px + $container-gutter*2,
   xxl: 1400px + $container-gutter*2,
 ) !default;
 // @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
@@ -149,7 +149,7 @@ $container-max-widths: (
   sm: 576px,
   md: 768px, // 720px,
   lg: 1024px, // 940px,
-  xl: 1200px + $container-gutter*2, // 1140px
+  xl: 1230px + $container-gutter*2, // 1140px
   xxl: 1400px + $container-gutter*2,
 ) !default;
 // @include _assert-ascending($container-max-widths, "$container-max-widths");

@@ -41,9 +41,15 @@
     	padding: 0;
     	overflow: hidden;
     }
+
+    .global-header-body .color-strip {
+		height: rem-calc(6); // used again below
+    }
+
     .global-navigation .topbar {
     	bottom: 29px;
     }
+
     .global-header-body .logo img {
     	padding: rem-calc(15 0);
 
@@ -75,7 +81,7 @@
 
 .global-header-top {
 	position: relative;
-	background: $brand-primary;
+	background: $brand-quinary;
 	// font-size: rem-calc(16);
 	color: white;
 	padding: rem-calc(10 0);
@@ -103,7 +109,7 @@
 
 .global-header-body {
 	background: rgba(white, 0.8);
-	box-shadow: 0 0 3px 1px rgba(black, 0.2);
+	// box-shadow: 0 0 3px 1px rgba(black, 0.2);
 }
 
 //=========================================
@@ -134,6 +140,31 @@
 	@include media-breakpoint-down(sm) {
 	    position: fixed;
 	}
+}
+
+//-----------------------------------------------------------------
+// COLOR STRIP
+//-----------------------------------------------------------------
+
+.global-header .color-strip {
+	display: flex;
+	position: relative;
+	height: rem-calc(6);
+	overflow: hidden; // [LOCKED]
+
+	@include media-breakpoint-up(md) {
+	    height: rem-calc(19);
+	}
+
+	.color-strip-bar {
+		width: 25%;
+		height: 100%;
+	}
+
+	.color-strip-bar:nth-child(1) { background: $brand-primary; }
+	.color-strip-bar:nth-child(2) { background: $brand-secondary; }
+	.color-strip-bar:nth-child(3) { background: $brand-tertiary; }
+	.color-strip-bar:nth-child(4) { background: $brand-quaternary; }
 }
 
 //-----------------------------------------------------------------

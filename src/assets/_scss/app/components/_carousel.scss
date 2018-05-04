@@ -11,6 +11,12 @@
 // CAROUSEL
 //--------------------------------------------------------------------
 
+.lv-hero-item-carousel-wrapper {
+	@include media-breakpoint-up(xl) {
+	    padding-top: rem-calc(60);
+	}
+}
+
 .lv-hero-item-carousel-wrapper,
 .lv-hero-item-carousel {
 	position: absolute;
