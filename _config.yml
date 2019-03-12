@@ -33,5 +33,5 @@ defaults:
     values:
       sitemap: false
 
-gems:
+plugins:
   - jekyll-sitemap

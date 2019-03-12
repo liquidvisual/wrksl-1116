@@ -36,7 +36,7 @@ layout: base__page--short-header
 				<div class="special-list-block">
 					<h3>Other News</h3>
 					<ul class="list-block is-condensed">
-						{% for item in news | limit: 3 %}
+						{% for item in news limit: 3 %}
 							<li>
 								<a href="/about/news/news-item/">
 									<h4 class="m-b-0">{{ item.title }} <i class="fa fa-angle-right"></i></h4>

@@ -16,7 +16,7 @@ layout: base__page--short-header
 				<h2 class="m-b-2 special-header-green">Upcoming Events</h2>
 
 				{% capture events_list %}
-					{% for item in news | limit: 2 %}
+					{% for item in news limit: 2 %}
 						<a class="media-link" href="/about/events-calendar/events-calendar-item/">
 							<article class="media p-y-1">
 								<div class="row">
