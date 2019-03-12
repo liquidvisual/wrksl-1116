@@ -9,7 +9,8 @@
 // REM CALC
 //-----------------------------------------------------------------
 
-@import "../webvisual/assets/_scss/liquidvisual/components/rem-calc";
+@import "liquidvisual/components/em-calc";
+@import "liquidvisual/components/rem-calc";
 
 //-----------------------------------------------------------------
 // BOOTSTRAP
@@ -22,12 +23,12 @@
 // LIQUIDVISUAL
 //-----------------------------------------------------------------
 
-@import "../webvisual/assets/_scss/liquidvisual/components/alert-bar";
-@import "../webvisual/assets/_scss/liquidvisual/components/block-grid";
-@import "../webvisual/assets/_scss/liquidvisual/components/breadcrumb";
-@import "../webvisual/assets/_scss/liquidvisual/components/toolbox";
-@import "../webvisual/assets/_scss/liquidvisual/vendor/magnific-popup/main";
-@import "../webvisual/assets/_scss/liquidvisual/vendor/syntax-highlighting";
+@import "legacy/components/alert-bar";
+@import "legacy/components/block-grid";
+@import "legacy/components/breadcrumb";
+@import "legacy/components/toolbox";
+@import "legacy/vendor/magnific-popup/main";
+@import "legacy/vendor/syntax-highlighting";
 
 //-----------------------------------------------------------------
 // APPLICATION
@@ -62,7 +63,6 @@
 // BOWER DEPENDENCIES
 //-----------------------------------------------------------------
 
-@import "/_bower_components/animate.css/animate.min.css";
-@import "../../_bower_components/font-awesome/scss/font-awesome";
-@import "../../_bower_components/social-feed/css/jquery.socialfeed";
-// @import "../_bower_components/slick.js/slick/slick";
+@import "animate.css/animate";
+@import "font-awesome/scss/font-awesome";
+@import "social-feed/css/jquery.socialfeed";
