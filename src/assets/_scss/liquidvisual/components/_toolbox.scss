@@ -1,0 +1,47 @@
+/*
+	TOOLBOX.CSS
+
+	- updated: 25.02.19
+*/
+//-----------------------------------------------------------------
+// Variables
+//-----------------------------------------------------------------
+
+$primary-color: $primary !default;
+
+//-----------------------------------------------------------------
+// Text Selection (keep separate)
+//-----------------------------------------------------------------
+
+::-moz-selection {
+	background: lighten($primary-color, 10%);
+	color: white;
+	text-shadow: none;
+}
+
+::selection {
+	background: lighten($primary-color, 10%);
+	color: white;
+	text-shadow: none;
+}
+
+//-----------------------------------------------------------------
+// Developer Mode - Foundation Grid Highlighting
+//
+// Usage: <body class="developer">
+//-----------------------------------------------------------------
+
+.developer .container { background-color: lighten(#6AE1CC, 10%) !important; }
+.developer .row:nth-child(odd) { background-color: #6AE1CC !important; }
+.developer .row:nth-child(even),
+.developer > .row:nth-child(odd) { background-color: #61CFBC !important; }
+.developer .columns { background-color: #46B0FB !important; border-right: 1px solid white; }
+.developer [class^='col-'] { background-color: #46B0FB !important; border: 1px dashed white; }
+.developer hr { border-bottom: 1px solid yellow !important; }
+
+body .fill-1 { background-color: #E94144; }
+body .fill-2 { background-color: #46B0FB; }
+body .fill-3 { background-color: #6AE1CC; }
+body .fill-4 { background-color: #FECB6D; }
+body .fill-5 { background-color: #E7E7E7; }
+body .fill-6 { background-color: #61CFBC; }

@@ -1,0 +1,38 @@
+/*
+	CUSTOM.CSS
+
+	- updated: 27.06.17
+	- liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// BOOTSTRAP RESPONSIVE VISIBILITY UTILITIES
+//
+// Bootstrap Beta shouldn't have dropped this.
+// EG. hidden-md-up, hidden-lg-down
+//-----------------------------------------------------------------
+
+@each $bp in map-keys($grid-breakpoints) {
+	.hidden-#{$bp}-up {
+		@include media-breakpoint-up($bp) {
+			display: none !important;
+		}
+	}
+	.hidden-#{$bp}-down {
+		@include media-breakpoint-down($bp) {
+	  		display: none !important;
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// SPACER
+//-----------------------------------------------------------------
+
+.spacer {
+	width: 1px;
+	height: 1px;
+}
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
