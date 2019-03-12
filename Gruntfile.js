@@ -18,18 +18,19 @@ module.exports = function (grunt) {
   //-----------------------------------------------------
   // LOAD TASKS FASTER
   // https://medium.com/@lmartins/faster-grunt-workflow-ced193c2900b
+  // Uncomment if plugins can't be resolved in automatic mapping
   //-----------------------------------------------------
 
   require('jit-grunt')(grunt, {
-
-    // Uncomment if plugins can't be resolved in automatic mapping
-    buildcontrol: 'grunt-build-control',
-    sass_globbing: 'grunt-sass-globbing', // does this speed this up?
-    sass: 'grunt-sass',
+    babel: 'grunt-babel',
     browsersync: 'grunt-browser-sync',
-    useminPrepare: 'grunt-usemin',
+    buildcontrol: 'grunt-build-control',
+    prettify: 'grunt-prettify',
+    sass: 'grunt-sass',
+    sass_globbing: 'grunt-sass-globbing', // [LOCKED]
     shell: 'grunt-shell',
-    prettify: 'grunt-prettify'
+    uglify: 'grunt-contrib-uglify-es',
+    useminPrepare: 'grunt-usemin',
   });
 
   grunt.initConfig({
@@ -38,6 +39,7 @@ module.exports = function (grunt) {
     //-----------------------------------------------------
 
     yeoman: {
+      node_modules: './node_modules', // NEW
       app: 'src',
       dist: 'dist',
       assets: 'dist/assets',
@@ -59,7 +61,7 @@ module.exports = function (grunt) {
       },
       jekyll: {
         files: [
-          '<%= yeoman.app %>/**/*.{html,yml,md,mkd,markdown}',
+          '<%= yeoman.app %>/**/*.{html,yml,md,mkd,markdown,json}',
           '!<%= yeoman.app %>/_bower_components/**/*'
         ],
         tasks: ['jekyll:server']
@@ -83,20 +85,22 @@ module.exports = function (grunt) {
           notify: false,
           // Here you can disable/enable each feature individually
           ghostMode: {
-              clicks: false,
+              clicks: true,
               forms: true,
               scroll: false
           },
           // Don't send any file-change events to browsers
           codeSync: true,
           // Open the site in Chrome & Firefox
-          // browser: ["google chrome", "firefox"]
+          browser: ["google chrome"],
+          open: false,
           port: '<%= yeoman.port %>',
           host: '0.0.0.0',
           server: {
             baseDir: [
               ".jekyll",
               ".tmp",
+              ".", // fuck yeah!!
               "<%= yeoman.app %>"
             ]
           },
@@ -118,6 +122,7 @@ module.exports = function (grunt) {
             '{.tmp,<%= yeoman.app %>}/assets/scripts/**/*.js',
             '{.tmp,<%= yeoman.app %>}/assets/webvisual/assets/scripts/**/*.js',
             '{<%= yeoman.app %>}/_bower_components/**/*.js',
+            '<%= yeoman.node_modules %>}',
             '<%= yeoman.app %>/assets/img/**/*.{gif,jpg,jpeg,png,svg,webp}'
           ]
         },
@@ -176,7 +181,11 @@ module.exports = function (grunt) {
       options: {
         sourceMap: true,
         //imagePath: '',
-        includePaths: ['<%= yeoman.app %>/_bower_components/bootstrap/scss']
+        includePaths: [
+                        //'<%= yeoman.app %>/_bower_components/bootstrap/scss',
+                        '<%= yeoman.node_modules %>/bootstrap/scss',
+                        '<%= yeoman.node_modules %>'
+                      ]
       },
       dist: {
         files: [{
@@ -234,8 +243,8 @@ module.exports = function (grunt) {
           ]
         },
         files: {
-          '<%= yeoman.dist %>/assets/css/minified.css': '<%= yeoman.dist %>/assets/css/minified.css',
-          '<%= yeoman.dist %>/assets/webvisual/assets/css/minified.css': '<%= yeoman.dist %>/assets/webvisual/assets/css/minified.css'
+          '<%= yeoman.dist %>/assets/css/minified.css': '<%= yeoman.dist %>/assets/css/minified.css'
+          //'<%= yeoman.dist %>/assets/webvisual/assets/css/minified.css': '<%= yeoman.dist %>/assets/webvisual/assets/css/minified.css'
         }
       }
     },
@@ -288,19 +297,41 @@ module.exports = function (grunt) {
       options: {
         dest: '<%= yeoman.dist %>'
       },
-      html: ['<%= yeoman.dist %>/index.html',
-      		 '<%= yeoman.dist %>/manage/index.html']
+      html: [
+        '<%= yeoman.dist %>/index.html',
+        '<%= yeoman.dist %>/manage/index.html'
+      ]
     },
     usemin: {
       options: {
-        assetsDirs: ['<%= yeoman.assets %>', '<%= yeoman.dist %>'],
+        assetsDirs: [
+          '<%= yeoman.assets %>',
+          '<%= yeoman.dist %>'
+        ],
       },
       html: ['<%= yeoman.dist %>/**/*.html'],
       // Ensures image paths are revved inside CSS files
       css: ['<%= yeoman.assets %>/css/**/*.css']
     },
     //-----------------------------------------------------
-    // HTML MINIFY (Disabled)
+    // BABEL
+    // https://github.com/babel/babel/issues/5455
+    //-----------------------------------------------------
+    babel: {
+      options: {
+        // sourceMap: false,
+        // minified: false,
+        // comments: false,
+        // presets: ['env']
+      },
+      dist: {
+        files: {
+          '<%= yeoman.assets %>/scripts/minified.js': '<%= yeoman.assets %>/scripts/minified.js'
+        },
+      }
+    },
+    //-----------------------------------------------------
+    // HTML MINIFY
     //-----------------------------------------------------
     htmlmin: {
        dist: {
@@ -407,7 +438,22 @@ module.exports = function (grunt) {
             //'apple-touch*.png'
           ],
           dest: '<%= yeoman.dist %>'
-        }]
+        },
+        /*{
+          expand: true,
+          dot: true,
+          cwd: 'node_modules/font-awesome/', // change this for font-awesome
+          src: ['fonts/*.*'],
+          dest: '<%= yeoman.assets %>'
+        },
+        {
+          expand: true,
+          dot: true,
+          cwd: 'node_modules/lightgallery.js/dist', // change this for font-awesome
+          src: ['fonts/*.*', 'img/*.*'],
+          dest: '<%= yeoman.assets %>'
+        }*/
+        ]
       }
     },
     //-----------------------------------------------------
@@ -589,6 +635,7 @@ module.exports = function (grunt) {
     //'filerev',
     'usemin',
     'postcss',
+    'babel',
     'htmlmin', // best not to use this?
     'prettify',
     ]);
