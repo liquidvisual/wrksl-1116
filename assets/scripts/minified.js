@@ -4724,7 +4724,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   });
 }(jQuery), function () {
   "use strict";
-  var t = document.querySelector(".lv-topbar"),
+  window.NodeList && !NodeList.prototype.forEach && (NodeList.prototype.forEach = Array.prototype.forEach);var t = document.querySelector(".lv-topbar"),
       e = t.querySelectorAll("ul:first-child > li"),
       n = window.location.pathname,
       i = n.split("/").slice(1).slice(0, -1);if ("/" == n) t.querySelector("li:nth-child(2)").classList.add("active");else if ("/about/" == n) t.querySelector('li[data-alias="about"]').classList.add("active");else if ("/about-us/" == n) t.querySelector('li[data-alias="about-us"]').classList.add("active");else if ("/search/" == n) t.querySelector('li[data-alias="search"]').classList.add("active");else {
