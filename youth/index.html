@@ -1,77 +1,1111 @@
 <!DOCTYPE html>
-
-<!--[if lt IE 9]>       <html class="lt-ie9"> <![endif]-->
-
-<!--[if IE 9]>          <html class="lt-ie10"> <![endif]-->
-<!--[if gt IE 9]><!--><html class="no-js">
-
-<!--<![endif]-->
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
     <meta name="description" content="">
-    <title>Youth - Workskil Australia</title>
-
-    <!-- CDN -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-
-    <!-- FAV ICONS -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/apple-touch-icon-144-precomposed.png">
-    <link rel="shortcut icon" href="/assets/favicon.ico">
+    <title>Youth</title>
     <link rel="stylesheet" href="/assets/css/minified.css">
+    <script>
+    // hide nav if /contact/ or /search/ or /contact-us/
+    (function() {
+        var path = function(path) {
+            return window.location.pathname.indexOf(path) > -1;
+        }
+        var closedNavConditions = !!(path('/contact/') || path('/contact-us') || path('/search/'));
+        closedNavConditions ? document.documentElement.classList.add('has-closed-nav') : document.documentElement.classList.remove('has-closed-nav');
+    })();
+    </script>
 </head>
 <body class="theme-green">
 
     <!-- PAGE LOADER -->
     <div id="lv-page-loader" class="lv-page-loader">
-        <div class="lv-spinner">
-            <div class="double-bounce-1"></div>
-            <div class="double-bounce-2"></div>
+        <div class="lv-page-loader-spinner">
+            <div class="loader-spinner">
+                <div class="loader-component">
+                    <div class="half-circle"></div>
+                </div>
+                <div class="loader-component">
+                    <div class="half-circle"></div>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- WON'T SHOW IF JAVASCRIPT IS DISABLED -->
     <script>
-    var loader = document.getElementById('lv-page-loader');
-    loader.style.display = 'flex';
-    // Prevent loader from getting stuck if body takes too long
-    setTimeout(function() {
-        loader.className += ' force-finish';
-    }, 3100);
+    (function loader() {
+        var loader = document.getElementById('lv-page-loader');
+        loader.style.display = 'flex';
+        // add class when window has fully loaded
+        window.addEventListener('load', function() {
+            document.documentElement.classList.add('has-loaded');
+        });
+        // Prevent loader from getting stuck if body takes too long
+        setTimeout(function() {
+            loader.classList.add('force-finish');
+        }, 1500); // max of 1.5 secs
+    })();
     </script>
     <div class="lv-page">
 
         <!-- HEADER -->
-        <header class="global-header fixed-top">
+        <header class="global-header">
+            <div class="container">
 
-            <!-- HEADER TOP -->
-            <div class="global-header-top">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-6 col-md-8">
-                            <a target="_blank" href="tel:1300 967 575">
-                                <i class="fa fa-phone"></i>&nbsp;
-                                <span class="text hidden-sm-down">1300 Workskil (1300 967 575)</span>
-                                <span class="text hidden-md-up">1300 967 575</span>
-                            </a>
-                            <span class="spacer m-x-1 hidden-sm-down"></span>
-                            <a class="hidden-sm-down" target="_blank" href="/locations/">
-                                <i class="fa fa-map-marker"></i>&nbsp; Find a location</a>
-                        </div>
-                        <div class="col-xs-6 col-md-4 text-xs-right">
-                            <a href="#" data-search-trigger>
-                                <i class="fa fa-search"></i>
-                                <span class="text hidden-sm-down">&nbsp; Search</span>
-                            </a>
+                <!-- HEADER TOP -->
+                <div class="global-header-top">
+                    <div class="container">
+
+                        <!-- PHONE -->
+                        <a class="phone font-weight-bold" href="tel:1300 967 575">
+                            <i class="fa fa-phone mr-1"></i>
+                            <span class="text hidden-sm-down">1300 Workskil (1300 967 575)</span>
+                            <span class="text hidden-md-up">1300 967 575</span>
+                        </a>
+
+                        <!-- TRANSLATIONS -->
+                        <a class="ml-auto mr-md-3 order-md-first font-weight-bold" href="/">
+                            <i class="fa fa-globe mr-1"></i>
+                            <span class="text">Translations</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- HEADER BODY -->
+                <div class="global-header-body">
+                    <div class="container">
+
+                        <!-- LOGO -->
+                        <a class="logo" href="/" title="" itemprop="url">
+                            <img src="/assets/img/content/logo-youth.png" alt="" itemprop="logo"> </a>
+
+                        <!-- HAMBURGER -->
+                        <div class="global-mobile-menu hidden-xl-up">
+                            <div class="lv-hamburger" data-menu-toggle>
+                                <span class="lv-hamburger-top"></span>
+                                <span class="lv-hamburger-middle"></span>
+                                <span class="lv-hamburger-bottom"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- HEADER BODY -->
-            <div class="global-header-body">
+                <!-- NAVIGATION -->
+                <nav class="global-navigation hidden-lg-down">
+                    <div class="container position-relative">
+                        <div class="lv-topbar">
+                            <ul class="" data-parent="">
+                                <li class="" data-alias="home">
+
+                                    <!-- ANCHOR -->
+                                    <a href="/">
+
+                                        <!-- TEXT -->
+                                        <span class="text">Home </span>
+
+                                        <!-- SUBMENU ARROW -->
+                                        </a>
+                                </li>
+                                <li class="has-dropdown active-parent" data-alias="for-individuals">
+
+                                    <!-- ANCHOR -->
+                                    <a href="">
+
+                                        <!-- TEXT -->
+                                        <span class="text">For Individuals </span>
+
+                                        <!-- SUBMENU ARROW -->
+                                        <span class="submenu-arrow">
+                                            <i class="fa fa-angle-right"></i>
+                                        </span>
+                                    </a>
+
+                                    <!-- DROPDOWN -->
+                                    <ul class="dropdown" data-parent="For Individuals">
+                                        <li class="has-dropdown" data-alias="job-seekers">
+
+                                            <!-- ANCHOR -->
+                                            <a href="/job-seekers/">
+
+                                                <!-- TEXT -->
+                                                <span class="text">Job Seekers </span>
+
+                                                <!-- SUBMENU ARROW -->
+                                                <span class="submenu-arrow">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </span>
+                                            </a>
+
+                                            <!-- DROPDOWN -->
+                                            <ul class="dropdown" data-parent="Job Seekers">
+                                                <li class="" data-alias="jobactive">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/job-seekers/jobactive/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">jobactive </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                                <li class="" data-alias="return-to-work">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/job-seekers/return-to-work/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Return to Work </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                                <li class="" data-alias="work-for-the-dole">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/job-seekers/work-for-the-dole/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Work for the Dole </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                                <li class="" data-alias="national-work-experience-program-nwep">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/job-seekers/jobactive/national-work-experience-program">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">National Work Experience Program (NWEP) </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-dropdown" data-alias="disability-injury-or-health-condition">
+
+                                            <!-- ANCHOR -->
+                                            <a href="/disability-injury-or-health-condition/">
+
+                                                <!-- TEXT -->
+                                                <span class="text">Disability, Injury or Health Condition </span>
+
+                                                <!-- SUBMENU ARROW -->
+                                                <span class="submenu-arrow">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </span>
+                                            </a>
+
+                                            <!-- DROPDOWN -->
+                                            <ul class="dropdown" data-parent="Disability, Injury or Health Condition">
+                                                <li class="" data-alias="disability-employment-services">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/disability-injury-or-health-condition/disability-employment-services/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Disability Employment Services </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                                <li class="" data-alias="work-assist">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/disability-injury-or-health-condition/work-assist/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Work Assist </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-dropdown active-parent active" data-alias="youth">
+
+                                            <!-- ANCHOR -->
+                                            <a href="/youth/">
+
+                                                <!-- TEXT -->
+                                                <span class="text">Youth </span>
+
+                                                <!-- SUBMENU ARROW -->
+                                                <span class="submenu-arrow">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </span>
+                                            </a>
+
+                                            <!-- DROPDOWN -->
+                                            <ul class="dropdown" data-parent="Youth">
+                                                <li class="" data-alias="get-moving">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/youth/get-moving/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Get Moving </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                                <li class="" data-alias="flexible-learning-options-flo">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/youth/flexible-learning-options/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Flexible Learning Options (FLO) </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                                <li class="" data-alias="transition-to-work">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/youth/flexible-learning-options/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Transition to Work </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                                <li class="" data-alias="youth-jobs-path-internships">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/youth/youth-jobs-path-internships/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Youth Jobs Path Internships </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="" data-alias="indigenous">
+
+                                            <!-- ANCHOR -->
+                                            <a href="/indigenous/">
+
+                                                <!-- TEXT -->
+                                                <span class="text">Indigenous </span>
+
+                                                <!-- SUBMENU ARROW -->
+                                                </a>
+                                        </li>
+                                        <li class="has-dropdown" data-alias="community">
+
+                                            <!-- ANCHOR -->
+                                            <a href="/community/">
+
+                                                <!-- TEXT -->
+                                                <span class="text">Community </span>
+
+                                                <!-- SUBMENU ARROW -->
+                                                <span class="submenu-arrow">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </span>
+                                            </a>
+
+                                            <!-- DROPDOWN -->
+                                            <ul class="dropdown" data-parent="Community">
+                                                <li class="" data-alias="personal-helpers-and-mentors">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/community/PartentsNext/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Personal Helpers and Mentors </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                                <li class="" data-alias="partners-in-recovery">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/community/partners-in-recovery/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Partners in Recovery </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                                <li class="" data-alias="allied-health">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/community/allied-health/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Allied Health </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="has-dropdown" data-alias="for-employers">
+
+                                    <!-- ANCHOR -->
+                                    <a href="">
+
+                                        <!-- TEXT -->
+                                        <span class="text">For Employers </span>
+
+                                        <!-- SUBMENU ARROW -->
+                                        <span class="submenu-arrow">
+                                            <i class="fa fa-angle-right"></i>
+                                        </span>
+                                    </a>
+
+                                    <!-- DROPDOWN -->
+                                    <ul class="dropdown" data-parent="For Employers">
+                                        <li class="" data-alias="why-employ-our-people">
+
+                                            <!-- ANCHOR -->
+                                            <a href="/why-employ-our-people/">
+
+                                                <!-- TEXT -->
+                                                <span class="text">Why Employ Our People? </span>
+
+                                                <!-- SUBMENU ARROW -->
+                                                </a>
+                                        </li>
+                                        <li class="has-dropdown" data-alias="our-employment-services">
+
+                                            <!-- ANCHOR -->
+                                            <a href="/our-employment-services/">
+
+                                                <!-- TEXT -->
+                                                <span class="text">Our Employment Services </span>
+
+                                                <!-- SUBMENU ARROW -->
+                                                <span class="submenu-arrow">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </span>
+                                            </a>
+
+                                            <!-- DROPDOWN -->
+                                            <ul class="dropdown" data-parent="Our Employment Services">
+                                                <li class="has-dropdown" data-alias="job-seekers">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/our-employment-services/job-seekers/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Job Seekers </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        <span class="submenu-arrow">
+                                                            <i class="fa fa-angle-right"></i>
+                                                        </span>
+                                                    </a>
+
+                                                    <!-- DROPDOWN -->
+                                                    <ul class="dropdown" data-parent="Job Seekers">
+                                                        <li class="" data-alias="jobactive">
+
+                                                            <!-- ANCHOR -->
+                                                            <a href="/our-employment-services/job-seekers/job-active/">
+
+                                                                <!-- TEXT -->
+                                                                <span class="text">Jobactive </span>
+
+                                                                <!-- SUBMENU ARROW -->
+                                                                </a>
+                                                        </li>
+                                                        <li class="" data-alias="work-for-the-dole">
+
+                                                            <!-- ANCHOR -->
+                                                            <a href="/our-employment-services/job-seekers/work-for-the-dole/">
+
+                                                                <!-- TEXT -->
+                                                                <span class="text">Work for the Dole </span>
+
+                                                                <!-- SUBMENU ARROW -->
+                                                                </a>
+                                                        </li>
+                                                        <li class="" data-alias="work-ready-release-ready">
+
+                                                            <!-- ANCHOR -->
+                                                            <a href="/our-employment-services/job-seekers/work-ready-release-ready/">
+
+                                                                <!-- TEXT -->
+                                                                <span class="text">Work Ready, Release Ready </span>
+
+                                                                <!-- SUBMENU ARROW -->
+                                                                </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="has-dropdown" data-alias="disability-injury-of-health-condition">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/our-employment-services/disability-injury-or-health-condition/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Disability, Injury of Health Condition </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        <span class="submenu-arrow">
+                                                            <i class="fa fa-angle-right"></i>
+                                                        </span>
+                                                    </a>
+
+                                                    <!-- DROPDOWN -->
+                                                    <ul class="dropdown" data-parent="Disability, Injury of Health Condition">
+                                                        <li class="" data-alias="disability-employment-services">
+
+                                                            <!-- ANCHOR -->
+                                                            <a href="/our-employment-services/disability-injury-or-health-condition/disability-employment-services/">
+
+                                                                <!-- TEXT -->
+                                                                <span class="text">Disability Employment Services </span>
+
+                                                                <!-- SUBMENU ARROW -->
+                                                                </a>
+                                                        </li>
+                                                        <li class="" data-alias="work-assist">
+
+                                                            <!-- ANCHOR -->
+                                                            <a href="/our-employment-services/disability-injury-or-health-condition/work-assist/">
+
+                                                                <!-- TEXT -->
+                                                                <span class="text">Work Assist </span>
+
+                                                                <!-- SUBMENU ARROW -->
+                                                                </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="has-dropdown" data-alias="youth">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/our-employment-services/youth/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Youth </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        <span class="submenu-arrow">
+                                                            <i class="fa fa-angle-right"></i>
+                                                        </span>
+                                                    </a>
+
+                                                    <!-- DROPDOWN -->
+                                                    <ul class="dropdown" data-parent="Youth">
+                                                        <li class="" data-alias="youth-jobs-path-internships">
+
+                                                            <!-- ANCHOR -->
+                                                            <a href="/our-employment-services/youth/youth-jobs-path-internships/">
+
+                                                                <!-- TEXT -->
+                                                                <span class="text">Youth Jobs Path Internships </span>
+
+                                                                <!-- SUBMENU ARROW -->
+                                                                </a>
+                                                        </li>
+                                                        <li class="" data-alias="get-moving">
+
+                                                            <!-- ANCHOR -->
+                                                            <a href="/our-employment-services/youth/get-moving/">
+
+                                                                <!-- TEXT -->
+                                                                <span class="text">Get Moving </span>
+
+                                                                <!-- SUBMENU ARROW -->
+                                                                </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="has-dropdown" data-alias="indigenous">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/our-employment-services/indigenous/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Indigenous </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        <span class="submenu-arrow">
+                                                            <i class="fa fa-angle-right"></i>
+                                                        </span>
+                                                    </a>
+
+                                                    <!-- DROPDOWN -->
+                                                    <ul class="dropdown" data-parent="Indigenous">
+                                                        <li class="" data-alias="cultural-awareness-training">
+
+                                                            <!-- ANCHOR -->
+                                                            <a href="/our-employment-services/indigenous/cultural-awareness-training/">
+
+                                                                <!-- TEXT -->
+                                                                <span class="text">Cultural Awareness Training </span>
+
+                                                                <!-- SUBMENU ARROW -->
+                                                                </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="" data-alias="register-your-job-vacancies">
+
+                                            <!-- ANCHOR -->
+                                            <a href="/register-your-job-vacancies/">
+
+                                                <!-- TEXT -->
+                                                <span class="text">Register Your Job Vacancies </span>
+
+                                                <!-- SUBMENU ARROW -->
+                                                </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="has-dropdown" data-alias="about-us">
+
+                                    <!-- ANCHOR -->
+                                    <a href="">
+
+                                        <!-- TEXT -->
+                                        <span class="text">About Us </span>
+
+                                        <!-- SUBMENU ARROW -->
+                                        <span class="submenu-arrow">
+                                            <i class="fa fa-angle-right"></i>
+                                        </span>
+                                    </a>
+
+                                    <!-- DROPDOWN -->
+                                    <ul class="dropdown" data-parent="About Us">
+                                        <li class="has-dropdown" data-alias="our-company">
+
+                                            <!-- ANCHOR -->
+                                            <a href="/about-us/our-company/">
+
+                                                <!-- TEXT -->
+                                                <span class="text">Our Company </span>
+
+                                                <!-- SUBMENU ARROW -->
+                                                <span class="submenu-arrow">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </span>
+                                            </a>
+
+                                            <!-- DROPDOWN -->
+                                            <ul class="dropdown is-excluded-from-nav" data-parent="Our Company">
+                                                <li class="" data-alias="our-history">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/about-us/our-company/our-history/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Our History </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                                <li class="" data-alias="our-vision-mission-and-values">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/about-us/our-company/our-vision-mission-and-values/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Our Vision, Mission and Values </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                                <li class="" data-alias="our-board">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/about-us/our-company/our-board/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Our Board </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                                <li class="" data-alias="our-executive-team">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/about-us/our-company/our-executive-team/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Our Executive Team </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                                <li class="" data-alias="our-publications">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/about-us/our-company/our-publications/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Our Publications </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="" data-alias="our-locations">
+
+                                            <!-- ANCHOR -->
+                                            <a href="/about-us/our-locations/">
+
+                                                <!-- TEXT -->
+                                                <span class="text">Our Locations </span>
+
+                                                <!-- SUBMENU ARROW -->
+                                                </a>
+                                        </li>
+                                        <li class="" data-alias="careers">
+
+                                            <!-- ANCHOR -->
+                                            <a href="/about-us/careers/">
+
+                                                <!-- TEXT -->
+                                                <span class="text">Careers </span>
+
+                                                <!-- SUBMENU ARROW -->
+                                                </a>
+                                        </li>
+                                        <li class="has-dropdown" data-alias="quality-safety-and-risk">
+
+                                            <!-- ANCHOR -->
+                                            <a href="/about-us/quality-safety-and-risk/">
+
+                                                <!-- TEXT -->
+                                                <span class="text">Quality, Safety and Risk </span>
+
+                                                <!-- SUBMENU ARROW -->
+                                                <span class="submenu-arrow">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </span>
+                                            </a>
+
+                                            <!-- DROPDOWN -->
+                                            <ul class="dropdown is-excluded-from-nav" data-parent="Quality, Safety and Risk">
+                                                <li class="" data-alias="work-health-and-safety">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/about-us/quality-safety-and-risk/work-health-and-safety/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Work Health and Safety </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                                <li class="" data-alias="quality">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/about-us/quality-safety-and-risk/quality/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Quality </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                                <li class="" data-alias="risk">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/about-us/quality-safety-and-risk/risk/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Risk </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="" data-alias="funding-partners">
+
+                                            <!-- ANCHOR -->
+                                            <a href="/about-us/funding-partners/">
+
+                                                <!-- TEXT -->
+                                                <span class="text">Funding Partners </span>
+
+                                                <!-- SUBMENU ARROW -->
+                                                </a>
+                                        </li>
+                                        <li class="has-dropdown" data-alias="events-calendar">
+
+                                            <!-- ANCHOR -->
+                                            <a href="/about-us/events-calendar/">
+
+                                                <!-- TEXT -->
+                                                <span class="text">Events Calendar </span>
+
+                                                <!-- SUBMENU ARROW -->
+                                                <span class="submenu-arrow">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </span>
+                                            </a>
+
+                                            <!-- DROPDOWN -->
+                                            <ul class="dropdown is-excluded-from-nav" data-parent="Events Calendar">
+                                                <li class="" data-alias="events-calendar-item">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/about-us/events-calendar/events-calendar-item/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">Events Calendar Item </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-dropdown" data-alias="news">
+
+                                            <!-- ANCHOR -->
+                                            <a href="/about-us/news/">
+
+                                                <!-- TEXT -->
+                                                <span class="text">News </span>
+
+                                                <!-- SUBMENU ARROW -->
+                                                <span class="submenu-arrow">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </span>
+                                            </a>
+
+                                            <!-- DROPDOWN -->
+                                            <ul class="dropdown is-excluded-from-nav" data-parent="News">
+                                                <li class="" data-alias="news-item">
+
+                                                    <!-- ANCHOR -->
+                                                    <a href="/about-us/news/news-item/">
+
+                                                        <!-- TEXT -->
+                                                        <span class="text">News Item </span>
+
+                                                        <!-- SUBMENU ARROW -->
+                                                        </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="" data-alias="testimonials">
+
+                                            <!-- ANCHOR -->
+                                            <a href="/about-us/testimonials/">
+
+                                                <!-- TEXT -->
+                                                <span class="text">Testimonials </span>
+
+                                                <!-- SUBMENU ARROW -->
+                                                </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="is-nav-only ml-xl-auto" data-alias="home-2">
+
+                                    <!-- ANCHOR -->
+                                    <a href="/">
+
+                                        <!-- TEXT -->
+                                        <span class="text">Home&nbsp; </span>
+
+                                        <!-- SUBMENU ARROW -->
+                                        </a>
+                                </li>
+                                <li class="" data-alias="contact-us">
+
+                                    <!-- ANCHOR -->
+                                    <a href="/contact-us/">
+
+                                        <!-- TEXT -->
+                                        <span class="text">Contact Us </span>
+
+                                        <!-- SUBMENU ARROW -->
+                                        </a>
+                                </li>
+                                <li class="" data-alias="search">
+
+                                    <!-- ANCHOR -->
+                                    <a href="#/search/">
+
+                                        <!-- TEXT -->
+                                        <span class="text">Search </span>
+
+                                        <!-- SUBMENU ARROW -->
+                                        </a>
+                                </li>
+
+                                <!-- SOCIAL MEDIA -->
+                                <li class="is-off-canvas-only">
+
+                                    <!-- SOCIAL MEDIA -->
+                                    <div class="social-media">
+                                        <a title="Facebook" href="https://www.facebook.com/workskil" target="_blank" class="facebook">
+                                            <div class="icon">
+                                                <i class="fa fa-facebook"></i>
+                                            </div>
+                                        </a>
+                                        <a title="LinkedIn" href="https://www.linkedin.com/company/workskil-incorporated" target="_blank" class="linkedin">
+                                            <div class="icon">
+                                                <i class="fa fa-linkedin"></i>
+                                            </div>
+                                        </a>
+                                        <a title="Twitter" href="https://twitter.com/workskil_aus" target="_blank" class="twitter">
+                                            <div class="icon">
+                                                <i class="fa fa-twitter"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <!-- SEARCH (OPTIONAL) -->
+                                <li class="is-off-canvas-only">
+
+                                    <!-- GLOBAL SEARCH -->
+                                    <div class="global-search" data-global-search>
+                                        <div class="container">
+
+                                            <!-- CLOSE -->
+                                            <button class="btn btn-close" data-dismiss="alert" aria-label="Close" title="Close">
+                                                <i class="fa fa-times-circle"></i>
+                                                <span class="text">esc</span>
+                                            </button>
+
+                                            <!-- FORM -->
+                                            <form class="global-search-form" action="/search/" method="get" novalidate>
+                                                <div class="input-group">
+                                                    <input class="form-control" name="q" type="search" placeholder="Search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                                                    <span class="global-search-info">Hit enter to search or ESC to close</span>
+                                                    <div class="input-group-append">
+                                                        <button type="submit" class="btn">
+                                                            <i class="fa fa-search"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!-- GLOBAL BODY -->
+        <div class="global-body">
+
+            <!-- HERO WRAPPER -->
+            <section id="" class="lv-hero-wrapper">
+                <div class="container">
+
+                    <!-- HERO -->
+                    <div class="lv-hero is-short">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <header class="page-header">
+                                    <h1 class="display-3">Youth</h1>
+                                </header>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BG TOP FILL -->
+                <div class="bg-top-fill pb-0">
+                    <div class="bg-fill"></div>
+                </div>
+            </section>
+
+            <!-- /.lv-hero-wrapper -->
+            
+<!-- SECTION --><section class="mb-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 collapse-px-sm-down">
+
+                            <!-- SIDEBAR -->
+                            <aside class="sidebar">
+
+                                <!-- SIDEBAR COLOR BOX -->
+                                <div class="sidebar-color-box">
+                                    <h2 id="we-help-young-people-get-ahead-in-life">We help young people get ahead in life.</h2>
+                                    <p>We offer a range of services that help young people to fulfill their potential by:</p>
+                                    <ul>
+                                        <li>linking them with learning opportunities such as work experience, internships and apprenticeships</li>
+                                        <li>helping them search and apply for jobs, and supporting them as they settle into their new role</li>
+                                        <li>offering help to relocate to areas with a more promising job market</li>
+                                        <li>connecting them to their local communities</li>
+                                        <li>supporting those who are disengaged with the traditional school environment</li>
+                                    </ul>
+                                    <p>
+                                        <strong>We work with young people aged 14 upwards, and their families, to address any challenges they face. Contact us to find out how we can help you.</strong>
+                                    </p>
+                                    <p>Workskil Australia endorses
+                                        <a href="http://www.gcyp.sa.gov.au/charter-of-rights-2/">The Charter of Rights for Children and Young People in Care</a>
+                                    </p>
+                                </div>
+
+                                <!-- SIDEBAR INFO BOX -->
+                                <div class="sidebar-info-box sidebar-color-box is-faded">
+                                    <div class="media">
+                                        <span class="media-left mr-3 media-top">
+
+                                            <!-- INFO ICON -->
+                                            <i class="fa fa-info"></i>
+                                        </span>
+                                        <div class="media-body">
+
+                                            <!-- HEADING -->
+                                            <h4>For more information</h4>
+
+                                            <!-- EMAIL -->
+                                            <a class="d-inline-block mr-2" href="mailto:workskil@workskil.com.au">
+                                                <i class="fa fa-envelope mr-2"></i>workskil@workskil.com.au</a>
+
+                                            <!-- PHONE -->
+                                            <a class="d-inline-block" href="tel:1300 967 575">
+                                                <i class="fa fa-phone mr-2"></i>1300 967 575</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </aside>
+                        </div>
+                        <div class="col-lg-6 pt-4 pt-md-5">
+
+                            <!-- HEADING -->
+                            <h2 class="mb-4">Services provided by Workskil Youth include:</h2>
+
+                            <!-- SERVICE TILES -->
+                            <ul class="block-grid-xs-1 block-grid-md-2 block-grid-lg-2">
+                                <li>
+                                    <a class="btn-tile" href="/youth/get-moving/" data-equal-height>
+                                        <h3>Get Moving</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="btn-tile" href="/youth/flexible-learning-options/" data-equal-height>
+                                        <h3>Flexible Learning Options (FLO)</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="btn-tile" href="/youth/flexible-learning-options/" data-equal-height>
+                                        <h3>Transition to Work</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="btn-tile" href="/youth/youth-jobs-path-internships/" data-equal-height>
+                                        <h3>Youth Jobs Path Internships</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="global-footer">
+
+            <!-- FOOTER BODY -->
+            <section class="global-footer-body">
+                <div class="container">
+                    <div class="row no-gutters">
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+
+                            <!-- HEADING -->
+                            <h3 class="mb-4">Workskil Australia</h3>
+
+                            <!-- HEAD OFFICE -->
+                            <h4>Head Office</h4>
+
+                            <!-- ADDRESS -->
+                            <p>Level 1, 1069 South Road
+                                <br>Melrose Park, SA 5039
+                                <br>
+                                <a href="/about-us/our-locations/#sa">View map
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </p>
+
+                            <!-- PHONE  -->
+                            <p>
+                                <a class="text-white" href="tel:1300 967 575">
+                                    <i class="fa fa-phone mr-1"></i> 1300 967 575</a>
+                            </p>
+                        </div>
+                        <div class="col-md-6 col-lg-8 col-xl-9">
+                            <div class="row">
+                                <div class="col-lg-4">
+
+                                    <!-- SOCIAL MEDIA -->
+                                    <div class="social-media">
+                                        <a title="Facebook" href="https://www.facebook.com/workskil" target="_blank" class="facebook">
+                                            <div class="icon">
+                                                <i class="fa fa-facebook"></i>
+                                            </div>
+                                        </a>
+                                        <a title="LinkedIn" href="https://www.linkedin.com/company/workskil-incorporated" target="_blank" class="linkedin">
+                                            <div class="icon">
+                                                <i class="fa fa-linkedin"></i>
+                                            </div>
+                                        </a>
+                                        <a title="Twitter" href="https://twitter.com/workskil_aus" target="_blank" class="twitter">
+                                            <div class="icon">
+                                                <i class="fa fa-twitter"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <!-- SPACER -->
+                                    <div class="spacer mb-3 hidden-lg-up"></div>
+                                </div>
+                                <div class="col-lg-8 text-lg-right">
+
+                                    <!-- NEWSLETTER MODAL TRIGGER -->
+                                    <div class="btn-group">
+                                        <div class="btn btn-special text-left font-weight-bolder">
+                                            <i class="fa fa-comment-o mr-2"></i>
+                                            <span class="text">Stay up to date</span>
+                                        </div>
+                                        <button type="button" class="btn btn-quinary text-left" data-toggle="modal" data-target="#modal-newsletter">
+                                            <span class="text mr-1">Join our newsletter</span>
+                                            <i class="d-inline fa fa-angle-right"></i>
+                                        </button>
+                                    </div>
+
+                                    <!-- WYSIWYG -->
+                                    <div class="wysiwyg mt-5 text-lg-right">
+                                        <p>Workskil Australia acknowledges Aboriginal and Torres Strait Islander peoples as the Traditional Owners and Custodians of this country, and their connection to land, water and community. We pay our respect to them, their cultures and customs, and to Elders both past and present.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- COLOR STRIP -->
                 <div class="color-strip">
@@ -80,467 +1114,41 @@
                     <span class="color-strip-bar"></span>
                     <span class="color-strip-bar"></span>
                 </div>
-                <div class="container">
-                    <div class="display-table">
-                        <div class="display-cell">
-
-                            <!-- LOGO -->
-                            <a class="logo" href="/" title="Workskil Australia" itemprop="url">
-                                <img src="/assets/img/content/logo-youth.png" alt="" itemprop="logo">
-                            </a>
-
-                            <!-- HAMBURGER -->
-                            <div class="global-mobile-menu hidden-xl-up">
-                                <div class="lv-hamburger" data-menu-toggle>
-                                    <span class="lv-hamburger-top"></span>
-                                    <span class="lv-hamburger-middle"></span>
-                                    <span class="lv-hamburger-bottom"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- NAVIGATION -->
-            <nav class="global-navigation hidden-lg-down">
-                <div class="container">
-                    <div class="topbar">
-                        <ul>
-                            <li class="">
-                                <a class="top-parent-anchor" href="/">
-                                    <span class="text">Home</span>
-                                </a>
-                            </li>
-                            <li class="has-dropdown">
-                                <a class="top-parent-anchor" href="/employment/">
-                                    <span class="text">Employment</span>
-                                </a>
-                                <ul class="dropdown is-nav-included" data-parent="Employment">
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Employers</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">jobactive</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Disability Employment</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Services</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Return to Work SA</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Job Placement</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Services</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Work for the Dole</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="has-dropdown">
-                                <a class="top-parent-anchor" href="/health/">
-                                    <span class="text">Health</span>
-                                </a>
-                                <ul class="dropdown is-nav-included" data-parent="Health">
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Personal Helpers and Mentors</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Partners in Recovery</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Allied Health</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="active has-dropdown">
-                                <a class="top-parent-anchor" href="/youth/">
-                                    <span class="text">Youth</span>
-                                </a>
-                                <ul class="dropdown is-nav-included" data-parent="Youth">
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">ICAN FLO</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">POP</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Fee for Service Youth</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Services</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Green Army</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Youth Specialist</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Support</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Successful Transitions</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Transition to Work</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="">
-                                <a class="top-parent-anchor" href="/indigenous/">
-                                    <span class="text">Indigenous</span>
-                                </a>
-                            </li>
-                            <li class="">
-                                <span class="top-parent-anchor">
-                                    <span class="text">Employers</span>
-                                </span>
-                            </li>
-                            <li class="has-dropdown has-dropdown-right-aligned">
-                                <a class="top-parent-anchor" href="/locations/">
-                                    <span class="text">Locations</span>
-                                </a>
-                                <ul class="dropdown is-nav-included" data-parent="Locations">
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">South Australia</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Victoria</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">New South Wales</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="has-dropdown has-dropdown-right-aligned">
-                                <a class="top-parent-anchor" href="/about/">
-                                    <span class="text">About</span>
-                                </a>
-                                <ul class="dropdown is-nav-included" data-parent="About">
-                                    <li class="has-dropdown">
-                                        <a href="/about/our-company/">
-                                            <span class="text">Our Company</span>
-                                        </a>
-                                        <ul class="dropdown" data-parent="Our Company">
-                                            <li>
-                                                <a href="/about/our-company/our-board/">
-                                                    <span class="text">Our Board</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/404/">
-                                                    <span class="text">Our Executives</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/404/">
-                                                    <span class="text">Our People</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/404/">
-                                                    <span class="text">Vision, Mission & Values</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/404/">
-                                                    <span class="text">Publications</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Media</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Careers @ Workskil</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Quality, Safety and Risk</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Our Partners</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/about/events-calendar/">
-                                            <span class="text">Events Calendar</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/about/news/">
-                                            <span class="text">News</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/404/">
-                                            <span class="text">Success Stories</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="">
-                                <a class="top-parent-anchor" href="/contact/">
-                                    <span class="text">Contact</span>
-                                </a>
-                            </li>
-                            <li class="lv-off-canvas-search hidden-xl-up">
-
-                                <!-- SEARCH -->
-                                <div class="global-search is-hidden" data-search>
-                                    <div class="container text-xs-right">
-                                        <div class="global-search-form-wrapper">
-                                            <button type="btn" class="close" data-dismiss="alert" aria-label="Close" title="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            <form class="global-search-form" action="/search/" method="get" novalidate>
-                                                <div class="input-group">
-                                                    <input id="global-search" type="text" class="form-control" name="q" placeholder="Search">
-                                                    <span class="input-group-btn">
-                                                        <button type="submit" class="btn">
-                                                            <i class="fa fa-search"></i>
-                                                        </button>
-                                                    </span>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
-
-        <!-- HERO -->
-        <div class="lv-hero-wrapper">
-            <div class="lv-hero has-fixed-height">
-                <div class="lv-hero-item" style="background-image: url('/assets/img/content/hero/hero-2.jpg')">
-                    <div class="display-table">
-                        <div class="display-table-cell v-align-bottom">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <header class="page-header">
-                                            <h1>Youth</h1>
-                                        </header>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 collapse-p-x-sm-down">
-                    <aside class="sidebar">
-                        <div class="sidebar-color-box">
-                            <h2>Workskil Youth has built a reputation as one of the leaders in the provision of Youth Services in South Australia.</h2>
-                            <p>Our strong reputation within the sector has supported our growth and enables continued progress and development into the future. Our extensive networks enable us to work together with a variety of other organisations to develop, support and implement a range of services and programs across the sector. We aim to support young people in fulfilling their potential; by linking them with learning and earning opportunities, connecting them to their local communities, and supporting them in addressing any challenges they face.
-                                <a href="/">This is a link</a>
-                            </p>
-                        </div>
-                        <div class="sidebar-info-box sidebar-color-box is-muted">
-                            <div class="media">
-                                <span class="media-left p-r-1 media-top">
-                                    <i class="fa fa-info"></i>
-                                </span>
-                                <div class="media-body">
-                                    <h4>For more information</h4>
-                                    <a href="mailto:workskil@workskil.com.au">
-                                        <i class="fa fa-envelope"></i>&nbsp;&nbsp;workskil@workskil.com.au</a>
-                                    <span class="spacer m-r-1 hidden-sm-down"></span>
-                                    <div class="spacer hidden-xl-up"></div>
-                                    <a href="tel:1300 967 575">
-                                        <i class="fa fa-phone"></i>&nbsp;&nbsp;1300 967 575</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- SUPPORTING IMAGE -->
-                        <p>
-                            <img width="100%" src="/assets/img/content/community.jpg" alt="Community">
-                        </p>
-                    </aside>
-                </div>
-                <div class="col-lg-6">
-                    <h3 class="m-t-3 m-b-2">Services provided by Workskil Youth include:</h3>
-
-                    <!-- SERVICE TILES -->
-                    <ul class="block-grid-xs-1 block-grid-md-2 block-grid-lg-2">
-                        <li>
-                            <a href="#" class="btn-tile" data-equal-height>
-                                <h3>Fee for Service Youth Services</h3>
-                                <p>Skills of Life is a flexible program run for disengaged young people. The program includes five topics, with a variety of modules within each topic.</p>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="btn-tile" data-equal-height>
-                                <h3>Fee for Service Youth Services</h3>
-                                <p>Skills of Life is a flexible program run for disengaged young people. The program includes five topics, with a variety of modules within each topic.</p>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="btn-tile" data-equal-height>
-                                <h3>Fee for Service Youth Services</h3>
-                                <p>Skills of Life is a flexible</p>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="btn-tile" data-equal-height>
-                                <h3>Fee for Service Youth Services</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="spacer m-b-3"></div>
-
-        <!-- FOOTER -->
-        <footer class="global-footer">
-
-            <!-- FOOTER BODY -->
-            <section class="global-footer-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-lg-4 col-xl-3">
-                            <h3 class="p-b-1">Workskil Australia</h3>
-                            <h4>Head Office</h4>
-                            <p>Level 1, 1069 South Road
-                                <br>Melrose Park, SA 5039
-                                <br>
-                                <a href="">View map
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </p>
-                            <p>Ph. 1300 967 575</p>
-                        </div>
-                        <div class="col-md-6 col-lg-4 col-xl-3">
-                            <ul class="list-inline social-media">
-                                <li class="list-inline-item">
-                                    <a href="https://www.linkedin.com/company/workskil-incorporated">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="https://www.facebook.com/workskil">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="https://twitter.com/workskil_aus">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="spacer m-b-1 hidden-lg-up"></div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 col-xl-6 text-md-right">
-
-                            <!-- NEWSLETTER MODAL TRIGGER -->
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                                <div class="btn btn-special">
-                                    <i class="fa fa-comment-o"></i>&nbsp;
-                                    <strong>Stay up to date</strong>
-                                </div>
-                                <a class="btn btn-quinary" data-toggle="modal" data-target="#modal-newsletter">Join our newsletter
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </section>
 
             <!-- FOOTER BOTTOM -->
-            <section class="global-footer-bottom p-y-1">
+            <section class="global-footer-bottom">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-2 text-xs-center text-md-left">
+                        <div class="col-md-2 text-center text-md-left">
+
+                            <!-- SITEMAP -->
                             <a data-sitemap-trigger href="#sitemap">
-                                <i class="fa fa-angle-up fa-angle-down"></i> Site Map</a>
-                            <div class="spacer m-b-1 hidden-md-up"></div>
+                                <i class="fa fa-angle-up fa-angle-down"></i> Site Map </a>
+
+                            <!-- SPACER -->
+                            <div class="spacer mb-4 hidden-md-up"></div>
                         </div>
-                        <div class="col-md-7 text-xs-center text-md-left">
-                            <span>&copy; 2018
+                        <div class="col-md-8 text-center text-md-left">
+
+                            <!-- COPYRIGHT -->
+                            <span class="mr-3">&copy; 2019
                                 <span class="text hidden-md-down">Workskil Australia</span>
-                            </span>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href="/contact/">Contact Us</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href="/404/">Privacy Statement</a>
+                            </span>
+
+                            <!-- LINKS -->
+                            <a class="mr-3" href="/contact-us/">Contact Us</a>
+                            <a class="mr-3" href="#">Work with Us</a>
+                            <a class="mr-3" href="#">Privacy Statement</a>
+                            <a class="mr-3" href="#">Privacy Policy</a>
+                            <a class="mr-3" href="/docs/">Docs</a>
                         </div>
-                        <div class="col-md-3 text-xs-center text-md-right">
+                        <div class="col-md-2 text-center text-md-right">
+
+                            <!-- AUTHOR LOGO -->
                             <small>
-                                <a class="author-logo" target="_blank" href="http://muchmedia.com.au">
-                                    <span class="text">Website by Much Media</span>&nbsp;
+                                <a class="author-logo" target="_blank" href="https://muchmedia.com.au">
+                                    <span class="text mr-1">Website by Much Media</span>
                                     <img width="20" height="20" src="/assets/img/ui/much-media-logo.svg" alt="Created by Much Media">
                                 </a>
                             </small>
@@ -552,136 +1160,189 @@
             <!-- FOOTER SITEMAP -->
             <section id="sitemap" class="global-footer-sitemap is-collapsed" data-sitemap>
                 <div class="container">
-                    <ul class="block-grid-xs-1 block-grid-lg-7">
+                    <ul class="block-grid-xs-1 block-grid-lg-5">
                         <li>
-                            <h5>Employment</h5>
+                            <a href="">
+                                <h5>For Individuals</h5>
+                            </a>
                             <ul class="list-unstyled">
                                 <li>
-                                    <a href="/404/">Employers</a>
+                                    <a href="/job-seekers/">Job Seekers</a>
+                                    <ul class="">
+                                        <li>
+                                            <a href="/job-seekers/jobactive/">jobactive</a>
+                                        </li>
+                                        <li>
+                                            <a href="/job-seekers/return-to-work/">Return to Work</a>
+                                        </li>
+                                        <li>
+                                            <a href="/job-seekers/work-for-the-dole/">Work for the Dole</a>
+                                        </li>
+                                        <li>
+                                            <a href="/job-seekers/jobactive/national-work-experience-program">National Work Experience Program (NWEP)</a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
-                                    <a href="/404/">jobactive</a>
+                                    <a href="/disability-injury-or-health-condition/">Disability, Injury or Health Condition</a>
+                                    <ul class="">
+                                        <li>
+                                            <a href="/disability-injury-or-health-condition/disability-employment-services/">Disability Employment Services</a>
+                                        </li>
+                                        <li>
+                                            <a href="/disability-injury-or-health-condition/work-assist/">Work Assist</a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
-                                    <a href="/404/">Disability Employment</a>
+                                    <a href="/youth/">Youth</a>
+                                    <ul class="">
+                                        <li>
+                                            <a href="/youth/get-moving/">Get Moving</a>
+                                        </li>
+                                        <li>
+                                            <a href="/youth/flexible-learning-options/">Flexible Learning Options (FLO)</a>
+                                        </li>
+                                        <li>
+                                            <a href="/youth/flexible-learning-options/">Transition to Work</a>
+                                        </li>
+                                        <li>
+                                            <a href="/youth/youth-jobs-path-internships/">Youth Jobs Path Internships</a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
-                                    <a href="/404/">Services</a>
+                                    <a href="/indigenous/">Indigenous</a>
                                 </li>
                                 <li>
-                                    <a href="/404/">Return to Work SA</a>
-                                </li>
-                                <li>
-                                    <a href="/404/">Job Placement</a>
-                                </li>
-                                <li>
-                                    <a href="/404/">Services</a>
-                                </li>
-                                <li>
-                                    <a href="/404/">Work for the Dole</a>
+                                    <a href="/community/">Community</a>
+                                    <ul class="">
+                                        <li>
+                                            <a href="/community/PartentsNext/">Personal Helpers and Mentors</a>
+                                        </li>
+                                        <li>
+                                            <a href="/community/partners-in-recovery/">Partners in Recovery</a>
+                                        </li>
+                                        <li>
+                                            <a href="/community/allied-health/">Allied Health</a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <h5>Health</h5>
+                            <a href="">
+                                <h5>For Employers</h5>
+                            </a>
                             <ul class="list-unstyled">
                                 <li>
-                                    <a href="/404/">Personal Helpers and Mentors</a>
+                                    <a href="/why-employ-our-people/">Why Employ Our People?</a>
                                 </li>
                                 <li>
-                                    <a href="/404/">Partners in Recovery</a>
+                                    <a href="/our-employment-services/">Our Employment Services</a>
+                                    <ul class="">
+                                        <li>
+                                            <a href="/our-employment-services/job-seekers/">Job Seekers</a>
+                                        </li>
+                                        <li>
+                                            <a href="/our-employment-services/disability-injury-or-health-condition/">Disability, Injury of Health Condition</a>
+                                        </li>
+                                        <li>
+                                            <a href="/our-employment-services/youth/">Youth</a>
+                                        </li>
+                                        <li>
+                                            <a href="/our-employment-services/indigenous/">Indigenous</a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
-                                    <a href="/404/">Allied Health</a>
+                                    <a href="/register-your-job-vacancies/">Register Your Job Vacancies</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <h5>Youth</h5>
+                            <a href="">
+                                <h5>About Us</h5>
+                            </a>
                             <ul class="list-unstyled">
                                 <li>
-                                    <a href="/404/">ICAN FLO</a>
+                                    <a href="/about-us/our-company/">Our Company</a>
+                                    <ul class="">
+                                        <li>
+                                            <a href="/about-us/our-company/our-history/">Our History</a>
+                                        </li>
+                                        <li>
+                                            <a href="/about-us/our-company/our-vision-mission-and-values/">Our Vision, Mission and Values</a>
+                                        </li>
+                                        <li>
+                                            <a href="/about-us/our-company/our-board/">Our Board</a>
+                                        </li>
+                                        <li>
+                                            <a href="/about-us/our-company/our-executive-team/">Our Executive Team</a>
+                                        </li>
+                                        <li>
+                                            <a href="/about-us/our-company/our-publications/">Our Publications</a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
-                                    <a href="/404/">POP</a>
+                                    <a href="/about-us/our-locations/">Our Locations</a>
                                 </li>
                                 <li>
-                                    <a href="/404/">Fee for Service Youth</a>
+                                    <a href="/about-us/careers/">Careers</a>
                                 </li>
                                 <li>
-                                    <a href="/404/">Services</a>
+                                    <a href="/about-us/quality-safety-and-risk/">Quality, Safety and Risk</a>
+                                    <ul class="">
+                                        <li>
+                                            <a href="/about-us/quality-safety-and-risk/work-health-and-safety/">Work Health and Safety</a>
+                                        </li>
+                                        <li>
+                                            <a href="/about-us/quality-safety-and-risk/quality/">Quality</a>
+                                        </li>
+                                        <li>
+                                            <a href="/about-us/quality-safety-and-risk/risk/">Risk</a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
-                                    <a href="/404/">Green Army</a>
+                                    <a href="/about-us/funding-partners/">Funding Partners</a>
                                 </li>
                                 <li>
-                                    <a href="/404/">Youth Specialist</a>
+                                    <a href="/about-us/events-calendar/">Events Calendar</a>
+                                    <ul class="">
+                                        <li>
+                                            <a href="/about-us/events-calendar/events-calendar-item/">Events Calendar Item</a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
-                                    <a href="/404/">Support</a>
+                                    <a href="/about-us/news/">News</a>
+                                    <ul class="">
+                                        <li>
+                                            <a href="/about-us/news/news-item/">News Item</a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
-                                    <a href="/404/">Successful Transitions</a>
-                                </li>
-                                <li>
-                                    <a href="/404/">Transition to Work</a>
+                                    <a href="/about-us/testimonials/">Testimonials</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <h5>Indigenous</h5>
-                            <ul class="list-unstyled"></ul>
+                            <a href="/">
+                                <h5>Home&nbsp;</h5>
+                            </a>
                         </li>
                         <li>
-                            <h5>Employers</h5>
-                            <ul class="list-unstyled"></ul>
+                            <a href="/contact-us/">
+                                <h5>Contact Us</h5>
+                            </a>
                         </li>
                         <li>
-                            <h5>Locations</h5>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="/404/">South Australia</a>
-                                </li>
-                                <li>
-                                    <a href="/404/">Victoria</a>
-                                </li>
-                                <li>
-                                    <a href="/404/">New South Wales</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <h5>About</h5>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="/about/our-company/">Our Company</a>
-                                </li>
-                                <li>
-                                    <a href="/404/">Media</a>
-                                </li>
-                                <li>
-                                    <a href="/404/">Careers @ Workskil</a>
-                                </li>
-                                <li>
-                                    <a href="/404/">Quality, Safety and Risk</a>
-                                </li>
-                                <li>
-                                    <a href="/404/">Our Partners</a>
-                                </li>
-                                <li>
-                                    <a href="/about/events-calendar/">Events Calendar</a>
-                                </li>
-                                <li>
-                                    <a href="/about/news/">News</a>
-                                </li>
-                                <li>
-                                    <a href="/404/">Success Stories</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <h5>Contact</h5>
-                            <ul class="list-unstyled"></ul>
+                            <a href="#/search/">
+                                <h5>Search</h5>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -692,316 +1353,877 @@
     <!-- /.lv-page -->
     
 <!-- OFF-CANVAS MENU --><nav class="lv-off-canvas" data-off-canvas-menu aria-hidden="true">
-        <ul>
-            <li class="">
-                <a class="top-parent-anchor" href="/">
-                    <span class="text">Home</span>
-                </a>
+        <ul class="" data-parent="Search">
+            <li class="" data-alias="home">
+
+                <!-- ANCHOR -->
+                <a href="/">
+
+                    <!-- TEXT -->
+                    <span class="text">Home </span>
+
+                    <!-- SUBMENU ARROW -->
+                    </a>
             </li>
-            <li class="has-dropdown">
-                <a class="top-parent-anchor" href="/employment/">
-                    <span class="text">Employment</span>
+            <li class="has-dropdown active-parent" data-alias="for-individuals">
+
+                <!-- ANCHOR -->
+                <a href="">
+
+                    <!-- TEXT -->
+                    <span class="text">For Individuals </span>
+
+                    <!-- SUBMENU ARROW -->
+                    <span class="submenu-arrow">
+                        <i class="fa fa-angle-right"></i>
+                    </span>
                 </a>
-                <ul class="dropdown is-nav-included" data-parent="Employment">
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Employers</span>
+
+                <!-- DROPDOWN -->
+                <ul class="dropdown" data-parent="For Individuals">
+                    <li class="has-dropdown" data-alias="job-seekers">
+
+                        <!-- ANCHOR -->
+                        <a href="/job-seekers/">
+
+                            <!-- TEXT -->
+                            <span class="text">Job Seekers </span>
+
+                            <!-- SUBMENU ARROW -->
+                            <span class="submenu-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
                         </a>
-                    </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">jobactive</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Disability Employment</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Services</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Return to Work SA</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Job Placement</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Services</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Work for the Dole</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="has-dropdown">
-                <a class="top-parent-anchor" href="/health/">
-                    <span class="text">Health</span>
-                </a>
-                <ul class="dropdown is-nav-included" data-parent="Health">
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Personal Helpers and Mentors</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Partners in Recovery</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Allied Health</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="active has-dropdown">
-                <a class="top-parent-anchor" href="/youth/">
-                    <span class="text">Youth</span>
-                </a>
-                <ul class="dropdown is-nav-included" data-parent="Youth">
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">ICAN FLO</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">POP</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Fee for Service Youth</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Services</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Green Army</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Youth Specialist</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Support</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Successful Transitions</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Transition to Work</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="">
-                <a class="top-parent-anchor" href="/indigenous/">
-                    <span class="text">Indigenous</span>
-                </a>
-            </li>
-            <li class="">
-                <span class="top-parent-anchor">
-                    <span class="text">Employers</span>
-                </span>
-            </li>
-            <li class="has-dropdown has-dropdown-right-aligned">
-                <a class="top-parent-anchor" href="/locations/">
-                    <span class="text">Locations</span>
-                </a>
-                <ul class="dropdown is-nav-included" data-parent="Locations">
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">South Australia</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Victoria</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">New South Wales</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="has-dropdown has-dropdown-right-aligned">
-                <a class="top-parent-anchor" href="/about/">
-                    <span class="text">About</span>
-                </a>
-                <ul class="dropdown is-nav-included" data-parent="About">
-                    <li class="has-dropdown">
-                        <a href="/about/our-company/">
-                            <span class="text">Our Company</span>
-                        </a>
-                        <ul class="dropdown" data-parent="Our Company">
-                            <li>
-                                <a href="/about/our-company/our-board/">
-                                    <span class="text">Our Board</span>
-                                </a>
+
+                        <!-- DROPDOWN -->
+                        <ul class="dropdown" data-parent="Job Seekers">
+                            <li class="" data-alias="jobactive">
+
+                                <!-- ANCHOR -->
+                                <a href="/job-seekers/jobactive/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">jobactive </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
                             </li>
-                            <li>
-                                <a href="/404/">
-                                    <span class="text">Our Executives</span>
-                                </a>
+                            <li class="" data-alias="return-to-work">
+
+                                <!-- ANCHOR -->
+                                <a href="/job-seekers/return-to-work/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Return to Work </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
                             </li>
-                            <li>
-                                <a href="/404/">
-                                    <span class="text">Our People</span>
-                                </a>
+                            <li class="" data-alias="work-for-the-dole">
+
+                                <!-- ANCHOR -->
+                                <a href="/job-seekers/work-for-the-dole/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Work for the Dole </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
                             </li>
-                            <li>
-                                <a href="/404/">
-                                    <span class="text">Vision, Mission & Values</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/404/">
-                                    <span class="text">Publications</span>
-                                </a>
+                            <li class="" data-alias="national-work-experience-program-nwep">
+
+                                <!-- ANCHOR -->
+                                <a href="/job-seekers/jobactive/national-work-experience-program">
+
+                                    <!-- TEXT -->
+                                    <span class="text">National Work Experience Program (NWEP) </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
                             </li>
                         </ul>
                     </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Media</span>
+                    <li class="has-dropdown" data-alias="disability-injury-or-health-condition">
+
+                        <!-- ANCHOR -->
+                        <a href="/disability-injury-or-health-condition/">
+
+                            <!-- TEXT -->
+                            <span class="text">Disability, Injury or Health Condition </span>
+
+                            <!-- SUBMENU ARROW -->
+                            <span class="submenu-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
                         </a>
+
+                        <!-- DROPDOWN -->
+                        <ul class="dropdown" data-parent="Disability, Injury or Health Condition">
+                            <li class="" data-alias="disability-employment-services">
+
+                                <!-- ANCHOR -->
+                                <a href="/disability-injury-or-health-condition/disability-employment-services/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Disability Employment Services </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
+                            </li>
+                            <li class="" data-alias="work-assist">
+
+                                <!-- ANCHOR -->
+                                <a href="/disability-injury-or-health-condition/work-assist/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Work Assist </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Careers @ Workskil</span>
+                    <li class="has-dropdown active-parent active" data-alias="youth">
+
+                        <!-- ANCHOR -->
+                        <a href="/youth/">
+
+                            <!-- TEXT -->
+                            <span class="text">Youth </span>
+
+                            <!-- SUBMENU ARROW -->
+                            <span class="submenu-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
                         </a>
+
+                        <!-- DROPDOWN -->
+                        <ul class="dropdown" data-parent="Youth">
+                            <li class="" data-alias="get-moving">
+
+                                <!-- ANCHOR -->
+                                <a href="/youth/get-moving/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Get Moving </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
+                            </li>
+                            <li class="" data-alias="flexible-learning-options-flo">
+
+                                <!-- ANCHOR -->
+                                <a href="/youth/flexible-learning-options/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Flexible Learning Options (FLO) </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
+                            </li>
+                            <li class="" data-alias="transition-to-work">
+
+                                <!-- ANCHOR -->
+                                <a href="/youth/flexible-learning-options/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Transition to Work </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
+                            </li>
+                            <li class="" data-alias="youth-jobs-path-internships">
+
+                                <!-- ANCHOR -->
+                                <a href="/youth/youth-jobs-path-internships/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Youth Jobs Path Internships </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Quality, Safety and Risk</span>
-                        </a>
+                    <li class="" data-alias="indigenous">
+
+                        <!-- ANCHOR -->
+                        <a href="/indigenous/">
+
+                            <!-- TEXT -->
+                            <span class="text">Indigenous </span>
+
+                            <!-- SUBMENU ARROW -->
+                            </a>
                     </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Our Partners</span>
+                    <li class="has-dropdown" data-alias="community">
+
+                        <!-- ANCHOR -->
+                        <a href="/community/">
+
+                            <!-- TEXT -->
+                            <span class="text">Community </span>
+
+                            <!-- SUBMENU ARROW -->
+                            <span class="submenu-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
                         </a>
-                    </li>
-                    <li class="">
-                        <a href="/about/events-calendar/">
-                            <span class="text">Events Calendar</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="/about/news/">
-                            <span class="text">News</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Success Stories</span>
-                        </a>
+
+                        <!-- DROPDOWN -->
+                        <ul class="dropdown" data-parent="Community">
+                            <li class="" data-alias="personal-helpers-and-mentors">
+
+                                <!-- ANCHOR -->
+                                <a href="/community/PartentsNext/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Personal Helpers and Mentors </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
+                            </li>
+                            <li class="" data-alias="partners-in-recovery">
+
+                                <!-- ANCHOR -->
+                                <a href="/community/partners-in-recovery/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Partners in Recovery </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
+                            </li>
+                            <li class="" data-alias="allied-health">
+
+                                <!-- ANCHOR -->
+                                <a href="/community/allied-health/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Allied Health </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </li>
-            <li class="">
-                <a class="top-parent-anchor" href="/contact/">
-                    <span class="text">Contact</span>
-                </a>
-            </li>
-            <li class="lv-off-canvas-search hidden-xl-up">
+            <li class="has-dropdown" data-alias="for-employers">
 
-                <!-- SEARCH -->
-                <div class="global-search is-hidden" data-search>
-                    <div class="container text-xs-right">
-                        <div class="global-search-form-wrapper">
-                            <button type="btn" class="close" data-dismiss="alert" aria-label="Close" title="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <form class="global-search-form" action="/search/" method="get" novalidate>
-                                <div class="input-group">
-                                    <input id="global-search" type="text" class="form-control" name="q" placeholder="Search">
-                                    <span class="input-group-btn">
-                                        <button type="submit" class="btn">
-                                            <i class="fa fa-search"></i>
-                                        </button>
+                <!-- ANCHOR -->
+                <a href="">
+
+                    <!-- TEXT -->
+                    <span class="text">For Employers </span>
+
+                    <!-- SUBMENU ARROW -->
+                    <span class="submenu-arrow">
+                        <i class="fa fa-angle-right"></i>
+                    </span>
+                </a>
+
+                <!-- DROPDOWN -->
+                <ul class="dropdown" data-parent="For Employers">
+                    <li class="" data-alias="why-employ-our-people">
+
+                        <!-- ANCHOR -->
+                        <a href="/why-employ-our-people/">
+
+                            <!-- TEXT -->
+                            <span class="text">Why Employ Our People? </span>
+
+                            <!-- SUBMENU ARROW -->
+                            </a>
+                    </li>
+                    <li class="has-dropdown" data-alias="our-employment-services">
+
+                        <!-- ANCHOR -->
+                        <a href="/our-employment-services/">
+
+                            <!-- TEXT -->
+                            <span class="text">Our Employment Services </span>
+
+                            <!-- SUBMENU ARROW -->
+                            <span class="submenu-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+
+                        <!-- DROPDOWN -->
+                        <ul class="dropdown" data-parent="Our Employment Services">
+                            <li class="has-dropdown" data-alias="job-seekers">
+
+                                <!-- ANCHOR -->
+                                <a href="/our-employment-services/job-seekers/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Job Seekers </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    <span class="submenu-arrow">
+                                        <i class="fa fa-angle-right"></i>
                                     </span>
-                                </div>
-                            </form>
+                                </a>
+
+                                <!-- DROPDOWN -->
+                                <ul class="dropdown" data-parent="Job Seekers">
+                                    <li class="" data-alias="jobactive">
+
+                                        <!-- ANCHOR -->
+                                        <a href="/our-employment-services/job-seekers/job-active/">
+
+                                            <!-- TEXT -->
+                                            <span class="text">Jobactive </span>
+
+                                            <!-- SUBMENU ARROW -->
+                                            </a>
+                                    </li>
+                                    <li class="" data-alias="work-for-the-dole">
+
+                                        <!-- ANCHOR -->
+                                        <a href="/our-employment-services/job-seekers/work-for-the-dole/">
+
+                                            <!-- TEXT -->
+                                            <span class="text">Work for the Dole </span>
+
+                                            <!-- SUBMENU ARROW -->
+                                            </a>
+                                    </li>
+                                    <li class="" data-alias="work-ready-release-ready">
+
+                                        <!-- ANCHOR -->
+                                        <a href="/our-employment-services/job-seekers/work-ready-release-ready/">
+
+                                            <!-- TEXT -->
+                                            <span class="text">Work Ready, Release Ready </span>
+
+                                            <!-- SUBMENU ARROW -->
+                                            </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown" data-alias="disability-injury-of-health-condition">
+
+                                <!-- ANCHOR -->
+                                <a href="/our-employment-services/disability-injury-or-health-condition/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Disability, Injury of Health Condition </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    <span class="submenu-arrow">
+                                        <i class="fa fa-angle-right"></i>
+                                    </span>
+                                </a>
+
+                                <!-- DROPDOWN -->
+                                <ul class="dropdown" data-parent="Disability, Injury of Health Condition">
+                                    <li class="" data-alias="disability-employment-services">
+
+                                        <!-- ANCHOR -->
+                                        <a href="/our-employment-services/disability-injury-or-health-condition/disability-employment-services/">
+
+                                            <!-- TEXT -->
+                                            <span class="text">Disability Employment Services </span>
+
+                                            <!-- SUBMENU ARROW -->
+                                            </a>
+                                    </li>
+                                    <li class="" data-alias="work-assist">
+
+                                        <!-- ANCHOR -->
+                                        <a href="/our-employment-services/disability-injury-or-health-condition/work-assist/">
+
+                                            <!-- TEXT -->
+                                            <span class="text">Work Assist </span>
+
+                                            <!-- SUBMENU ARROW -->
+                                            </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown" data-alias="youth">
+
+                                <!-- ANCHOR -->
+                                <a href="/our-employment-services/youth/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Youth </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    <span class="submenu-arrow">
+                                        <i class="fa fa-angle-right"></i>
+                                    </span>
+                                </a>
+
+                                <!-- DROPDOWN -->
+                                <ul class="dropdown" data-parent="Youth">
+                                    <li class="" data-alias="youth-jobs-path-internships">
+
+                                        <!-- ANCHOR -->
+                                        <a href="/our-employment-services/youth/youth-jobs-path-internships/">
+
+                                            <!-- TEXT -->
+                                            <span class="text">Youth Jobs Path Internships </span>
+
+                                            <!-- SUBMENU ARROW -->
+                                            </a>
+                                    </li>
+                                    <li class="" data-alias="get-moving">
+
+                                        <!-- ANCHOR -->
+                                        <a href="/our-employment-services/youth/get-moving/">
+
+                                            <!-- TEXT -->
+                                            <span class="text">Get Moving </span>
+
+                                            <!-- SUBMENU ARROW -->
+                                            </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown" data-alias="indigenous">
+
+                                <!-- ANCHOR -->
+                                <a href="/our-employment-services/indigenous/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Indigenous </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    <span class="submenu-arrow">
+                                        <i class="fa fa-angle-right"></i>
+                                    </span>
+                                </a>
+
+                                <!-- DROPDOWN -->
+                                <ul class="dropdown" data-parent="Indigenous">
+                                    <li class="" data-alias="cultural-awareness-training">
+
+                                        <!-- ANCHOR -->
+                                        <a href="/our-employment-services/indigenous/cultural-awareness-training/">
+
+                                            <!-- TEXT -->
+                                            <span class="text">Cultural Awareness Training </span>
+
+                                            <!-- SUBMENU ARROW -->
+                                            </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="" data-alias="register-your-job-vacancies">
+
+                        <!-- ANCHOR -->
+                        <a href="/register-your-job-vacancies/">
+
+                            <!-- TEXT -->
+                            <span class="text">Register Your Job Vacancies </span>
+
+                            <!-- SUBMENU ARROW -->
+                            </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="has-dropdown" data-alias="about-us">
+
+                <!-- ANCHOR -->
+                <a href="">
+
+                    <!-- TEXT -->
+                    <span class="text">About Us </span>
+
+                    <!-- SUBMENU ARROW -->
+                    <span class="submenu-arrow">
+                        <i class="fa fa-angle-right"></i>
+                    </span>
+                </a>
+
+                <!-- DROPDOWN -->
+                <ul class="dropdown" data-parent="About Us">
+                    <li class="has-dropdown" data-alias="our-company">
+
+                        <!-- ANCHOR -->
+                        <a href="/about-us/our-company/">
+
+                            <!-- TEXT -->
+                            <span class="text">Our Company </span>
+
+                            <!-- SUBMENU ARROW -->
+                            <span class="submenu-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+
+                        <!-- DROPDOWN -->
+                        <ul class="dropdown is-excluded-from-nav" data-parent="Our Company">
+                            <li class="" data-alias="our-history">
+
+                                <!-- ANCHOR -->
+                                <a href="/about-us/our-company/our-history/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Our History </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
+                            </li>
+                            <li class="" data-alias="our-vision-mission-and-values">
+
+                                <!-- ANCHOR -->
+                                <a href="/about-us/our-company/our-vision-mission-and-values/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Our Vision, Mission and Values </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
+                            </li>
+                            <li class="" data-alias="our-board">
+
+                                <!-- ANCHOR -->
+                                <a href="/about-us/our-company/our-board/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Our Board </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
+                            </li>
+                            <li class="" data-alias="our-executive-team">
+
+                                <!-- ANCHOR -->
+                                <a href="/about-us/our-company/our-executive-team/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Our Executive Team </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
+                            </li>
+                            <li class="" data-alias="our-publications">
+
+                                <!-- ANCHOR -->
+                                <a href="/about-us/our-company/our-publications/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Our Publications </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="" data-alias="our-locations">
+
+                        <!-- ANCHOR -->
+                        <a href="/about-us/our-locations/">
+
+                            <!-- TEXT -->
+                            <span class="text">Our Locations </span>
+
+                            <!-- SUBMENU ARROW -->
+                            </a>
+                    </li>
+                    <li class="" data-alias="careers">
+
+                        <!-- ANCHOR -->
+                        <a href="/about-us/careers/">
+
+                            <!-- TEXT -->
+                            <span class="text">Careers </span>
+
+                            <!-- SUBMENU ARROW -->
+                            </a>
+                    </li>
+                    <li class="has-dropdown" data-alias="quality-safety-and-risk">
+
+                        <!-- ANCHOR -->
+                        <a href="/about-us/quality-safety-and-risk/">
+
+                            <!-- TEXT -->
+                            <span class="text">Quality, Safety and Risk </span>
+
+                            <!-- SUBMENU ARROW -->
+                            <span class="submenu-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+
+                        <!-- DROPDOWN -->
+                        <ul class="dropdown is-excluded-from-nav" data-parent="Quality, Safety and Risk">
+                            <li class="" data-alias="work-health-and-safety">
+
+                                <!-- ANCHOR -->
+                                <a href="/about-us/quality-safety-and-risk/work-health-and-safety/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Work Health and Safety </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
+                            </li>
+                            <li class="" data-alias="quality">
+
+                                <!-- ANCHOR -->
+                                <a href="/about-us/quality-safety-and-risk/quality/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Quality </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
+                            </li>
+                            <li class="" data-alias="risk">
+
+                                <!-- ANCHOR -->
+                                <a href="/about-us/quality-safety-and-risk/risk/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Risk </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="" data-alias="funding-partners">
+
+                        <!-- ANCHOR -->
+                        <a href="/about-us/funding-partners/">
+
+                            <!-- TEXT -->
+                            <span class="text">Funding Partners </span>
+
+                            <!-- SUBMENU ARROW -->
+                            </a>
+                    </li>
+                    <li class="has-dropdown" data-alias="events-calendar">
+
+                        <!-- ANCHOR -->
+                        <a href="/about-us/events-calendar/">
+
+                            <!-- TEXT -->
+                            <span class="text">Events Calendar </span>
+
+                            <!-- SUBMENU ARROW -->
+                            <span class="submenu-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+
+                        <!-- DROPDOWN -->
+                        <ul class="dropdown is-excluded-from-nav" data-parent="Events Calendar">
+                            <li class="" data-alias="events-calendar-item">
+
+                                <!-- ANCHOR -->
+                                <a href="/about-us/events-calendar/events-calendar-item/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">Events Calendar Item </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown" data-alias="news">
+
+                        <!-- ANCHOR -->
+                        <a href="/about-us/news/">
+
+                            <!-- TEXT -->
+                            <span class="text">News </span>
+
+                            <!-- SUBMENU ARROW -->
+                            <span class="submenu-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+
+                        <!-- DROPDOWN -->
+                        <ul class="dropdown is-excluded-from-nav" data-parent="News">
+                            <li class="" data-alias="news-item">
+
+                                <!-- ANCHOR -->
+                                <a href="/about-us/news/news-item/">
+
+                                    <!-- TEXT -->
+                                    <span class="text">News Item </span>
+
+                                    <!-- SUBMENU ARROW -->
+                                    </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="" data-alias="testimonials">
+
+                        <!-- ANCHOR -->
+                        <a href="/about-us/testimonials/">
+
+                            <!-- TEXT -->
+                            <span class="text">Testimonials </span>
+
+                            <!-- SUBMENU ARROW -->
+                            </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="is-nav-only ml-xl-auto" data-alias="home-2">
+
+                <!-- ANCHOR -->
+                <a href="/">
+
+                    <!-- TEXT -->
+                    <span class="text">Home&nbsp; </span>
+
+                    <!-- SUBMENU ARROW -->
+                    </a>
+            </li>
+            <li class="" data-alias="contact-us">
+
+                <!-- ANCHOR -->
+                <a href="/contact-us/">
+
+                    <!-- TEXT -->
+                    <span class="text">Contact Us </span>
+
+                    <!-- SUBMENU ARROW -->
+                    </a>
+            </li>
+            <li class="" data-alias="search">
+
+                <!-- ANCHOR -->
+                <a href="#/search/">
+
+                    <!-- TEXT -->
+                    <span class="text">Search </span>
+
+                    <!-- SUBMENU ARROW -->
+                    </a>
+            </li>
+
+            <!-- SOCIAL MEDIA -->
+            <li class="is-off-canvas-only">
+
+                <!-- SOCIAL MEDIA -->
+                <div class="social-media">
+                    <a title="Facebook" href="https://www.facebook.com/workskil" target="_blank" class="facebook">
+                        <div class="icon">
+                            <i class="fa fa-facebook"></i>
                         </div>
+                    </a>
+                    <a title="LinkedIn" href="https://www.linkedin.com/company/workskil-incorporated" target="_blank" class="linkedin">
+                        <div class="icon">
+                            <i class="fa fa-linkedin"></i>
+                        </div>
+                    </a>
+                    <a title="Twitter" href="https://twitter.com/workskil_aus" target="_blank" class="twitter">
+                        <div class="icon">
+                            <i class="fa fa-twitter"></i>
+                        </div>
+                    </a>
+                </div>
+            </li>
+
+            <!-- SEARCH (OPTIONAL) -->
+            <li class="is-off-canvas-only">
+
+                <!-- GLOBAL SEARCH -->
+                <div class="global-search" data-global-search>
+                    <div class="container">
+
+                        <!-- CLOSE -->
+                        <button class="btn btn-close" data-dismiss="alert" aria-label="Close" title="Close">
+                            <i class="fa fa-times-circle"></i>
+                            <span class="text">esc</span>
+                        </button>
+
+                        <!-- FORM -->
+                        <form class="global-search-form" action="/search/" method="get" novalidate>
+                            <div class="input-group">
+                                <input class="form-control" name="q" type="search" placeholder="Search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                                <span class="global-search-info">Hit enter to search or ESC to close</span>
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </li>
         </ul>
     </nav>
 
-    <!-- SEARCH -->
-    <div class="global-search is-hidden" data-search>
-        <div class="container text-xs-right">
-            <div class="global-search-form-wrapper">
-                <button type="btn" class="close" data-dismiss="alert" aria-label="Close" title="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <form class="global-search-form" action="/search/" method="get" novalidate>
-                    <div class="input-group">
-                        <input id="global-search" type="text" class="form-control" name="q" placeholder="Search">
-                        <span class="input-group-btn">
-                            <button type="submit" class="btn">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </span>
+    <!-- GLOBAL SEARCH -->
+    <div class="global-search" data-global-search>
+        <div class="container">
+
+            <!-- CLOSE -->
+            <button class="btn btn-close" data-dismiss="alert" aria-label="Close" title="Close">
+                <i class="fa fa-times-circle"></i>
+                <span class="text">esc</span>
+            </button>
+
+            <!-- FORM -->
+            <form class="global-search-form" action="/search/" method="get" novalidate>
+                <div class="input-group">
+                    <input class="form-control" name="q" type="search" placeholder="Search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    <span class="global-search-info">Hit enter to search or ESC to close</span>
+                    <div class="input-group-append">
+                        <button type="submit" class="btn">
+                            <i class="fa fa-search"></i>
+                        </button>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
-    <div class="modal fade" id="modal-newsletter" tabindex="-1" role="dialog" aria-labelledby="modal-newsletter" aria-hidden="true">
+
+    <!-- MODAL NEWSLETTER -->
+    <div id="modal-newsletter" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-newsletter" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
+
+                <!-- MODAL HEADER -->
                 <div class="modal-header">
+
+                    <!-- CLOSE BUTTON -->
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+
+                <!-- MODAL BODY -->
                 <div class="modal-body animated fadeInDown">
-                    <h3 class="m-b-2">Join Our Newsletter</h3>
+
+                    <!-- JOIN OUR NEWSLETTER -->
+                    <h3 class="mb-4">Join Our Newsletter</h3>
+
+                    <!-- MODAL BODY FORM -->
                     <div class="modal-body-form">
 
-                        <!-- IF SUCCESS -->
-                        <div class="alert alert-success" hidden>
-                            <h4>Success!</h4>
-                            <p>Your form has been submitted.</p>
-                        </div>
-
-                        <!-- IF FAILURE -->
-                        <div class="alert alert-danger alert-dismissible fade in" role="alert" hidden>
+                        <!-- IF SUCCESS (HIDDEN) -->
+                        <div class="alert alert-success alert-dismissible fade show mb-4" role="alert" hidden>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            <h4>Oops!</h4>
-                            <p>Something went wrong. Please check your details.</p>
-                        </div>
+                            <strong>Success!</strong>
+                            <br>Thanks for that. Your message has been received.</div>
+
+                        <!-- IF FAILURE (HIDDEN) -->
+                        <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert" hidden>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong>Oops!</strong>
+                            <br>Something went wrong. Please try again.</div>
+
+                        <!-- FORM -->
                         <form data-toggle="validator">
                             <fieldset>
                                 <div class="row">
@@ -1009,7 +2231,7 @@
 
                                         <!-- NAME -->
                                         <div class="form-group">
-                                            <input class="form-control" id="newsletter-name" name="Name" type="text" placeholder="Full Name" required>
+                                            <input id="newsletter-name" class="form-control" name="Name" type="text" placeholder="Full Name" required>
                                             <small class="error">Your name is required.</small>
                                         </div>
                                     </div>
@@ -1017,7 +2239,7 @@
 
                                         <!-- EMAIL -->
                                         <div class="form-group">
-                                            <input class="form-control" id="newsletter-email" name="Email" type="email" placeholder="Email" required>
+                                            <input id="newsletter-email" class="form-control" name="Email" type="email" placeholder="Email" required>
                                             <small class="error">A valid email is required.</small>
                                         </div>
                                     </div>
@@ -1035,7 +2257,7 @@
         </div>
     </div>
 
-    <!--[if lt IE 9]>
+    <!--[if lte IE 9]>
     <div class="lv-alert-bar">
         <p>You're using an outdated browser. Please <a title="Click me, you know you want to." href="http://outdatedbrowser.com">upgrade your browser</a> to improve your experience.</p>
         <span class="lv-alert-bar-close-btn">&times;</span>
@@ -1044,41 +2266,6 @@
 
     <!-- **** JAVASCRIPT **** -->
     <script src="/assets/scripts/minified.js"></script>
-    <script>
-    $(window).on('load', function() {
-        $('.social-feed-container').socialfeed({
-            // FACEBOOK
-            facebook: {
-                accounts: ['@elouerasurf'],
-                limit: 4,
-                access_token: '1142564202455221|3a2db052ca1e71a576329b99b7d55a5b'
-            },
-            // INSTAGRAM
-            instagram: {
-                accounts: ['@eloueraslsc'],
-                limit: 4,
-                //client_id: '88b4730e0e2c4b2f8a09a6184af2e218',
-                //access_token: ''
-                client_id: 'aa2ef3e8118541c0b7c372cfd81e752b',
-                access_token: '3178942332.e029fea.ab1887d8d8024dd69d8b1dafbbfa773b'
-            },
-            // GENERAL SETTINGS
-            length: 200,
-            show_media: true,
-            template: "/social-feed/",
-            // When all the posts are collected and displayed - this function is evoked
-            callback: function() {
-                console.log('All Instagram/Facebook posts are collected');
-                setTimeout(function() {
-                    $('.social-feed-container').masonry();
-                    setTimeout(function() {
-                        $('.social-feed-container').masonry();
-                    }, 800);
-                }, 800);
-            }
-        });
-    });
-    </script>
 
     <!-- NO JAVASCRIPT WARNING -->
     <noscript>

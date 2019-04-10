@@ -1,0 +1,14 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="480px" height="288px" viewBox="0 0 480 288">
+<defs>
+<g id="Layer0_0_FILL">
+<path fill="#191919" fill-opacity="0" stroke="none" d="
+M 480 288
+L 480 0 0 0 0 288 480 288 Z"/>
+</g>
+</defs>
+
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Layer0_0_FILL"/>
+</g>
+</svg>
