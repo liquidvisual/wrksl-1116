@@ -177,8 +177,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         X = /^h\d$/i,
         Y = /^[^{]+\{\s*\[native \w/,
         G = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,
-        J = /[+~]/,
-        Z = new RegExp("\\\\([\\da-f]{1,6}" + q + "?|(" + q + ")|.)", "ig"),
+        Z = /[+~]/,
+        J = new RegExp("\\\\([\\da-f]{1,6}" + q + "?|(" + q + ")|.)", "ig"),
         tt = function tt(t, e, n) {
       var i = "0x" + e - 65536;return i != i || n ? e : i < 0 ? String.fromCharCode(i + 65536) : String.fromCharCode(i >> 10 | 55296, 1023 & i | 56320);
     },
@@ -219,7 +219,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           if (1 !== w) y = e, v = t;else if ("object" !== e.nodeName.toLowerCase()) {
             for ((u = e.getAttribute("id")) ? u = u.replace(et, nt) : e.setAttribute("id", u = _), a = (p = s(t)).length; a--;) {
               p[a] = "#" + u + " " + vt(p[a]);
-            }v = p.join(","), y = J.test(t) && gt(e.parentNode) || e;
+            }v = p.join(","), y = Z.test(t) && gt(e.parentNode) || e;
           }if (v) try {
             return L.apply(i, y.querySelectorAll(v)), i;
           } catch (t) {} finally {
@@ -284,7 +284,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }), n.getElementsByClassName = Y.test(f.getElementsByClassName), n.getById = lt(function (t) {
         return p.appendChild(t).id = _, !f.getElementsByName || !f.getElementsByName(_).length;
       }), n.getById ? (i.filter.ID = function (t) {
-        var e = t.replace(Z, tt);return function (t) {
+        var e = t.replace(J, tt);return function (t) {
           return t.getAttribute("id") === e;
         };
       }, i.find.ID = function (t, e) {
@@ -292,7 +292,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           var n = e.getElementById(t);return n ? [n] : [];
         }
       }) : (i.filter.ID = function (t) {
-        var e = t.replace(Z, tt);return function (t) {
+        var e = t.replace(J, tt);return function (t) {
           var n = void 0 !== t.getAttributeNode && t.getAttributeNode("id");return n && n.value === e;
         };
       }, i.find.ID = function (t, e) {
@@ -388,14 +388,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         n += o(e);
       }return n;
     }, (i = rt.selectors = { cacheLength: 50, createPseudo: at, match: Q, attrHandle: {}, find: {}, relative: { ">": { dir: "parentNode", first: !0 }, " ": { dir: "parentNode" }, "+": { dir: "previousSibling", first: !0 }, "~": { dir: "previousSibling" } }, preFilter: { ATTR: function ATTR(t) {
-          return t[1] = t[1].replace(Z, tt), t[3] = (t[3] || t[4] || t[5] || "").replace(Z, tt), "~=" === t[2] && (t[3] = " " + t[3] + " "), t.slice(0, 4);
+          return t[1] = t[1].replace(J, tt), t[3] = (t[3] || t[4] || t[5] || "").replace(J, tt), "~=" === t[2] && (t[3] = " " + t[3] + " "), t.slice(0, 4);
         }, CHILD: function CHILD(t) {
           return t[1] = t[1].toLowerCase(), "nth" === t[1].slice(0, 3) ? (t[3] || rt.error(t[0]), t[4] = +(t[4] ? t[5] + (t[6] || 1) : 2 * ("even" === t[3] || "odd" === t[3])), t[5] = +(t[7] + t[8] || "odd" === t[3])) : t[3] && rt.error(t[0]), t;
         }, PSEUDO: function PSEUDO(t) {
           var e,
               n = !t[6] && t[2];return Q.CHILD.test(t[0]) ? null : (t[3] ? t[2] = t[4] || t[5] || "" : n && $.test(n) && (e = s(n, !0)) && (e = n.indexOf(")", n.length - e) - n.length) && (t[0] = t[0].slice(0, e), t[2] = n.slice(0, e)), t.slice(0, 3));
         } }, filter: { TAG: function TAG(t) {
-          var e = t.replace(Z, tt).toLowerCase();return "*" === t ? function () {
+          var e = t.replace(J, tt).toLowerCase();return "*" === t ? function () {
             return !0;
           } : function (t) {
             return t.nodeName && t.nodeName.toLowerCase() === e;
@@ -464,11 +464,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             return rt(t, e).length > 0;
           };
         }), contains: at(function (t) {
-          return t = t.replace(Z, tt), function (e) {
+          return t = t.replace(J, tt), function (e) {
             return (e.textContent || e.innerText || o(e)).indexOf(t) > -1;
           };
         }), lang: at(function (t) {
-          return V.test(t || "") || rt.error("unsupported lang: " + t), t = t.replace(Z, tt).toLowerCase(), function (e) {
+          return V.test(t || "") || rt.error("unsupported lang: " + t), t = t.replace(J, tt).toLowerCase(), function (e) {
             var n;do {
               if (n = g ? e.lang : e.getAttribute("xml:lang") || e.getAttribute("lang")) return (n = n.toLowerCase()) === t || 0 === n.indexOf(t + "-");
             } while ((e = e.parentNode) && 1 === e.nodeType);return !1;
@@ -665,13 +665,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           d = "function" == typeof t && t,
           f = !o && s(t = d.selector || t);if (n = n || [], 1 === f.length) {
         if ((l = f[0] = f[0].slice(0)).length > 2 && "ID" === (c = l[0]).type && 9 === e.nodeType && g && i.relative[l[1].type]) {
-          if (!(e = (i.find.ID(c.matches[0].replace(Z, tt), e) || [])[0])) return n;d && (e = e.parentNode), t = t.slice(l.shift().value.length);
+          if (!(e = (i.find.ID(c.matches[0].replace(J, tt), e) || [])[0])) return n;d && (e = e.parentNode), t = t.slice(l.shift().value.length);
         }for (r = Q.needsContext.test(t) ? 0 : l.length; r-- && (c = l[r], !i.relative[u = c.type]);) {
-          if ((h = i.find[u]) && (o = h(c.matches[0].replace(Z, tt), J.test(l[0].type) && gt(e.parentNode) || e))) {
+          if ((h = i.find[u]) && (o = h(c.matches[0].replace(J, tt), Z.test(l[0].type) && gt(e.parentNode) || e))) {
             if (l.splice(r, 1), !(t = o.length && vt(l))) return L.apply(n, o), n;break;
           }
         }
-      }return (d || a(t, f))(o, e, !g, n, !e || J.test(t) && gt(e.parentNode) || e), n;
+      }return (d || a(t, f))(o, e, !g, n, !e || Z.test(t) && gt(e.parentNode) || e), n;
     }, n.sortStable = _.split("").sort(D).join("") === _, n.detectDuplicates = !!h, d(), n.sortDetached = lt(function (t) {
       return 1 & t.compareDocumentPosition(f.createElement("fieldset"));
     }), lt(function (t) {
@@ -976,8 +976,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     } };var X = new K(),
       Y = new K(),
       G = /^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,
-      J = /[A-Z]/g;function Z(t, e, n) {
-    var i;if (void 0 === n && 1 === t.nodeType) if (i = "data-" + e.replace(J, "-$&").toLowerCase(), "string" == typeof (n = t.getAttribute(i))) {
+      Z = /[A-Z]/g;function J(t, e, n) {
+    var i;if (void 0 === n && 1 === t.nodeType) if (i = "data-" + e.replace(Z, "-$&").toLowerCase(), "string" == typeof (n = t.getAttribute(i))) {
       try {
         n = function (t) {
           return "true" === t || "false" !== t && ("null" === t ? null : t === +t + "" ? +t : G.test(t) ? JSON.parse(t) : t);
@@ -1002,13 +1002,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           s = r && r.attributes;if (void 0 === t) {
         if (this.length && (o = Y.get(r), 1 === r.nodeType && !X.get(r, "hasDataAttrs"))) {
           for (n = s.length; n--;) {
-            s[n] && 0 === (i = s[n].name).indexOf("data-") && (i = V(i.slice(5)), Z(r, i, o[i]));
+            s[n] && 0 === (i = s[n].name).indexOf("data-") && (i = V(i.slice(5)), J(r, i, o[i]));
           }X.set(r, "hasDataAttrs", !0);
         }return o;
       }return "object" == (typeof t === "undefined" ? "undefined" : _typeof(t)) ? this.each(function () {
         Y.set(this, t);
       }) : W(this, function (e) {
-        var n;if (r && void 0 === e) return void 0 !== (n = Y.get(r, t)) ? n : void 0 !== (n = Z(r, t)) ? n : void 0;this.each(function () {
+        var n;if (r && void 0 === e) return void 0 !== (n = Y.get(r, t)) ? n : void 0 !== (n = J(r, t)) ? n : void 0;this.each(function () {
           Y.set(this, t, e);
         });
       }, null, e, arguments.length > 1, null, !0);
@@ -1456,8 +1456,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         s = r;if (Ht.test(o)) {
       if (!n) return o;o = "auto";
     }return s = s && (p.boxSizingReliable() || o === t.style[e]), ("auto" === o || !parseFloat(o) && "inline" === _.css(t, "display", !1, i)) && (o = t["offset" + e[0].toUpperCase() + e.slice(1)], s = !0), (o = parseFloat(o) || 0) + Yt(t, e, n || (r ? "border" : "content"), s, i, o) + "px";
-  }function Jt(t, e, n, i, o) {
-    return new Jt.prototype.init(t, e, n, i, o);
+  }function Zt(t, e, n, i, o) {
+    return new Zt.prototype.init(t, e, n, i, o);
   }_.extend({ cssHooks: { opacity: { get: function get(t, e) {
           if (e) {
             var n = zt(t, "opacity");return "" === n ? "1" : n;
@@ -1508,32 +1508,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           }return r;
         }return void 0 !== n ? _.style(t, e, n) : _.css(t, e);
       }, t, e, arguments.length > 1);
-    } }), _.Tween = Jt, Jt.prototype = { constructor: Jt, init: function init(t, e, n, i, o, r) {
+    } }), _.Tween = Zt, Zt.prototype = { constructor: Zt, init: function init(t, e, n, i, o, r) {
       this.elem = t, this.prop = n, this.easing = o || _.easing._default, this.options = e, this.start = this.now = this.cur(), this.end = i, this.unit = r || (_.cssNumber[n] ? "" : "px");
     }, cur: function cur() {
-      var t = Jt.propHooks[this.prop];return t && t.get ? t.get(this) : Jt.propHooks._default.get(this);
+      var t = Zt.propHooks[this.prop];return t && t.get ? t.get(this) : Zt.propHooks._default.get(this);
     }, run: function run(t) {
       var e,
-          n = Jt.propHooks[this.prop];return this.options.duration ? this.pos = e = _.easing[this.easing](t, this.options.duration * t, 0, 1, this.options.duration) : this.pos = e = t, this.now = (this.end - this.start) * e + this.start, this.options.step && this.options.step.call(this.elem, this.now, this), n && n.set ? n.set(this) : Jt.propHooks._default.set(this), this;
-    } }, Jt.prototype.init.prototype = Jt.prototype, Jt.propHooks = { _default: { get: function get(t) {
+          n = Zt.propHooks[this.prop];return this.options.duration ? this.pos = e = _.easing[this.easing](t, this.options.duration * t, 0, 1, this.options.duration) : this.pos = e = t, this.now = (this.end - this.start) * e + this.start, this.options.step && this.options.step.call(this.elem, this.now, this), n && n.set ? n.set(this) : Zt.propHooks._default.set(this), this;
+    } }, Zt.prototype.init.prototype = Zt.prototype, Zt.propHooks = { _default: { get: function get(t) {
         var e;return 1 !== t.elem.nodeType || null != t.elem[t.prop] && null == t.elem.style[t.prop] ? t.elem[t.prop] : (e = _.css(t.elem, t.prop, "")) && "auto" !== e ? e : 0;
       }, set: function set(t) {
         _.fx.step[t.prop] ? _.fx.step[t.prop](t) : 1 !== t.elem.nodeType || null == t.elem.style[_.cssProps[t.prop]] && !_.cssHooks[t.prop] ? t.elem[t.prop] = t.now : _.style(t.elem, t.prop, t.now + t.unit);
-      } } }, Jt.propHooks.scrollTop = Jt.propHooks.scrollLeft = { set: function set(t) {
+      } } }, Zt.propHooks.scrollTop = Zt.propHooks.scrollLeft = { set: function set(t) {
       t.elem.nodeType && t.elem.parentNode && (t.elem[t.prop] = t.now);
     } }, _.easing = { linear: function linear(t) {
       return t;
     }, swing: function swing(t) {
       return .5 - Math.cos(t * Math.PI) / 2;
-    }, _default: "swing" }, _.fx = Jt.prototype.init, _.fx.step = {};var Zt,
+    }, _default: "swing" }, _.fx = Zt.prototype.init, _.fx.step = {};var Jt,
       te,
       ee = /^(?:toggle|show|hide)$/,
       ne = /queueHooks$/;function ie() {
     te && (!1 === i.hidden && t.requestAnimationFrame ? t.requestAnimationFrame(ie) : t.setTimeout(ie, _.fx.interval), _.fx.tick());
   }function oe() {
     return t.setTimeout(function () {
-      Zt = void 0;
-    }), Zt = Date.now();
+      Jt = void 0;
+    }), Jt = Date.now();
   }function re(t, e) {
     var n,
         i = 0,
@@ -1553,11 +1553,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       delete l.elem;
     }),
         l = function l() {
-      if (o) return !1;for (var e = Zt || oe(), n = Math.max(0, c.startTime + c.duration - e), i = 1 - (n / c.duration || 0), r = 0, s = c.tweens.length; r < s; r++) {
+      if (o) return !1;for (var e = Jt || oe(), n = Math.max(0, c.startTime + c.duration - e), i = 1 - (n / c.duration || 0), r = 0, s = c.tweens.length; r < s; r++) {
         c.tweens[r].run(i);
       }return a.notifyWith(t, [c, i, n]), i < 1 && s ? n : (s || a.notifyWith(t, [c, 1, 0]), a.resolveWith(t, [c]), !1);
     },
-        c = a.promise({ elem: t, props: _.extend({}, e), opts: _.extend(!0, { specialEasing: {}, easing: _.easing._default }, n), originalProperties: e, originalOptions: n, startTime: Zt || oe(), duration: n.duration, tweens: [], createTween: function createTween(e, n) {
+        c = a.promise({ elem: t, props: _.extend({}, e), opts: _.extend(!0, { specialEasing: {}, easing: _.easing._default }, n), originalProperties: e, originalOptions: n, startTime: Jt || oe(), duration: n.duration, tweens: [], createTween: function createTween(e, n) {
         var i = _.Tween(t, c.opts, e, n, c.opts.specialEasing[e] || c.opts.easing);return c.tweens.push(i), i;
       }, stop: function stop(e) {
         var n = 0,
@@ -1668,9 +1668,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }), _.timers = [], _.fx.tick = function () {
     var t,
         e = 0,
-        n = _.timers;for (Zt = Date.now(); e < n.length; e++) {
+        n = _.timers;for (Jt = Date.now(); e < n.length; e++) {
       (t = n[e])() || n[e] !== t || n.splice(e--, 1);
-    }n.length || _.fx.stop(), Zt = void 0;
+    }n.length || _.fx.stop(), Jt = void 0;
   }, _.fx.timer = function (t) {
     _.timers.push(t), _.fx.start();
   }, _.fx.interval = 13, _.fx.start = function () {
@@ -2522,8 +2522,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       X = e.fn[K],
       Y = { toggle: !0, parent: "" },
       G = { toggle: "boolean", parent: "(string|element)" },
-      J = { SHOW: "show.bs.collapse", SHOWN: "shown.bs.collapse", HIDE: "hide.bs.collapse", HIDDEN: "hidden.bs.collapse", CLICK_DATA_API: "click.bs.collapse.data-api" },
-      Z = "show",
+      Z = { SHOW: "show.bs.collapse", SHOWN: "shown.bs.collapse", HIDE: "hide.bs.collapse", HIDDEN: "hidden.bs.collapse", CLICK_DATA_API: "click.bs.collapse.data-api" },
+      J = "show",
       tt = "collapse",
       et = "collapsing",
       nt = "collapsed",
@@ -2540,28 +2540,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         });null !== s && a.length > 0 && (this._selector = s, this._triggerArray.push(r));
       }this._parent = this._config.parent ? this._getParent() : null, this._config.parent || this._addAriaAndCollapsedClass(this._element, this._triggerArray), this._config.toggle && this.toggle();
     }var n = t.prototype;return n.toggle = function () {
-      e(this._element).hasClass(Z) ? this.hide() : this.show();
+      e(this._element).hasClass(J) ? this.hide() : this.show();
     }, n.show = function () {
       var n,
           i,
-          o = this;if (!this._isTransitioning && !e(this._element).hasClass(Z) && (this._parent && 0 === (n = [].slice.call(this._parent.querySelectorAll(rt.ACTIVES)).filter(function (t) {
+          o = this;if (!this._isTransitioning && !e(this._element).hasClass(J) && (this._parent && 0 === (n = [].slice.call(this._parent.querySelectorAll(rt.ACTIVES)).filter(function (t) {
         return "string" == typeof o._config.parent ? t.getAttribute("data-parent") === o._config.parent : t.classList.contains(tt);
       })).length && (n = null), !(n && (i = e(n).not(this._selector).data("bs.collapse")) && i._isTransitioning))) {
-        var r = e.Event(J.SHOW);if (e(this._element).trigger(r), !r.isDefaultPrevented()) {
+        var r = e.Event(Z.SHOW);if (e(this._element).trigger(r), !r.isDefaultPrevented()) {
           n && (t._jQueryInterface.call(e(n).not(this._selector), "hide"), i || e(n).data("bs.collapse", null));var s = this._getDimension();e(this._element).removeClass(tt).addClass(et), this._element.style[s] = 0, this._triggerArray.length && e(this._triggerArray).removeClass(nt).attr("aria-expanded", !0), this.setTransitioning(!0);var a = "scroll" + (s[0].toUpperCase() + s.slice(1)),
               l = c.getTransitionDurationFromElement(this._element);e(this._element).one(c.TRANSITION_END, function () {
-            e(o._element).removeClass(et).addClass(tt).addClass(Z), o._element.style[s] = "", o.setTransitioning(!1), e(o._element).trigger(J.SHOWN);
+            e(o._element).removeClass(et).addClass(tt).addClass(J), o._element.style[s] = "", o.setTransitioning(!1), e(o._element).trigger(Z.SHOWN);
           }).emulateTransitionEnd(l), this._element.style[s] = this._element[a] + "px";
         }
       }
     }, n.hide = function () {
-      var t = this;if (!this._isTransitioning && e(this._element).hasClass(Z)) {
-        var n = e.Event(J.HIDE);if (e(this._element).trigger(n), !n.isDefaultPrevented()) {
-          var i = this._getDimension();this._element.style[i] = this._element.getBoundingClientRect()[i] + "px", c.reflow(this._element), e(this._element).addClass(et).removeClass(tt).removeClass(Z);var o = this._triggerArray.length;if (o > 0) for (var r = 0; r < o; r++) {
+      var t = this;if (!this._isTransitioning && e(this._element).hasClass(J)) {
+        var n = e.Event(Z.HIDE);if (e(this._element).trigger(n), !n.isDefaultPrevented()) {
+          var i = this._getDimension();this._element.style[i] = this._element.getBoundingClientRect()[i] + "px", c.reflow(this._element), e(this._element).addClass(et).removeClass(tt).removeClass(J);var o = this._triggerArray.length;if (o > 0) for (var r = 0; r < o; r++) {
             var s = this._triggerArray[r],
-                a = c.getSelectorFromElement(s);if (null !== a) e([].slice.call(document.querySelectorAll(a))).hasClass(Z) || e(s).addClass(nt).attr("aria-expanded", !1);
+                a = c.getSelectorFromElement(s);if (null !== a) e([].slice.call(document.querySelectorAll(a))).hasClass(J) || e(s).addClass(nt).attr("aria-expanded", !1);
           }this.setTransitioning(!0);this._element.style[i] = "";var l = c.getTransitionDurationFromElement(this._element);e(this._element).one(c.TRANSITION_END, function () {
-            t.setTransitioning(!1), e(t._element).removeClass(et).addClass(tt).trigger(J.HIDDEN);
+            t.setTransitioning(!1), e(t._element).removeClass(et).addClass(tt).trigger(Z.HIDDEN);
           }).emulateTransitionEnd(l);
         }
       }
@@ -2580,7 +2580,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         i._addAriaAndCollapsedClass(t._getTargetFromElement(n), [n]);
       }), n;
     }, n._addAriaAndCollapsedClass = function (t, n) {
-      var i = e(t).hasClass(Z);n.length && e(n).toggleClass(nt, !i).attr("aria-expanded", i);
+      var i = e(t).hasClass(J);n.length && e(n).toggleClass(nt, !i).attr("aria-expanded", i);
     }, t._getTargetFromElement = function (t) {
       var e = c.getSelectorFromElement(t);return e ? document.querySelector(e) : null;
     }, t._jQueryInterface = function (n) {
@@ -2596,7 +2596,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       } }, { key: "Default", get: function get() {
         return Y;
       } }]), t;
-  }();e(document).on(J.CLICK_DATA_API, rt.DATA_TOGGLE, function (t) {
+  }();e(document).on(Z.CLICK_DATA_API, rt.DATA_TOGGLE, function (t) {
     "A" === t.currentTarget.tagName && t.preventDefault();var n = e(this),
         i = c.getSelectorFromElement(this),
         o = [].slice.call(document.querySelectorAll(i));e(o).each(function () {
@@ -2882,8 +2882,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }var Xt = "tooltip",
       Yt = e.fn.tooltip,
       Gt = new RegExp("(^|\\s)bs-tooltip\\S+", "g"),
-      Jt = ["sanitize", "whiteList", "sanitizeFn"],
-      Zt = { animation: "boolean", template: "string", title: "(string|element|function)", trigger: "string", delay: "(number|object)", html: "boolean", selector: "(string|boolean)", placement: "(string|function)", offset: "(number|string|function)", container: "(string|element|boolean)", fallbackPlacement: "(string|array)", boundary: "(string|element)", sanitize: "boolean", sanitizeFn: "(null|function)", whiteList: "object" },
+      Zt = ["sanitize", "whiteList", "sanitizeFn"],
+      Jt = { animation: "boolean", template: "string", title: "(string|element|function)", trigger: "string", delay: "(number|object)", html: "boolean", selector: "(string|boolean)", placement: "(string|function)", offset: "(number|string|function)", container: "(string|element|boolean)", fallbackPlacement: "(string|array)", boundary: "(string|element)", sanitize: "boolean", sanitizeFn: "(null|function)", whiteList: "object" },
       te = { AUTO: "auto", TOP: "top", RIGHT: "right", BOTTOM: "bottom", LEFT: "left" },
       ee = { animation: !0, template: '<div class="tooltip" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>', trigger: "hover focus", title: "", delay: 0, html: !1, selector: !1, placement: "top", offset: 0, container: !1, fallbackPlacement: "flip", boundary: "scrollParent", sanitize: !0, sanitizeFn: null, whiteList: $t },
       ne = "show",
@@ -2995,7 +2995,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }return !1;
     }, i._getConfig = function (t) {
       var n = e(this.element).data();return Object.keys(n).forEach(function (t) {
-        -1 !== Jt.indexOf(t) && delete n[t];
+        -1 !== Zt.indexOf(t) && delete n[t];
       }), "number" == typeof (t = s({}, this.constructor.Default, n, "object" == (typeof t === "undefined" ? "undefined" : _typeof(t)) && t ? t : {})).delay && (t.delay = { show: t.delay, hide: t.delay }), "number" == typeof t.title && (t.title = t.title.toString()), "number" == typeof t.content && (t.content = t.content.toString()), c.typeCheckConfig(Xt, t, this.constructor.DefaultType), t.sanitize && (t.template = Kt(t.template, t.whiteList, t.sanitizeFn)), t;
     }, i._getDelegateConfig = function () {
       var t = {};if (this.config) for (var e in this.config) {
@@ -3029,7 +3029,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       } }, { key: "EVENT_KEY", get: function get() {
         return ".bs.tooltip";
       } }, { key: "DefaultType", get: function get() {
-        return Zt;
+        return Jt;
       } }]), t;
   }();e.fn.tooltip = fe._jQueryInterface, e.fn.tooltip.Constructor = fe, e.fn.tooltip.noConflict = function () {
     return e.fn.tooltip = Yt, fe._jQueryInterface;
@@ -3230,8 +3230,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }), e.fn.tab = Ye._jQueryInterface, e.fn.tab.Constructor = Ye, e.fn.tab.noConflict = function () {
     return e.fn.tab = qe, Ye._jQueryInterface;
   };var Ge = e.fn.toast,
-      Je = { CLICK_DISMISS: "click.dismiss.bs.toast", HIDE: "hide.bs.toast", HIDDEN: "hidden.bs.toast", SHOW: "show.bs.toast", SHOWN: "shown.bs.toast" },
-      Ze = "fade",
+      Ze = { CLICK_DISMISS: "click.dismiss.bs.toast", HIDE: "hide.bs.toast", HIDDEN: "hidden.bs.toast", SHOW: "show.bs.toast", SHOWN: "shown.bs.toast" },
+      Je = "fade",
       tn = "hide",
       en = "show",
       nn = "showing",
@@ -3242,27 +3242,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     function t(t, e) {
       this._element = t, this._config = this._getConfig(e), this._timeout = null, this._setListeners();
     }var n = t.prototype;return n.show = function () {
-      var t = this;e(this._element).trigger(Je.SHOW), this._config.animation && this._element.classList.add(Ze);var n = function n() {
-        t._element.classList.remove(nn), t._element.classList.add(en), e(t._element).trigger(Je.SHOWN), t._config.autohide && t.hide();
+      var t = this;e(this._element).trigger(Ze.SHOW), this._config.animation && this._element.classList.add(Je);var n = function n() {
+        t._element.classList.remove(nn), t._element.classList.add(en), e(t._element).trigger(Ze.SHOWN), t._config.autohide && t.hide();
       };if (this._element.classList.remove(tn), this._element.classList.add(nn), this._config.animation) {
         var i = c.getTransitionDurationFromElement(this._element);e(this._element).one(c.TRANSITION_END, n).emulateTransitionEnd(i);
       } else n();
     }, n.hide = function (t) {
-      var n = this;this._element.classList.contains(en) && (e(this._element).trigger(Je.HIDE), t ? this._close() : this._timeout = setTimeout(function () {
+      var n = this;this._element.classList.contains(en) && (e(this._element).trigger(Ze.HIDE), t ? this._close() : this._timeout = setTimeout(function () {
         n._close();
       }, this._config.delay));
     }, n.dispose = function () {
-      clearTimeout(this._timeout), this._timeout = null, this._element.classList.contains(en) && this._element.classList.remove(en), e(this._element).off(Je.CLICK_DISMISS), e.removeData(this._element, "bs.toast"), this._element = null, this._config = null;
+      clearTimeout(this._timeout), this._timeout = null, this._element.classList.contains(en) && this._element.classList.remove(en), e(this._element).off(Ze.CLICK_DISMISS), e.removeData(this._element, "bs.toast"), this._element = null, this._config = null;
     }, n._getConfig = function (t) {
       return t = s({}, rn, e(this._element).data(), "object" == (typeof t === "undefined" ? "undefined" : _typeof(t)) && t ? t : {}), c.typeCheckConfig("toast", t, this.constructor.DefaultType), t;
     }, n._setListeners = function () {
-      var t = this;e(this._element).on(Je.CLICK_DISMISS, sn, function () {
+      var t = this;e(this._element).on(Ze.CLICK_DISMISS, sn, function () {
         return t.hide(!0);
       });
     }, n._close = function () {
       var t = this,
           n = function n() {
-        t._element.classList.add(tn), e(t._element).trigger(Je.HIDDEN);
+        t._element.classList.add(tn), e(t._element).trigger(Ze.HIDDEN);
       };if (this._element.classList.remove(en), this._config.animation) {
         var i = c.getTransitionDurationFromElement(this._element);e(this._element).one(c.TRANSITION_END, n).emulateTransitionEnd(i);
       } else n();
@@ -4788,4 +4788,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   var t = $(this).attr("href"),
       e = $(t),
       n = $(".global-header").height();e.length && $.scrollTo(e.offset().top - n, 400);
+});var currFFZoom = 1,
+    currIEZoom = 100,
+    isFirefox = navigator.userAgent.toLowerCase().indexOf("firefox") > -1;$("[data-resize-up]").on("click", function () {
+  isFirefox ? (currFFZoom += .02, $("body").css("MozTransform", "scale(" + currFFZoom + ")"), $("body").css("transform-origin", "top center")) : (currIEZoom += 2, $("body").css("zoom", " " + currIEZoom + "%"));
+}), $("[data-resize-down]").on("click", function () {
+  isFirefox ? (currFFZoom -= .02, $("body").css("MozTransform", "scale(" + currFFZoom + ")")) : (currIEZoom -= 2, $("body").css("zoom", " " + currIEZoom + "%"));
 });
