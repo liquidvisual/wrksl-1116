@@ -4790,8 +4790,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       n = $(".global-header").height();e.length && $.scrollTo(e.offset().top - n, 400);
 });var currFFZoom = 1,
     currIEZoom = 100,
-    isFirefox = navigator.userAgent.toLowerCase().indexOf("firefox") > -1;$("[data-resize-up]").on("click", function () {
-  isFirefox ? (currFFZoom += .02, $("body").css("MozTransform", "scale(" + currFFZoom + ")"), $("body").css("transform-origin", "top center")) : (currIEZoom += 2, $("body").css("zoom", " " + currIEZoom + "%"));
+    isFirefox = navigator.userAgent.toLowerCase().indexOf("firefox") > -1,
+    isIE11 = getInternetExplorerVersion() > -1;function getInternetExplorerVersion() {
+  var t = -1;if ("Microsoft Internet Explorer" == navigator.appName) {
+    var e = navigator.userAgent;null != new RegExp("MSIE ([0-9]{1,}[.0-9]{0,})").exec(e) && (t = parseFloat(RegExp.$1));
+  }return t;
+}$("[data-resize-up]").on("click", function () {
+  isFirefox || isIE11 ? (currFFZoom += .02, $("body").css("MozTransform", "scale(" + currFFZoom + ")"), $("body").css("transform-origin", "top center")) : (currIEZoom += 2, $("body").css("zoom", " " + currIEZoom + "%"));
 }), $("[data-resize-down]").on("click", function () {
-  isFirefox ? (currFFZoom -= .02, $("body").css("MozTransform", "scale(" + currFFZoom + ")")) : (currIEZoom -= 2, $("body").css("zoom", " " + currIEZoom + "%"));
+  isFirefox || isIE11 ? (currFFZoom -= .02, $("body").css("MozTransform", "scale(" + currFFZoom + ")")) : (currIEZoom -= 2, $("body").css("zoom", " " + currIEZoom + "%"));
 });
