@@ -4782,12 +4782,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   });
 }(), $("#modal-newsletter").on("shown.bs.modal", function () {
   $(this).find("form").validator("destroy").validator();
-}), $("[data-equal-height]").matchHeight({ byRow: !1, property: "height", target: null, remove: !1, mq: "(min-width: 768px)" }), $("#aus-map").imageMapResize(), $("[data-sitemap-trigger]").click(function (t) {
+}), $("[data-equal-height]").matchHeight({ byRow: !1, property: "height", target: null, remove: !1, mq: "(min-width: 768px)" }), $("#aus-map").imageMapResize(), $("[data-sitemap-trigger]").on("click", function (t) {
   $(".fa", $(this)).toggleClass("fa-angle-down"), $("[data-sitemap]").toggleClass("is-collapsed");
 }), $('a[href*="#"]:not([href="#"], [data-toggle="tab"])').on("click", function () {
   var t = $(this).attr("href"),
       e = $(t),
-      n = $(".global-header").height();e.length && $.scrollTo(e.offset().top - n, 400);
+      n = $(".global-header").height();if (e.length) return $.scrollTo(e.offset().top - n, 800), !1;
+}), $("[data-back-top]").click(function () {
+  $.scrollTo(0, 500);
 });var currFFZoom = 1,
     currIEZoom = 100,
     isFirefox = navigator.userAgent.toLowerCase().indexOf("firefox") > -1,
