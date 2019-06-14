@@ -1,92 +1,110 @@
 /*
     TOPBAR.CSS
 
-    - Last updated: 06.10.16
+    - updated: 25.03.19, 16.04.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
 // VARIABLES
 //-----------------------------------------------------------------
-
-$container-gutter              : 30px !default;
-$primary-color                 : $brand-quinary;
-$secondary-color               : #eee !default;
-$top-parent-anchor-bg-color    : $primary-color;
-$global-radius                 : 0;
-$lv-nav-padding                : 15px;
-$lv-nav-height                 : 44px;
-$topbar-align                  : "right"; // Fluid, Right, Left
-$dropdowns-have-anchor-borders : true;
-
 //-----------------------------------------------------------------
 // NAVIGATION
-//
-// If nav BG color is desired. Make nav absolute, and topbar relative
 //-----------------------------------------------------------------
 
 .global-navigation {
     position: relative; // [LOCKED]
-    z-index: 9999;
+}
 
-    > .container {
-        position: relative;
+//****************************************************
+// HEADROOM NOT TOP
+//****************************************************
+
+// SMALL NAV FONTS
+.headroom--not-top .lv-topbar a {
+    font-size: rem-calc(16); // -- client request - revert if uppercase goes away
+}
+
+// SMALLER NAV DROPDOWN FONTS
+.headroom--not-top .lv-topbar .dropdown li a {
+    font-size: rem-calc(14); // 16 -- client request - revert if uppercase goes away
+    padding-top: rem-calc(10);
+    padding-bottom: rem-calc(10);
+}
+
+// GROW BLUE NAV FULL WIDTH
+.headroom--not-top .lv-topbar .dropdown:after {
+    left: -100vw;
+    width: 200vw;
+    box-shadow: 0 5px 2px -4px rgba(black, 0.1);
+}
+
+// EXTREME EDGE CASE - L:200
+.headroom--not-top .lv-topbar > ul > li.active > .dropdown {
+    z-index: 1; // [LOCKED] - fixes glitch
+}
+
+.headroom--not-top .global-header-body:after {
+    box-shadow: 0 5px 2px -4px rgba(black, 0.1);
+}
+
+//-----------------------------------------------------------------
+// BG FILLS - these create the BG color stips
+// **** EXTREME EDGE CASE ****
+//-----------------------------------------------------------------
+
+.global-header-body:after,
+.lv-topbar .dropdown:after { // VERY SPECIAL CASE
+    @include media-breakpoint-up(xl) {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $primary;
     }
 }
 
-//-----------------------------------------------------------------
-// TOPBAR
-//-----------------------------------------------------------------
-
-.topbar {
-    position: absolute; // [LOCKED]
-    bottom: 54px;
-    right: $container-gutter / 2;
-    // width: 100%; // [LOCKED]
+.global-header-body:after { // VERY SPECIAL CASE
+    z-index: -1;
+    bottom: rem-calc(-6);
 }
 
 //-----------------------------------------------------------------
-// GENERAL UL
+// ALL ULS
 //-----------------------------------------------------------------
 
-.topbar ul {
-    padding: 0; // reset
-    margin: 0; // reset
-    list-style: none; // reset
-    font-family: 'Montserrat', sans-serif; //$font-family-sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
+.lv-topbar ul {
+    padding: rem-calc(0 18);
+    margin: 0;  // [RESET]
+    list-style: none; // [RESET]
+    font-family: $font-family-sans-serif;
+    font-size: rem-calc(20);
+    font-weight: $font-weight-bold;
+    pointer-events: none;
 }
 
-//=========================================
+//-----------------------------------------------------------------
 // TOP PARENT UL
-//=========================================
+//-----------------------------------------------------------------
 
-.topbar > ul {
-    display: table;
-
-    > li {
-        position: relative; // [LOCKED]
-        float: left; // prevents hairline weirdness
-        margin: 0; // reset
-    }
+.lv-topbar > ul {
+    display: flex;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
-@if $topbar-align == "fluid" {
-    .topbar > ul {
-        width: 100%; // option A
+//-----------------------------------------------------------------
+// TOP PARENT LI
+//-----------------------------------------------------------------
 
-        > li {
-            display: table-cell; // option A
-            float: none;
-            text-align: center;
-        }
-    }
-}
+.lv-topbar > ul > li {
+    overflow: hidden; // score, hides overflow from triangle
 
-@if $topbar-align == "right" {
-    .topbar > ul {
-        float: right;
+    // exclude 'Home' from nav
+    &[data-alias="home"] {
+        display: none;
     }
 }
 
@@ -94,182 +112,161 @@ $dropdowns-have-anchor-borders : true;
 // ALL ANCHORS (INCL. DROPDOWN CHILDREN)
 //-----------------------------------------------------------------
 
-.topbar a {
-    display: block; // locked
-    padding: rem-calc(10 15);
-}
+.lv-topbar a {
+    display: block; // [LOCKED]
+    pointer-events: auto; // [LOCKED]
 
-//-----------------------------------------------------------------
-// TOP PARENT ANCHORS (VISIBLE)
-//-----------------------------------------------------------------
+    font-size: rem-calc(17); // -- client requested
+    text-transform: uppercase; // -- client requested
 
-.topbar .top-parent-anchor {
-    display: block; // locked
-    padding: rem-calc(0 $lv-nav-padding);
-    line-height: rem-calc($lv-nav-height);
-    color: $brand-quinary;
-    cursor: pointer;
-    transition: 200ms ease background;
-
-    &:hover {
-        background: rgba(black, 0.1); //lighten($top-parent-anchor-bg-color, 10%);
-        // color: white;
-    }
-
-    // Optional
-    &:hover > .text {
-        border-bottom: none !important;
-    }
-}
-
-//=========================================
-// ACTIVE TOP PARENT ANCHOR
-//=========================================
-
-.topbar .active .top-parent-anchor .text {
-    border-bottom: 2px solid $brand-quinary;
-    padding-bottom: 3px;
-}
-
-//-----------------------------------------------------------------
-// DROPDOWN ANCHORS
-//-----------------------------------------------------------------
-
-.topbar .has-dropdown:hover > .top-parent-anchor {
-    background: rgba(black, 0.1); //$top-parent-anchor-bg-color;
-    // color: white;
-}
-
-.topbar .active.has-dropdown:hover > .top-parent-anchor .text {
-    border-bottom: 0;
-}
-
-// UX decision, dropdowns are fiddly on tablets
-.topbar .has-dropdown:hover > .dropdown {
-    @include media-breakpoint-up(xl) {
-        opacity: 1;
-        height: auto;
-        overflow: visible;
-        visibility: visible;
-    }
-}
-
-//=========================================
-// ACTIVE STATE (OPTIONAL)
-//=========================================
-
-// .topbar .has-dropdown.active:hover > .top-parent-anchor {
-//     background: $top-parent-anchor-bg-color;
-// }
-
-//=========================================
-// THIRD LEVEL
-//=========================================
-
-.topbar .dropdown .has-dropdown:hover > .dropdown {
-    @include media-breakpoint-up(md) {
-        opacity: 1;
-        height: auto;
-        visibility: visible;
+    .submenu-arrow {
+        display: none;
     }
 }
 
 //-----------------------------------------------------------------
-// DROPDOWNS
+// TOP PARENT ANCHORS
 //-----------------------------------------------------------------
 
-.topbar .dropdown {
-    @include transition('opacity');
-    display: none; // OPT IN DESIGN
+.lv-topbar > ul > li > a {
+    display: block; // [LOCKED]
+    position: relative; // [LOCKED] - for triangle
+    padding: rem-calc(0 15);
+    line-height: rem-calc(70); // so we can get it exact
+    color: $quinary;
+}
+
+//-----------------------------------------------------------------
+// TOP PARENT ANCHOR TRIANGLE
+//-----------------------------------------------------------------
+
+.lv-topbar > ul > li > a > .text:after {
+    content: "";
     position: absolute;
-    opacity: 0;
-    height: 0; // so hit areas aren't triggered
-    overflow: hidden; // so hit areas aren't triggered
-    // padding: rem-calc(10); // optional
-    top: auto;
-    left: 0;
-    // width: rem-calc(240);
-    width: rem-calc(400);
-    // background: lighten($brand-primary, 12%);
+    left: calc(50% - 18px);
+    bottom: -1px; //-10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 16px 18px 16px;
+    border-color: transparent transparent $primary transparent; // ****
+    visibility: hidden; // undo this
+    transform: translateY(100%);
+    transition: transform 150ms ease, background-color 150ms ease;
+}
+
+//-----------------------------------------------------------------
+// HOVER, ACTIVE (TRIANGLE)
+//-----------------------------------------------------------------
+
+// ANCHOR HOVER
+.lv-topbar > ul > li > a:hover {
+    // background: rgba(black, 0.05);
+    color: lighten($quinary, 20%);
+}
+
+// DROPDOWN ANCHOR HOVER
+.lv-topbar .dropdown li a:hover:after {
+    opacity: 1;
+    // background: rgba(black, 0.08);
+    // background: linear-gradient(-180deg, rgba(black, 0) 2%, rgba(black, 0.1) 100%);
+}
+
+// TOP PARENT ACTIVE = SHOW TRIANGLE
+.lv-topbar > ul > li.active > a > .text:after {
+    visibility: visible;
+    transform: translateY(0);
+}
+
+// DROPDOWN ACTIVE = WHITE LINE
+.lv-topbar .dropdown li.active > a > .text:after {
+    content: "";
+    position: absolute;
+    left: rem-calc(15);
+    bottom: 0;
+    width: calc(100% - #{rem-calc(30)});
+    height: 2px;
     background: white;
-    border-radius: 0 0 $global-radius $global-radius;
-    // border-top: 4px solid $primary-color;
-    // box-shadow: 0 1px 1px 0px rgba(0,0,0,.2);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    visibility: hidden;
 }
 
-// Prevent far-right dropdown from exceeding page width
-.topbar .has-dropdown-right-aligned .dropdown {
-    right: 0;
-    left: auto;
+//-----------------------------------------------------------------
+
+// SHOW DROPDOWN
+.lv-topbar > ul > li.active > .dropdown {
+    visibility: visible;
+    transform: translateY(0);
+    transition: none;
+    display: flex;
+    z-index: 1; // [LOCKED] - fixes glitch
 }
 
-.topbar .dropdown.is-nav-included {
-    display: block;
-}
+//----------------------------------------------------^^-----------
+// DROPDOWNS - the direct above is closely tied to this
+//-----------------------------------------------------------------
 
-//=========================================
-// THIRD LEVEL
-//=========================================
-
-.topbar .dropdown .dropdown {
+.lv-topbar .dropdown {
+    // display: none;
+    display: flex;
     position: absolute;
-    top: 0;
-    left: 100%;
+    left: 0;
+    width: 100%;
+    visibility: hidden;
+    // background: $primary; // delegated to bg-fill above
+    transform: translateY(-100%);
+    transition: transform 250ms ease, visibility 0 250ms ease; // ensure no clicks
+    will-change: transform;
+    z-index: -1; // may not need if no animation
 }
 
-// Prevent far-right 'nested' dropdown from exceeding page width
-.topbar .has-dropdown-right-aligned .dropdown .dropdown {
-    left: -100%;
+// DEEP DROPDOWNS ALWAYS HIDDEN
+.lv-topbar .dropdown .dropdown {
+    display: none;
 }
 
-//=========================================
+//-----------------------------------------------------------------
 // DROPDOWN LIST + ANCHORS
-//=========================================
+//-----------------------------------------------------------------
 
-.topbar .dropdown li {
+.lv-topbar .dropdown li {
     position: relative;
-    float: none;
-    margin: 0; // reset
 
     a {
-        transition: none; // UX decision
-        // font-size: rem-calc(160); // opinionated
-        // color: white;
-        color: #444;
-        padding: rem-calc(15 15);
+        position: relative;
+        padding: rem-calc(16 15);
+        font-size: rem-calc(18); // -- client requested
+        text-transform: none; // -- client requested
+        color: white;
+        transition: background 150ms ease;
+        z-index: 1;
+
+        // CREATE ACTIVE GRADIENT
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            // background: rgba(black, 0.08);
+            background: linear-gradient(-180deg, rgba(black, 0) 2%, rgba(black, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 100ms ease;
+            z-index: -1;
+        }
     }
 }
 
-//=========================================
-// DROPDOWN ANCHOR BORDERS
-//=========================================
+//-----------------------------------------------------------------
+// CONTEXT
+//-----------------------------------------------------------------
 
-@if $dropdowns-have-anchor-borders {
-    .topbar .dropdown a {
-        border-bottom: 1px solid #E8E8E8; //darken($primary-color, 2%); // optional
-        // border-top: 1px solid lighten($primary-color, 0%); // optional
-    }
-
-    .topbar .dropdown {
-        // border-bottom: 1px solid darken($primary-color, 5%); // optional
-    }
-
-    .topbar .dropdown li:last-child a {
-        border-bottom: 0;
-    }
+.is-off-canvas-only {
+    display: none;
 }
 
-//=========================================
-// DROPDOWN ANCHOR HOVERS
-//=========================================
-
-.topbar .dropdown a:hover {
-    // background: rgba(#eee;
-    // background: lighten($primary-color, 2%); //#eee;
-    // color: white;
-    background: rgba(black, 0.13);
+.lv-off-canvas .is-off-canvas-only {
+    display: block;
+    border: 0;
 }
 
 //=========================================

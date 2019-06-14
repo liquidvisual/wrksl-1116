@@ -1,242 +1,590 @@
 /*
     HERO.CSS
 
-    - updated: 18.11.16
+    - updated: 21.03.19
     - notes:
-        * liquidvisual recommends bxSlider for hero carousels
-        * fixed overflow problem when removing JS
+        * liquidvisual uses flickity for all sliders
 */
 //-----------------------------------------------------------------
-// Variables
+// VARIABLES
 //-----------------------------------------------------------------
 
-$hero-height-sm:            auto          !default; // IMPORTANT: if carousel slides, you need a fixed height
-$hero-height-md:            auto          !default;
-$hero-height-lg:            auto          !default;
-$hero-carousel-bullet-size: rem-calc(16)  !default;
+$hero-height-presets: (
+    is-default: (
+        xs: auto,
+        md: rem-calc(480), //rem-calc(800),
+        lg: rem-calc(480), //rem-calc(846), // [LOCKED] - 576 maintain aspect ratio?
+    ),
+    is-short: (
+        xs: auto, //300
+        md: auto, //386
+        lg: auto, //386
+    ),
+    is-full: (
+        xs: auto,
+        md: 100vh,
+        lg: 100vh,
+    ),
+    is-static: (
+        xs: auto, //rem-calc(200),
+        md: auto, //rem-calc(320),
+        lg: auto //rem-calc(386),
+    )
+);
 
 //-----------------------------------------------------------------
-// Hero Wrapper
-//
-// Used to align the controls relative to the container
+// HERO WRAPPER [LOCKED]
 //-----------------------------------------------------------------
 
 .lv-hero-wrapper {
     position: relative;
+
+    > .container {
+        @include media-breakpoint-down(sm) {
+            max-width: none;
+            padding: 0;
+        }
+    }
+
+    .lv-hero {
+        overflow: hidden; // [LOCKED] - hides slides when no JS
+    }
 }
 
 //-----------------------------------------------------------------
-// Hero
-//
-// By design, mobile defaults to 'auto'
+// HEIGHT PRESETS
 //-----------------------------------------------------------------
 
-.lv-hero {
-    width: 100%; // added last minute - breaking?
-    overflow: hidden; // causes problems without JS
-    height: $hero-height-sm;
+@each $preset, $bps in $hero-height-presets {
+    .lv-hero.#{$preset} { // Output a preset selector
+        @each $item in $bps {
+            $bp: nth($item, 1);
+            $val: nth($item, 2);
 
-    @include media-breakpoint-up(md) {
-        height: $hero-height-md;
-    }
+            @include media-breakpoint-up($bp) {
+                height: $val;
+            }
 
-    @include media-breakpoint-up(lg) {
-       height: $hero-height-lg;
-    }
-
-    //=========================================
-    // Has Auto Height
-    //
-    // * Will override above at all sizes
-    // * Height determined by inner caption
-    //=========================================
-
-    &.has-auto-height {
-        height: auto;
-    }
-    //=========================================
-    // Has Fixed Height
-    //
-    // * Used on internal pages to set a height
-    //=========================================
-
-    &.has-fixed-height {
-        // height: rem-calc(150); //$hero-height-sm;
-        // background-position: center center;
-
-        @include media-breakpoint-up(md) { // added - refactor
-           // height: rem-calc(300);
-        }
-
-        @include media-breakpoint-up(xl) {
-           // height: rem-calc(694);
+            // @if $bp != xl {
+            //     @include media-breakpoint-up($bp) {
+            //         min-height: $val;
+            //     }
+            // } @else {
+            //     height: $val;
+            //     min-height: $val;
+            // }
         }
     }
 }
 
 //-----------------------------------------------------------------
-// Hero Item (Slides)
+// HERO ITEM (Slides)
 //-----------------------------------------------------------------
 
 .lv-hero-item {
-    float: left;
-    width: 100%; // need
-    height: 100%;
+    position: relative; // [LOCKED] - for non-js (?)
+    display: flex !important; // [LOCKED] - bx or carousel override
+    // align-items: center;
+    width: 100%; // [LOCKED]
+    // height: 100%;
+    // min-height: rem-calc(540); // curated
+    padding: rem-calc(45 0);
+    // background-color: $primary;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+    overflow: hidden; // stop video spilling out
+    z-index: 1; // [LOCKED] - video will be -1
 
-    @include media-breakpoint-down(md) { // no carousel at this point
-        margin-top: rem-calc(60); // same as carousel.scss but margin instead of padding
+    @include media-breakpoint-up(md) {
+        height: 100%;
+        // padding: 0;
+        // padding: 8.7% 0;//rem-calc(110 0);
+        padding: rem-calc(34 0);
+    }
+
+    @include media-breakpoint-up(xl) {
+        // padding: rem-calc(110 0);
     }
 
     //=========================================
-    // For Positioning Captions
+    // TINT OVERLAY
     //=========================================
 
-    .lv-hero-item-table {
-        display: table;
+    &.is-tinted:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
-        position: relative;
+        background: rgba(#122028, 0.49);
+        pointer-events: none;
+        z-index: 1;
+    }
+}
 
-        .lv-hero-item-cell {
-            display: table-cell;
+//-----------------------------------------------------------------
+// IS ALTERNATE (INNER PAGES)
+//-----------------------------------------------------------------
 
-            @include media-breakpoint-up(md) {
-                vertical-align: middle;
-            }
+.is-short,
+.is-static {
+
+    // undo options placed on auto-height - this is slim banner
+    .lv-hero-item {
+        height: 100%;
+        min-height: 0;
+        padding: rem-calc(0 0 45 0);
+    }
+}
+
+//----------------------------------------------------------------- *****
+// HERO CAPTION
+//----------------------------------------------------------------- *****
+
+.lv-hero-item-caption {
+    position: relative;
+    max-width: rem-calc(680); // [LOCKED] - psd
+    font-size: rem-calc(17);
+    color: white;
+    z-index: 1; // [LOCKED] - above tint
+
+    overflow-wrap: break-word;
+    // word-wrap: break-word;
+    // word-break: break-word;
+    // hyphens: auto;
+    // -webkit-hyphens: auto;
+
+    h1,
+    .display-1 {
+        max-width: rem-calc(600); // [LOCKED] - psd thing
+
+    }
+
+    .h2 {
+        @include media-breakpoint-down(md) {
+            font-size: $h3-font-size;
+        }
+
+        @include media-breakpoint-down(sm) {
+            font-size: rem-calc(24); // kinda specific
+        }
+    }
+
+    .wysiwyg p {
+        font-size: rem-calc(17);
+    }
+
+    // hero body
+    p.display-4 {
+        @include media-breakpoint-down(md) {
+            font-size: rem-calc(20);
+        }
+    }
+
+    // a.btn-tile:hover {
+    //     color: white;
+    //     opacity: 0.7;
+    // }
+
+    .fa-angle-right {
+        line-height: 0;
+        opacity: 0.5;
+
+        @include media-breakpoint-up(md) {
+            font-size: rem-calc(38);
+        }
+    }
+}
+
+.lv-hero .bg-fill {
+    position: absolute;
+    top: -50vh;
+    right: rem-calc(-30);
+    width: 200vw;
+    height: 200vh;
+    background: rgba(#09243a, 0.67);
+    pointer-events: none;
+}
+
+//-----------------------------------------------------------------
+// SLIDER WRAPPER
+//-----------------------------------------------------------------
+
+.lv-hero-item-slider-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    .lv-hero-item-slider {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        .lv-hero-item-slide {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
         }
     }
 }
 
 //-----------------------------------------------------------------
-// TINT OVERLAY
+// CAROUSEL CONTROLS
 //-----------------------------------------------------------------
 
-.hero-home-overlay {
-    @include media-breakpoint-up(sm) {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 45%,rgba(0,0,0,0.49) 82%,rgba(0,0,0,0.49) 100%);
-        z-index: 2;
-    }
-}
-
-//-----------------------------------------------------------------
-// Hero - Caption
-//-----------------------------------------------------------------
-
-.lv-hero-item-caption {
-    position: relative;
-    color: white;
-    padding-top: calc(#{rem-calc(110)} + #{$header-height-sm});
-    z-index: 3;
-
-    h1, h2, h3, h4, h5, h6, .lead, p {
-        color: white;
-    }
-
-    p {
-        font-family: $font-family-sans-serif;
-        font-weight: normal;
-    }
-
-    @include media-breakpoint-up(md) {
-        padding-top: calc(#{rem-calc(100)} + #{$header-height-lg});
-        padding-bottom: rem-calc(110);
-    }
-
-    @include media-breakpoint-up(lg) {
-        padding-top: calc(#{rem-calc(100)} + #{rem-calc(210)});
-        padding-bottom: rem-calc(30);
-    }
-
-    @include media-breakpoint-up(xl) {
-        padding-top: calc(#{rem-calc(190)} + #{$header-height-lg});
-        padding-bottom: rem-calc(120);
-    }
-}
-
-.lv-hero-caption-feature {
-    @include media-breakpoint-up(xl) {
-        padding-left: $spacer-x*3;
-    }
-}
-
-.lv-hero-caption-feature-case {
-    position: relative;
-    margin-bottom: $spacer;
-    padding: rem-calc(30);
-    padding-bottom: calc(#{$spacer-x*2} - 14px);
-    background: rgba($brand-quinary, 0.67);
-
-    @include media-breakpoint-down(sm) {
-        left: -24px;
-        width: calc(100% + 24px*2);
-        // background: rgba(black, 0.6);
-    }
-
-    @include media-breakpoint-up(md) {
-        margin-bottom: 6px;
-    }
-}
-
-//-----------------------------------------------------------------
-// Hero - Carousel Controls
-//-----------------------------------------------------------------
-
-.lv-hero-carousel-controls {
+.lv-hero-slider-controls {
     position: absolute;
     top: 44%;
     width: 100%;
     height: 0;
     z-index: 100;
 
-    .container {
+    > .container {
         position: relative;
     }
 
     //=========================================
-    // Buttons
+    // NEXT / PREV BUTTONS
     //=========================================
 
-    .lv-hero-carousel-prev-btn,
-    .lv-hero-carousel-next-btn {
+    .lv-hero-slider-prev-btn,
+    .lv-hero-slider-next-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         position: absolute;
         width: rem-calc(50);
-        height: rem-calc(50);
-        line-height: rem-calc(50);
+        height: rem-calc(80);
+        line-height: 0;
         cursor: pointer;
-        text-align: center;
         font-family: "FontAwesome";
         font-size: rem-calc(50);
-        display: none;
+        // background: rgba(black, 0.2);
+        color: rgba(white, 0.8);
+        // text-shadow: 0 1px 4px rgba(black, 0.1);
+        transition: background 300ms ease, color 300ms ease;
 
-        @include media-breakpoint-up(md) {
-            display: block;
+        &:hover {
+            background: rgba(black, 0.2);
+            color: rgba(white, 0.9);
+
+            i {
+                transform: translateX(-3px);
+            }
         }
 
-        a {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: inline-block;
+        &:active {
+            color: rgba(white, 0.5);
+        }
+
+        i {
+            padding-bottom: rem-calc(4);
+            transition: transform 400ms ease;
+            transform: translateX(0);
         }
     }
 
-    .lv-hero-carousel-prev-btn {
-        left: $container-gutter/2;
+    .lv-hero-slider-prev-btn {
+        left: 0; // $container-gutter/2;
+        border-radius: 0 $border-radius $border-radius 0;
     }
 
-    .lv-hero-carousel-next-btn {
-        right: $container-gutter/2;
+    .lv-hero-slider-next-btn {
+        right: 0; //$container-gutter/2;
+        border-radius: $border-radius 0 0 $border-radius;
+
+        &:hover {
+            i {
+                transform: translateX(3px);
+            }
+        }
     }
 }
+
+//-----------------------------------------------------------------
+// FLICKITY CUSTOM
+//-----------------------------------------------------------------
+
+.lv-page .lv-hero .flickity-page-dots {
+    text-align: right;
+    padding-right: rem-calc(20);
+    bottom: rem-calc(15);
+    z-index: 999;
+
+    // curated
+    .dot {
+        width: rem-calc(13);
+        height: rem-calc(13);
+        margin: rem-calc(0 5);
+        // border: 1px solid rgba(white, 0.3);
+        background: rgba(white, 0.3);
+
+        &.is-selected {
+            background: rgba(white, 0.6);
+        }
+    }
+}
+
+.lv-hero .flickity-viewport {
+    // @include media-breakpoint-up(md) {
+        height: 100% !important; // fixes responsive issue
+    // }
+}
+
+// for auto height animation
+.flickity-viewport {
+    will-change: auto;
+    transition: height 300ms ease;
+}
+
+//=========================================
+// FADE INSTEAD OF SLIDE
+// https://github.com/metafizzy/flickity/issues/26
+// https://codepen.io/dallanlee/pen/GEjWpo
+//=========================================
+
+.has-fade-transitionXXXX {
+    .lv-hero-item-slider .flickity-slider {
+        transform: none !important;
+    }
+
+    .lv-hero-item-slide {
+        left: 0 !important;
+        opacity: 0;
+        transition: opacity 0.9s ease-in-out 0.3s;
+        z-index: 1;
+    }
+
+    .lv-hero-item-slide.is-selected {
+        opacity: 1;
+        transition: opacity 0.9s ease-in-out;
+        z-index: 2;
+    }
+}
+
+//-----------------------------------------------------------------
+// HERO - SCROLL PROMPT
+//-----------------------------------------------------------------
+
+.lv-hero-scroll-prompt {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    left: calc(50% - 17px);
+    // bottom: rem-calc(100);
+    bottom: rem-calc(25);
+    width: rem-calc(34);
+    height: rem-calc(34);
+    border-radius: 100%;
+    border: 2px solid white;
+    // background: rgba(white, 0.3);
+    font-size: rem-calc(30);
+    text-align: center;
+    transition: background-color ease 300ms;
+    animation: pulsate 0.8s ease-out 0.3s alternate infinite;
+    z-index: 1;
+
+    .fa {
+        color: white;
+    }
+
+    &:hover {
+        color: black;
+        background: rgba(white, 0.25);
+    }
+
+    @keyframes pulsate {
+        0% { transform: translateY(0);}
+        100% { transform: translateY(10px);}
+    }
+}
+
+//-----------------------------------------------------------------
+// HERO - YOUTUBE VIDEO
+// https://stackoverflow.com/questions/24579785/force-iframe-youtube-video-to-center-fit-and-full-cover-the-screen-in-the-backgr?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+//-----------------------------------------------------------------
+
+.lv-hero .video-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -99;
+}
+
+.lv-hero .video-fg,
+.lv-hero .video-bg iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.lv-hero .video-bg iframe {
+    display: none;
+    opacity: 0;
+    animation: delayShow 2s ease 3.5s alternate 1 forwards;
+
+    @include media-breakpoint-up(md) {
+        display: block;
+    }
+}
+
+@keyframes delayShow {
+    0%   { opacity: 0;  }
+    100% { opacity: 1;  }
+}
+
+// DEFAULT HERO
+.lv-hero:not(.is-full) .video-fg {
+    @include media-breakpoint-up(md) {
+        display: block;
+        left: -100%;
+        width: 300%;
+    }
+    @include media-breakpoint-up(lg) {
+        top: -103%;
+        left: 0;
+        width: 106%;
+        height: 306%;
+    }
+}
+
+// FULSCREEN PRESET
+.lv-hero.is-full .video-fg {
+    @media (min-aspect-ratio: 16/9) {
+        height: 300%;
+        top: -100%;
+    }
+    @media (max-aspect-ratio: 16/9) {
+        width: 300%;
+        left: -100%;
+    }
+}
+
+// MEDIUM PRESET - kind of a hassle
+.lv-hero.is-medium .video-fg {
+    @include media-breakpoint-down(md) {
+        top: -106%;
+        left: 0;
+        width: 103%;
+        height: 303%;
+    }
+}
+
+// Notes: 16:9 is 1024x576, 720p is 1280x720, HD is 1920x1080
+
+// video::-webkit-media-controls {
+//     display: none !important; // for video element
+// }
+
+//-----------------------------------------------------------------
+// HERO BUTTON TILE - NEW
+//-----------------------------------------------------------------
+
+.hero-btn-tiles {
+    // margin-top: rem-calc(30);
+}
+
+.hero-btn-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // width: 100%; // no
+    min-height: rem-calc(183);
+    padding: rem-calc(0 15);
+    background-color: $primary;
+    text-align: center;
+    font-size: rem-calc(24);
+    font-weight: $font-weight-bold;
+    line-height: 1;
+    color: white;
+
+    @include media-breakpoint-up(md) {
+        margin: rem-calc(0 0 15 15);
+    }
+
+    .inner {
+        min-height: 1px;
+    }
+
+    .img {
+        display: block;
+        margin-bottom: rem-calc(10);
+
+        img {
+            width: 40%;
+        }
+    }
+
+    .fa-angle-right {
+        position: relative;
+        top: 2px;
+    }
+
+    &.is-1 { background-color: $secondary; }
+    &.is-2 { background-color: $primary; }
+    &.is-3 { background-color: $tertiary; }
+    &.is-4 { background-color: $quaternary; }
+
+    &.is-5 {
+        min-height: rem-calc(84);
+        margin-bottom: 0;
+
+        .inner {
+            display: flex;
+            align-items: center;
+        }
+        img {
+            position: relative;
+            top: 4px;
+            width: rem-calc(50);
+        }
+    }
+
+    &:hover {
+        color: white;
+
+        @include media-breakpoint-up(md) {
+            opacity: 0.9;
+        }
+    }
+}
+
+//=============================================
+// IE11
+//=============================================
+
+@media all and (-ms-high-contrast:none) {
+    .hero-btn-tile:not(.is-5) {
+        .inner {
+            position: relative;
+            top: 25px;
+
+            .text {
+                display: inline-block;
+                width: rem-calc(100);
+            }
+        }
+    } /* IE11 */
+
+    .hero-btn-tile.is-5 {
+        .inner {
+            position: relative;
+            top: 10px;
+        }
+    } /* IE11 */
+ }

@@ -1,7 +1,7 @@
 /*
     VARIABLES.CSS
 
-    - Last updated: 00.00.00
+    - updated: 13.03.19
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -9,10 +9,25 @@
 //-----------------------------------------------------------------
 
 $fa-font-path: "/assets/fonts";
+
+$header-top-sm-height: 44px;
+$header-top-md-height: 50px;
+$header-top-lg-height: 50px;
+
+$header-body-sm-height: 60px;
+$header-body-md-height: 110px;
+$header-body-lg-height: 110px;
+$header-body-xl-height: 110px;
+$header-body-xxl-height: 110px;
+
+// $header-bottom-sm-height: 50px !default;
+// $header-bottom-md-height: 50px !default;
+// $header-bottom-lg-height: 59px;
+
+//=========================================
+// phase these out
+//=========================================
+
 $header-height-sm: 60px; // optimal
 $header-height-md: 130px;
 $header-height-lg: 156px;
-
-//=========================================
-//
-//=========================================

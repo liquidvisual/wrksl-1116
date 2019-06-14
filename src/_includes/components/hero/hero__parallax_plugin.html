@@ -1,0 +1,18 @@
+{% comment %}
+<!--
+    HERO PARALLAX PLUGIN
+
+    - Updated: 15.09.18
+    - Notes:
+        https://codepen.io/liquidvisual/pen/BOPGwK
+-->
+{% endcomment %}
+
+{% assign image = include.image %}
+
+<!-- PARALLAX LAYERS -->
+<div class="parallax-layers" data-scrollax-parent>
+    <div class="parallax-layer" data-scrollax="properties: { translateY: '30%' }">
+        <span class="has-image-bg" style="background-image: url({{ include.image }})"></span>
+    </div>
+</div>

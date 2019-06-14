@@ -8,7 +8,7 @@
     "babel-preset-env": "^1.6.1",
     "grunt": "^1.0.3",
     "grunt-babel": "^7.0.0",
-    "grunt-browser-sync": "^2.2.0",
+    "grunt-browser-sync": "^1.9.1",
     "grunt-build-control": "~0.7.1",
     "grunt-cdnify": "^1.0.2",
     "grunt-concurrent": "~2.3.1",
@@ -41,20 +41,17 @@
   },
   "dependencies": {
     "animate.css": "3.1.1",
-    "bootstrap": "v4.0.0-alpha.4",
+    "bootstrap": "^4.2.1",
     "bootstrap-validator": "^0.10.1",
-    "bxslider": "^4.2.14",
     "codebird": "^2.6.0",
     "dot": "^1.1.2",
+    "flickity": "^2.2.0",
     "font-awesome": "^4.7.0",
     "headroom.js": "^0.9.4",
     "isotope-layout": "^3.0.6",
-    "jquery-placeholder": "^2.3.1",
     "jquery.scrollto": "^2.1.2",
-    "jquery.transit": "~0.9.12",
     "magnific-popup": "https://github.com/dimsemenov/Magnific-Popup.git#master",
     "moment": "^2.24.0",
-    "social-feed": "github:pavelk2/social-feed#gh-pages",
-    "tether": "^1.2.0"
+    "social-feed": "github:pavelk2/social-feed#gh-pages"
   }
 }

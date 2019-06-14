@@ -2,7 +2,7 @@
     BUTTONS.CSS
 
     - Last updated: 30.11.16
-    - liquidvisual.com
+    - buttons is a bit of a shitshow, needs refactoring
 */
 //-----------------------------------------------------------------
 // VARIABLES
@@ -12,10 +12,11 @@
 //--------------------------------------------------------------------
 
 .btn {
-	font-family: 'Montserrat', sans-serif;
+	display: inline-flex;
+	align-items: center;
 	border: 0;
 	border-radius: 0;
-	background: $brand-primary;
+	background: $primary;
 	font-size: rem-calc(18);
 	// padding: rem-calc(15 25 15 30);
 	padding: rem-calc(14 20 14 20);
@@ -23,87 +24,51 @@
 
 	i {
 		position: relative;
-		top: 3px;
+		top: -1px;
 		margin-left: 5px;
-		font-size: rem-calc(30);
-		line-height: 0;
-	}
-}
-
-.btn-opaque,
-.btn-slim {
-	background: rgba(white, 0.3);
-	color: $brand-quinary;
-	padding: rem-calc(8 16 8 16);
-	font-size: rem-calc(14);
-	text-transform: uppercase;
-
-	i {
-		position: relative;
-		top: 1px;
-		font-size: rem-calc(20);
-	}
-
-	&:hover {
-		color: $brand-quinary;
-		background: rgba(white, 0.5);
-	}
-}
-
-.btn-slim {
-	color: white;
-}
-
-//--------------------------------------------------------------------
-// BTN CTA
-//--------------------------------------------------------------------
-
-.btn-cta {
-	padding-top: rem-calc(34);
-	padding-bottom: rem-calc(5);
-	font-size: rem-calc(24);
-	font-weight: bold;
-	text-align: right;
-
-	i {
-		position: relative;
-		top: 1px;
+		font-size: rem-calc(25); //rem-calc(30);
 	}
 }
 
 //--------------------------------------------------------------------
-// Button Tile
+// BTN LG (used only on the homepage hero CTA)
+//--------------------------------------------------------------------
+
+.btn-lg {
+	font-size: rem-calc(23);
+	min-width: rem-calc(265);
+	padding: rem-calc(20 25);
+
+	i.fa {
+		font-size: rem-calc(25);
+		opacity: 1;
+	}
+}
+
+//--------------------------------------------------------------------
+// BUTTON TILE
 //--------------------------------------------------------------------
 
 .btn-tile {
-	display: table;
+	display: flex;
+	flex-direction: column;
 	position: relative;
-	width: 100%;
-	padding: rem-calc(24);
-	background: $brand-quinary;
+	padding: rem-calc(25);
+	background: $quinary;
 	overflow: hidden;
-	color: white;
 
 	h1, h2, h3, h4, h5, h6 {
 		color: white;
 	}
 
 	h3 {
-		// min-height: rem-calc(70);
-		display: table-row;
+		min-height: rem-calc(70); // double line header
 	}
 
 	p {
-		display: table-cell;
-		vertical-align: bottom;
-		width: 100%;
-		color: rgba(white, 0.56);
+		margin-top: auto;
 		margin-bottom: 0;
-		padding-top: rem-calc(32);
-	}
-
-	p.v-align-middle {
-		vertical-align: middle;
+		color: rgba(white, 0.56);
 	}
 
 	.fa {
@@ -112,55 +77,119 @@
 		right: 10px;
 		color: white;
 		font-size: rem-calc(26);
-		font-weight: bold;
 	}
 
 	&:hover {
-		color: white;
-		@include media-breakpoint-up(xl) {
-		    background: darken($brand-quinary, 5%);
+		@include media-breakpoint-up(md) {
+		    background: darken($quinary, 5%);
+		    color: white;
 		}
 	}
 }
 
 //--------------------------------------------------------------------
-// BTN TILE GLASS - used exclusively on hero
+// OVERLAY STUFF - used on homepage tiles mostly
 //--------------------------------------------------------------------
 
-.btn-tile-glass {
-	display: flex;
-	flex-direction: column;
-	padding: rem-calc(20 20 15 20); // special, magic
-	background: rgba(white, 0.8);
-	text-align: right;
-	color: $brand-quinary;
+.btn-tile {
 
-	.fa {
-		display: inline;
+	.btn-tile-title {
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: rem-calc(30);
+
+		@include media-breakpoint-down(lg) {
+		    font-size: rem-calc(26);
+		}
 	}
 
-	p {
-		font-size: rem-calc(21);
-		color: $brand-quinary !important;
-		line-height: 1.1;
+	.btn-tile-bg {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    background-position: center center;
+	    background-size: cover;
+	    background-repeat: none;
+	    transition: transform 300ms ease;
+	    will-change: transform;
 	}
 
-	&:hover {
-		@include media-breakpoint-up(xl) {
-			background: rgba(white, 0.9);
+	&.is-large {
+		.btn-tile-title {
+			margin-right: rem-calc(20);
+		}
+
+		i {
+			font-size: rem-calc(60);
+			color: rgba(white, 0.6);
+			padding: rem-calc(5 15);
+		}
+
+		.btn-tile-bg {
+			opacity: 0.15;
+		}
+
+		@include media-breakpoint-down(sm) {
+		    height: rem-calc(150);
 		}
 	}
 }
 
+.btn-tile:hover,
+a:hover .btn-tile {
+    @include media-breakpoint-up(xl) {
+        .btn-tile-bg {
+            transform: scale(1.05);
+        }
+
+        .btn-tile-bg:after {
+            transform: scale(1.08);
+        }
+
+        .btn-tile-overlay {
+            opacity: 1;
+        }
+    }
+}
+
+//-----------------------------------------------------------------
+// BTN-NEWS - used on homepage for news
+//-----------------------------------------------------------------
+
+.btn-news {
+	&.btn-primary    .btn-tile-title { background-color: rgba($primary, 0.81); }
+	&.btn-secondary  .btn-tile-title { background-color: rgba($secondary, 0.81); }
+	&.btn-tertiary   .btn-tile-title { background-color: rgba($tertiary, 0.81); }
+	&.btn-quaternary .btn-tile-title { background-color: rgba($quaternary, 0.81); }
+	&.btn-quinary    .btn-tile-title { background-color: rgba($quinary, 0.81); }
+
+	.btn-tile-title {
+		top: auto;
+		bottom: 0;
+		width: 100%;
+		min-height: 0;
+		padding: rem-calc(25 30);
+		margin: 0;
+	}
+}
+
 //--------------------------------------------------------------------
-// Button Tile Dropdown
+// BUTTON TILE DROPDOWN (USED ON LOCATIONS)
 //--------------------------------------------------------------------
 
 .btn-tile-dropdown {
-	padding-top: rem-calc(70);
+	padding-top: rem-calc(50);
+
+	@include media-breakpoint-up(md) {
+	    padding-top: rem-calc(70);
+	}
 
 	.text {
 		color: white;
+		margin: 0;
 
 		@include media-breakpoint-down(md) {
 		    font-size: rem-calc(18);
@@ -174,107 +203,79 @@
 }
 
 //--------------------------------------------------------------------
+// BTN SLIM + BTN OPAQUE
+//--------------------------------------------------------------------
+
+.btn-opaque,
+.btn-slim {
+	padding: rem-calc(8 16 8 16);
+	background: rgba(white, 0.3);
+	font-size: rem-calc(14);
+	color: $quinary;
+	text-transform: uppercase;
+
+	i {
+		position: relative;
+		top: 1px;
+		font-size: rem-calc(20);
+	}
+
+	&:hover {
+		color: $quinary;
+		background: rgba(white, 0.5);
+	}
+}
+
+.btn-slim {
+	color: white;
+}
+
+//--------------------------------------------------------------------
 // COLORS
 //--------------------------------------------------------------------
 
 .btn-primary {
-	background: $brand-primary;
+	background: $primary;
 
 	&:hover {
-		background: darken($brand-primary, 5%);
+		background: darken($primary, 5%);
 		color: white;
 	}
 }
 
 .btn-secondary {
-	background: $brand-secondary;
+	background: $secondary;
 
 	&:hover {
-		background: darken($brand-secondary, 5%);
+		background: darken($secondary, 5%);
 		color: white;
 	}
 }
 
 .btn-tertiary {
-	background: $brand-tertiary;
+	background: $tertiary;
 
 	&:hover {
-		background: darken($brand-tertiary, 5%);
+		background: darken($tertiary, 5%);
 		color: white;
 	}
 }
 
 .btn-quaternary {
-	background: $brand-quaternary;
+	background: $quaternary;
 
 	&:hover {
-		background: darken($brand-quaternary, 5%);
+		background: darken($quaternary, 5%);
 		color: white;
 	}
 }
 
 .btn-quinary {
-	background: $brand-quinary;
+	background: $quinary;
 
 	&:hover {
-		background: darken($brand-quinary, 5%);
+		background: darken($quinary, 5%);
 		color: white;
-	}
-}
-
-//--------------------------------------------------------------------
-// BTN HERO FEATURE
-//--------------------------------------------------------------------
-
-.btn-hero-feature {
-	display: flex;
-	align-items: center;
-	width: 100%;
-	margin-bottom: 6px;
-	padding-left: rem-calc(26);
-	background: rgba($brand-quinary, 0.9);
-	font-size: rem-calc(23);
-	font-weight: bold;
-	text-align: left;
-	white-space: normal;
-
-	@include media-breakpoint-down(sm) {
-	    padding: rem-calc(20);
-	}
-
-	@include media-breakpoint-up(md) {
-	    font-size: rem-calc(27);
-	}
-
-	.text {
-		margin: 0 10px 0 auto;
-	}
-
-	.fa-angle-right {
-		position: relative;
-		top: -1px;
-		font-size: rem-calc(36);
-		line-height: 1;
-	}
-
-	.fa-users,
-	.fa-id-card,
-	.fa-id-card-o {
-		font-size: rem-calc(30);
-		line-height: 1;
-		margin-right: 15px;
-
-		@include media-breakpoint-up(md) {
-		    font-size: rem-calc(46);
-		}
-	}
-
-	&:hover {
-		color: white;
-
-		@include media-breakpoint-up(lg) {
-		    background: darken($brand-primary, 5%);
-		}
 	}
 }
 
@@ -283,14 +284,80 @@
 //--------------------------------------------------------------------
 
 .btn-special {
-	cursor: default;
-	background: rgba($brand-quinary, 0.3);
-	padding-left: rem-calc(20);
+	display: flex;
+	align-items: center;
+	background: rgba($quinary, 0.3);
+	pointer-events: none;
 
-	&:hover {
-		background: rgba($brand-quinary, 0.3);
+	.fa {
+		position: relative;
+		top: rem-calc(-2);
 	}
 }
+
+//-----------------------------------------------------------------
+// BACK TO TOP
+//-----------------------------------------------------------------
+
+.btn-back-top {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: inline-flex;
+    flex-direction: column; // [LOCKED]
+    justify-content: center; // [LOCKED]
+    align-items: center; // [LOCKED]
+    width: 44px; // [LOCKED]
+    height: 44px; // [LOCKED]
+    border: 0;
+    border-radius: 100%; // [LOCKED]
+    background: rgba(black, 0.5); // same as hero arrows
+    font-size: 10px;
+    color: white;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity 300ms ease, transform 300ms ease, bottom 600ms ease;
+    cursor: pointer;
+    pointer-events: none;
+    z-index: 999;
+
+    > div {
+        margin: auto 0;
+    }
+
+    i {
+        font-size: rem-calc(18);
+        line-height: 0.8;
+        display: block;
+        margin: auto 0;
+    }
+
+    &:hover {
+        background: rgba(black, 0.3);
+    }
+}
+
+.headroom--not-top.headroom--unpinned .btn-back-top {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.headroom--bottom .btn-back-top {
+    @include media-breakpoint-up(sm) {
+        bottom: 80px;
+    }
+}
+
+//=============================================
+// IE11
+//=============================================
+
+@media all and (-ms-high-contrast:none) {
+    .btn-back-top > div {
+		margin-top: -4px;
+    }
+ }
 
 //-----------------------------------------------------------------
 //

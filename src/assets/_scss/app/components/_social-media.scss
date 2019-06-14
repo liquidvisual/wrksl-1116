@@ -1,55 +1,135 @@
 /*
     SOCIAL-MEDIA.CSS
 
-    - Last updated: 30.11.16
+    - Last updated: 17.04.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
 // VARIABLES
 //-----------------------------------------------------------------
-//--------------------------------------------------------------------
+//-----------------------------------------------------------------
 // SOCIAL MEDIA
-//--------------------------------------------------------------------
+//-----------------------------------------------------------------
 
-.social-media a {
-	display: inline-block;
+.social-media {
+	display: flex;
+	flex-wrap: wrap;
 
-	i {
-		width: rem-calc(44);
+	a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: rem-calc(44); // [LOCKED]
+		min-width: rem-calc(44); // [LOCKED]
 		height: rem-calc(44);
-		line-height: rem-calc(44);
-		font-size: rem-calc(25);
+		padding: 0; // [LOCKED] - override off-canvas
+		margin: rem-calc(0 10 10 0);
+		line-height: 1;
+		background: #222; // [LOCKED] - default
+		font-size: rem-calc(24);
 		text-align: center;
-		background: white;
-		border-radius: 100%;
-		color: $brand-primary;
-		transition: background ease 300ms;
+		color: white !important;
+		transition: opacity 200ms ease;
+		border-radius: 100%; //$border-radius;
+
+		&:hover {
+			// transform: scale(0.9);
+			opacity: 0.85 !important; // [LOCKED]
+		}
 	}
 
-	&:hover i {
-		background: rgba(white, 0.8);
+	//=========================================
+	// https://brandcolors.net
+	//=========================================
+
+	.behance     { background: #1769ff; }
+	.dribbble    { background: #ea4c89; }
+	.facebook    { background: #3b5998; }
+	.flickr      { background: #ff0084;  }
+	.github      { background: #9f7be1; }
+	.google-plus { background: #dd4b39; }
+	.instagram   { background: #833ab4; }
+	.linkedin    { background: #0077b5; }
+	.pinterest   { background: #bd081c; }
+	.twitter     { background: #1da1f2; }
+	.rss         { background: #f26522; }
+	.slack       { background: #e01563;  }
+	.snapchat    { background: #fffc00; color: #222 !important;  }
+	.soundcloud  { background: #ff8800; }
+	.tumblr      { background: #35465c; }
+	.vimeo       { background: #1ab7ea; }
+	.youtube     { background: #cd201f; }
+
+	//=========================================
+	// INSTAGRAM
+	//=========================================
+
+	// .instagram {
+	// 	background: radial-gradient(circle farthest-corner at 32% 106%, rgb(255, 225, 125) 0%, rgb(255, 205, 105) 10%, rgb(250, 145, 55) 28%, rgb(235, 65, 65) 42%, transparent 82%), linear-gradient(135deg, rgb(35, 75, 215) 12%, rgb(195, 60, 190) 58%);
+	// }
+}
+
+.social-media-btn {
+	display: flex;
+	align-items: center;
+	font-size: rem-calc(17);
+
+	.fa {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: rem-calc(44); // [LOCKED]
+		min-width: rem-calc(44); // [LOCKED]
+		border-radius: 100%;
+		height: rem-calc(44);
+		line-height: 1;
+		font-size: rem-calc(24);
+		text-align: center;
+		background-color: white;
+		color: #a1cb63;
+	}
+}
+
+//-----------------------------------------------------------------
+// CONTEXT
+//-----------------------------------------------------------------
+
+.lv-off-canvas .social-media {
+	margin: $spacer 0;
+}
+
+.global-header .social-media {
+	position: absolute;
+	top: rem-calc(-4);
+
+	a {
+		width: rem-calc(30); // [LOCKED]
+		min-width: rem-calc(30); // [LOCKED]
+		height: rem-calc(30);
+		margin: rem-calc(0 8 8 0);
+		font-size: rem-calc(16);
+		line-height: 0;
+
+		&:hover {
+			transform: none;
+			opacity: 0.9 !important;
+		}
+	}
+}
+
+.global-footer .social-media a {
+	background: white;
+	font-size: rem-calc(24); // [LOCKED] - override
+	color: $primary !important;
+
+	@include media-breakpoint-up(md) {
+	    margin: rem-calc(0 0 10 10);
 	}
 }
 
 //-----------------------------------------------------------------
 //
 //-----------------------------------------------------------------
-
-.sidebar-info-box .social-media {
-	a {
-		display: table;
-	}
-
-	i {
-		color: $brand-secondary;
-		margin-right: rem-calc(10);
-	}
-
-	.text {
-		font-size: rem-calc(18);
-	}
-}
-
 //=========================================
 //
 //=========================================

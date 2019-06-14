@@ -1,7 +1,7 @@
 /*
     TYPE.CSS
 
-    - Last updated: 16.10.16
+    - Last updated: 21.03.19, 16.10.16
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -11,25 +11,20 @@
 // TYPE
 //--------------------------------------------------------------------
 
+// PHASE OUT
+// html {
+// 	@include media-breakpoint-down(lg) { font-size: 15px; } // LG
+// 	@include media-breakpoint-down(md) { font-size: 15px; } // MD
+// 	@include media-breakpoint-down(sm) { font-size: $font-size-xs; } // XS
+// }
+
 html {
-	@include media-breakpoint-down(lg) { font-size: 15px; } // LG
-	@include media-breakpoint-down(md) { font-size: 15px; } // MD
-	@include media-breakpoint-down(sm) { font-size: $font-size-xs; } // XS
+    @include media-breakpoint-down(lg) { font-size: rem-calc(14); }
 }
 
-h1, h2, h3, h4, h5, h6 {
-	color: $brand-quinary;
-}
-
-.lead {
-	// line-height: 1.2;
-}
-
-.lead-gray {
-	font-size: rem-calc(20);
-	font-weight: bold;
-	color: #b1b1b1;
-}
+//-----------------------------------------------------------------
+// ICON HEADER - to do with the news on homepage
+//-----------------------------------------------------------------
 
 .icon-header {
 	display: table;
@@ -44,6 +39,10 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+//-----------------------------------------------------------------
+// HR
+//-----------------------------------------------------------------
+
 hr {
 	border-color: #f1f1f1;
 }
@@ -52,8 +51,12 @@ hr {
 // ANCHORS
 //-----------------------------------------------------------------
 
-a {
-	transition: color ease 300ms, background-color ease 300ms;
+a, button {
+	transition: color ease 150ms,
+				background-color ease 150ms,
+				opacity ease 150ms;
+	// word-break: break-word; // handles long links in safari
+	// outline: none !important;
 }
 
 //-----------------------------------------------------------------
@@ -62,26 +65,22 @@ a {
 
 p, ul, ol, td {
 	@include media-breakpoint-up(lg) {
-	    font-size: $font-size-lg; //15
+	    font-size: $font-size-lg; // 15
 	}
 }
 
-.lead {
-	font-family: "Montserrat";
-	color: $brand-quinary;
-}
-
 //-----------------------------------------------------------------
-// SPACER
+// LEAD
 //-----------------------------------------------------------------
 
-.spacer {
-	width: 1px;
-	height: 1px;
-}
+// p.lead { -- hall payne
+//     @include media-breakpoint-down(sm) {
+//         font-size: rem-calc(17); // [LOCKED] - curated
+//     }
+// }
 
 //-----------------------------------------------------------------
-//
+// H3 ICON
 //-----------------------------------------------------------------
 
 h3 .fa {
@@ -94,8 +93,46 @@ h3 .fa {
 	text-align: center;
 	line-height: 35px;
 	font-size: rem-calc(20);
-	color: $brand-secondary; // this will need to change
+	color: $secondary; // this will need to change
 }
+
+//-----------------------------------------------------------------
+// HEADINGS
+//-----------------------------------------------------------------
+
+h1, h2, h3, h4, h5, h6 {
+	color: $quinary;
+}
+
+//-----------------------------------------------------------------
+// HEADINGS MOBILE
+//-----------------------------------------------------------------
+
+@include media-breakpoint-down(sm) {
+    h1, .h1 { font-size: calc(#{$h1-font-size} - 64%); }
+    h2, .h2 { font-size: calc(#{$h2-font-size} - 40%); }
+    h3, .h3 { font-size: calc(#{$h3-font-size} - 20%); }
+    h4, .h4 { font-size: calc(#{$h4-font-size} - 24%); }
+    h5, .h5 { font-size: calc(#{$h5-font-size} - 15%); }
+    // h6, .h6 { font-size: calc(#{$h6-font-size} - 2%); }
+}
+
+@include media-breakpoint-down(md) {
+    .display-1 { font-size: calc(#{$display1-size} - 64%); }
+    .display-2 { font-size: calc(#{$display2-size} - 50%); }
+    .display-3 { font-size: calc(#{$display3-size} - 40%); }
+    .display-4 { font-size: calc(#{$display4-size} - 100%); }
+}
+
+//-----------------------------------------------------------------
+// UTILITIES
+//-----------------------------------------------------------------
+
+.spacer {
+    width: 1px;
+    height: 1px;
+}
+
 //=========================================
 //
 //=========================================

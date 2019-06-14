@@ -1,22 +1,13 @@
 /*
-    MAIN.JS - Last updated: 06.10.16
+    MAIN.JS - Last updated: 27.03.19
 */
 //-----------------------------------------------------------------
-// ON LOAD
-//-----------------------------------------------------------------
-
-$(window).on('load', function() {
-    $('html').addClass('has-loaded');
-    $('input, textarea').placeholder(); // IE9 Patch
-});
-
-//-----------------------------------------------------------------
-// FORM
-//-----------------------------------------------------------------
-
+// NEWSLETTER MODAL
 // https://github.com/1000hz/bootstrap-validator/issues/336
 // PROBLEMS WITH MODAL - hot patch
-$('#modal-newsletter').on('shown.bs.modal', function () {
+//-----------------------------------------------------------------
+
+$('#modal-newsletter').on('shown.bs.modal', function() {
     $(this).find('form').validator('destroy').validator()
 });
 
@@ -24,24 +15,14 @@ $('#modal-newsletter').on('shown.bs.modal', function () {
 // EQUAL HEIGHT
 //-----------------------------------------------------------------
 
-if ($('.lt-ie10').length) {
-    $('[data-equal-height]').matchHeight(
-     {
-         byRow: false,
-         property: 'height',
-         target: null,
-         remove: false
-     });
-} else {
-    $('[data-equal-height]').matchHeight(
-     {
-         byRow: false,
-         property: 'height',
-         target: null,
-         remove: false,
-         mq: "(min-width: 768px)"
-     });
-}
+$('[data-equal-height]').matchHeight(
+ {
+     byRow: false,
+     property: 'height',
+     target: null,
+     remove: false,
+     mq: "(min-width: 768px)"
+ });
 
 //-----------------------------------------------------------------
 // IMAGE MAP RESZIER
@@ -50,117 +31,105 @@ if ($('.lt-ie10').length) {
 $('#aus-map').imageMapResize();
 
 //-----------------------------------------------------------------
-// SITEMAP TRIGGER
+// SITEMAP TRIGGER - 2019
 //-----------------------------------------------------------------
 
-$('[data-sitemap-trigger]').click(function(event){
+$('[data-sitemap-trigger]').on('click', function(event){
     $('.fa', $(this)).toggleClass('fa-angle-down');
     $('[data-sitemap]').toggleClass('is-collapsed');
 });
 
 //-----------------------------------------------------------------
-// SEARCH TRIGGER
+// SCROLL-TO (NEW) - 2019
+// Exclude empty links, sitemap and tabs
 //-----------------------------------------------------------------
 
-$('[data-search-trigger]').click(function(event){
+$('a[href*="#"]:not([href="#"], [data-toggle="tab"])')
+    .on('click', function() {
+        var id = $(this).attr('href');
+        var endPos = $(id);
+        var headerHeight = $('.global-header').height();
 
-    var $search = $('[data-search]');
-    //var searchIsHidden = $search.hasClass('is-hidden');
-    $search.removeClass('is-hidden');
-
-    $(document).on('scroll', function(){
-        $search.addClass('is-hidden');
-        // automatically close the keyboard on iOS
-        document.activeElement.blur();
-    });
-});
-
-//==============================================
-// LAUNCH MANAGE ON KEYPRESS
-//==============================================
-
-$('[data-search] .close').on('click', function(){
-    $('[data-search]').addClass('is-hidden');
-    // automatically close the keyboard on iOS
-    document.activeElement.blur();
-});
+        if (endPos.length) {
+            $.scrollTo(endPos.offset().top - headerHeight, 800);
+            return false; // don't show hash link in url
+        }
+    }
+);
 
 //-----------------------------------------------------------------
-// LAUNCH MANAGE ON KEYPRESS
+// SCROLL TOP
 //-----------------------------------------------------------------
 
-key('⌘+shift+m, ctrl+shift+m', function(){
-  window.location = '/manage/';
+$('[data-back-top]').click(function() {
+    $.scrollTo(0, 500);
 });
 
 //-----------------------------------------------------------------
-// HEADROOM.js
+// FONT RESIZER
+// https://stackoverflow.com/questions/1055336/changing-the-browser-zoom-level
+// https://stackoverflow.com/questions/17907445/how-to-detect-ie11
+// https://makandracards.com/makandra/53475-minimal-javascript-function-to-detect-version-of-internet-explorer-or-edge
 //-----------------------------------------------------------------
 
-$(".global-header").headroom({
-    // vertical offset in px before element is first unpinned
-    offset : 60,
-    // scroll tolerance in px before state changes
-    tolerance : 0,
-    // or you can specify tolerance individually for up/down scroll
-    tolerance : {
-        up : 5,
-        down : 0
-    },
-    // css classes to apply
-    classes : {
-        // when element is initialised
-        initial : "headroom",
-        // when scrolling up
-        pinned : "headroom--pinned",
-        // when scrolling down
-        unpinned : "headroom--unpinned",
-        // when above offset
-        top : "headroom--top",
-        // when below offset
-        notTop : "headroom--not-top",
-        // when at bottom of scoll area
-        bottom : "headroom--bottom",
-        // when not at bottom of scroll area
-        notBottom : "headroom--not-bottom"
-    },
-    // element to listen to scroll events on, defaults to `window`
-    // scroller : someElement,
-    // callback when pinned, `this` is headroom object
-    onPin : function() {},
-    // callback when unpinned, `this` is headroom object
-    onUnpin : function() {},
-    // callback when above offset, `this` is headroom object
-    onTop : function() {},
-    // callback when below offset, `this` is headroom object
-    onNotTop : function() {},
-    // callback when at bottom of page, `this` is headroom object
-    onBottom : function() {},
-    // callback when moving away from bottom of page, `this` is headroom object
-    onNotBottom : function() {}
-});
+var currFFZoom = 1;
+var currIEZoom = 100;
+var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+var isIE11 = ieVersion() === 11 || false;
 
-//-----------------------------------------------------------------
-// SCROLLTO ANYTHING WITH AN ID
-// USAGE:
-// pass #id as target - window will scroll to it
-//-----------------------------------------------------------------
-
-function scrollTo(id) {
-    var href = id;
-    var offset = $(window).width() > 540 ? 250 : 0;
-    var offsetTop = href === "#" ? 0 : $(href).offset().top - offset;
-
-    $('html, body').stop().animate({
-        scrollTop: offsetTop
-    }, 800);
+function ieVersion(uaString) {
+    uaString = uaString || navigator.userAgent;
+    var match = /\b(MSIE |Trident.*?rv:|Edge\/)(\d+)/.exec(uaString);
+    if (match) return parseInt(match[2])
 }
 
-//==================================================
-// PLACE ON CLICKS
-//==================================================
-
-$('a[href*="#"]:not([href="#"])').click(function(event) {
-    // event.preventDefault();
-    scrollTo($(this).attr('href'));
+$('[data-resize-up]').on('click',function(){
+    if (isFirefox || isIE11){
+        var step = 0.02;
+        currFFZoom += step;
+        $('body').css('transform', 'scale(' + currFFZoom + ')');
+        $('body').css('transform-origin', 'top center');
+    } else {
+        var step = 2;
+        currIEZoom += step;
+        $('body').css('zoom', ' ' + currIEZoom + '%');
+    }
 });
+
+$('[data-resize-down]').on('click',function(){
+    if (isFirefox || isIE11){
+        var step = 0.02;
+        currFFZoom -= step;
+        $('body').css('transform', 'scale(' + currFFZoom + ')');
+
+    } else {
+        var step = 2;
+        currIEZoom -= step;
+        $('body').css('zoom', ' ' + currIEZoom + '%');
+    }
+});
+
+/*
+var fontResizer = document.querySelector('[data-font-resizer]');
+var fontResizerDownBtn = fontResizer.querySelector('[data-resize-down]');
+var fontResizerUpBtn = fontResizer.querySelector('[data-resize-up]');
+
+var fontResizeIncrement = 0;
+
+function resizeFont(target, val) {
+    target.addEventListener('mousedown', function() {
+        fontResizeIncrement += val;
+        // var result = 16 + (fontResizeIncrement * 1.01) + 'px';
+        // document.documentElement.style.fontSize = result;
+        // console.log(16 * val + 'px');
+
+        var result = 100 + (fontResizeIncrement * 1.2) + '%';
+        document.documentElement.style.zoom = result;
+
+        console.log(result)
+    })
+}
+
+resizeFont(fontResizerDownBtn, -1);
+resizeFont(fontResizerUpBtn, 1);
+*/

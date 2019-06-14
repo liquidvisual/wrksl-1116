@@ -1,7 +1,7 @@
 /*
     BLOCK-GRID.CSS
 
-    - Last updated: 19.04.17
+    - Last updated: 29.01.19
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -95,6 +95,7 @@ $grid-gutter-width: 30px !default;
 @media (min-width: #{map-get($grid-breakpoints, md)}) { @include block-grids(md) }
 @media (min-width: #{map-get($grid-breakpoints, lg)}) { @include block-grids(lg) }
 @media (min-width: #{map-get($grid-breakpoints, xl)}) { @include block-grids(xl) }
+@media (min-width: #{map-get($grid-breakpoints, xxl)}) { @include block-grids(xxl) }
 
 //=========================================
 //

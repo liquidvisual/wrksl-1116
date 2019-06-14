@@ -1,0 +1,106 @@
+/*
+    SLIDER.CSS
+
+    - Last updated: 26.11.16
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//--------------------------------------------------------------------
+// SLIDER - used for tesitmonials on homepage
+//--------------------------------------------------------------------
+
+.slider {
+	position: relative;
+
+	.slider-controls {
+		display: flex;
+		align-items: center;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+	}
+
+	.slider-prev-btn,
+	.slider-next-btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: rem-calc(44);
+		height: rem-calc(50);
+		background: none;
+		color: rgba(white, 0.5);
+		// background-color: red;
+		border: 0;
+		pointer-events: auto;
+		cursor: pointer;
+		outline: none;
+
+		.fa {
+			font-size: rem-calc(30);
+			background: white;
+			line-height: 0;
+
+			@include media-breakpoint-up(md) {
+			    font-size: rem-calc(60); // 70
+			}
+		}
+
+		&:hover {
+			color: white;
+		}
+	}
+
+	.slider-next-btn {
+		margin-left: auto;
+	}
+}
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
+
+.slider-stats,
+.slider-testimonials {
+
+	@include media-breakpoint-up(md) {
+	    padding: rem-calc(0 70);
+	}
+
+	.text {
+		@include media-breakpoint-down(sm) {
+		    font-size: rem-calc(25);
+		}
+	}
+
+	.slider-controls {
+		@include media-breakpoint-down(sm) {
+		    align-items: flex-end;
+		    left: auto;
+		    right: 0;
+		    top: rem-calc(50);
+		    width: 20%;
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// STATS
+//-----------------------------------------------------------------
+
+.slider-stats {
+	.has-vertical-dividers {
+		@include media-breakpoint-up(md) {
+		    border-left: 2px solid rgba(white, 0.2);
+		    border-right: 2px solid rgba(white, 0.2);
+		}
+	}
+}
+
+//=========================================
+//
+//=========================================

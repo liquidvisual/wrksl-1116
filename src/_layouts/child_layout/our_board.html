@@ -1,60 +1,49 @@
 ---
-layout: base__page--short-header
+layout: base__page_sidebar
 ---
 
-{% assign settings = site.data.settings %}
-{% assign news = site.data.placeholder_articles %}
+{% assign board_members = site.data.lorem_ipsum %}
 
-<div class="spacer m-b-3 hidden-sm-down"></div>
-<div class="spacer m-b-2 hidden-md-up"></div>
+<!-- SECTION -->
+<section>
 
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 push-lg-4">
-			<div class="special-content">
+	{% for i in (1..3) %}
 
-				<h2 class="m-b-2 special-header-green">Chairman</h2>
+		<!-- HEADING (SPECIAL) -->
+		<h2 class="mb-5 special-header-green">
+			Deputy Chairman
+		</h2>
 
-				{% capture events_list %}
-					{% for item in news limit: 2 %}
-						<article class="media p-y-1">
-							<div class="row">
-								<div class="col-md-3">
-									<p><img width="100%" src="/assets/img/content/no-face.png" alt="..."></p>
-								</div>
-								<div class="col-md-9">
-									<h3>Mr David Smith</h3>
-									<p class="m-b-0">{{ item.body | truncate: 450 }}</p>
-								</div>
-							</div>
-						</article>
-						{% unless forloop.last %}
-						<hr>
-						{% endunless %}
-					{% endfor %}
-				{% endcapture %}
+		<!-- BOARD MEMBERS -->
+		<div class="mb-4">
+			{% for item in board_members limit: 2 %}
 
-				{{ events_list }}
+				<div class="row">
+					<div class="col-md-3">
 
-				<h2 class="m-y-2 special-header-green">Deputy Chairman</h2>
+						<!-- IMAGE -->
+						<p><img width="100%" src="/assets/img/ui/no-face.png" alt="..."></p>
 
-				{{ events_list }}
+					</div>
+					<div class="col-md-9">
 
-				<h2 class="m-y-2 special-header-green">Board Members</h2>
+						<!-- HEADING -->
+						<h3>Mr David Smith</h3>
 
-				{{ events_list }}
+						<!-- BODY -->
+						<p class="mb-0">
+							{{ item.body | truncate: 450 }}
+						</p>
 
-				<div class="spacer m-b-2"></div>
+					</div>
+				</div>
 
-			</div>
+				{% unless forloop.last %}
+					<hr class="py-1">
+				{% endunless %}
+
+			{% endfor %}
 		</div>
-		<div class="col-lg-4 pull-lg-8">
-			<aside class="sidebar">
-				{% include snippets/side_nav.html %}
-			</aside>
-		</div>
-	</div>
-</div>
+	{% endfor %}
 
-<div class="spacer m-b-3 hidden-sm-down"></div>
-<div class="spacer m-b-2 hidden-md-up"></div>
+</section>

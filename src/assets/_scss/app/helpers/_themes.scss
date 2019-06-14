@@ -1,7 +1,7 @@
 /*
     THEMES.CSS
 
-    - Last updated: 16.11.00
+    - Last updated: 27.03.19
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -11,37 +11,16 @@
 // THEME HOME
 //-----------------------------------------------------------------
 
-.theme-home {
-	 .logo img {
-		@include media-breakpoint-down(sm) {
-		    width: 200px;
-		}
-	 }
+.theme-home-minimal {
 
-	.headroom--not-top {
-	    .logo img {
-	   		@include media-breakpoint-down(sm) {
-	   		    width: 150px;
-	   		}
-	    }
+	.lv-hero-item.is-tinted:before,
+	.lv-hero-item-slider {
+		display: none;
 	}
 
-	.lv-hero-item-carousel-wrapper {
-		@include media-breakpoint-down(md) {
-		    // visibility: hidden;
-		    display: none;
-		}
-	}
-
-	.lv-hero-item {
-		@include media-breakpoint-down(md) {
-		    background-position: bottom right;
-		}
-	}
-
-	.lv-hero-item-caption {
-		@include media-breakpoint-down(sm) {
-		    padding-top: calc(#{rem-calc(110)} + #{$header-height-sm} + #{rem-calc(32)});
+	.lv-hero-item > .container {
+		@include media-breakpoint-up(md) {
+		    padding-left: 0;
 		}
 	}
 }
@@ -51,17 +30,17 @@
 //-----------------------------------------------------------------
 
 .theme-red {
-	.page-header { background: $brand-quaternary; }
+	.page-header { background: $quaternary; }
 
 	.sidebar-color-box {
-	    background: lighten($brand-quaternary, 5%);
-	    .fa-info { color: $brand-quaternary; }
-	    &.is-muted { background: $brand-quaternary; }
+	    background: lighten($quaternary, 5%);
+	    .fa-info { color: $quaternary; }
+	    &.is-faded { background: $quaternary; }
 	}
 
 	.global-footer-sitemap {
 		h1, h2, h3, h4, h5, h6 {
-			color: $brand-quaternary;
+			color: $quaternary;
 		}
 	}
 }
@@ -71,17 +50,17 @@
 //-----------------------------------------------------------------
 
 .theme-green {
-	.page-header { background: $brand-secondary; }
+	.page-header { background: $secondary; }
 
 	.sidebar-color-box {
-	    background: lighten($brand-secondary, 5%);
-	    .fa-info { color: $brand-secondary; }
-	    &.is-muted { background: $brand-secondary; }
+	    background: lighten($secondary, 5%);
+	    .fa-info { color: $secondary; }
+	    &.is-faded { background: $secondary; }
 	}
 
 	.global-footer-sitemap {
 		h1, h2, h3, h4, h5, h6 {
-			color: $brand-secondary;
+			color: $secondary;
 		}
 	}
 }
@@ -91,17 +70,17 @@
 //-----------------------------------------------------------------
 
 .theme-orange {
-	.page-header { background: $brand-tertiary; }
+	.page-header { background: $tertiary; }
 
 	.sidebar-color-box {
-	    background: lighten($brand-tertiary, 5%);
-	    .fa-info { color: $brand-tertiary; }
-	    &.is-muted { background: $brand-tertiary; }
+	    background: lighten($tertiary, 5%);
+	    .fa-info { color: $tertiary; }
+	    &.is-faded { background: $tertiary; }
 	}
 
 	.global-footer-sitemap {
 		h1, h2, h3, h4, h5, h6 {
-			color: $brand-tertiary;
+			color: $tertiary;
 		}
 	}
 }
@@ -111,9 +90,9 @@
 //-----------------------------------------------------------------
 
 .theme-about {
-	.sidebar-color-box.is-muted {
-	    background: lighten($brand-secondary, 5%);
-	    .fa-info { color: $brand-secondary; }
+	.sidebar-color-box.is-faded {
+	    background: lighten($secondary, 5%);
+	    .fa-info { color: $secondary; }
 	}
 }
 
@@ -122,9 +101,10 @@
 //-----------------------------------------------------------------
 
 .theme-contact {
-	.sidebar-color-box.is-muted {
-	    background: lighten($brand-secondary, 5%);
-	    .fa-info { color: $brand-secondary; }
+
+	.sidebar-color-box.is-faded {
+	    background: lighten($secondary, 5%);
+	    .fa-info { color: $secondary; }
 	}
 
 	.sidebar-color-box {
@@ -132,19 +112,10 @@
 
 		p {
 			font-size: rem-calc(16);
-			// font-weight: 600;
 		}
 
 		a {
 			color: white;
-		}
-
-		.brand-quinary {
-			color: $brand-quinary;
-
-			&:hover {
-				color: darken($brand-quinary, 10%);
-			}
 		}
 	}
 }

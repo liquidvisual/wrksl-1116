@@ -1,10 +1,18 @@
 ---
 layout: base__homepage
-title: Homepage
+title: Home
+seo_title: Workskil Australia helps businesses find great new employees, and job seekers find work
 permalink: /
 regenerate: true
-theme: theme-home
+hero_options: is-default
+hero_header: Are you looking for support to find work?
+hero_body: |
+  We are a not-for-profit provider of employment and community services.
+hero_slides:
+  - title: Hero 1
+    image: /assets/img/content/hero/hero-8.jpg
+    options: is-tinted
+    scroll_prompt: true
 
-hero_header: Workskil Australia is a leader in the provision of quality services.
-hero_body: We are a not-for-profit and charitable organisation committed to transforming people's lives through employment, health, indigenous and disability services. We care about our clients, employers and staff.
+theme: theme-home
 ---

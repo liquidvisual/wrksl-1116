@@ -15,7 +15,7 @@
 	cursor: pointer;
 	// padding-bottom: $spacer;
 	a.active {
-		background: $brand-primary;
+		background: $primary;
 	}
 }
 
@@ -30,7 +30,7 @@
 		opacity: 1;
 		max-height: none;
 		padding-top: rem-calc(5);
-		border-top: 30px solid $brand-primary;
+		border-top: 30px solid $primary;
 		// max-height: 9999px;
 		// transition-timing-function: cubic-bezier(0.5, 0, 1, 0);
 		// transition-delay: 0s;
@@ -43,7 +43,7 @@
 
 .accordion-block {
 	height: rem-calc(25);
-	background: $brand-primary;
+	background: $primary;
 	margin-bottom: rem-calc(7);
 }
 

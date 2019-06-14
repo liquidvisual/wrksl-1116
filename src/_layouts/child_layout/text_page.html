@@ -1,28 +1,42 @@
 ---
-layout: base__page--short-header
+layout: base__page_sidebar
 ---
 
-{% assign settings = site.data.settings %}
+{% assign sub_levels = page.subpage_path %}
+{% assign level_1 = sub_levels[0] %}
+{% assign level_2 = sub_levels[1] %}
 
-<div class="spacer m-b-3 hidden-sm-down"></div>
-<div class="spacer m-b-2 hidden-md-up"></div>
+{% assign current_level = sub_levels | size %}
+	{% if current_level <= 2 %}
+		{% assign subpages = site.data.sitemap[level_1].children[level_2].children %}
+	{% else %}
+{% endif %}
 
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 push-lg-4">
-			<div class="special-content">
-				<div class="wysiwyg m-b-2">
-					{{ content }}
-				</div>
-			</div>
-		</div>
-		<div class="col-lg-4 pull-lg-8">
-			<aside class="sidebar">
-				{% include snippets/side_nav.html %}
-			</aside>
-		</div>
-	</div>
+<!-- WYSIWYG -->
+<div class="wysiwyg mb-4 mr-md-5">
+	{{ content }}
 </div>
 
-<div class="spacer m-b-3 hidden-sm-down"></div>
-<div class="spacer m-b-2 hidden-md-up"></div>
+{% if sub_levels %}
+
+	<!-- SERVICE TILES -->
+	<ul class="block-grid-xs-1 block-grid-md-2 block-grid-lg-2 mb-3">
+		{% for item in subpages %}
+		<li>
+			<a href="{{ item[1].url }}" class="btn-tile" data-equal-height>
+
+				<!-- HEADING -->
+				<h3>{{ item[0] }}</h3>
+
+				<!-- BODY -->
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+
+				<!-- ICON -->
+				<i class="fa fa-angle-right"></i>
+			</a>
+		</li>
+		{% endfor %}
+	</ul>
+
+{% endif %}

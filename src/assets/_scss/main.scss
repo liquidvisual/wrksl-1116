@@ -2,33 +2,27 @@
 /*
     MAIN.CSS
 
-    - Last updated: 06.10.16
+    - Last updated: 27.03.19
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
-// REM CALC
+// MIXINS
 //-----------------------------------------------------------------
 
 @import "liquidvisual/components/em-calc";
 @import "liquidvisual/components/rem-calc";
 
 //-----------------------------------------------------------------
-// BOOTSTRAP
+// BOOTSTRAP VARIABLES
 //-----------------------------------------------------------------
 
 @import "bootstrap/settings";
+
+//-----------------------------------------------------------------
+// BOOTSTRAP CORE
+//-----------------------------------------------------------------
+
 @import "bootstrap/bootstrap";
-
-//-----------------------------------------------------------------
-// LIQUIDVISUAL
-//-----------------------------------------------------------------
-
-@import "legacy/components/alert-bar";
-@import "legacy/components/block-grid";
-@import "legacy/components/breadcrumb";
-@import "legacy/components/toolbox";
-@import "legacy/vendor/magnific-popup/main";
-@import "legacy/vendor/syntax-highlighting";
 
 //-----------------------------------------------------------------
 // APPLICATION
@@ -60,9 +54,20 @@
 @import "app/helpers/themes";
 
 //-----------------------------------------------------------------
+// LOCAL DEPENDENCIES
+//-----------------------------------------------------------------
+
+@import "liquidvisual/components/alert-bar";
+@import "liquidvisual/components/block-grid";
+@import "liquidvisual/components/custom";
+@import "liquidvisual/components/toolbox";
+// @import "liquidvisual/vendor/magnific-popup/main";
+// @import "liquidvisual/vendor/syntax-highlighting";
+
+//-----------------------------------------------------------------
 // BOWER DEPENDENCIES
 //-----------------------------------------------------------------
 
-@import "animate.css/animate";
 @import "font-awesome/scss/font-awesome";
-@import "social-feed/css/jquery.socialfeed";
+@import "flickity/dist/flickity";
+// @import "social-feed/css/jquery.socialfeed";

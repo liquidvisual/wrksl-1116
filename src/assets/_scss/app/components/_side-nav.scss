@@ -1,63 +1,75 @@
 /*
     SIDE-NAV.CSS
 
-    - Last updated: 18.11.16
+    - Last updated: 25.03.19, 18.11.16
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
-// Variables
+// VARIABLES
 //-----------------------------------------------------------------
 //-----------------------------------------------------------------
-// Side Nav
+// SIDE NAV
 //-----------------------------------------------------------------
 
 .side-nav {
-    list-style: none;
-    padding: rem-calc(10 0);
-    font-family: $font-family-sans-serif;
-    background: $brand-quinary;
 
     @include media-breakpoint-up(xl) {
-        margin-right: rem-calc(70);
+        min-width: 109%;
     }
 
     //-----------------------------------------------------------------
-    // UL
+    // ALL ULS
     //-----------------------------------------------------------------
 
     ul {
-        padding: 0;
         list-style: none;
+        padding: 0; // [RESET]
     }
 
     //-----------------------------------------------------------------
-    // NESTED
+    // TOP PARENT URL
     //-----------------------------------------------------------------
 
+    > ul {
+        position: relative;
+        padding: rem-calc(10 0);
+        font-family: $font-family-sans-serif;
+        background: $quinary;
+
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            top: rem-calc(10);
+            width: 100%;
+            height: 1px;
+            background: rgba(white, 0.1);
+            z-index: 1;
+        }
+
+        &:after {
+            top: auto;
+            bottom: rem-calc(10);
+        }
+    }
+
+    // nested ULs
     ul ul {
         display: none;
     }
 
-    .active ul,
-    .active-parent ul {
+    // active ULs
+    li.active-parent > ul {
         display: block;
     }
 
     //-----------------------------------------------------------------
-    // LI
+    // LI + ARROW
     //-----------------------------------------------------------------
 
     li {
-        padding: 0;
-        border-top: 1px solid rgba(white, 0.1);
-    }
-
-    ul ul li {
-        border-top: 1px solid rgba(white, 0.15);
-    }
-
-    > li:last-child {
-        border-bottom: 1px solid rgba(white, 0.1);
+        padding: 0; // [RESET]
+        border-top: 1px solid #024f83; //rgba(white, 0.13);
     }
 
     //-----------------------------------------------------------------
@@ -66,62 +78,71 @@
 
     li > a {
         padding: rem-calc(15 20);
-        font-size: rem-calc(18);
+        font-size: rem-calc(17);
     }
 
     ul ul > li > a {
-        padding: rem-calc(15 25);
+        content: "-";
+        padding: rem-calc(15 34); // indent?
         background: #0c4062;
-    }
 
-    //-----------------------------------------------------------------
-    // ACTIVE ANCHORS
-    //-----------------------------------------------------------------
-
-    .active > a {
-        background: #024f83;
-    }
-
-    .active-parent > a {
-        background: #0c4062;
-    }
-
-    //=========================================
-    // ARROWS
-    //=========================================
-
-    .active {
-        position: relative;
-        background: #024f83;
-
-        &:after {
-            content: "\f105";
-            position: absolute;
-            top: 8px;
-            right: 15px;
-            font-family: "FontAwesome";
-            font-size: rem-calc(24);
-            font-weight: bold;
-            color: white;
+        &:before {
+            content: "-";
+            font-weight: $font-weight-normal;
         }
     }
 
-    //=========================================
+    //-----------------------------------------------------------------
     // GENERAL ACTIVE ANCHORS
-    //=========================================
+    //-----------------------------------------------------------------
 
     a {
         display: block;
         font-size: rem-calc(16);
-        font-weight: 600;
+        font-weight: $font-weight-bold;
         color: white;
-        transition: background ease 200ms;
 
         &:hover {
-            @include media-breakpoint-up(xl) {
-                background: rgba(white, 0.1);
-            }
+            color: rgba(white, 0.9);
         }
+    }
+
+    //-----------------------------------------------------------------
+    // ACTIVE
+    //-----------------------------------------------------------------
+
+    .active-parent > a {
+        background-color: #0c4062;
+    }
+
+    .active > a,
+    .has-dropdown.active > a {
+        background-color: #024f83;
+    }
+
+    li.active {
+        position: relative;
+        // background: #024f83;
+
+        &:after {
+            content: "\f105";
+            position: absolute;
+            top: rem-calc(8);
+            right: rem-calc(15);
+            font-family: "FontAwesome";
+            font-size: rem-calc(24);
+            font-weight: $font-weight-bold;
+            color: white;
+        }
+    }
+
+    //-----------------------------------------------------------------
+    // HIDE ALL SUBMENU ARROWS
+    //-----------------------------------------------------------------
+
+    // hide all arrows from markup
+    a > .submenu-arrow {
+        display: none;
     }
 }
 

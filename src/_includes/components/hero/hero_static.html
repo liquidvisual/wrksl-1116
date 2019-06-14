@@ -1,0 +1,80 @@
+{% comment %}
+<!--
+    HERO STATIC
+
+    - Updated: 21.03.19
+    - Static banner, no carousel functionality, commonly used on internal pages
+      to display page headers
+-->
+{% endcomment %}
+
+{% assign id = include.id %}
+{% assign options = include.options %}
+{% assign bg_image = page.hero_image %}
+
+<!-- HERO WRAPPER -->
+<section id="{{ id }}" class="lv-hero-wrapper">
+    <div class="container">
+
+        <!-- HERO -->
+        <div class="lv-hero {{ options }}">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <header class="page-header">
+                        {% if page.title_override %}
+                            <h2 class="display-3">{{ page.title_override }}</h2>
+                        {% else %}
+                            <h1 class="display-3">{{ page.title }}</h1>
+                        {% endif %}
+                    </header>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- BG TOP FILL -->
+    <div class="bg-top-fill pb-0">
+        <div class="bg-fill"></div>
+    </div>
+
+</section> <!-- /.lv-hero-wrapper -->
+
+{% comment %}
+
+** STATIC HERO IMAGE ALTERNATIVE **
+
+<!-- HERO ITEMS -->
+<div class="lv-hero-item align-items-end {{ options }}" style="background-image: url('{{ bg_image }}')">
+    <div class="container">
+        <div class="row h-100">
+            <div class="col">
+
+                <!-- BG FILL -->
+                <!-- <div class="bg-fill"></div> -->
+
+                <!-- HERO CAPTION -->
+                <div class="lv-hero-item-caption animated fadeInLeftSubtle">
+
+                    <!-- HEADER -->
+                    {% if page.title_override %}
+                        <h2 class="display-1 text-white text-uppercase mb-0">{{ page.title_override }}</h2>
+                    {% else %}
+                        <h1 class="display-1 text-white text-uppercase mb-0">{{ page.title }}</h1>
+                    {% endif %}
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endcomment %}
+
+{% comment %}
+    {% if bg_image %}
+        <!-- PARALLAX (OPTIONAL) -->
+        {% include components/hero/hero__parallax_plugin.html image=page.hero_image %}
+    {% endif %}
+{% endcomment %}

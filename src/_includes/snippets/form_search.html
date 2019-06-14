@@ -1,0 +1,31 @@
+{% comment %}
+<!--
+    FORM_SEARCH.HTML
+
+    - updated: 21.03.19
+-->
+{% endcomment %}
+
+<!-- GLOBAL SEARCH -->
+<div class="global-search" data-global-search>
+    <div class="container">
+
+        <!-- CLOSE -->
+        <button class="btn btn-close" data-dismiss="alert" aria-label="Close" title="Close">
+            <i class="fa fa-times-circle"></i>
+            <span class="text">esc</span>
+        </button>
+
+        <!-- FORM -->
+        <form class="global-search-form" action="/search/" method="get" novalidate>
+            <div class="input-group">
+                <input class="form-control" name="q" type="search" placeholder="Search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                <span class="global-search-info">Hit enter to search or ESC to close</span>
+                <div class="input-group-append">
+                    <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

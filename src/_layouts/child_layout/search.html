@@ -1,0 +1,55 @@
+---
+layout: base__page_sidebar
+---
+
+{% assign search_results = site.data.lorem_ipsum %}
+
+<!-- SEARCH RESULTS -->
+<section>
+
+    <!-- SEARCH FORM -->
+    <div class="row">
+        <div class="col-md-8">
+            <form action="/search/" method="get" novalidate>
+                <div class="input-group">
+                    <input class="form-control" name="q" type="text" placeholder="Search">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+	<!-- SPACER -->
+    <div class="spacer mb-5"></div>
+
+    <!-- NO RESULTS FOUND -->
+    <p class="text-muted" hidden>
+    	Sorry, no results were found.
+    </p>
+
+    <!-- SEARCH RESULTS -->
+    {% for item in search_results limit: 5 %}
+        <article>
+            <a href="{{ item.url }}">
+                <h3 class="h4">{{ item.title }}</h3>
+            </a>
+
+            <!-- TRUNCATE: 200 max chars -->
+            <p class="text-dark mb-0">
+            	{{- item.body | truncate: 200 -}} <a href="{{ item.url }}" class="pl-2">
+            		Read more <i class="fa fa-angle-right"></i>
+            	</a>
+            </p>
+        </article>
+
+        <hr class="my-4">
+    {% endfor %}
+
+	<!-- SPACER -->
+    <div class="spacer mb-4"></div>
+
+    {% include snippets/pagination.html %}
+
+</section>

@@ -1,0 +1,114 @@
+/*
+    HAMBURGER.CSS
+
+    - Last updated: 10.10.18
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+
+$hamburger-width: 28px; // works better than 24
+$hamburger-height: $hamburger-width - $hamburger-width/5;
+$hamburger-bar-height: 4px;
+
+//-----------------------------------------------------------------
+// HAMBURGER HITBOX
+//-----------------------------------------------------------------
+
+.lv-hamburger {
+    box-sizing: content-box;
+    position: relative; // [LOCKED]
+    width: $hamburger-width; // [LOCKED] - draw box
+    height: $hamburger-height; // [LOCKED]
+    cursor: pointer;
+    border: 8px solid transparent;
+    border-right: 0;
+    border-radius: 3px;
+    box-shadow: none;
+    transition: all 250ms ease;
+
+    // &:hover {
+        // @include media-breakpoint-up(xl) {
+            // border-color: white;
+            // background-color: white;
+            // box-shadow: 0 2px 3px 2px rgba(#e8e8e9, 0.8);
+            // box-shadow: 0 0 0px 2px rgba(#e8e8e9, 1); //rgba(black, 0.08); // TODO: need var
+        // }
+    // }
+
+    &:hover {
+        .lv-hamburger-top,
+        .lv-hamburger-middle,
+        .lv-hamburger-bottom {
+            @include media-breakpoint-up(xl) {
+                background: lighten($gray-900, 5%);
+            }
+        }
+    }
+}
+
+//-----------------------------------------------------------------
+// HAMBURGER BARS
+//-----------------------------------------------------------------
+
+.lv-hamburger-top,
+.lv-hamburger-middle,
+.lv-hamburger-bottom {
+    position: absolute;
+    width: 100%;
+    height: $hamburger-bar-height;
+    background: #222;
+    // border-radius: 1.5px;
+    transition: transform ease 250ms, background-color 150ms ease;
+}
+
+.lv-hamburger-middle {
+    top: calc(50% - #{$hamburger-bar-height}/2);
+}
+
+.lv-hamburger-bottom {
+    bottom: 0;
+}
+
+//-----------------------------------------------------------------
+// HAS MENU OPEN - STATE
+//-----------------------------------------------------------------
+
+.has-open-menu {
+
+    .lv-hamburger-top {
+        transform: rotate(45deg);
+        top: calc(50% - #{$hamburger-bar-height/2});
+    }
+
+    .lv-hamburger-bottom {
+        transform: rotate(-45deg);
+        top: calc(50% - #{$hamburger-bar-height/2});
+    }
+
+    .lv-hamburger-middle {
+        @include media-breakpoint-down(lg) {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(black, 0.5) !important; // [OVERRIDE] - hover
+            transition: none;
+            z-index: 1;
+            cursor: not-allowed;
+        }
+
+        @include media-breakpoint-up(xl) {
+            opacity: 0;
+        }
+    }
+}
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
+//=========================================
+//
+//=========================================

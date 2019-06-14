@@ -1,47 +1,52 @@
 /*
     SPECIAL.CSS
 
-    - Last updated: 00.00.00
+    - Last updated: 27.03.19
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
 // VARIABLES
 //-----------------------------------------------------------------
 //-----------------------------------------------------------------
-// SPECIAL
+// GOOGLE LANGUAGE SELECT
 //-----------------------------------------------------------------
 
-.block-grid-special-gaps {
-	margin: rem-calc(-4);
+.lv-page {
+	.goog-te-gadget-simple {
+	    background: transparent;
+	    border: 0;
+	}
 
-	li {
-		padding: rem-calc(4);
+	.goog-te-gadget-icon {
+	    display: none;
+	}
 
+	.goog-te-menu-value > span {
+		font-weight: $font-weight-bold;
+	    color: white;
 	}
 }
 
 //-----------------------------------------------------------------
-// USED IN TOP LEVEL PAGES FOR COLUMN SPACING
+// SPECIAL HEADER GREEN
 //-----------------------------------------------------------------
 
-.special-content {
-	z-index: 1;
-	@include media-breakpoint-up(xl) {
-	    position: relative;
-	    left: -80px;
-	    width: calc(100% + 80px);
-	}
+.special-header-green {
+	padding: rem-calc(20 25);
+	background: $secondary;
+	color: white;
 }
 
-// LEGACY
-// .special-content-extended {
-// 	@include media-breakpoint-up(xl) {
-// 		width: calc(100% + 80px);
-// 	}
-// }
+//-----------------------------------------------------------------
+// FILL IN GAP DUE TO ODD NUMBERS (homepage tiles)
+//-----------------------------------------------------------------
+
+.special-btn-tiles-bg {
+	background: #eee;
+}
 
 //-----------------------------------------------------------------
-// PAGER
+// PAGER (pagination)
 //-----------------------------------------------------------------
 
 .special-pager {
@@ -49,54 +54,6 @@
 
 	i {
 		margin: 0;
-	}
-}
-
-//-----------------------------------------------------------------
-//
-//-----------------------------------------------------------------
-
-.special-header-green {
-	background: $brand-secondary;
-	color: white;
-	padding: rem-calc(20 25);
-	// font-size: rem-calc(30);
-}
-
-//-----------------------------------------------------------------
-//
-//-----------------------------------------------------------------
-
-.special-list-block {
-	@include media-breakpoint-up(xl) {
-	    margin-right: rem-calc(70);
-	}
-
-	h3 {
-		color: $brand-quinary;
-	}
-
-	h4 {
-		font-size: rem-calc(17);
-		color: $brand-primary;
-		transition: color ease 300ms;
-
-		&:hover {
-			color: darken($brand-primary, 10%);
-		}
-	}
-}
-
-//-----------------------------------------------------------------
-//
-//-----------------------------------------------------------------
-
-.special-hero-text {
-	@include media-breakpoint-up(lg) {
-	    padding-right: rem-calc(30); // magic
-	}
-	@include media-breakpoint-up(xl) {
-	    padding-right: 0;
 	}
 }
 

@@ -1,64 +1,63 @@
 ---
-layout: base__page--short-header
+layout: base__page_sidebar
 ---
 
-{% assign settings = site.data.settings %}
-{% assign news = site.data.placeholder_articles %}
+{% assign news = site.data.lorem_ipsum %}
 
-<div class="spacer m-b-3 hidden-sm-down"></div>
-<div class="spacer m-b-2 hidden-md-up"></div>
+<!-- SECTION -->
+<section>
 
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 push-lg-4">
-			<div class="special-content">
+	<!-- HEADING (SPECIAL) -->
+	<h2 class="mb-5 special-header-green">
+		Past Events
+	</h2>
 
-				<h2 class="m-b-2 special-header-green">Upcoming Events</h2>
+	<!-- BOARD MEMBERS -->
+	<div class="mb-5">
+		{% for item in news limit: 2 %}
 
-				{% capture events_list %}
-					{% for item in news limit: 2 %}
-						<a class="media-link" href="/about/events-calendar/events-calendar-item/">
-							<article class="media p-y-1">
-								<div class="row">
-									<div class="col-md-3">
-										<img class="hidden-sm-down" width="100%" src="/assets/img/ui/placeholder.png" alt="...">
-									</div>
-									<div class="col-md-9">
-										<h3 class="h4">{{ item.title }}</h3>
-										<date>{{ item.date }}</date>
-										<p class="m-b-0">{{ item.body | truncate: 450 }} <span class="anchor">Read More <i class="fa fa-angle-right"></i></span></p>
-									</div>
-								</div>
-							</article>
-						</a>
-						{% unless forloop.last %}
-						<hr>
-						{% endunless %}
-					{% endfor %}
-				{% endcapture %}
+			<div class="row">
+				<div class="col-md-3">
 
-				{{ events_list }}
+					<!-- IMAGE -->
+					<a class="btn-tile mb-3" href="/about-us/events-calendar/events-calendar-item/">
+					    <img width="100%" src="/assets/img/layout/thumb-sizer--480x288.svg" alt="...">
+					    <span class="btn-tile-bg" style="background-image: url(https://placehold.it/480x288)"></span>
+					</a>
 
-				<h2 class="m-y-2 special-header-green">Past Events</h2>
-
-				{{ events_list }}
-
-				<div class="spacer m-b-2"></div>
-
-				<div class="special-pager m-b-1">
-					<a class="btn btn-quinary btn-slim" href="#"><i class="fa fa-angle-left"></i>&nbsp; Previous</a>
-					<a class="btn btn-quinary btn-slim pull-right" href="#">More &nbsp;<i class="fa fa-angle-right"></i></a>
 				</div>
+				<div class="col-md-9">
 
+					<!-- HEADING -->
+					<h3 class="h4">
+						<a class="text-quinary" href="/about-us/events-calendar/events-calendar-item/">
+							{{ item.title }}
+						</a>
+					</h3>
+
+					<!-- DATE -->
+					<time class="d-block text-muted font-weight-bold mb-2" datetime="{{ item.date | date_to_xmlschema }}">
+					    {{ item.date | date: "%d %B %Y" }}
+					</time>
+
+					<!-- BODY -->
+					<p class="mb-0">
+						{{ item.body | truncate: 450 }}
+
+						<!-- READ MORE LINK -->
+						<a class="font-weight-bold" href="/about-us/events-calendar/events-calendar-item/">Read More <i class="fa fa-angle-right"></i></a>
+					</p>
+
+				</div>
 			</div>
-		</div>
-		<div class="col-lg-4 pull-lg-8">
-			<aside class="sidebar">
-				{% include snippets/side_nav.html %}
-			</aside>
-		</div>
-	</div>
-</div>
 
-<div class="spacer m-b-3 hidden-sm-down"></div>
-<div class="spacer m-b-2 hidden-md-up"></div>
+			{% unless forloop.last %}
+				<hr class="py-1">
+			{% endunless %}
+
+		{% endfor %}
+	</div>
+
+	{% include snippets/pagination.html %}
+
+</section>

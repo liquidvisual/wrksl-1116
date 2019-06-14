@@ -1,0 +1,213 @@
+{% comment %}
+<!--
+    HERO DEFAULT
+
+    - Updated: 26.03.19, 06.02.19
+    - Complete functionality incl. youtube video, commonly used on homepages
+-->
+{% endcomment %}
+
+{% assign settings = site.data.settings %}
+{% assign options = include.options | default: 'is-default' %}
+{% assign slides = include.data %}
+{% assign youtube_script_included_once = false %}
+
+<!-- HERO WRAPPER -->
+<section class="lv-hero-wrapper">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-md-7 col-lg-8">
+
+                <!-- HERO -->
+                <div class="lv-hero {{ options }}">
+
+                    <!-- HERO ITEMS -->
+                    {% for item in slides | limit: 1 %}
+                        <div class="lv-hero-item {{ item.options }}">
+
+                            <!-- HERO SLIDER (OVERLAY BEHIND) -->
+                            <div class="lv-hero-item-slider-wrapper has-fade-transition" data-hero-slider>
+                                <div class="lv-hero-item-slider"
+
+                                    {% if slides.size > 1 %}
+                                        data-flickity='
+                                        {
+                                            "adaptiveHeight": true,
+                                            "autoPlay": 8000,
+                                            "cellAlign": "left",
+                                            "contain": true,
+                                            "draggable": false,
+                                            "dragThreshold": 40,
+                                            "freeScroll": false,
+                                            "freeScrollFriction": 0.075,
+                                            "friction": 0.28,
+                                            "groupCells": false,
+                                            "imagesLoaded": true,
+                                            "pageDots": true,
+                                            "pauseAutoPlayOnHover": true,
+                                            "prevNextButtons": false,
+                                            "selectedAttraction": 0.025,
+                                            "watchCSS": false,
+                                            "wrapAround": true
+                                        }'
+                                    {% endif %}
+                                    >
+
+                                    {% for item in slides %}
+                                        <div class="lv-hero-item-slide" style="background-image: url('{{ item.image }}')">
+
+                                            {% comment %}
+                                            {% if item.scroll_prompt %}
+                                                <!-- SCROLL PROMPT -->
+                                                <a class="lv-hero-scroll-prompt hidden-lg-down"><i class="fa fa-angle-down"></i></a>
+                                            {% endif %}
+                                            {% endcomment %}
+
+                                            {% if item.youtube_id %}
+                                                {% include components/hero/hero__youtube_plugin.html %}
+                                            {% elsif item.vimeo_id %}
+                                                {% include components/hero/hero__vimeo_plugin.html %}
+                                            {% endif %}
+
+                                            {% comment %}
+                                            <!-- PARALLAX (OPTIONAL) -->
+                                            {% unless item.youtube_id or item.vimeo_id  %}
+                                                {% if item.image %}
+                                                    {% include components/hero/hero__parallax_plugin.html image=item.image %}
+                                                {% endif %}
+                                            {% endunless  %}
+                                            {% endcomment %}
+
+                                        </div>
+                                    {% endfor %}
+
+                                </div>
+                            </div> <!-- /.hero-item-slider-wrapper -->
+
+                            <div class="container">
+                                <div class="row h-100">
+                                    <div class="col-xl-9">
+
+                                        <!-- BG FILL -->
+                                        <!-- <div class="bg-fill"></div> -->
+
+                                        <!-- HERO CAPTION -->
+                                        <div class="lv-hero-item-caption animated fadeInLeftSubtle">
+
+                                            <!-- HEADER -->
+                                            <h1 class="display-2 text-white mb-4">
+                                                {{ page.hero_header }}
+                                            </h1>
+
+                                            <!-- HERO BODY -->
+                                            <p class="display-4 font-weight-normal text-white mb-4">
+                                                {{ page.hero_body }}
+                                            </p>
+
+                                            <!-- HERO CTA -->
+                                            <p>
+                                                <a href="/job-seekers/" class="btn btn-lg btn-tertiary font-weight-bold">
+                                                    <span class="text">Find out more</span>
+                                                    <i class="ml-auto fa fa-angle-right"></i>
+                                                </a>
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div> <!-- /.lv-hero -->
+
+                {% comment %}
+                {% if slides.size > 1 %}
+                    <!-- SLIDER CONTROLS -->
+                    <div class="lv-hero-slider-controls hidden-lg-down">
+                        <span class="lv-hero-slider-prev-btn"><i class="fa fa-angle-left"></i></span>
+                        <span class="lv-hero-slider-next-btn"><i class="fa fa-angle-right"></i></span>
+                    </div>
+                {% endif %}
+                {% endcomment %}
+            </div>
+            <div class="col-md-5 col-lg-4">
+
+                <!-- HERO BTN TILES -->
+                <section class="hero-btn-tiles">
+                    <div class="row no-gutters">
+                        <div class="col-6">
+
+                            <!-- REGISTER A JOB VACANCY -->
+                            <a class="hero-btn-tile is-1" href="/register-your-job-vacancies/">
+                                <div class="inner">
+                                    <span class="img"><img class="icon" src="/assets/img/layout/hero-icon-pencil.png"></span>
+                                    <span class="text mr-1">Register a job vacancy</span><i class="fa fa-angle-right d-inline"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-6">
+
+                            <!-- REQUEST A CALLBACK -->
+                            <a class="hero-btn-tile is-2" href="#">
+                                <div class="inner">
+                                    <span class="img"><img class="icon" src="/assets/img/layout/hero-icon-phone.png"></span>
+                                    <span class="text mr-1">Request a callback</span><i class="fa fa-angle-right d-inline"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-6">
+
+                            <!-- LOCATIONS -->
+                            <a class="hero-btn-tile is-3" href="/about-us/our-locations/">
+                                <div class="inner">
+                                    <span class="img"><img class="icon" src="/assets/img/layout/hero-icon-map-marker.png"></span>
+                                    <span class="text mr-1">Locations</span><i class="fa fa-angle-right d-inline"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-6">
+
+                            <!-- SHARE YOUR FEEDBACK -->
+                            <a class="hero-btn-tile is-4" href="/contact-us/">
+                                <div class="inner">
+                                    <span class="img"><img class="icon" src="/assets/img/layout/hero-icon-convo.png"></span>
+                                    <span class="text mr-1">Share your feedback</span><i class="fa fa-angle-right d-inline"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col">
+
+                            <!-- CALL US NOW -->
+                             <a class="hero-btn-tile is-5" href="tel:{{ settings.offices[0].phone }}">
+                                 <div class="inner">
+                                     <span class="img mr-3"><img class="icon" src="/assets/img/layout/hero-icon-phone.png"></span>
+                                     <span class="text mr-1">Call us now</span><i class="fa fa-angle-right d-inline"></i>
+                                 </div>
+                             </a>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- BG TOP FILL -->
+    <div class="bg-top-fill">
+
+        <!-- BG FILL -->
+        <div class="bg-fill"></div>
+
+        <!-- SCROLL PROMPT -->
+        <a href="#how-can-we-support-you" class="lv-hero-scroll-prompt hidden-sm-down">
+            <i class="fa fa-angle-down"></i>
+        </a>
+
+    </div>
+
+</section> <!-- /.lv-hero-wrapper -->

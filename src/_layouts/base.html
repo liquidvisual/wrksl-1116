@@ -1,32 +1,35 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]>       <html class="lt-ie9"> <![endif]-->
-<!--[if IE 9]>          <html class="lt-ie10"> <![endif]-->
-<!--[if gt IE 9]><!-->  <html class="no-js" {{ site.environment }}> <!--<![endif]-->
-
+<html lang="en" {{ site.environment }}>
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.data.settings.description }}{% endif %}">
     <title>
-        {% if page.url == '/' %}
-            {{ site.data.settings.seo_title }}
-        {% else %}
-            {{ page.title }} - {{ site.data.settings.title }}
-        {% endif %}
+        {%- if page.seo_title %}
+            {{ page.seo_title }}
+        {%- else -%}
+            {{ page.title }}
+        {%- endif -%}
     </title>
-
-    <!-- CDN -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-
-    <!-- FAV ICONS -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/apple-touch-icon-144-precomposed.png">
-    <link rel="shortcut icon" href="/assets/favicon.ico">
 
     <!-- build:css({src,.tmp}) /assets/css/minified.css -->
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/node_modules/animate.css/animate.css">
     <!-- endbuild -->
+
+    <script>
+        // hide nav if /contact/ or /search/ or /contact-us/
+        (function(){
+            var path = function(path) {
+                return window.location.pathname.indexOf(path) > -1;
+            }
+            var closedNavConditions = !!(path('/contact/') || path('/contact-us') || path('/search/'));
+            closedNavConditions
+                ? document.documentElement.classList.add('has-closed-nav')
+                : document.documentElement.classList.remove('has-closed-nav');
+        })();
+    </script>
+
 </head>
 <body class="{{ page.theme }}">
 
@@ -35,21 +38,27 @@
     <div class="lv-page">
 
         <!-- HEADER -->
-        <header class="global-header fixed-top">
-            {% include header.html %}
+        <header class="global-header">
+            <div class="container">
 
-            <!-- NAVIGATION -->
-            <nav class="global-navigation hidden-lg-down">
-                <div class="container">
-                    <div class="topbar">
-                        {% include snippets/navigation.html %}
+                {% include header.html %}
+
+                <!-- NAVIGATION -->
+                <nav class="global-navigation hidden-lg-down">
+                    <div class="container position-relative">
+                        <div class="lv-topbar">
+                            {% include snippets/nav.html data=site.data.sitemap %}
+                        </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
 
+            </div>
         </header>
 
-        {{ content }}
+        <!-- GLOBAL BODY -->
+        <div class="global-body">
+            {{ content }}
+        </div>
 
         <!-- FOOTER -->
         <footer class="global-footer">
@@ -60,14 +69,14 @@
 
     <!-- OFF-CANVAS MENU -->
     <nav class="lv-off-canvas" data-off-canvas-menu aria-hidden="true">
-        {% include snippets/navigation.html %}
+        {% include snippets/nav.html data=site.data.sitemap %}
     </nav>
 
-    {% include search.html %}
+    {% include snippets/form_search.html %}
 
     {% include modal.html %}
 
-    <!--[if lt IE 9]>
+    <!--[if lte IE 9]>
     <div class="lv-alert-bar">
         <p>You're using an outdated browser. Please <a title="Click me, you know you want to." href="http://outdatedbrowser.com">upgrade your browser</a> to improve your experience.</p>
         <span class="lv-alert-bar-close-btn">&times;</span>
@@ -76,77 +85,25 @@
 
     <!-- **** JAVASCRIPT **** -->
 
-    <!-- build:js(src) /assets/scripts/minified.js -->
-    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="/node_modules/jquery-placeholder/jquery.placeholder.js"></script>
-    <script src="/node_modules/tether/dist/js/tether.min.js"></script>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="/node_modules/bootstrap-validator/dist/validator.min.js"></script>
-    <script src="/node_modules/bxSlider/dist/jquery.bxslider.min.js"></script>
-    <script src="/node_modules/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
-
-    <script src="/node_modules/codebird/codebird.js"></script>
-    <script src="/node_modules/doT/doT.js"></script>
-    <script src="/node_modules/moment/min/moment.min.js"></script>
-    <script src="/node_modules/moment/locale/en-au.js"></script>
-    <script src="/assets/scripts/vendor/jquery.socialfeed.js"></script>
-    <script src="/node_modules/isotope-layout/dist/isotope.pkgd.js"></script>
-
-    <script src="/assets/scripts/legacy/alert-bar.js"></script>
-    <script src="/assets/scripts/legacy/hero.js"></script>
-    <script src="/assets/scripts/legacy/utilities.js"></script>
-    <script src="/assets/scripts/legacy/responsive-utility.js"></script>
-    <script src="/assets/scripts/legacy/key.js"></script>
-    <script src="/assets/scripts/carousel.js"></script>
-    <script src="/assets/scripts/vendor/headroom.js"></script>
+    <!-- build:js({src,.}) /assets/scripts/minified.js -->
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/node_modules/bootstrap-validator/dist/validator.js"></script>
+    <script src="/node_modules/flickity/dist/flickity.pkgd.js"></script>
+    <script src="/node_modules/headroom.js/dist/headroom.js"></script>
+    <script src="/node_modules/jquery.scrollTo/jquery.scrollTo.js"></script>
+    <script src="/assets/scripts/liquidvisual/responsive-utility.js"></script>
+    <script src="/assets/scripts/liquidvisual/utilities.js"></script>
     <script src="/assets/scripts/vendor/image-map-resizer.js"></script>
     <script src="/assets/scripts/accordion.js"></script>
     <script src="/assets/scripts/equal-height.js"></script>
+    <script src="/assets/scripts/headroom.js"></script>
+    <script src="/assets/scripts/slider.js"></script>
+    <script src="/assets/scripts/nav.js"></script>
     <script src="/assets/scripts/off-canvas.js"></script>
+    <script src="/assets/scripts/search.js"></script>
     <script src="/assets/scripts/main.js"></script>
     <!-- endbuild -->
-
-    <script>
-        $(window).on('load', function (){
-
-            $('.social-feed-container').socialfeed({
-                // FACEBOOK
-                facebook: {
-                    accounts: ['@elouerasurf'],
-                    limit: 4,
-                    access_token: '1142564202455221|3a2db052ca1e71a576329b99b7d55a5b'
-                },
-                // INSTAGRAM
-                instagram: {
-                    accounts: ['@eloueraslsc'],
-                    limit: 4,
-                    //client_id: '88b4730e0e2c4b2f8a09a6184af2e218',
-                    //access_token: ''
-                    client_id: 'aa2ef3e8118541c0b7c372cfd81e752b',
-                    access_token: '3178942332.e029fea.ab1887d8d8024dd69d8b1dafbbfa773b'
-                },
-
-                // GENERAL SETTINGS
-                length: 200,
-                show_media: true,
-                template: "/social-feed/",
-
-                // When all the posts are collected and displayed - this function is evoked
-                callback: function () {
-                    console.log('All Instagram/Facebook posts are collected');
-                    setTimeout(function(){
-                      $('.social-feed-container').masonry();
-
-                        setTimeout(function(){
-                      $('.social-feed-container').masonry();
-                    }, 800);
-
-                    }, 800);
-                }
-
-            });
-        });
-    </script>
 
     <!-- NO JAVASCRIPT WARNING -->
     <noscript>
@@ -154,6 +111,5 @@
             <p>Your browser has Javascript disabled. Some features may be limited.</p>
         </div>
     </noscript>
-
 </body>
 </html>

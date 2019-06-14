@@ -2,32 +2,11 @@
 layout: base
 ---
 
-{% assign settings = site.data.settings %}
-{% assign hero = page.hero | default: "/assets/img/content/hero/hero-4.jpg" %}
+{% assign hero_options = page.hero_options | default: 'is-short' %}
 
-<!-- HERO -->
-<div class="lv-hero-wrapper">
-    <div class="lv-hero has-fixed-height">
-        <div class="lv-hero-item" style="background-image: url('{{ hero }}')">
-        	<div class="display-table">
-        		<div class="display-table-cell v-align-bottom">
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-6">
-								<header class="page-header">
-									{% if page.title_override %}
-										<h2 class="h1">{{ page.title_override }}</h2>
-									{% else %}
-										<h1>{{ page.title }}</h1>
-									{% endif %}
-								</header>
-							</div>
-						</div>
-					</div>
-        		</div>
-        	</div>
-        </div>
-    </div>
-</div>
+{% include components/hero/hero_static.html
+    bg_image=page.hero_image
+    options=hero_options
+%}
 
 {{ content }}

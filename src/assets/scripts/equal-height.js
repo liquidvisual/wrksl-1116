@@ -3,6 +3,8 @@
 
     https://github.com/liabru/jquery-match-height/pull/65
 
+    USAGE: <div data-equal-height></div>
+
     * jquery.matchHeight.js master
     * http://brm.io/jquery-match-height/
     * License: MIT

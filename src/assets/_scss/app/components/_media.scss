@@ -13,7 +13,7 @@
 
 .media {
 	h1, h2, h3, h4, h5, h6 {
-		color: $brand-quinary;
+		color: $quinary;
 	}
 
 	date {
@@ -29,7 +29,7 @@
 
 	p .anchor,
 	.anchor {
-		color: $brand-primary;
+		color: $primary;
 		font-weight: bold;
 	}
 }
@@ -38,12 +38,12 @@
 	display: block;
 
 	.anchor {
-		color: $brand-primary;
+		color: $primary;
 		transition: color ease 300ms;
 	}
 
 	&:hover .anchor {
-		color: darken($brand-primary, 20%);
+		color: darken($primary, 20%);
 	}
 }
 
@@ -53,7 +53,7 @@
 
 .media-article {
 	h1, h2, h3, h4, h5, h6 {
-		color: $brand-quinary;
+		color: $quinary;
 	}
 
 	date {

@@ -1,0 +1,42 @@
+---
+layout: base
+---
+
+{% assign level_1 = page.subpage_path[0] %}
+{% assign subpages = site.data.sitemap[level_1].children %}
+
+{% assign hero_options = page.hero_options | default: 'is-short' %}
+
+{% include components/hero/hero_static.html
+    bg_image=page.hero_image
+    options=hero_options
+%}
+
+<!-- SECTION -->
+<section class="section">
+	<div class="container">
+		<div class="row no-gutters">
+			<div class="col-lg-8 col-xl-9 order-lg-last pl-xl-4">
+				<div class="pl-xl-3">
+
+					{{ content }}
+
+				</div>
+			</div>
+			<div class="col-lg-4 col-xl-3">
+
+				<!-- SIDEBAR -->
+				<aside class="sidebar">
+
+					<!-- SIDE NAV  -->
+					<div class="side-nav mb-4">
+						{% include snippets/nav.html data=subpages %}
+					</div>
+
+					{% contentblock sidebar_additional no-convert %}
+
+				</aside>
+			</div>
+		</div>
+	</div>
+</section>

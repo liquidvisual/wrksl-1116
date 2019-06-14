@@ -3,70 +3,107 @@ layout: base__page
 ---
 
 {% assign settings = site.data.settings %}
+{% assign sub_levels = page.subpage_path %}
+{% assign level_1 = sub_levels[0] %}
+{% assign level_2 = sub_levels[1] %}
 
-<div class="container">
-	<div class="row">
-		<div class="col-lg-6 collapse-p-x-sm-down">
-			<aside class="sidebar">
+{% assign current_level = sub_levels | size %}
+	{% if current_level >= 2 %}
+		{% assign subpages = site.data.sitemap[level_1].children[level_2].children %}
+	{% else %}
+		{% assign subpages = site.data.sitemap[level_1].children %}
+{% endif %}
 
-				<div class="sidebar-color-box">
-					{{ content | markdownify }}
-				</div>
+<!-- SECTION -->
+<section class="mb-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 collapse-px-sm-down">
 
-				<div class="sidebar-info-box sidebar-color-box is-muted">
-					<div class="media">
-						<span class="media-left p-r-1 media-top">
-							<i class="fa fa-info"></i>
-						</span>
-						<div class="media-body">
-							<h4>For more information</h4>
-							<a href="mailto:{{ settings.offices[0].email }}"><i class="fa fa-envelope"></i>&nbsp;&nbsp;{{ settings.offices[0].email }}</a>
-							<span class="spacer m-r-1 hidden-sm-down"></span>
-							<div class="spacer hidden-xl-up"></div>
-							<a href="tel:{{ settings.offices[0].phone }}"><i class="fa fa-phone"></i>&nbsp;&nbsp;{{ settings.offices[0].phone }}</a>
+				<!-- SIDEBAR -->
+				<aside class="sidebar">
+
+					<!-- SIDEBAR COLOR BOX -->
+					<div class="sidebar-color-box">
+						{{ content | markdownify }}
+					</div>
+
+					<!-- SIDEBAR INFO BOX -->
+					<div class="sidebar-info-box sidebar-color-box is-faded">
+						<div class="media">
+							<span class="media-left mr-3 media-top">
+
+								<!-- INFO ICON -->
+								<i class="fa fa-info"></i>
+
+							</span>
+							<div class="media-body">
+
+								<!-- HEADING -->
+								<h4>For more information</h4>
+
+								<!-- EMAIL -->
+								<a class="d-inline-block mr-2" href="mailto:{{ settings.offices[0].email }}"><i class="fa fa-envelope mr-2"></i>{{ settings.offices[0].email }}</a>
+
+								<!-- PHONE -->
+								<a class="d-inline-block" href="tel:{{ settings.offices[0].phone }}"><i class="fa fa-phone mr-2"></i>{{ settings.offices[0].phone }}</a>
+
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<!-- SUPPORTING IMAGE -->
-				<p><img width="100%" src="/assets/img/content/community.jpg" alt="Community"></p>
+					{% if page.supporting_image %}
+						<!-- SUPPORTING IMAGE -->
+						<p><img width="100%" src="{{ page.supporting_image }}" alt="..."></p>
+					{% endif %}
 
-			</aside>
-		</div>
-		<div class="col-lg-6">
-			<h3 class="m-t-3 m-b-2">{{ page.tagline }}</h3>
+				</aside>
+			</div>
+			<div class="col-lg-6 pt-4 pt-md-5">
 
-			<!-- SERVICE TILES -->
-			<ul class="block-grid-xs-1 block-grid-md-2 block-grid-lg-2">
-				{% for i in (1..2) %}
-				<li>
-					<a href="#" class="btn-tile" data-equal-height>
-						<h3>Fee for Service Youth Services</h3>
-						<p>Skills of Life is a flexible program run for disengaged young people. The program includes five topics, with a variety of modules within each topic.</p>
-						<i class="fa fa-angle-right"></i>
-					</a>
-				</li>
-				{% endfor %}
-				<li>
-					<a href="#" class="btn-tile" data-equal-height>
-						<h3>Fee for Service Youth Services</h3>
-						<p>Skills of Life is a flexible</p>
-						<i class="fa fa-angle-right"></i>
-					</a>
-				</li>
-				<li>
-					<a href="#" class="btn-tile" data-equal-height>
-						<h3>Fee for Service Youth Services</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat.</p>
-						<i class="fa fa-angle-right"></i>
-					</a>
-				</li>
-			</ul>
+				<!-- HEADING -->
+				<h2 class="mb-4">
+					{% if page.subheading %}
+						{{ page.subheading }}
+					{% else %}
+						Services provided by Workskil {{ page.title }} include:
+					{% endif %}
+				</h2>
+
+				{% if sub_levels %}
+
+					<!-- SERVICE TILES -->
+					<ul class="block-grid-xs-1 block-grid-md-2 block-grid-lg-2">
+						{% for item in subpages %}
+						<li>
+							<a class="btn-tile" href="{{ item[1].url }}" data-equal-height>
+								<h3>{{ item[0] }}</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+								<i class="fa fa-angle-right"></i>
+							</a>
+						</li>
+						{% endfor %}
+					</ul>
+
+				{% else %}
+
+					{% ifhascontent additional %}
+
+						<!-- WYSIWYG -->
+						<div class="wysiwyg">
+					  		{% contentblock additional no-convert %}
+					  	</div>
+
+					{% endifhascontent %}
+					{% ifnothascontent additional %}
+
+						{{ content }}
+
+					{% endifnothascontent %}
+				{% endif %}
+
+			</div>
 		</div>
 	</div>
-</div>
-
-<div class="spacer m-b-3"></div>
+</section>

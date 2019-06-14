@@ -1,62 +1,90 @@
 /*
     HEADER.CSS
 
-    - Last updated: 06.10.16
+    - Last updated: 27.03.19, 06.10.16
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
 // VARIABLES
 //-----------------------------------------------------------------
 
-//$header-height-sm: 60px !default; // optimal
-//$header-height-md: 130px !default;
-//$header-height-lg: 220px !default;
+$header-top-sm-height: 50px !default;
+$header-top-md-height: 50px !default;
+$header-top-lg-height: 50px !default;
+
+$header-body-sm-height: 60px !default;
+$header-body-md-height: 110px !default; //230px !default;
+$header-body-lg-height: 110px !default; //230px !default;
+$header-body-xl-height: 110px !default; //324px !default;
+$header-body-xxl-height: 110px !default; //324px !default;
+
+// $header-bottom-sm-height: 50px !default;
+// $header-bottom-md-height: 50px !default;
+$header-bottom-lg-height: 59px !default;
 
 //-----------------------------------------------------------------
 // HEADROOM
 //-----------------------------------------------------------------
+//****************************************************
+// PINNED - SCROLLING DOWN
+//****************************************************
 
-.headroom {
-    will-change: transform;
-    transition: transform 200ms linear;
+.headroom--pinned .global-header {
+    @include media-breakpoint-down(lg) {
+        transform: translateY(0%); // SHOW MENU BAR
+        transition: transform 200ms ease;
+    }
 }
 
-//=========================================
+//****************************************************
+// UNPINNED - SCROLLING UP
+//****************************************************
 
-.headroom--pinned {
-    transform: translateY(0%);
-}
-
-.headroom--unpinned {
-	@include media-breakpoint-down(sm) {
-	    transform: translateY(-100%);
+.headroom--unpinned .global-header {
+	@include media-breakpoint-down(lg) {
+    	transform: translateY(-106%); // HIDE MENU BAR
 	}
 }
 
-//========================================= TABLETS UP
+//****************************************************
+// HEADROOM NOT TOP
+//****************************************************
 
-.headroom--not-top {
-    .global-header-top {
-    	height: 0;
-    	padding: 0;
-    	overflow: hidden;
-    }
+.headroom--not-top .global-header {
+	position: fixed;
+	box-shadow: 0 0 3px 1px rgba(black, 0.2);
 
-    .global-header-body .color-strip {
-		height: rem-calc(6); // used again below
-    }
+	@include media-breakpoint-up(xl) {
+	    animation: subtle-entrance 150ms ease 0s alternate 1 forwards;
 
-    .global-navigation .topbar {
-    	bottom: 29px;
-    }
+	    @keyframes subtle-entrance {
+	    	from { transform: translateY(-50px); }
+	    	to   { transform: translateY(0); }
+	    }
+	}
 
-    .global-header-body .logo img {
-    	padding: rem-calc(15 0);
+	> .container {
+		max-width: none;
+		padding: 0;
+	}
 
-    	@include media-breakpoint-up(md) {
-    	    width: 209px;
-    	}
-    }
+	.global-header-top {
+		height: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+
+	.global-header-body {
+		@include media-breakpoint-up(md) {
+		    height: rem-calc(70);
+		}
+
+		.logo img {
+			@include media-breakpoint-up(md) {
+			    max-height: rem-calc(48);
+			}
+		}
+	}
 }
 
 //-----------------------------------------------------------------
@@ -64,15 +92,20 @@
 //-----------------------------------------------------------------
 
 .global-header {
-	position: fixed; // covers more use cases
+	position: absolute; // [LOCKED] - prevents glitches
 	top: 0;
+	left: 0;
 	width: 100%;
-	z-index: 999;
-}
+	will-change: transform;
+	z-index: 200;
 
-.global-header-top  > .container,
-.global-header-body > .container {
-	position: relative;
+	// we delegate $container to the child
+	> .container {
+		@include media-breakpoint-down(sm) {
+		    max-width: none;
+		    padding: 0;
+		}
+	}
 }
 
 //-----------------------------------------------------------------
@@ -80,91 +113,135 @@
 //-----------------------------------------------------------------
 
 .global-header-top {
-	position: relative;
-	background: $brand-quinary;
-	// font-size: rem-calc(16);
+	display: flex;
+	align-items: center;
+	position: relative; // [LOCKED]
+	height: $header-top-sm-height;
+	background-color: $quinary;
+	font-size: rem-calc(20);
+	font-weight: $font-weight-bold;
 	color: white;
-	padding: rem-calc(10 0);
-	transition: all ease 150ms;
 
 	@include media-breakpoint-up(md) {
-	    padding: rem-calc(15 0);
+	    height: $header-top-lg-height;
 	}
 
-	i {
-		position: relative;
-		top: 2px;
-		font-size: rem-calc(23);
-		line-height: 0;
+	> .container {
+		display: flex;
+
+		// we delegate $container to the outer parent
+		@include media-breakpoint-up(md) {
+		    max-width: none;
+		    padding: 0;
+		}
 	}
 
 	a {
-		color: white;
+		font-weight: $font-weight-normal;
+		color: white; // [THEMEABLE]
+		transition: opacity 200ms ease;
+
+		i {
+			position: relative;
+			top: 1px;
+			font-size: rem-calc(23);
+		}
+
+		&:hover {
+			opacity: 0.85;
+		}
+	}
+
+	a:last-of-type {
+		margin-right: 0;
 	}
 }
 
 //-----------------------------------------------------------------
-// HEADER BODY (WHITE)
+// FONT RESIZER
+//-----------------------------------------------------------------
+
+.global-header-top .font-resizer {
+	button {
+		position: relative;
+		padding: rem-calc(5 12 5 8);
+		border: 0;
+		border-radius: 0;
+		background: none !important;
+		font-size: rem-calc(20);
+		font-weight: $font-weight-bold;
+		line-height: 1;
+		outline: none !important;
+		box-shadow: none !important;
+
+		.fa {
+			position: absolute;
+			top: 3px;
+			right: 6px;
+			font-size: rem-calc(10);
+			opacity: 0.6;
+		}
+
+		&:active .fa {
+			opacity: 1;
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// HEADER BODY
 //-----------------------------------------------------------------
 
 .global-header-body {
-	background: rgba(white, 0.8);
-	// box-shadow: 0 0 3px 1px rgba(black, 0.2);
-}
-
-//=========================================
-// HEADER HEIGHT [LOCKED]
-//=========================================
-
-.global-header,
-.global-header .display-table {
-
-	//@include media-breakpoint-down(sm) {
-	    //height: $header-height-sm;
-	//}
+	display: flex;
+	align-items: center;
+	position: relative; // safe? - added for dropdown
+	height: $header-body-sm-height;
+	background-color: white;
+	// transition: height 100ms ease;
 
 	@include media-breakpoint-up(md) {
-	    // height: $header-height-md;
+	    height: $header-body-md-height;
+	}
+
+	@include media-breakpoint-up(lg) {
+		height: $header-body-lg-height;
 	}
 
 	@include media-breakpoint-up(xl) {
-		// height: $header-height-lg;
+		height: $header-body-xl-height;
 	}
-}
 
-//=========================================
-// FIXED MOBILE [LOCKED]
-//=========================================
+	@include media-breakpoint-up(xxl) {
+	    height: $header-body-xxl-height;
+	}
 
-.global-header {
-	@include media-breakpoint-down(sm) {
-	    position: fixed;
+	//=========================================
+	// HEADER HEIGHT [LOCKED]
+	//=========================================
+
+	> .container {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+
+		@include media-breakpoint-down(xs) {
+		    width: 100%; // fixes mobile glitch?
+		}
 	}
 }
 
 //-----------------------------------------------------------------
-// COLOR STRIP
+// GLOBAL MOBILE MENU
 //-----------------------------------------------------------------
 
-.global-header .color-strip {
-	display: flex;
-	position: relative;
-	height: rem-calc(6);
-	overflow: hidden; // [LOCKED]
+.global-mobile-menu {
+	position: absolute;
+	right: rem-calc(15);
 
 	@include media-breakpoint-up(md) {
-	    height: rem-calc(19);
+	    right: $container-gutter;
 	}
-
-	.color-strip-bar {
-		width: 25%;
-		height: 100%;
-	}
-
-	.color-strip-bar:nth-child(1) { background: $brand-primary; }
-	.color-strip-bar:nth-child(2) { background: $brand-secondary; }
-	.color-strip-bar:nth-child(3) { background: $brand-tertiary; }
-	.color-strip-bar:nth-child(4) { background: $brand-quaternary; }
 }
 
 //-----------------------------------------------------------------
@@ -172,53 +249,14 @@
 //-----------------------------------------------------------------
 
 .global-header .logo {
-	position: relative;
-	top: 0;
-	display: inline-block;
-
-	@include media-breakpoint-up(md) {
-	    top: 0;
-	}
-
-	@include media-breakpoint-up(lg) {
-	    top: 0;
-	}
-
-	@include media-breakpoint-up(xl) {
-	    top: 0;
-	}
+	margin: 0 auto;
 
 	img {
-		width: 150px;
-		padding: rem-calc(15 0);
-		transition: width 200ms ease, height 200ms ease;
+	    max-height: rem-calc(48); // + 15 padding
 
 		@include media-breakpoint-up(md) {
-			width: 250px;
-		    padding: rem-calc(29 0);
-		    // padding: none;
+		    max-height: rem-calc(78); // [LOCKED] - default size
 		}
-
-		@include media-breakpoint-up(xl) {
-			width: 309px;
-		    padding: none;
-		}
-	}
-}
-
-//-----------------------------------------------------------------
-// HAMBURGER
-//-----------------------------------------------------------------
-
-.global-mobile-menu {
-	position: absolute;
-	top: 50%;
-	right: $container-gutter/2;
-	overflow: hidden;
-	transform: translateY(calc(-50% + 5px));
-
-	@include media-breakpoint-up(md) {
-	    right: $container-gutter;
 	}
 }
 
@@ -228,30 +266,31 @@
 
 .page-header {
 	position: relative;
-	background: $brand-primary;
-	color: white;
-	font-weight: bold;
 	padding: rem-calc(20 40);
-	margin-top: rem-calc(240);
+	// margin-top: rem-calc(240);
+	margin-top: rem-calc(92);
+	background: $primary;
+	font-weight: $font-weight-bold;
+	color: white;
+	z-index: 100;
 
 	@include media-breakpoint-down(sm) {
-		left: -15px;
-		width: calc(100% + 15px*2);
-		padding: $spacer-x;
+		// left: -15px;
+		// width: calc(100% + 15px*2);
+		padding: $spacer;
 	}
 
 	@include media-breakpoint-up(md) {
-	    margin-top: rem-calc(400);
+	    // margin-top: rem-calc(400);
 	    padding: rem-calc(30 40);
 	}
 
 	@include media-breakpoint-up(lg) {
-		margin-top: rem-calc(586);
+		// margin-top: rem-calc(586);
 	    margin-right: $spacer*2;
 	}
 
-	h1,
-	.h1 {
+	h1, .h1 {
 		@include media-breakpoint-down(sm) {
 		    font-size: rem-calc(35);
 		}
@@ -260,16 +299,6 @@
 	h1, h2, h3, h4, h5, h6 {
 		margin-bottom: 0;
 		color: white;
-	}
-}
-
-//-----------------------------------------------------------------
-// CONTROL HEIGHT OF HEIGHT VIA PAGE HEADER
-//-----------------------------------------------------------------
-
-.is-short .page-header {
-	@include media-breakpoint-up(md) {
-	    margin-top: rem-calc(380);
 	}
 }
 

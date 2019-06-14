@@ -1,7 +1,7 @@
 /*
     FONTS.CSS
 
-    - Last updated: 04.11.16
+    - Last updated: 27.03.19, 04.11.16
     - liquidvisual.com
 */
 //--------------------------------------------------------------------
@@ -14,41 +14,7 @@ $font-path: "/assets/fonts" !default;
 // FONTS
 //--------------------------------------------------------------------
 
-@import url("http://fast.fonts.net/t/1.css?apiType=css&projectid=9ded128a-80c5-45e1-b80a-c0f041db2974");
-
-//=========================================
-// PF Bague Sans W01 Regular
-//=========================================
-
-@font-face {
-    font-family:"PF Bague Sans";
-    font-style: normal;
-    font-weight: 300;
-    src: url("#{$font-path}/cdf1b527-65ab-405b-b0e4-e6ecda85e678.eot?#iefix");
-    src: local('☺'),
-         url("#{$font-path}/cdf1b527-65ab-405b-b0e4-e6ecda85e678.eot?#iefix") format("eot"),
-         url("#{$font-path}/26755a1a-6195-45b4-b535-54bb01b4f5fd.woff2") format("woff2"),
-         url("#{$font-path}/81397d6f-dec9-4866-b91e-e46dd28314d9.woff") format("woff"),
-         url("#{$font-path}/3cae2cff-e1ff-42e9-8fc2-d44a98c0ab71.ttf") format("truetype"),
-         url("#{$font-path}/7528c278-38fb-456e-b232-d199ee4c3910.svg#7528c278-38fb-456e-b232-d199ee4c3910") format("svg");
-}
-
-//=========================================
-// PF Bague Sans W01 Bold
-//=========================================
-
-@font-face {
-    font-family:"PF Bague Sans";
-    font-style: normal;
-    font-weight: bold;
-    src: url("#{$font-path}/cd7df0b3-5607-463d-849d-e82057710ced.eot?#iefix");
-    src: local('☺'),
-         url("#{$font-path}/cd7df0b3-5607-463d-849d-e82057710ced.eot?#iefix") format("eot"),
-         url("#{$font-path}/e9beef02-c5bb-47b1-babb-f99bc80d357f.woff2") format("woff2"),
-         url("#{$font-path}/a20b93d2-d08f-4a9b-8ed7-0dc9d020c2b8.woff") format("woff"),
-         url("#{$font-path}/d87254e6-248e-4f18-af83-eafda8067daa.ttf") format("truetype"),
-         url("#{$font-path}/80af09b0-65de-4543-81a9-4168a546bb95.svg#80af09b0-65de-4543-81a9-4168a546bb95") format("svg");
-}
+@import url("https://use.typekit.net/faq5ogr.css");
 
 //=========================================
 //

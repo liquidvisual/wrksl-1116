@@ -1,53 +1,52 @@
 ---
-layout: base__page--short-header
+layout: base__page_sidebar
 ---
 
-{% assign settings = site.data.settings %}
-
-{% assign news = site.data.placeholder_articles %}
+{% assign news = site.data.lorem_ipsum %}
 {% assign news_item = news[1] %}
 
-<div class="spacer m-b-3 hidden-sm-down"></div>
-<div class="spacer m-b-2 hidden-md-up"></div>
+<!-- SECTION -->
+<section>
 
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 push-lg-4">
-			<div class="special-content">
-				<article class="media-article">
-					<h1 class="h2 m-b-2">{{ news_item.title }}</h1>
-					<p><img class="img-right" src="http://placehold.it/496x312" alt="..."></p>
+	<!-- HEADING -->
+	<h1 class="h2 mb-4">
+		{{ news_item.title }}
+	</h1>
 
-					<h4 class="m-b-0">When:</h4>
-					<p class="lead-gray">Thursday 13 November 2016, 1.30 - 4.30pm</p>
+	<!-- SUPPORTING IMAGE -->
+	<p><img class="img-right" src="https://placehold.it/496x312" alt="..."></p>
 
-					<h4 class="m-b-0">Location:</h4>
-					<p class="lead-gray m-b-0">Tatiara District Council Offices<br>
-					43 Woolshed Street Bordertown SA</p>
-					<p><b><a href="/locations/">View Map <i class="fa fa-angle-right"></i></a></b></p>
-
-					<h4 class="m-b-0">Contact:</h4>
-					<p class="lead-gray">Phone Park on 0409 642 or email<br>
-					greenarmy@workskilyouth.com.au</p>
-
-					<div class="spacer m-b-1"></div>
-
-					{{ content | markdownify }}
-
-					<div class="m-t-1 m-b-2">
-						<!-- PLACE SOCIAL ICONS HERE -->
-					</div>
-
-				</article>
-			</div>
-		</div>
-		<div class="col-lg-4 pull-lg-8">
-			<aside class="sidebar">
-				{% include snippets/side_nav.html %}
-			</aside>
-		</div>
+	<!-- WHEN: -->
+	<div class="mb-3">
+		<h3 class="mb-1">When:</h3>
+		<p class="h4 text-muted">
+			Thursday 13 November 2016, 1.30 - 4.30pm
+		</p>
 	</div>
-</div>
 
-<div class="spacer m-b-3 hidden-sm-down"></div>
-<div class="spacer m-b-2 hidden-md-up"></div>
+	<!-- LOCATION: -->
+	<div class="mb-3">
+		<h3 class="mb-1">Location:</h3>
+		<p class="h4 text-muted mb-0">
+			Tatiara District Council Offices<br>
+			43 Woolshed Street Bordertown SA</p>
+		<p>
+		<a class="font-weight-bold" href="/locations/">View Map <i class="fa fa-angle-right"></i></a>
+		</p>
+	</div>
+
+	<!-- CONTACT: -->
+	<div class="mb-3">
+		<h3 class="mb-1">Contact:</h3>
+		<p class="h4 text-muted mb-0">
+			Phone Park on 0409 642 or email<br>
+			greenarmy@workskilyouth.com.au
+		</p>
+	</div>
+
+	<!-- SPACER -->
+	<div class="spacer mb-4"></div>
+
+	{{ content }}
+
+</section>

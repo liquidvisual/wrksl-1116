@@ -1,0 +1,29 @@
+{% comment %}
+<!--
+    HERO VIMEO PLUGIN
+
+    - Updated: 11.05.18
+    - Notes: This acts as a plugin for the hero component.
+             Each slide item can render an iframe
+
+    http://codegena.com/generator/vimeo-embed-code-generator
+    https://help.vimeo.com/hc/en-us/articles/115004485728-Autoplaying-and-looping-embedded-videos
+-->
+{% endcomment %}
+
+{% assign src = "https://player.vimeo.com/video/" | append: item.vimeo_id | append: "?autoplay=1&title=0&loop=0&color=000000&byline=0&portrait=0&muted=1&background=1" %}
+
+<!-- VIMEO PLUGIN - video must be 16:9 -->
+<div class="video-bg">
+    <div class="video-fg">
+        <iframe
+            data-vimeo
+            class="video"
+            src="{{ src }}"
+            width="640"
+            frameborder="0"
+            type="text/html"
+            style="pointer-events: false"
+        ></iframe>
+    </div>
+</div>

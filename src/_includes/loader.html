@@ -1,18 +1,31 @@
 <!-- PAGE LOADER -->
 <div id="lv-page-loader" class="lv-page-loader">
-    <div class="lv-spinner">
-        <div class="double-bounce-1"></div>
-        <div class="double-bounce-2"></div>
+    <div class="lv-page-loader-spinner">
+        <div class="loader-spinner">
+            <div class="loader-component">
+                <div class="half-circle"></div>
+            </div>
+            <div class="loader-component">
+                <div class="half-circle"></div>
+            </div>
+        </div>
     </div>
 </div>
 
 <!-- WON'T SHOW IF JAVASCRIPT IS DISABLED -->
 <script>
-    var loader = document.getElementById('lv-page-loader');
-    loader.style.display = 'flex';
+    (function loader(){
+        var loader = document.getElementById('lv-page-loader');
+        loader.style.display = 'flex';
 
-    // Prevent loader from getting stuck if body takes too long
-    setTimeout(function(){
-        loader.className += ' force-finish';
-    }, 3100);
+        // add class when window has fully loaded
+        window.addEventListener('load', function() {
+            document.documentElement.classList.add('has-loaded');
+        });
+
+        // Prevent loader from getting stuck if body takes too long
+        setTimeout(function(){
+            loader.classList.add('force-finish');
+        }, 1500); // max of 1.5 secs
+    })();
 </script>

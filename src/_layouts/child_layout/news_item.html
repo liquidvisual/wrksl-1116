@@ -1,55 +1,52 @@
 ---
-layout: base__page--short-header
+layout: base__page_sidebar
 ---
 
-{% assign settings = site.data.settings %}
+{% assign news = site.data.lorem_ipsum %}
+{% assign news_item = news[2] %}
 
-{% assign news = site.data.placeholder_articles %}
-{% assign news_item = news[1] %}
+<!-- SECTION -->
+<section>
 
-<div class="spacer m-b-3 hidden-sm-down"></div>
-<div class="spacer m-b-2 hidden-md-up"></div>
+	<!-- HEADING -->
+	<h1 class="h2">
+		{{ news_item.title }}
+	</h1>
 
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 push-lg-4">
-			<div class="special-content">
-				<article class="media-article">
-					<h1 class="h2">{{ news_item.title }}</h1>
-					<date>{{ news_item.date }}</date>
-					<p><img class="img-right" src="http://placehold.it/496x312" alt="..."></p>
-					{{ content | markdownify }}
+	<!-- DATE -->
+	<time class="d-block text-muted font-weight-bold mb-4" datetime="{{ news_item.date | date_to_xmlschema }}">
+	    {{ news_item.date | date: "%d %B %Y" }}
+	</time>
 
-					<div class="m-t-1 m-b-2">
-						<!-- PLACE SOCIAL ICONS HERE -->
-					</div>
+	<!-- SUPPORTING IMAGE -->
+	<p><img class="img-right" src="{{ news_item.image }}" alt="..."></p>
 
-				</article>
-			</div>
-		</div>
-		<div class="col-lg-4 pull-lg-8">
-			<aside class="sidebar">
-				{% include snippets/side_nav.html %}
-
-				<div class="spacer m-b-1"></div>
-
-				<div class="special-list-block">
-					<h3>Other News</h3>
-					<ul class="list-block is-condensed">
-						{% for item in news limit: 3 %}
-							<li>
-								<a href="/about/news/news-item/">
-									<h4 class="m-b-0">{{ item.title }} <i class="fa fa-angle-right"></i></h4>
-								</a>
-							</li>
-						{% endfor %}
-					</ul>
-				</div>
-
-			</aside>
-		</div>
+	<!-- WYSIWYG -->
+	<div class="wysiwyg mb-4">
+		{{ news_item.body | markdownify }}
 	</div>
-</div>
 
-<div class="spacer m-b-3 hidden-sm-down"></div>
-<div class="spacer m-b-2 hidden-md-up"></div>
+</section>
+
+{% contentfor sidebar_additional %}
+
+	<!-- OTHER NEWS -->
+	<h3 class="text-quinary">
+		Other News
+	</h3>
+
+	<!-- ARTICLES -->
+	<ul class="list-block is-condensed">
+		{% for item in news limit: 3 %}
+			<li>
+				<a href="{{ item.url }}">
+					<h4 class="text-primary pr-md-4 mb-0">
+						{{ item.title }}
+						<i class="fa fa-angle-right"></i>
+					</h4>
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+
+{% endcontentfor %}

@@ -1,34 +1,54 @@
 {% assign settings = site.data.settings %}
 
-<div class="modal fade" id="modal-newsletter" tabindex="-1" role="dialog" aria-labelledby="modal-newsletter" aria-hidden="true">
+<!-- MODAL NEWSLETTER -->
+<div
+	id="modal-newsletter"
+	class="modal fade"
+	tabindex="-1"
+	role="dialog"
+	aria-labelledby="modal-newsletter"
+	aria-hidden="true"
+>
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
+
+			<!-- MODAL HEADER -->
 			<div class="modal-header">
+
+				<!-- CLOSE BUTTON -->
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
+
+			<!-- MODAL BODY -->
 			<div class="modal-body animated fadeInDown">
 
-				<h3 class="m-b-2">Join Our Newsletter</h3>
+				<!-- JOIN OUR NEWSLETTER -->
+				<h3 class="mb-4">
+					Join Our Newsletter
+				</h3>
 
+				<!-- MODAL BODY FORM -->
 				<div class="modal-body-form">
 
-					<!-- IF SUCCESS -->
-					<div class="alert alert-success" hidden>
-						<h4>Success!</h4>
-						<p>Your form has been submitted.</p>
-					</div>
-
-					<!-- IF FAILURE -->
-					<div class="alert alert-danger alert-dismissible fade in" role="alert" hidden>
+					<!-- IF SUCCESS (HIDDEN) -->
+					<div class="alert alert-success alert-dismissible fade show mb-4" role="alert" hidden>
 					    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					        <span aria-hidden="true">&times;</span>
 					    </button>
-					    <h4>Oops!</h4>
-					    <p>Something went wrong. Please check your details.</p>
+					    <strong>Success!</strong><br> Thanks for that. Your message has been received.
 					</div>
 
+					<!-- IF FAILURE (HIDDEN) -->
+					<div class="alert alert-danger alert-dismissible fade show mb-4" role="alert" hidden>
+					    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					        <span aria-hidden="true">&times;</span>
+					    </button>
+					    <strong>Oops!</strong><br> Something went wrong. Please try again.
+					</div>
+
+					<!-- FORM -->
 					<form data-toggle="validator">
 					    <fieldset>
 					        <div class="row">
@@ -36,23 +56,28 @@
 
 					                <!-- NAME -->
 					                <div class="form-group">
-					                    <input class="form-control" id="newsletter-name" name="Name" type="text" placeholder="Full Name" required>
+					                    <input id="newsletter-name" class="form-control"  name="Name" type="text" placeholder="Full Name" required>
 					                    <small class="error">Your name is required.</small>
 					                </div>
+
 					            </div>
 					            <div class="col-lg-4">
 
 					                <!-- EMAIL -->
 					                <div class="form-group">
-					                    <input class="form-control" id="newsletter-email" name="Email" type="email" placeholder="Email" required>
+					                    <input id="newsletter-email" class="form-control"  name="Email" type="email" placeholder="Email" required>
 					                    <small class="error">A valid email is required.</small>
 					                </div>
+
 					            </div>
 
 					            <div class="col-lg-2">
 
 					            	<!-- SUBMIT -->
-					            	<button type="submit" class="btn btn-primary">Join</button>
+					            	<button type="submit" class="btn btn-primary">
+					            		Join
+					            	</button>
+
 					            </div>
 					        </div>
 					    </fieldset>

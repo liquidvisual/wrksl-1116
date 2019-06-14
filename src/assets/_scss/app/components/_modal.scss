@@ -52,7 +52,7 @@
 	.modal-body {
 		@include media-breakpoint-up(sm) {
 		    padding: $spacer * 3;
-		    padding-top: $spacer-y;
+		    padding-top: $spacer;
 		}
 
 		.modal-body-form {

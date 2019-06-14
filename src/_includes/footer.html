@@ -3,54 +3,126 @@
 <!-- FOOTER BODY -->
 <section class="global-footer-body">
 	<div class="container">
-		<div class="row">
+		<div class="row no-gutters">
 			<div class="col-md-6 col-lg-4 col-xl-3">
-				<h3 class="p-b-1">{{ settings.company }}</h3>
-				<h4>{{ settings.offices[0].title }}</h4>
+
+				<!-- HEADING -->
+				<h3 class="mb-4">
+					{{ settings.company }}
+				</h3>
+
+				<!-- HEAD OFFICE -->
+				<h4>
+					{{ settings.offices[0].title }}
+				</h4>
+
+				<!-- ADDRESS -->
 				<p>
 					{{ settings.offices[0].address }}<br>
-					<a href="{{ settings.google_map }}">View map <i class="fa fa-angle-right"></i></a>
+					<!-- <a href="/about-us/our-locations/#sa">View map <i class="fa fa-angle-right"></i></a> -->
 				</p>
-				<p>Ph. {{ settings.offices[0].phone }}</p>
-			</div>
-			<div class="col-md-6 col-lg-4 col-xl-3">
-				<ul class="list-inline social-media">
-					<li class="list-inline-item"><a href="{{ settings.linked_in }}"><i class="fa fa-linkedin"></i></a></li>
-					<li class="list-inline-item"><a href="{{ settings.facebook }}"><i class="fa fa-facebook"></i></a></li>
-					<li class="list-inline-item"><a href="{{ settings.twitter }}"><i class="fa fa-twitter"></i></a></li>
-				</ul>
-				<div class="spacer m-b-1 hidden-lg-up"></div>
-			</div>
-			<div class="col-md-6 col-lg-4 col-xl-6 text-md-right">
 
-				<!-- NEWSLETTER MODAL TRIGGER -->
-				<div class="btn-group" role="group" aria-label="Basic example">
-					<div class="btn btn-special"><i class="fa fa-comment-o"></i>&nbsp; <strong>Stay up to date</strong></div>
-					<a class="btn btn-quinary" data-toggle="modal" data-target="#modal-newsletter">Join our newsletter <i class="fa fa-angle-right"></i></a>
+				<!-- PHONE  -->
+				<p>
+					<a class="text-white" href="tel:{{ settings.offices[0].phone }}">
+						<i class="fa fa-phone mr-1"></i>
+						{{ settings.offices[0].phone }}
+					</a>
+				</p>
+
+			</div>
+			<div class="col-md-6 col-lg-8 col-xl-9">
+				<div class="row">
+					<div class="col-lg-4">
+
+						{% include snippets/social_media.html %}
+
+						<!-- SPACER -->
+						<div class="spacer mb-3 hidden-lg-up"></div>
+
+					</div>
+					<div class="col-lg-8 text-lg-right">
+
+						<!-- NEWSLETTER MODAL TRIGGER -->
+						<div class="btn-group">
+							<div class="btn btn-special text-left font-weight-bolder">
+								<i class="fa fa-comment-o mr-2"></i>
+								<span class="text">Stay up to date</span>
+							</div>
+							<button type="button" class="btn btn-quinary text-left" data-toggle="modal" data-target="#modal-newsletter">
+								<span class="text mr-1">Join our newsletter</span><i class="d-inline fa fa-angle-right"></i>
+							</button>
+						</div>
+
+						<!-- WYSIWYG -->
+						<div class="wysiwyg mt-5 text-lg-right">
+							<p>Workskil Australia acknowledges Aboriginal and Torres Strait Islander peoples as the Traditional Owners and Custodians of this country, and their connection to land, water and community. We pay our respect to them, their cultures and customs, and to Elders both past and present.</p>
+						</div>
+
+					</div>
 				</div>
-
 			</div>
 		</div>
+	</div>
+
+	<!-- COLOR STRIP -->
+	<div class="color-strip">
+	    <span class="color-strip-bar"></span>
+	    <span class="color-strip-bar"></span>
+	    <span class="color-strip-bar"></span>
+	    <span class="color-strip-bar"></span>
 	</div>
 </section>
 
 <!-- FOOTER BOTTOM -->
-<section class="global-footer-bottom p-y-1">
+<section class="global-footer-bottom">
     <div class="container">
+
+    	<!-- BACK TO TOP -->
+    	<div class="text-center text-md-right hidden-xs-down">
+    		<button data-back-top class="btn-back-top">
+    			<div>
+    				<i class="d-block fa fa-angle-up"></i>
+    				<span class="text">TOP</span>
+    			</div>
+    		</button>
+    	</div>
+
 		<div class="row">
-			<div class="col-md-2 text-xs-center text-md-left">
-				<a data-sitemap-trigger href="#sitemap"><i class="fa fa-angle-up fa-angle-down"></i> Site Map</a>
-				<div class="spacer m-b-1 hidden-md-up"></div>
+			<div class="col-md-2 text-center text-md-left">
+
+				<!-- SITEMAP -->
+				<a href="#sitemap" data-sitemap-trigger>
+					<i class="fa fa-angle-up fa-angle-down"></i>
+					Site Map
+				</a>
+
+				<!-- SPACER -->
+				<div class="spacer mb-4 hidden-md-up"></div>
+
 			</div>
-			<div class="col-md-7 text-xs-center text-md-left">
-				<span>&copy; {{ site.time | date: '%Y' }} <span class="text hidden-md-down">{{ settings.company }}</span></span>&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="/contact/">Contact Us</a>&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="/404/">Privacy Statement</a>
+			<div class="col-md-8 text-center text-md-left">
+
+				<!-- COPYRIGHT -->
+				<span class="mr-3">
+					&copy; {{ site.time | date: '%Y' }}
+					<span class="text hidden-md-down">{{ settings.company }}</span>
+				</span>
+
+				<!-- LINKS -->
+				<a class="mr-3" href="/contact-us/">Contact Us</a>
+				<a class="mr-3" href="#">Work With Us</a>
+				<a class="mr-3" href="#">Privacy Statement</a>
+				<a class="mr-3" href="#">Privacy Policy</a>
+				<a class="mr-3" href="/docs/">Docs</a>
+
 			</div>
-			<div class="col-md-3 text-xs-center text-md-right">
+			<div class="col-md-2 text-center text-md-right">
+
+				<!-- AUTHOR LOGO -->
 				<small>
 					<a class="author-logo" target="_blank" href="{{ settings.author.url }}">
-				    	<span class="text">{{ settings.author.description }}</span>&nbsp;
+				    	<span class="text mr-1">{{ settings.author.description }}</span>
 				    	<img width="20" height="20" src="{{ settings.author.logo }}" alt="Created by {{ settings.author.title }}">
 					</a>
 				</small>
@@ -62,17 +134,107 @@
 <!-- FOOTER SITEMAP -->
 <section id="sitemap" class="global-footer-sitemap is-collapsed" data-sitemap>
 	<div class="container">
-		<ul class="block-grid-xs-1 block-grid-lg-7">
+		<ul class="block-grid-xs-1 block-grid-lg-5">
+
 			{% for item in site.data.sitemap offset: 1 %}
 				<li>
-					<h5>{{ item.title }}</h5>
-					<ul class="list-unstyled">
-						{% for item in item.children %}
-							<li><a href="{{ item.url }}">{{ item.title }}</a></li>
-						{% endfor %}
-					</ul>
+					<a href="{{ item[1].url }}">
+						<h5>{{ item[0] }}</h5>
+					</a>
+					{% if item[1].children %}
+						<ul class="list-unstyled">
+							{% for item in item[1].children %}
+								<li>
+									<a href="{{ item[1].url }}">{{ item[0] }}</a>
+									{% if item[1].children %}
+										<ul class="">
+											{% for item in item[1].children %}
+												<li>
+													<a href="{{ item[1].url }}">{{ item[0] }}</a>
+												</li>
+											{% endfor %}
+										</ul>
+									{% endif %}
+								</li>
+							{% endfor %}
+						</ul>
+					{% endif %}
 				</li>
 			{% endfor %}
+
 		</ul>
 	</div>
 </section>
+
+{% comment %}
+
+** FLATTER SITEMAP ALTERNATIVE **
+
+{% for item in site.data.sitemap offset: 1 %}
+	{% if item[1].children and item[0] != 'About Us' %}
+		{% for item in item[1].children %}
+			<li>
+				<a href="{{ item[1].url }}">
+					<h5>{{ item[0] }}</h5>
+				</a>
+				{% if item[1].children %}
+					<ul class="list-unstyled">
+						{% for item in item[1].children %}
+							<li>
+								<a href="{{ item[1].url }}">{{ item[0] }}</a>
+								{% if item[1].children %}
+									<ul class="">
+										{% for item in item[1].children %}
+											<li>
+												<a href="{{ item[1].url }}">{{ item[0] }}</a>
+											</li>
+										{% endfor %}
+									</ul>
+								{% endif %}
+							</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</li>
+		{% endfor %}
+	{% endif %}
+{% endfor %}
+{% endcomment %}
+
+{% comment %} ABOUT US
+{% for item in site.data.sitemap %}
+	{% if item[0] == 'About Us' %}
+
+		<li>
+			<a href="{{ item[1].url }}">
+				<h5>{{ item[0] }}</h5>
+			</a>
+			{% if item[1].children %}
+				<ul class="list-unstyled">
+					{% for item in item[1].children %}
+						<li>
+							<a href="{{ item[1].url }}">{{ item[0] }}</a>
+							{% if item[1].children %}
+								<ul class="">
+									{% for item in item[1].children %}
+										<li>
+											<a href="{{ item[1].url }}">{{ item[0] }}</a>
+										</li>
+									{% endfor %}
+								</ul>
+							{% endif %}
+						</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		</li>
+
+	{% endif %}
+{% endfor %}
+
+<li>
+	<a href="/contact-us/">
+		<h5>Contact Us</h5>
+	</a>
+</li>
+{% endcomment %}

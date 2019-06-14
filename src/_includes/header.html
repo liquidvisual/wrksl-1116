@@ -1,56 +1,62 @@
 {% assign settings = site.data.settings %}
-{% assign logo = page.logo | default: "/assets/img/content/logo.png" %}
+{% assign logo = page.logo | default: "/assets/img/content/logo@2x.jpg" %}
 
 <!-- HEADER TOP -->
 <div class="global-header-top">
     <div class="container">
-        <div class="row">
-            <div class="col-xs-6 col-md-8">
-                <a target="_blank" href="tel:{{ settings.offices[0].phone }}">
-                    <i class="fa fa-phone"></i>&nbsp;
-                    <span class="text hidden-sm-down">1300 Workskil ({{ settings.offices[0].phone }})</span>
-                    <span class="text hidden-md-up">{{ settings.offices[0].phone }}</span>
-                </a>
-                <span class="spacer m-x-1 hidden-sm-down"></span>
-                <a class="hidden-sm-down" target="_blank" href="/locations/"><i class="fa fa-map-marker"></i>&nbsp;  Find a location</a>
-            </div>
-            <div class="col-xs-6 col-md-4 text-xs-right">
-                <a href="#" data-search-trigger><i class="fa fa-search"></i><span class="text hidden-sm-down">&nbsp; Search</span></a>
-            </div>
+
+        <!-- FONT RESIZER -->
+        <div data-font-resizer class="font-resizer order-md-first hidden-sm-down">
+            <button data-resize-down class="btn-sm btn-primary">Aa<i class="fa fa-minus"></i></button>
+            <button data-resize-up class="btn-sm btn-primary">Aa<i class="fa fa-plus"></i></button>
         </div>
+
+        <!-- PHONE -->
+        <a class="phone font-weight-bold" href="tel:{{ settings.offices[0].phone }}">
+            <i class="fa fa-phone mr-1"></i>
+            <span class="text hidden-sm-down">1300 Workskil ({{ settings.offices[0].phone }})</span>
+            <span class="text hidden-md-up">{{ settings.offices[0].phone }}</span>
+        </a>
+
+        <!-- TRANSLATIONS -->
+        <a class="ml-auto mr-md-3 order-md-first font-weight-bold" href="/">
+            <i class="fa fa-globe mr-1"></i>
+            <span class="text">Translations</span>
+        </a>
+
+        {% comment %}
+        <!-- LANGUAGE SELECT -->
+        <div class="ml-auto mr-md-3 order-md-first">
+            <div id="google_translate_element" style="margin-top: 2px;"></div>
+            <script>
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,ar,vi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+            </script>
+            <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        </div>
+        {% endcomment %}
+
     </div>
 </div>
 
 <!-- HEADER BODY -->
 <div class="global-header-body">
-
-    <!-- COLOR STRIP -->
-    <div class="color-strip">
-        <span class="color-strip-bar"></span>
-        <span class="color-strip-bar"></span>
-        <span class="color-strip-bar"></span>
-        <span class="color-strip-bar"></span>
-    </div>
-
     <div class="container">
-        <div class="display-table">
-            <div class="display-cell">
 
-                <!-- LOGO -->
-                <a class="logo" href="/" title="{{ settings.seo_title }}" itemprop="url">
-                    <img src="{{ logo }}" alt="{{ settings.company_title }}" itemprop="logo">
-                </a>
+        <!-- LOGO -->
+        <a class="logo" href="/" title="{{ settings.seo_title }}" itemprop="url">
+            <img src="{{ logo }}" alt="{{ settings.company_title }}" itemprop="logo">
+        </a>
 
-                <!-- HAMBURGER -->
-                <div class="global-mobile-menu hidden-xl-up">
-                    <div class="lv-hamburger" data-menu-toggle>
-                        <span class="lv-hamburger-top"></span>
-                        <span class="lv-hamburger-middle"></span>
-                        <span class="lv-hamburger-bottom"></span>
-                    </div>
-                </div>
-
+        <!-- HAMBURGER -->
+        <div class="global-mobile-menu hidden-xl-up">
+            <div class="lv-hamburger" data-menu-toggle>
+                <span class="lv-hamburger-top"></span>
+                <span class="lv-hamburger-middle"></span>
+                <span class="lv-hamburger-bottom"></span>
             </div>
         </div>
+
     </div>
 </div>

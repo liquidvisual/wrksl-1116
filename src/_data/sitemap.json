@@ -1,0 +1,230 @@
+{
+    "Home": {
+        "url": "/",
+    },
+    "For Individuals": {
+        "url": "",
+        "children_excluded_from_nav": false,
+        "children": {
+            "Job Seekers": {
+                "url": "/job-seekers/",
+                "children_excluded_from_nav": false,
+                "children": {
+                    "jobactive": {
+                        "url": "/job-seekers/jobactive/",
+                    },
+                    "Return to Work": {
+                        "url": "/job-seekers/return-to-work/",
+                    },
+                    "Work for the Dole": {
+                        "url": "/job-seekers/work-for-the-dole/",
+                    },
+                    "National Work Experience Program (NWEP)": {
+                        "url": "/job-seekers/jobactive/national-work-experience-program",
+                    }
+                }
+            },
+            "Disability, Injury or Health Condition": {
+                "url": "/disability-injury-or-health-condition/",
+                "children_excluded_from_nav": false,
+                "children": {
+                    "Disability Employment Services": {
+                        "url": "/disability-injury-or-health-condition/disability-employment-services/",
+                    },
+                    "Work Assist": {
+                        "url": "/disability-injury-or-health-condition/work-assist/",
+                    }
+                }
+            },
+            "Youth": {
+                "url": "/youth/",
+                "children_excluded_from_nav": false,
+                "children": {
+                    "Get Moving": {
+                        "url": "/youth/get-moving/",
+                    },
+                    "Flexible Learning Options (FLO)": {
+                        "url": "/youth/flexible-learning-options/",
+                    },
+                    "Transition to Work": {
+                        "url": "/youth/flexible-learning-options/",
+                    },
+                    "Youth Jobs Path Internships": {
+                        "url": "/youth/youth-jobs-path-internships/",
+                    },
+                }
+            },
+            "Indigenous": {
+                "url": "/indigenous/",
+            },
+            "Community": {
+                "url": "/community/",
+                "children_excluded_from_nav": false,
+                "children": {
+                    "Personal Helpers and Mentors": {
+                        "url": "/community/personal-helpers-and-mentors/",
+                    },
+                    "Partners in Recovery": {
+                        "url": "/community/partners-in-recovery/",
+                    },
+                    "Allied Health": {
+                        "url": "/community/allied-health/",
+                    },
+                    "Personal Helpers and Mentors": {
+                        "url": "/community/PartentsNext/",
+                    },
+                }
+            }
+        }
+    },
+    "For Employers": {
+        "url": "",
+        "children_excluded_from_nav": false,
+        "children": {
+            "Why Employ Our People?": {
+                "url": "/why-employ-our-people/",
+            },
+            "Our Employment Services": {
+                "url": "/our-employment-services/",
+                "children_excluded_from_nav": false,
+                "children": {
+                    "Job Seekers": {
+                        "url": "/our-employment-services/job-seekers/",
+                        "children_excluded_from_nav": false,
+                        "children": {
+                            "Jobactive": {
+                                "url": "/our-employment-services/job-seekers/job-active/",
+                            },
+                            "Work for the Dole": {
+                                "url": "/our-employment-services/job-seekers/work-for-the-dole/",
+                            },
+                            "Work Ready, Release Ready": {
+                                "url": "/our-employment-services/job-seekers/work-ready-release-ready/",
+                            }
+                        }
+                    },
+                    "Disability, Injury of Health Condition": {
+                        "url": "/our-employment-services/disability-injury-or-health-condition/",
+                        "children_excluded_from_nav": false,
+                        "children": {
+                            "Disability Employment Services": {
+                                "url": "/our-employment-services/disability-injury-or-health-condition/disability-employment-services/",
+                            },
+                            "Work Assist": {
+                                "url": "/our-employment-services/disability-injury-or-health-condition/work-assist/",
+                            }
+                        }
+                    },
+                    "Youth": {
+                        "url": "/our-employment-services/youth/",
+                        "children_excluded_from_nav": false,
+                        "children": {
+                            "Youth Jobs Path Internships": {
+                                "url": "/our-employment-services/youth/youth-jobs-path-internships/",
+                            },
+                            "Get Moving": {
+                                "url": "/our-employment-services/youth/get-moving/",
+                            }
+                        }
+                    },
+                    "Indigenous": {
+                        "url": "/our-employment-services/indigenous/",
+                        "children_excluded_from_nav": false,
+                        "children": {
+                            "Cultural Awareness Training": {
+                                "url": "/our-employment-services/indigenous/cultural-awareness-training/",
+                            }
+                        }
+                    },
+                }
+            },
+            "Register Your Job Vacancies": {
+                "url": "/register-your-job-vacancies/",
+            }
+        }
+    },
+    "About Us": {
+        "alias": "about-us",
+        "url": "",
+        "children_excluded_from_nav": false,
+        "children": {
+            "Our Company": {
+                "url": "/about-us/our-company/",
+                "children_excluded_from_nav": true,
+                "children": {
+                    "Our History": {
+                        "url": "/about-us/our-company/our-history/"
+                    },
+                    "Our Vision, Mission and Values": {
+                        "url": "/about-us/our-company/our-vision-mission-and-values/"
+                    },
+                    "Our Board": {
+                        "url": "/about-us/our-company/our-board/"
+                    },
+                    "Our Executive Team": {
+                        "url": "/about-us/our-company/our-executive-team/"
+                    },
+                    "Our Publications": {
+                        "url": "/about-us/our-company/our-publications/"
+                    }
+                }
+            },
+            "Our Locations": {
+                "url": "/about-us/our-locations/",
+            },
+            "Careers": {
+                "url": "/about-us/careers/",
+            },
+            "Quality, Safety and Risk": {
+                "url": "/about-us/quality-safety-and-risk/",
+                "children_excluded_from_nav": true,
+                "children": {
+                    "Work Health and Safety": {
+                        "url": "/about-us/quality-safety-and-risk/work-health-and-safety/"
+                    },
+                    "Quality": {
+                        "url": "/about-us/quality-safety-and-risk/quality/"
+                    },
+                    "Risk": {
+                        "url": "/about-us/quality-safety-and-risk/risk/"
+                    }
+                }
+            },
+            "Funding Partners": {
+                "url": "/about-us/funding-partners/",
+            },
+            "Events Calendar": {
+                "url": "/about-us/events-calendar/",
+                "children_excluded_from_nav": true,
+                "children": {
+                    "Events Calendar Item": {
+                        "url": "/about-us/events-calendar/events-calendar-item/"
+                    },
+                }
+            },
+            "News": {
+                "url": "/about-us/news/",
+                "children_excluded_from_nav": true,
+                "children": {
+                    "News Item": {
+                        "url": "/about-us/news/news-item/"
+                    },
+                }
+            },
+            "Testimonials": {
+                "url": "/about-us/testimonials/",
+            }
+        }
+    },
+    "Home&nbsp;": {
+        "alias": "home-2",
+        "url": "/",
+        "classes": "is-nav-only ml-xl-auto"
+    },
+    "Contact Us": {
+        "url": "/contact-us/",
+    },
+    "Search": {
+        "url": "#/search/",
+    }
+}

@@ -1,7 +1,7 @@
 /*
     FOOTER.CSS
 
-    - Last updated: 18.11.16
+    - Last updated: 19.03.19, 18.11.16
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -9,6 +9,9 @@
 //-----------------------------------------------------------------
 
 .global-footer {
+	// position: relative;
+	// z-index: -1;
+
 	h1, h2, h3, h4, h5, h6 {
 		color: white;
 	}
@@ -19,17 +22,47 @@
 //-----------------------------------------------------------------
 
 .global-footer-body {
-	background: $brand-primary;
+	position: relative;
+	padding: rem-calc(40 0 40+14 0);
+	background: $primary;
+	// background: $primary linear-gradient(-180deg, $primary 80%, darken($primary, 2%) 100%);
+
 	color: white;
-	padding: rem-calc(40 0);
 
 	p {
 		font-size: rem-calc(15);
 	}
 
 	a:not(.btn) {
-		color: $brand-quinary;
+		color: $quinary;
 	}
+}
+
+//-----------------------------------------------------------------
+// COLOR STRIP
+//-----------------------------------------------------------------
+
+.global-footer-body .color-strip {
+	display: flex;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: rem-calc(7);
+	overflow: hidden; // [LOCKED]
+
+	@include media-breakpoint-up(md) {
+	    height: rem-calc(14);
+	}
+
+	.color-strip-bar {
+		width: 25%;
+		height: 100%;
+	}
+
+	.color-strip-bar:nth-child(1) { background: lighten($primary, 8%); }
+	.color-strip-bar:nth-child(2) { background: $secondary; }
+	.color-strip-bar:nth-child(3) { background: $quaternary; }
+	.color-strip-bar:nth-child(4) { background: $tertiary; }
 }
 
 //-----------------------------------------------------------------
@@ -37,7 +70,8 @@
 //-----------------------------------------------------------------
 
 .global-footer-bottom {
-	background: $gray-dark;
+	padding: rem-calc(15 0);
+	background: $quinary;
 	color: white;
 
 	a {
@@ -56,6 +90,7 @@
 		font-size: rem-calc(11);
 		text-transform: uppercase;
 		color: white;
+		white-space: nowrap;
 
 		.text {
 			position: relative;
@@ -67,6 +102,20 @@
 			opacity: 0.5;
 		}
 	}
+
+	//=========================================
+	// BLEED TO BOTTOM [LOCKED]
+	//=========================================
+
+	&:after {
+		content: "";
+		position: fixed;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: inherit;
+		z-index: -1;
+	}
 }
 
 //-----------------------------------------------------------------
@@ -75,11 +124,11 @@
 
 .global-footer-sitemap {
 	background: darken($gray-dark, 5%);
-	padding: $spacer-y*2 0;
+	padding: $spacer*2 0;
 	transition: height ease 300ms, padding ease 300ms;
 
 	h1, h2, h3, h4, h5, h6 {
-		color: $brand-primary;
+		color: $primary;
 	}
 
 	a {

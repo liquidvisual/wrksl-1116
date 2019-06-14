@@ -1,49 +1,59 @@
 ---
-layout: base__page--short-header
+layout: base__page_sidebar
 ---
 
-{% assign settings = site.data.settings %}
-{% assign news = site.data.placeholder_articles %}
+{% assign news = site.data.lorem_ipsum %}
 
-<div class="spacer m-b-3 hidden-sm-down"></div>
-<div class="spacer m-b-2 hidden-md-up"></div>
+<!-- SECTION -->
+<section>
 
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 push-lg-4">
-			<div class="special-content">
-				<ul class="block-grid-lg-3">
-					{% for item in news %}
-						<li>
-							<a class="media-link" href="/about/news/news-item/">
-								<article class="media">
-									<img class="m-b-1 hidden-md-down" width="100%" src="/assets/img/ui/placeholder.png" alt="...">
-									<h3 class="h4">{{ item.title }}</h3>
-									<date>{{ item.date }}</date>
-									<p class="m-b-0">{{ item.body | truncate: 200 }}</p>
-									<span class="anchor">Read More <i class="fa fa-angle-right"></i></span>
-								</article>
-							</a>
-						</li>
-					{% endfor %}
-				</ul>
+	    <div class="row">
+	        {% for item in news limit: 6 %}
+	            <div class="col-md-6 col-xl-4">
 
-				<div class="spacer m-b-2"></div>
+	                <!-- CARD -->
+	                <div class="card h-100 is-flat">
 
-				<div class="special-pager m-b-1">
-					<a class="btn btn-quinary btn-slim" href="#"><i class="fa fa-angle-left"></i>&nbsp; Previous</a>
-					<a class="btn btn-quinary btn-slim pull-right" href="#">More &nbsp;<i class="fa fa-angle-right"></i></a>
-				</div>
+	                    <!-- IMAGE -->
+	                    <a class="btn-tile" href="{{ item.url }}">
+	                        <img width="100%" src="/assets/img/layout/thumb-sizer--480x288.svg" alt="{{ item.title }}">
+	                        <span class="btn-tile-bg" style="background-image: url({{ item.image }})"></span>
+	                    </a>
 
-			</div>
-		</div>
-		<div class="col-lg-4 pull-lg-8">
-			<aside class="sidebar">
-				{% include snippets/side_nav.html %}
-			</aside>
-		</div>
-	</div>
-</div>
+	                    <!-- CARD BODY -->
+	                    <div class="card-body d-flex flex-column">
 
-<div class="spacer m-b-3 hidden-sm-down"></div>
-<div class="spacer m-b-2 hidden-md-up"></div>
+	                        <!-- TITLE -->
+                            <h3 class="card-title">
+                            	<a class="text-quinary" href="{{ item.url }}">
+                            		{{ item.title }}
+                        		</a>
+                        	</h3>
+
+	                        <!-- DATE -->
+	                        <time class="d-block text-muted font-weight-bold mb-2" datetime="{{ item.date | date_to_xmlschema }}">
+	                            {{ item.date | date: "%d %B %Y" }}
+	                        </time>
+
+	                        <!-- TEXT -->
+	                        <div class="card-text mb-2">
+	                            {{ item.body | truncate: 150 }}
+	                        </div>
+
+	                        <!-- BUTTON -->
+	                        <p>
+	                            <a href="{{ item.url }}" class="font-weight-bold text-link">
+	                                Read More <i class="fa fa-angle-right"></i>
+	                            </a>
+	                        </p>
+
+	                    </div>
+	                </div>
+
+	            </div>
+	        {% endfor %}
+	    </div>
+
+    	{% include snippets/pagination.html %}
+
+</section>

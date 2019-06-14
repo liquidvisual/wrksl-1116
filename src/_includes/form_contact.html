@@ -1,63 +1,53 @@
-{% assign settings = site.data.settings %}
-
-<!-- IF SUCCESS -->
-<div class="alert alert-success" hidden>
-    <h4>Success!</h4>
-    <p>Your form has been submitted.</p>
-</div>
-
-<!-- IF FAILURE -->
-<div class="alert alert-danger alert-dismissible fade in" role="alert" hidden>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-    <h4>Oops!</h4>
-    <p>Something went wrong. Please check the fields marked in red below.</p>
-</div>
-
-<form id="form-contact" class="form-contact" data-toggle="validator">
+<!-- FORM CONTACT -->
+<form id="form-contact" class="form-contact mb-4" method="post" name="Contact Form" data-toggle="validator" novalidate>
     <fieldset>
 
         <!-- NAME -->
         <div class="form-group">
-            <!-- <label for="name">Name*</label> -->
+            <!-- <p class="mb-2">Name <small class="asterisk">*</small></p> -->
             <input id="name" class="form-control" name="Name" type="text" placeholder="Name*" required>
-            <small class="error">Your name is required.</small>
+            <small class="error shake animated"><i class="fa fa-warning mr-1"></i> Your name is required.</small>
         </div>
 
         <!-- PHONE -->
         <div class="form-group">
-            <!-- <label for="phone">Phone</label> -->
+            <!-- <p class="mb-2">Phone <small class="asterisk">*</small></p> -->
             <input id="phone" class="form-control" name="Phone" type="text" placeholder="Phone">
-            <small class="error">A valid phone number is required.</small>
+            <small class="error shake animated"><i class="fa fa-warning mr-1"></i> A valid phone number is required.</small>
         </div>
 
         <!-- CLIENT ID -->
         <div class="form-group">
-            <!-- <label for="client-id">Client ID*</label> -->
+            <!-- <p class="mb-2">Client ID <small class="asterisk">*</small></p> -->
             <input id="client-id" class="form-control" name="Client ID" type="text" placeholder="Client ID (JSID etc)" required>
-            <small class="error">Your client ID is required.</small>
+            <small class="error shake animated"><i class="fa fa-warning mr-1"></i> Your client ID is required.</small>
         </div>
 
         <!-- EMAIL -->
         <div class="form-group">
-            <!-- <label for="email">Email*</label> -->
+            <!-- <p class="mb-2">Email <small class="asterisk">*</small></p> -->
             <input id="email" name="Email" class="form-control" type="email" placeholder="Email*" required>
-            <small class="error">A valid email is required.</small>
+            <small class="error shake animated"><i class="fa fa-warning mr-1"></i> A valid email is required.</small>
         </div>
 
         <!-- PROGRAM -->
         <div class="form-group">
             <div class="row">
                 <div class="col-md-6">
-                    <label for="program" class="form-control-label">Which Workskil program is your feedback about? *</label>
+                    <label for="program" class="form-control-label">
+                        Which Workskil program is your feedback about? *
+                    </label>
                 </div>
                 <div class="col-md-6">
                     <select id="program" class="custom-select" name="Program" required>
-                        <option selected value="" disabled>Select a program</option>
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
+                        <option selected="" value="" disabled="">Select a program</option>
+                        <option value="DES">DES</option>
+                        <option value="jobactive">jobactive</option>
+                        <option value="Youth">Youth</option>
+                        <option value="PHaMs">PHaMs</option>
+                        <option value="Transition to Work">Transition to Work</option>
+                        <option value="Return to Work SA">Return to Work SA</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
             </div>
@@ -67,7 +57,9 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-6">
-                    <label for="staff-member" class="form-control-label">Which Workskil staff member is your feedback about?</label>
+                    <label for="staff-member" class="form-control-label">
+                        Which Workskil staff member is your feedback about?
+                    </label>
                 </div>
                 <div class="col-md-6">
                     <input id="staff-member" class="form-control" name="Staff Member" type="text" placeholder="">
@@ -79,19 +71,21 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-6">
-                    <label for="response-req" class="form-control-label">Would you like a response to your feedback from Workskil? *</label>
+                    <label for="response-req" class="form-control-label">
+                        Would you like a response to your feedback from Workskil? *
+                    </label>
                 </div>
                 <div class="col-md-6">
-                    <label class="custom-control custom-radio m-r-1">
+
+                    <label class="d-inline-block custom-control custom-radio mr-4">
                         <input class="custom-control-input" name="Response Req" type="radio" value="true" required>
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">Yes</span>
+                        <span class="custom-control-label">Yes</span>
                     </label>
-                    <label class="custom-control custom-radio m-r-1">
+                    <label class="d-inline-block custom-control custom-radio mr-4">
                         <input class="custom-control-input" name="Response Req" type="radio" value="false" required>
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">No</span>
+                        <span class="custom-control-label">Yes</span>
                     </label>
+
                 </div>
             </div>
         </div>
@@ -100,19 +94,21 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-6">
-                    <label for="previously-discussed-with" class="form-control-label">Has this matter been previously discussed with a Workskil staff member *</label>
+                    <label for="previously-discussed-with" class="form-control-label">
+                        Has this matter been previously discussed with a Workskil staff member *
+                    </label>
                 </div>
                 <div class="col-md-6">
-                    <label class="custom-control custom-radio m-r-1">
-                        <input class="custom-control-input" name="Previously Discussed With" type="radio" value="true" required>
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">Yes</span>
+
+                    <label class="d-inline-block custom-control custom-radio mr-4">
+                        <input class="custom-control-input" name="Previously Discussed with" type="radio" value="true" required>
+                        <span class="custom-control-label">Yes</span>
                     </label>
-                    <label class="custom-control custom-radio m-r-1">
-                        <input class="custom-control-input" name="Previously Discussed With" type="radio" value="false" required>
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">No</span>
+                    <label class="d-inline-block custom-control custom-radio mr-4">
+                        <input class="custom-control-input" name="Previously Discussed with" type="radio" value="false" required>
+                        <span class="custom-control-label">Yes</span>
                     </label>
+
                 </div>
             </div>
         </div>
@@ -121,7 +117,9 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-6">
-                    <label for="previous-staff-member" class="form-control-label">If yes, with whom did you discuss this?</label>
+                    <label for="previous-staff-member" class="form-control-label">
+                        If yes, with whom did you discuss this?
+                    </label>
                 </div>
                 <div class="col-md-6">
                     <input id="previous-staff-member" class="form-control" name="Previous Staff Member" type="text" placeholder="">
@@ -133,24 +131,21 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-md-2">
-                    <label for="category" class="form-control-label">This is a *</label>
+                    <label for="category" class="form-control-label">
+                        This is a *
+                    </label>
                 </div>
                 <div class="col-md-10">
-                    <label class="custom-control custom-radio">
-                        <input class="custom-control-input" name="Category" type="radio" value="Compliment" required>
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">Compliment</span>
+
+                    <label class="d-inline-block custom-control custom-radio mr-4">
+                        <input class="custom-control-input" name="Category" type="radio" value="true" required>
+                        <span class="custom-control-label">Compliment</span>
                     </label>
-                    <label class="custom-control custom-radio">
-                        <input class="custom-control-input" name="Category" type="radio" value="Comment" required>
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">Comment</span>
+                    <label class="d-inline-block custom-control custom-radio mr-4">
+                        <input class="custom-control-input" name="Category" type="radio" value="true" required>
+                        <span class="custom-control-label">Complaint</span>
                     </label>
-                    <label class="custom-control custom-radio">
-                        <input class="custom-control-input" name="Category" type="radio" value="Complaint" required>
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">Complaint</span>
-                    </label>
+
                 </div>
             </div>
         </div>
@@ -159,35 +154,44 @@
 
         <!-- MESSAGE -->
         <div class="form-group">
-            <label for="message">Feedback relating to any Workskil service (please give a detailed description using dates and times where possible) *</label>
+            <label for="message">
+                Feedback relating to any Workskil service (please give a detailed description using dates and times where possible) *
+            </label>
             <textarea id="message" class="form-control" name="Message" rows="6" placeholder="" required></textarea>
-            <small class="error">A message is required.</small>
+            <small class="error shake animation"><i class="fa fa-warning mr-1"></i> A message is required.</small>
         </div>
 
-        <br>
+        <!-- * REQUIRED -->
+        <p class="mb-0">
+            <small class="text-muted">
+                * required
+            </small>
+        </p>
 
-        <!-- PRIVACY -->
-        <div class="form-group">
-            <div class="row">
-                <div class="col-md-6">
-                    <label for="privacy" class="form-control-label">We may use your comments in our publicity such as newsletters and on the Workskil website, if you don't want us to do this, please tick here</label>
-                </div>
-                <div class="col-md-1">
-                    <label class="form-check-inline custom-control m-r-1">
-                        <span class="custom-control-description"></span>
-                        <input id="privacy" class="form-check-input custom-control-input" name="Privacy" type="checkbox" value="true">
-                        <span class="custom-control-indicator"></span>
-                    </label>
-                </div>
-                <div class="col-md-5">
-
-                    <!-- SUBMIT -->
-                    <div class="text-xs-right">
-                        <button type="submit" class="btn btn-primary">Send &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right"></i></button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
     </fieldset>
+
+    <!-- SUBMIT -->
+    <div class="text-right">
+        <button type="submit" class="font-weight-bold btn btn-primary">
+            Send
+            <i class="pl-5 fa fa-angle-right"></i>
+        </button>
+    </div>
+
 </form>
+
+<!-- IF SUCCESS (HIDDEN) -->
+<div class="alert alert-success alert-dismissible fade show mb-4" role="alert" hidden>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>Success!</strong><br> Thanks for that. Your message has been received.
+</div>
+
+<!-- IF FAILURE (HIDDEN) -->
+<div class="alert alert-danger alert-dismissible fade show mb-4" role="alert" hidden>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>Oops!</strong><br> Something went wrong. Please try again.
+</div>

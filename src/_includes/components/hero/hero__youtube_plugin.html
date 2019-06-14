@@ -1,0 +1,51 @@
+{% comment %}
+<!--
+    HERO YOUTUBE PLUGIN
+
+    - Updated: 11.05.18
+    - Notes: This acts as a plugin for the hero component.
+             Each slide item can render an iframe but the inline script is only rendered ONCE.
+-->
+{% endcomment %}
+
+{% assign src = "https://www.youtube.com/embed/" | append: item.youtube_id | append: "?playlist=" | append: item.youtube_id | append:
+"&autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&showinfo=0&enablejsapi=1" %}
+
+<!-- YOUTUBE PLUGIN - video must be 16:9 -->
+<div class="video-bg">
+    <div class="video-fg">
+        <iframe
+            data-youtube
+            class="video"
+            src="{{ src }}"
+            frameborder="0"
+            type="text/html"
+            style="pointer-events: false"
+        ></iframe>
+    </div>
+</div>
+
+{% unless youtube_script_included_once %}
+    {% assign youtube_script_included_once = true  %}
+
+    <!-- YOUTUBE PLAYER INSTANCE - loads *once* async -->
+    <script>
+        var tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        function onYouTubeIframeAPIReady() {
+            document.querySelectorAll('.lv-hero-item iframe[data-youtube]').forEach((item) => {
+                new YT.Player(item, {
+                    events: {
+                        'onReady': (event) => {
+                            event.target.playVideo();
+                            event.target.mute();
+                        }
+                    }
+                })
+            })
+        }
+    </script>
+{% endunless %}

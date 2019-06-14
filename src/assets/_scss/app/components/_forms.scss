@@ -24,6 +24,15 @@ textarea,
 	border-radius: 0;
 }
 
+
+.custom-control-label:before,
+.custom-control-label:after {
+	margin-top: -2px;
+	border: 2px solid #e2e1e1;
+	border-radius: 100%;
+}
+
+
 select {
 	background-color: #f3f3f5;
 	font-weight: bold;
@@ -38,7 +47,7 @@ label {
 form button {
 	transition: background ease 300ms;
 	&:hover {
-		background: darken($brand-primary, 10%);
+		// background: darken($primary, 10%);
 	}
 }
 
@@ -56,13 +65,18 @@ form[data-toggle="validator"] .error {
 	display: none;
 	width: 100%;
 	padding: rem-calc(5 10);
-	background: $brand-danger;
+	background: $danger;
 	color: white;
+}
+
+form[data-toggle="validator"] .has-error .form-control-label {
+	color: $danger;
 }
 
 form[data-toggle="validator"] .has-error > .form-control {
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
+	border-color: $danger;
 }
 
 form[data-toggle="validator"] .has-error > .error {
@@ -75,13 +89,13 @@ form[data-toggle="validator"] .has-error > .error {
 
 .alert-success {
 	h1, h2, h3, h4, h5, h6 {
-		color: $brand-success !important;
+		color: $success !important;
 	}
 }
 
 .alert-danger {
 	h1, h2, h3, h4, h5, h6 {
-		color: $brand-danger !important;
+		color: $danger !important;
 	}
 }
 

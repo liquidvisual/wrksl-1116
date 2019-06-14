@@ -1,0 +1,46 @@
+{% comment %}
+	README
+	* This is an absolutely insane Jekyll snippet, due to how horrible Liquid templating is.
+	* All this does is assign the JSON path object from the page URL to the subpages variable.
+	* We'll then use it to pass into the side nav
+{% endcomment %}
+
+{% comment %}
+
+
+{% assign url_paths = page.url | split: '/' %}
+{% assign words = url_paths[1] | split: '-' %}
+{% capture second_level_label %}{% for word in words %}{{ word | capitalize }} {% endfor %}{% endcapture %}
+{% assign second_level_label = second_level_label | strip %}
+{% capture top_level_label %}{% for x in site.data.sitemap %}{% for y in x[1].children %}{% assign match1 = y[0] | strip %}{% assign match2 = second_level_label %}{% if match1 == match2 %}{{ x[0] | strip }}{% endif %}{% endfor %}{% endfor %}{% endcapture %}
+{% assign subpages = site.data.sitemap[top_level_label].children[second_level_label].children %}
+{% endcomment %}
+
+
+{% comment %} i hate jekyll so much
+
+{% assign url_paths = page.url | split: '/' %}
+
+{% assign words = url_paths[1] | split: '-' %}
+{% assign words2 = url_paths[2] | split: '-' %}
+
+{% capture second_level_label %}{% for word in words %}{{ word | capitalize }} {% endfor %}{% endcapture %}
+{% assign second_level_label = second_level_label | strip %}
+
+{% capture third_level_label %}{% for word in words2 %}{{ word | capitalize }} {% endfor %}{% endcapture %}
+{% assign third_level_label = third_level_label | strip %}
+
+{% capture top_level_label %}
+	{% for x in site.data.sitemap %}
+		{% for y in x[1].children %}
+			{% assign match1 = y[0] | strip %}
+			{% assign match2 = second_level_label %}
+			{% assign match3 = third_level_label %}
+			{% if match1 == match2 or match1 == match3 %}
+				{{ x[0] | strip }}
+			{% endif %}
+		{% endfor %}
+	{% endfor %}
+{% endcapture %}
+{% assign subpages = site.data.sitemap[top_level_label].children[second_level_label].children %}
+{% endcomment %}

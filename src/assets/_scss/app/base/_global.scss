@@ -1,7 +1,7 @@
 /*
     GLOBAL.CSS
 
-    - Last updated: 00.00.00
+    - Last updated: 27.03.19
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -20,9 +20,53 @@ html {
 //-----------------------------------------------------------------
 
 .lv-page {
-	@include media-breakpoint-down(sm) {
-	    // padding-top: $header-height-sm;
-	}
+	padding-top: rem-calc(119);
+    transition: padding-top 200ms ease;
+
+    @include media-breakpoint-up(md) {
+        padding-top: rem-calc(240); // 50px gap
+    }
+
+    @include media-breakpoint-up(xl) {
+        padding-top: rem-calc(269); // 50px gap
+    }
+}
+
+.has-closed-nav .lv-page {
+    @include media-breakpoint-up(xl) {
+        padding-top: rem-calc(220);
+    }
+}
+
+//-----------------------------------------------------------------
+// PAGE TOP
+//-----------------------------------------------------------------
+
+.bg-top-fill {
+    @include media-breakpoint-up(md) {
+        padding-bottom: 70px; // 50px
+    }
+
+    .bg-fill {
+        position: absolute;
+        // left: -100vw;
+        right: 0; // score
+        bottom: 0;
+        height: 200vh; // IE
+        width: 200vw;
+        background: $quinary;
+        z-index: -1;
+    }
+}
+
+//-----------------------------------------------------------------
+// COLLAPSE - Used on Sidebar and Page Header
+//-----------------------------------------------------------------
+
+.collapse-px-sm-down {
+    @include media-breakpoint-down(sm) {
+        padding: 0;
+    }
 }
 
 //-----------------------------------------------------------------
@@ -33,26 +77,6 @@ html {
 	@include media-breakpoint-up(md) {
 	    padding: 0 $container-gutter;
 	}
-}
-
-//-----------------------------------------------------------------
-// MIMICK FLEX - USED IN HOMEPAGE HERO
-//-----------------------------------------------------------------
-
-.table-row {
-    @include media-breakpoint-up(lg) {
-        display: table;
-        width: 100%;
-        margin: 0;
-    }
-
-    [class*='col-'] {
-        @include media-breakpoint-up(lg) {
-            display: table-cell;
-            float: none;
-            padding: 0;
-        }
-    }
 }
 
 //=========================================
