@@ -210,7 +210,7 @@ $container-gutter: 30px; // LV
 
 $grid-breakpoints: (
   xs: 0,
-  sm: 375px, //544
+  sm: 480px, //375px, //544
   md: 768px,
   lg: 992px,
   xl: 1200px + $container-gutter*2,

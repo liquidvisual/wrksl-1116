@@ -216,11 +216,6 @@
             }
         }
     },
-    "Home&nbsp;": {
-        "alias": "home-2",
-        "url": "/",
-        "classes": "is-nav-only ml-xl-auto"
-    },
     "Contact Us": {
         "url": "/contact-us/",
     },

@@ -1,7 +1,7 @@
 /*
     BUTTONS.CSS
 
-    - Last updated: 30.11.16
+    - Last updated: 18.10.19, 30.11.16
     - buttons is a bit of a shitshow, needs refactoring
 */
 //-----------------------------------------------------------------
@@ -360,8 +360,48 @@ a:hover .btn-tile {
  }
 
 //-----------------------------------------------------------------
-//
+// Duplicate of hero prompt (see hero.scss)
 //-----------------------------------------------------------------
+
+.btn-scroll-prompt {
+    position: absolute;
+    top: rem-calc(20);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    left: calc(50% - 17px);
+    // bottom: rem-calc(100);
+    bottom: rem-calc(25);
+    width: rem-calc(34);
+    height: rem-calc(34);
+    border-radius: 100%;
+    border: 2px solid lighten(black, 70%);
+    // background: rgba(white, 0.3);
+    font-size: rem-calc(30);
+    text-align: center;
+    transition: background-color ease 300ms;
+    animation: pulsate 0.8s ease-out 0.3s alternate infinite;
+    z-index: 1;
+
+    @include media-breakpoint-up(lg) {
+        top: rem-calc(30);
+    }
+
+    .fa {
+        color: lighten(black, 70%);
+    }
+
+    &:hover {
+        color: black;
+        background: rgba(lighten(black, 70%), 0.25);
+    }
+
+    @keyframes pulsate {
+        0% { transform: translateY(0);}
+        100% { transform: translateY(10px);}
+    }
+}
+
 //=========================================
 //
 //=========================================

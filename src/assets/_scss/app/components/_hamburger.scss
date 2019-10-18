@@ -1,7 +1,7 @@
 /*
     HAMBURGER.CSS
 
-    - Last updated: 10.10.18
+    - Last updated: 18.10.19, 10.10.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -88,21 +88,15 @@ $hamburger-bar-height: 4px;
     }
 
     .lv-hamburger-middle {
-        @include media-breakpoint-down(lg) {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(black, 0.5) !important; // [OVERRIDE] - hover
-            transition: none;
-            z-index: 1;
-            cursor: not-allowed;
-        }
-
-        @include media-breakpoint-up(xl) {
-            opacity: 0;
-        }
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(black, 0.5) !important; // [OVERRIDE] - hover
+        transition: none;
+        z-index: 1;
+        cursor: not-allowed;
     }
 }
 

@@ -6,7 +6,7 @@ subpage_path:
   - 'For Individuals'
   - 'Youth'
 logo: /assets/img/content/logo-youth.png
-hero: /assets/img/content/hero/hero-2.jpg
+hero_image: /assets/img/content/hero/hero-2.jpg
 theme: theme-green
 ---
 

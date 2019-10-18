@@ -12,16 +12,21 @@
         </div>
 
         <!-- PHONE -->
-        <a class="phone font-weight-bold" href="tel:{{ settings.offices[0].phone }}">
+        <a class="phone order-md-last font-weight-bold" href="tel:{{ settings.offices[0].phone }}">
             <i class="fa fa-phone mr-1"></i>
-            <span class="text hidden-sm-down">1300 Workskil ({{ settings.offices[0].phone }})</span>
-            <span class="text hidden-md-up">{{ settings.offices[0].phone }}</span>
+            <span class="text">{{ settings.offices[0].phone }}</span>
+        </a>
+
+        <!-- LOCATIONS -->
+        <a class="ml-auto mr-3 order-md-first font-weight-bold" href="/locations/">
+            <i class="fa fa-map-marker mr-1"></i>
+            <span class="text d-none d-sm-inline-block">Locations</span>
         </a>
 
         <!-- TRANSLATIONS -->
-        <a class="ml-auto mr-md-3 order-md-first font-weight-bold" href="/">
+        <a class="mr-md-3 font-weight-bold" href="/">
             <i class="fa fa-globe mr-1"></i>
-            <span class="text">Translations</span>
+            <span class="text d-none d-sm-inline-block">Translations</span>
         </a>
 
         {% comment %}

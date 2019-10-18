@@ -1,7 +1,7 @@
 /*
     TOPBAR.CSS
 
-    - updated: 25.03.19, 16.04.18
+    - updated: 18.10.19, 25.03.19, 16.04.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -103,9 +103,9 @@
     overflow: hidden; // score, hides overflow from triangle
 
     // exclude 'Home' from nav
-    &[data-alias="home"] {
-        display: none;
-    }
+    // &[data-alias="home"] {
+    //     display: none;
+    // }
 }
 
 //-----------------------------------------------------------------

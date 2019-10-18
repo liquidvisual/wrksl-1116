@@ -124,6 +124,7 @@ $header-bottom-lg-height: 59px !default;
 
 	@include media-breakpoint-up(md) {
 	    height: $header-top-lg-height;
+	    background-color: transparent;
 	}
 
 	> .container {
@@ -250,6 +251,10 @@ $header-bottom-lg-height: 59px !default;
 
 .global-header .logo {
 	margin: 0 auto;
+
+	@include media-breakpoint-up(xl) {
+	    margin: 0 0 0 auto;
+	}
 
 	img {
 	    max-height: rem-calc(48); // + 15 padding

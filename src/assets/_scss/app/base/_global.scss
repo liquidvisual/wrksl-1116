@@ -59,6 +59,32 @@ html {
     }
 }
 
+body:not(.theme-home) {
+    .bg-top-fill .bg-fill {
+        height: 185px; // approx for mobile
+        width: 100%;
+        background-position: top center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        @include media-breakpoint-up(md) {
+            height: 600px; //478px; //200vh; // safeguard for 600
+        }
+
+        &.is-tinted:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(#122028, 0.49);
+            pointer-events: none;
+            z-index: 1;
+        }
+    }
+}
+
 //-----------------------------------------------------------------
 // COLLAPSE - Used on Sidebar and Page Header
 //-----------------------------------------------------------------
