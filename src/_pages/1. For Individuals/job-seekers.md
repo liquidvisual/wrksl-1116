@@ -5,7 +5,6 @@ permalink: /job-seekers/
 subpage_path:
   - 'For Individuals'
   - 'Job Seekers'
-logo: /assets/img/content/logo-employment.png
 hero: /assets/img/content/hero/hero-2.jpg
 ---
 

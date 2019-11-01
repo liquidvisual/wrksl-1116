@@ -79,6 +79,14 @@ $header-bottom-lg-height: 59px !default;
 		    height: rem-calc(70);
 		}
 
+		.logo img.is-default {
+			display: none !important; // the slogan text gets in the way in small heights
+		}
+
+		.logo img.is-minimal {
+			display: block !important;
+		}
+
 		.logo img {
 			@include media-breakpoint-up(md) {
 			    max-height: rem-calc(48);
@@ -257,9 +265,13 @@ $header-bottom-lg-height: 59px !default;
 	}
 
 	img {
-	    max-height: rem-calc(48); // + 15 padding
+	    max-height: rem-calc(44); // + 15 padding
 
 		@include media-breakpoint-up(md) {
+		    max-height: rem-calc(90); // [LOCKED] - default size
+		}
+
+		@include media-breakpoint-up(xl) {
 		    max-height: rem-calc(78); // [LOCKED] - default size
 		}
 	}
@@ -273,7 +285,7 @@ $header-bottom-lg-height: 59px !default;
 	position: relative;
 	padding: rem-calc(20 40);
 	// margin-top: rem-calc(240);
-	margin-top: rem-calc(92);
+	margin-top: rem-calc(12); //rem-calc(92);
 	background: $primary;
 	font-weight: $font-weight-bold;
 	color: white;

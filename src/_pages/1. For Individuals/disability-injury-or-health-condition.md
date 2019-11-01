@@ -5,7 +5,6 @@ permalink: /disability-injury-or-health-condition/
 subpage_path:
   - 'For Individuals'
   - 'Disability, Injury or Health Condition'
-logo: /assets/img/content/logo-employment.png
 hero: /assets/img/content/hero/hero-2.jpg
 ---
 

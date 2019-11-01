@@ -7,7 +7,6 @@ subpage_path:
   - 'Our Employment Services'
   - 'Job Seekers'
   - 'Work for the Dole'
-logo: /assets/img/content/logo-employment.png
 hero: /assets/img/content/hero/hero-2.jpg
 ---
 

@@ -6,7 +6,6 @@ subpage_path:
   - 'For Employers'
   - 'Our Employment Services'
   - 'Job Seekers'
-logo: /assets/img/content/logo-employment.png
 hero: /assets/img/content/hero/hero-2.jpg
 ---
 

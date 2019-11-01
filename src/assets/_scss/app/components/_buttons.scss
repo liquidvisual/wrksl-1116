@@ -383,12 +383,20 @@ a:hover .btn-tile {
     animation: pulsate 0.8s ease-out 0.3s alternate infinite;
     z-index: 1;
 
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(xl) {
         top: rem-calc(30);
     }
 
     .fa {
         color: lighten(black, 70%);
+    }
+
+    &.is-white {
+    	border-color: white;
+
+    	.fa {
+    		color: white;
+    	}
     }
 
     &:hover {
@@ -400,6 +408,10 @@ a:hover .btn-tile {
         0% { transform: translateY(0);}
         100% { transform: translateY(10px);}
     }
+}
+
+.is-light .btn-scroll-prompt {
+	margin-top: rem-calc(-34);
 }
 
 //=========================================

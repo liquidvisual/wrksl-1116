@@ -5,7 +5,6 @@ permalink: /our-employment-services/
 subpage_path:
   - 'For Employers'
   - 'Our Employment Services'
-logo: /assets/img/content/logo-employment.png
 hero: /assets/img/content/hero/hero-2.jpg
 subheading: Browse our Services
 ---

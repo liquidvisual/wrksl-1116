@@ -2,7 +2,6 @@
 layout: child_layout/text_page
 title: Why Employ Our People?
 permalink: /why-employ-our-people/
-logo: /assets/img/content/logo-employment.png
 hero: /assets/img/content/hero/hero-2.jpg
 subpage_path:
   - 'For Employers'

@@ -5,7 +5,6 @@ permalink: /community/
 subpage_path:
   - 'For Individuals'
   - 'Community'
-logo: /assets/img/content/logo-community.png
 hero: /assets/img/content/hero/hero-2.jpg
 theme: theme-red
 ---

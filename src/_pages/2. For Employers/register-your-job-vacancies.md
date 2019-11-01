@@ -2,7 +2,6 @@
 layout: child_layout/text_page
 title: Register Your Job Vacancies
 permalink: /register-your-job-vacancies/
-logo: /assets/img/content/logo-employment.png
 hero: /assets/img/content/hero/hero-2.jpg
 subpage_path:
   - 'For Employers'
