@@ -94,7 +94,8 @@
 
                         <!-- LOGO -->
                         <a class="logo" href="/" title="" itemprop="url">
-                            <img src="/assets/img/content/logo@2x.jpg" alt="" itemprop="logo"> </a>
+                            <img class="hidden-sm-down is-default" src="/assets/img/content/logo@2x.png" alt="" itemprop="logo">
+                            <img class="hidden-md-up is-minimal" src="/assets/img/content/logo-sm@2x.png" alt="" itemprop="logo"> </a>
 
                         <!-- HAMBURGER -->
                         <div class="global-mobile-menu hidden-xl-up">
@@ -1241,11 +1242,18 @@
                             </button>
                         </div>
                     </div>
+
+                    <!-- SCROLL PROMPT -->
+                    <p class="text-center position-relative fill-1">
+                        <a href="#our-latest" class="btn-scroll-prompt is-white hidden-sm-down">
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                    </p>
                 </div>
             </section>
 
             <!-- OUR LATEST -->
-            <section class="section is-light">
+            <section id="our-latest" class="section is-light">
                 <div class="container">
 
                     <!-- HEADING -->
@@ -1311,11 +1319,18 @@
                             </p>
                         </li>
                     </ul>
+
+                    <!-- SCROLL PROMPT -->
+                    <p class="text-center position-relative fill-1 mb-0">
+                        <a href="#our-partners" class="btn-scroll-prompt hidden-sm-down">
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                    </p>
                 </div>
             </section>
 
             <!-- PARTNERS -->
-            <section class="section">
+            <section id="our-partners" class="section">
                 <div class="container">
 
                     <!-- HEADING -->
@@ -1358,7 +1373,7 @@
             </section>
 
             <!-- TESTIMONIALS CAROUSEL -->
-            <section class="section is-quinary">
+            <section id="testimonials" class="section is-quinary">
                 <div class="container py-3">
 
                     <!-- SLIDER -->
