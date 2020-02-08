@@ -4964,7 +4964,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 }), $('a[href*="#"]:not([href="#"], [data-toggle="tab"])').on("click", function () {
   var t = $(this).attr("href"),
       e = $(t),
-      n = $(".global-header").height();if (e.length) return $.scrollTo(e.offset().top - n, 800), !1;
+      n = $(".global-header").height();return e.length && $(this).parent().parent().parent().hasClass("accordion-trigger") ? ($.scrollTo(e.offset().top - 220, 800), !1) : e.length ? ($.scrollTo(e.offset().top - n, 800), !1) : void 0;
 }), $("[data-back-top]").click(function () {
   $.scrollTo(0, 500);
 });var currFFZoom = 1,
