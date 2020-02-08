@@ -155,8 +155,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         I = [],
         N = I.pop,
         L = I.push,
-        P = I.push,
-        O = I.slice,
+        O = I.push,
+        P = I.slice,
         j = function j(t, e) {
       for (var n = 0, i = t.length; n < i; n++) {
         if (t[n] === e) return n;
@@ -195,10 +195,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         st = _t(function (t) {
       return !0 === t.disabled && "fieldset" === t.nodeName.toLowerCase();
     }, { dir: "parentNode", next: "legend" });try {
-      P.apply(I = O.call(E.childNodes), E.childNodes), I[E.childNodes.length].nodeType;
+      O.apply(I = P.call(E.childNodes), E.childNodes), I[E.childNodes.length].nodeType;
     } catch (t) {
-      P = { apply: I.length ? function (t, e) {
-          L.apply(t, O.call(e));
+      O = { apply: I.length ? function (t, e) {
+          L.apply(t, P.call(e));
         } : function (t, e) {
           for (var n = t.length, i = 0; t[n++] = e[i++];) {}t.length = n - 1;
         } };
@@ -217,14 +217,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             if (!(c = e.getElementById(r))) return i;if (c.id === r) return i.push(c), i;
           } else if (y && (c = y.getElementById(r)) && b(e, c) && c.id === r) return i.push(c), i;
         } else {
-          if (h[2]) return P.apply(i, e.getElementsByTagName(t)), i;if ((r = h[3]) && n.getElementsByClassName && e.getElementsByClassName) return P.apply(i, e.getElementsByClassName(r)), i;
+          if (h[2]) return O.apply(i, e.getElementsByTagName(t)), i;if ((r = h[3]) && n.getElementsByClassName && e.getElementsByClassName) return O.apply(i, e.getElementsByClassName(r)), i;
         }if (n.qsa && !D[t + " "] && (!m || !m.test(t)) && (1 !== w || "object" !== e.nodeName.toLowerCase())) {
           if (v = t, y = e, 1 === w && $.test(t)) {
             for ((u = e.getAttribute("id")) ? u = u.replace(it, ot) : e.setAttribute("id", u = _), a = (p = s(t)).length; a--;) {
               p[a] = "#" + u + " " + bt(p[a]);
             }v = p.join(","), y = tt.test(t) && vt(e.parentNode) || e;
           }try {
-            return P.apply(i, y.querySelectorAll(v)), i;
+            return O.apply(i, y.querySelectorAll(v)), i;
           } catch (e) {
             D(t, !0);
           } finally {
@@ -594,7 +594,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               (h = v[u]) && (c = o ? j(r, h) : d[u]) > -1 && (r[c] = !(s[c] = h));
             }
           }
-        } else v = wt(v === s ? v.splice(p, v.length) : v), o ? o(null, s, v, l) : P.apply(s, v);
+        } else v = wt(v === s ? v.splice(p, v.length) : v), o ? o(null, s, v, l) : O.apply(s, v);
       });
     }function xt(t) {
       for (var e, n, o, r = t.length, s = i.relative[t[0].type], a = s || i.relative[" "], l = s ? 1 : 0, u = _t(function (t) {
@@ -659,7 +659,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 if (v > 0) for (; y--;) {
                   b[y] || _[y] || (_[y] = N.call(l));
                 }_ = wt(_);
-              }P.apply(l, _), u && !_r && _.length > 0 && v + e.length > 1 && at.uniqueSort(l);
+              }O.apply(l, _), u && !_r && _.length > 0 && v + e.length > 1 && at.uniqueSort(l);
             }return u && (w = x, c = E), b;
           };return n ? ct(r) : r;
         }(r, o))).selector = t;
@@ -676,7 +676,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           if (!(e = (i.find.ID(c.matches[0].replace(et, nt), e) || [])[0])) return n;d && (e = e.parentNode), t = t.slice(l.shift().value.length);
         }for (r = K.needsContext.test(t) ? 0 : l.length; r-- && (c = l[r], !i.relative[u = c.type]);) {
           if ((h = i.find[u]) && (o = h(c.matches[0].replace(et, nt), tt.test(l[0].type) && vt(e.parentNode) || e))) {
-            if (l.splice(r, 1), !(t = o.length && bt(l))) return P.apply(n, o), n;break;
+            if (l.splice(r, 1), !(t = o.length && bt(l))) return O.apply(n, o), n;break;
           }
         }
       }return (d || a(t, f))(o, e, !g, n, !e || tt.test(t) && vt(e.parentNode) || e), n;
@@ -748,7 +748,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }return (r = i.getElementById(o[2])) && (this[0] = r, this.length = 1), this;
     }return t.nodeType ? (this[0] = t, this.length = 1, this) : g(t) ? void 0 !== n.ready ? n.ready(t) : t(_) : _.makeArray(t, this);
   }).prototype = _.fn, I = _(i);var L = /^(?:parents|prev(?:Until|All))/,
-      P = { children: !0, contents: !0, next: !0, prev: !0 };function O(t, e) {
+      O = { children: !0, contents: !0, next: !0, prev: !0 };function P(t, e) {
     for (; (t = t[e]) && 1 !== t.nodeType;) {}return t;
   }_.fn.extend({ has: function has(t) {
       var e = _(t, this),
@@ -782,9 +782,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }, parentsUntil: function parentsUntil(t, e, n) {
       return x(t, "parentNode", n);
     }, next: function next(t) {
-      return O(t, "nextSibling");
+      return P(t, "nextSibling");
     }, prev: function prev(t) {
-      return O(t, "previousSibling");
+      return P(t, "previousSibling");
     }, nextAll: function nextAll(t) {
       return x(t, "nextSibling");
     }, prevAll: function prevAll(t) {
@@ -801,7 +801,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return void 0 !== t.contentDocument ? t.contentDocument : (D(t, "template") && (t = t.content || t), _.merge([], t.childNodes));
     } }, function (t, e) {
     _.fn[t] = function (n, i) {
-      var o = _.map(this, e, n);return "Until" !== t.slice(-5) && (i = n), i && "string" == typeof i && (o = _.filter(i, o)), this.length > 1 && (P[t] || _.uniqueSort(o), L.test(t) && o.reverse()), this.pushStack(o);
+      var o = _.map(this, e, n);return "Until" !== t.slice(-5) && (i = n), i && "string" == typeof i && (o = _.filter(i, o)), this.length > 1 && (O[t] || _.uniqueSort(o), L.test(t) && o.reverse()), this.pushStack(o);
     };
   });var j = /[^\x20\t\r\n\f]+/g;function q(t) {
     return t;
@@ -1297,7 +1297,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     } });var It = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([a-z][^\/\0>\x20\t\r\n\f]*)[^>]*)\/>/gi,
       Nt = /<script|<style|<link/i,
       Lt = /checked\s*(?:[^=]|=\s*.checked.)/i,
-      Pt = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;function Ot(t, e) {
+      Ot = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;function Pt(t, e) {
     return D(t, "table") && D(11 !== e.nodeType ? e : e.firstChild, "tr") && _(t).children("tbody")[0] || t;
   }function jt(t) {
     return t.type = (null !== t.getAttribute("type")) + "/" + t.type, t;
@@ -1328,7 +1328,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       for (l = (a = _.map(mt(o, "script"), jt)).length; h < d; h++) {
         c = o, h !== f && (c = _.clone(c, !0, !0), l && _.merge(a, mt(c, "script"))), n.call(t[h], c, h);
       }if (l) for (u = a[a.length - 1].ownerDocument, _.map(a, qt), h = 0; h < l; h++) {
-        c = a[h], pt.test(c.type || "") && !X.access(c, "globalEval") && _.contains(u, c) && (c.src && "module" !== (c.type || "").toLowerCase() ? _._evalUrl && !c.noModule && _._evalUrl(c.src, { nonce: c.nonce || c.getAttribute("nonce") }) : y(c.textContent.replace(Pt, ""), c, u));
+        c = a[h], pt.test(c.type || "") && !X.access(c, "globalEval") && _.contains(u, c) && (c.src && "module" !== (c.type || "").toLowerCase() ? _._evalUrl && !c.noModule && _._evalUrl(c.src, { nonce: c.nonce || c.getAttribute("nonce") }) : y(c.textContent.replace(Ot, ""), c, u));
       }
     }return t;
   }function Ft(t, e, n) {
@@ -1373,12 +1373,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }, null, t, arguments.length);
     }, append: function append() {
       return Mt(this, arguments, function (t) {
-        1 !== this.nodeType && 11 !== this.nodeType && 9 !== this.nodeType || Ot(this, t).appendChild(t);
+        1 !== this.nodeType && 11 !== this.nodeType && 9 !== this.nodeType || Pt(this, t).appendChild(t);
       });
     }, prepend: function prepend() {
       return Mt(this, arguments, function (t) {
         if (1 === this.nodeType || 11 === this.nodeType || 9 === this.nodeType) {
-          var e = Ot(this, t);e.insertBefore(t, e.firstChild);
+          var e = Pt(this, t);e.insertBefore(t, e.firstChild);
         }
       });
     }, before: function before() {
@@ -1937,8 +1937,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     } });var Ie = /%20/g,
       Ne = /#.*$/,
       Le = /([?&])_=[^&]*/,
-      Pe = /^(.*?):[ \t]*([^\r\n]*)$/gm,
-      Oe = /^(?:GET|HEAD)$/,
+      Oe = /^(.*?):[ \t]*([^\r\n]*)$/gm,
+      Pe = /^(?:GET|HEAD)$/,
       je = /^\/\//,
       qe = {},
       He = {},
@@ -1988,7 +1988,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           C = "canceled",
           x = { readyState: 0, getResponseHeader: function getResponseHeader(t) {
           var e;if (u) {
-            if (!a) for (a = {}; e = Pe.exec(s);) {
+            if (!a) for (a = {}; e = Oe.exec(s);) {
               a[e[1].toLowerCase() + " "] = (a[e[1].toLowerCase() + " "] || []).concat(e[2]);
             }e = a[t.toLowerCase() + " "];
           }return null == e ? null : e.join(", ");
@@ -2010,7 +2010,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         } catch (t) {
           p.crossDomain = !0;
         }
-      }if (p.data && p.processData && "string" != typeof p.data && (p.data = _.param(p.data, p.traditional)), ze(qe, p, n, x), u) return x;for (d in (h = _.event && p.global) && 0 == _.active++ && _.event.trigger("ajaxStart"), p.type = p.type.toUpperCase(), p.hasContent = !Oe.test(p.type), r = p.url.replace(Ne, ""), p.hasContent ? p.data && p.processData && 0 === (p.contentType || "").indexOf("application/x-www-form-urlencoded") && (p.data = p.data.replace(Ie, "+")) : (f = p.url.slice(r.length), p.data && (p.processData || "string" == typeof p.data) && (r += (xe.test(r) ? "&" : "?") + p.data, delete p.data), !1 === p.cache && (r = r.replace(Le, "$1"), f = (xe.test(r) ? "&" : "?") + "_=" + Ce++ + f), p.url = r + f), p.ifModified && (_.lastModified[r] && x.setRequestHeader("If-Modified-Since", _.lastModified[r]), _.etag[r] && x.setRequestHeader("If-None-Match", _.etag[r])), (p.data && p.hasContent && !1 !== p.contentType || n.contentType) && x.setRequestHeader("Content-Type", p.contentType), x.setRequestHeader("Accept", p.dataTypes[0] && p.accepts[p.dataTypes[0]] ? p.accepts[p.dataTypes[0]] + ("*" !== p.dataTypes[0] ? ", " + Me + "; q=0.01" : "") : p.accepts["*"]), p.headers) {
+      }if (p.data && p.processData && "string" != typeof p.data && (p.data = _.param(p.data, p.traditional)), ze(qe, p, n, x), u) return x;for (d in (h = _.event && p.global) && 0 == _.active++ && _.event.trigger("ajaxStart"), p.type = p.type.toUpperCase(), p.hasContent = !Pe.test(p.type), r = p.url.replace(Ne, ""), p.hasContent ? p.data && p.processData && 0 === (p.contentType || "").indexOf("application/x-www-form-urlencoded") && (p.data = p.data.replace(Ie, "+")) : (f = p.url.slice(r.length), p.data && (p.processData || "string" == typeof p.data) && (r += (xe.test(r) ? "&" : "?") + p.data, delete p.data), !1 === p.cache && (r = r.replace(Le, "$1"), f = (xe.test(r) ? "&" : "?") + "_=" + Ce++ + f), p.url = r + f), p.ifModified && (_.lastModified[r] && x.setRequestHeader("If-Modified-Since", _.lastModified[r]), _.etag[r] && x.setRequestHeader("If-None-Match", _.etag[r])), (p.data && p.hasContent && !1 !== p.contentType || n.contentType) && x.setRequestHeader("Content-Type", p.contentType), x.setRequestHeader("Accept", p.dataTypes[0] && p.accepts[p.dataTypes[0]] ? p.accepts[p.dataTypes[0]] + ("*" !== p.dataTypes[0] ? ", " + Me + "; q=0.01" : "") : p.accepts["*"]), p.headers) {
         x.setRequestHeader(d, p.headers[d]);
       }if (p.beforeSend && (!1 === p.beforeSend.call(g, x, p) || u)) return x.abort();if (C = "abort", y.add(p.complete), x.done(p.success), x.fail(p.error), o = ze(He, p, n, x)) {
         if (x.readyState = 1, h && m.trigger("ajaxSend", [x, p]), u) return x;p.async && p.timeout > 0 && (l = t.setTimeout(function () {
@@ -2413,8 +2413,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       I = { interval: 5e3, keyboard: !0, slide: !1, pause: "hover", wrap: !0, touch: !0 },
       N = { interval: "(number|boolean)", keyboard: "boolean", slide: "(boolean|string)", pause: "(string|boolean)", wrap: "boolean", touch: "boolean" },
       L = "next",
-      P = "prev",
-      O = "left",
+      O = "prev",
+      P = "left",
       j = "right",
       q = { SLIDE: "slide.bs.carousel", SLID: "slid.bs.carousel", KEYDOWN: "keydown.bs.carousel", MOUSEENTER: "mouseenter.bs.carousel", MOUSELEAVE: "mouseleave.bs.carousel", TOUCHSTART: "touchstart.bs.carousel", TOUCHMOVE: "touchmove.bs.carousel", TOUCHEND: "touchend.bs.carousel", POINTERDOWN: "pointerdown.bs.carousel", POINTERUP: "pointerup.bs.carousel", DRAG_START: "dragstart.bs.carousel", LOAD_DATA_API: "load.bs.carousel.data-api", CLICK_DATA_API: "click.bs.carousel.data-api" },
       H = "carousel",
@@ -2435,7 +2435,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }, n.nextWhenVisible = function () {
       !document.hidden && e(this._element).is(":visible") && "hidden" !== e(this._element).css("visibility") && this.next();
     }, n.prev = function () {
-      this._isSliding || this._slide(P);
+      this._isSliding || this._slide(O);
     }, n.pause = function (t) {
       t || (this._isPaused = !0), this._element.querySelector($.NEXT_PREV) && (c.triggerTransitionEnd(this._element), this.cycle(!0)), clearInterval(this._interval), this._interval = null;
     }, n.cycle = function (t) {
@@ -2444,7 +2444,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var n = this;this._activeElement = this._element.querySelector($.ACTIVE_ITEM);var i = this._getItemIndex(this._activeElement);if (!(t > this._items.length - 1 || t < 0)) if (this._isSliding) e(this._element).one(q.SLID, function () {
         return n.to(t);
       });else {
-        if (i === t) return this.pause(), void this.cycle();var o = t > i ? L : P;this._slide(o, this._items[t]);
+        if (i === t) return this.pause(), void this.cycle();var o = t > i ? L : O;this._slide(o, this._items[t]);
       }
     }, n.dispose = function () {
       e(this._element).off(A), e.removeData(this._element, "bs.carousel"), this._items = null, this._config = null, this._element = null, this._interval = null, this._isPaused = null, this._isSliding = null, this._activeElement = null, this._indicatorsElement = null;
@@ -2495,9 +2495,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return this._items = t && t.parentNode ? [].slice.call(t.parentNode.querySelectorAll($.ITEM)) : [], this._items.indexOf(t);
     }, n._getItemByDirection = function (t, e) {
       var n = t === L,
-          i = t === P,
+          i = t === O,
           o = this._getItemIndex(e),
-          r = this._items.length - 1;if ((i && 0 === o || n && o === r) && !this._config.wrap) return e;var s = (o + (t === P ? -1 : 1)) % this._items.length;return -1 === s ? this._items[this._items.length - 1] : this._items[s];
+          r = this._items.length - 1;if ((i && 0 === o || n && o === r) && !this._config.wrap) return e;var s = (o + (t === O ? -1 : 1)) % this._items.length;return -1 === s ? this._items[this._items.length - 1] : this._items[s];
     }, n._triggerSlideEvent = function (t, n) {
       var i = this._getItemIndex(t),
           o = this._getItemIndex(this._element.querySelector($.ACTIVE_ITEM)),
@@ -2515,7 +2515,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           l = this._getItemIndex(a),
           u = n || a && this._getItemByDirection(t, a),
           h = this._getItemIndex(u),
-          d = Boolean(this._interval);if (t === L ? (i = z, o = W, r = O) : (i = R, o = B, r = j), u && e(u).hasClass(M)) this._isSliding = !1;else if (!this._triggerSlideEvent(u, r).isDefaultPrevented() && a && u) {
+          d = Boolean(this._interval);if (t === L ? (i = z, o = W, r = P) : (i = R, o = B, r = j), u && e(u).hasClass(M)) this._isSliding = !1;else if (!this._triggerSlideEvent(u, r).isDefaultPrevented() && a && u) {
         this._isSliding = !0, d && this.pause(), this._setActiveIndicatorElement(u);var f = e.Event(q.SLID, { relatedTarget: u, direction: r, from: l, to: h });if (e(this._element).hasClass(F)) {
           e(u).addClass(o), c.reflow(u), e(a).addClass(i), e(u).addClass(i);var p = parseInt(u.getAttribute("data-interval"), 10);p ? (this._config.defaultInterval = this._config.defaultInterval || this._config.interval, this._config.interval = p) : this._config.interval = this._config.defaultInterval || this._config.interval;var g = c.getTransitionDurationFromElement(a);e(a).one(c.TRANSITION_END, function () {
             e(u).removeClass(i + " " + o).addClass(M), e(a).removeClass(M + " " + o + " " + i), s._isSliding = !1, setTimeout(function () {
@@ -2759,8 +2759,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }), e.fn[at] = Nt._jQueryInterface, e.fn[at].Constructor = Nt, e.fn[at].noConflict = function () {
     return e.fn[at] = lt, Nt._jQueryInterface;
   };var Lt = e.fn.modal,
-      Pt = { backdrop: !0, keyboard: !0, focus: !0, show: !0 },
-      Ot = { backdrop: "(boolean|string)", keyboard: "boolean", focus: "boolean", show: "boolean" },
+      Ot = { backdrop: !0, keyboard: !0, focus: !0, show: !0 },
+      Pt = { backdrop: "(boolean|string)", keyboard: "boolean", focus: "boolean", show: "boolean" },
       jt = { HIDE: "hide.bs.modal", HIDDEN: "hidden.bs.modal", SHOW: "show.bs.modal", SHOWN: "shown.bs.modal", FOCUSIN: "focusin.bs.modal", RESIZE: "resize.bs.modal", CLICK_DISMISS: "click.dismiss.bs.modal", KEYDOWN_DISMISS: "keydown.dismiss.bs.modal", MOUSEUP_DISMISS: "mouseup.dismiss.bs.modal", MOUSEDOWN_DISMISS: "mousedown.dismiss.bs.modal", CLICK_DATA_API: "click.bs.modal.data-api" },
       qt = "modal-dialog-scrollable",
       Ht = "modal-scrollbar-measure",
@@ -2803,7 +2803,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }, n.handleUpdate = function () {
       this._adjustDialog();
     }, n._getConfig = function (t) {
-      return t = s({}, Pt, t), c.typeCheckConfig("modal", t, Ot), t;
+      return t = s({}, Ot, t), c.typeCheckConfig("modal", t, Pt), t;
     }, n._showElement = function (t) {
       var n = this,
           i = e(this._element).hasClass(Rt);this._element.parentNode && this._element.parentNode.nodeType === Node.ELEMENT_NODE || document.body.appendChild(this._element), this._element.style.display = "block", this._element.removeAttribute("aria-hidden"), this._element.setAttribute("aria-modal", !0), e(this._dialog).hasClass(qt) ? this._dialog.querySelector(Wt.MODAL_BODY).scrollTop = 0 : this._element.scrollTop = 0, i && c.reflow(this._element), e(this._element).addClass(zt), this._config.focus && this._enforceFocus();var o = e.Event(jt.SHOWN, { relatedTarget: t }),
@@ -2872,14 +2872,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }, t._jQueryInterface = function (n, i) {
       return this.each(function () {
         var o = e(this).data("bs.modal"),
-            r = s({}, Pt, e(this).data(), "object" == (typeof n === "undefined" ? "undefined" : _typeof(n)) && n ? n : {});if (o || (o = new t(this, r), e(this).data("bs.modal", o)), "string" == typeof n) {
+            r = s({}, Ot, e(this).data(), "object" == (typeof n === "undefined" ? "undefined" : _typeof(n)) && n ? n : {});if (o || (o = new t(this, r), e(this).data("bs.modal", o)), "string" == typeof n) {
           if (void 0 === o[n]) throw new TypeError('No method named "' + n + '"');o[n](i);
         } else r.show && o.show(i);
       });
     }, o(t, null, [{ key: "VERSION", get: function get() {
         return "4.3.1";
       } }, { key: "Default", get: function get() {
-        return Pt;
+        return Ot;
       } }]), t;
   }();e(document).on(jt.CLICK_DATA_API, Wt.DATA_TOGGLE, function (t) {
     var n,
@@ -3122,8 +3122,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       Ie = "dropdown-item",
       Ne = "active",
       Le = { DATA_SPY: '[data-spy="scroll"]', ACTIVE: ".active", NAV_LIST_GROUP: ".nav, .list-group", NAV_LINKS: ".nav-link", NAV_ITEMS: ".nav-item", LIST_ITEMS: ".list-group-item", DROPDOWN: ".dropdown", DROPDOWN_ITEMS: ".dropdown-item", DROPDOWN_TOGGLE: ".dropdown-toggle" },
-      Pe = "offset",
-      Oe = "position",
+      Oe = "offset",
+      Pe = "position",
       je = function () {
     function t(t, n) {
       var i = this;this._element = t, this._scrollElement = "BODY" === t.tagName ? window : t, this._config = this._getConfig(n), this._selector = this._config.target + " " + Le.NAV_LINKS + "," + this._config.target + " " + Le.LIST_ITEMS + "," + this._config.target + " " + Le.DROPDOWN_ITEMS, this._offsets = [], this._targets = [], this._activeTarget = null, this._scrollHeight = 0, e(this._scrollElement).on(ke.SCROLL, function (t) {
@@ -3131,9 +3131,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }), this.refresh(), this._process();
     }var n = t.prototype;return n.refresh = function () {
       var t = this,
-          n = this._scrollElement === this._scrollElement.window ? Pe : Oe,
+          n = this._scrollElement === this._scrollElement.window ? Oe : Pe,
           i = "auto" === this._config.method ? n : this._config.method,
-          o = i === Oe ? this._getScrollTop() : 0;this._offsets = [], this._targets = [], this._scrollHeight = this._getScrollHeight(), [].slice.call(document.querySelectorAll(this._selector)).map(function (t) {
+          o = i === Pe ? this._getScrollTop() : 0;this._offsets = [], this._targets = [], this._scrollHeight = this._getScrollHeight(), [].slice.call(document.querySelectorAll(this._selector)).map(function (t) {
         var n,
             r = c.getSelectorFromElement(t);if (r && (n = document.querySelector(r)), n) {
           var s = n.getBoundingClientRect();if (s.width || s.height) return [e(n)[i]().top + o, r];
@@ -4775,16 +4775,31 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     } };a || r(), "undefined" != typeof module && module.exports ? module.exports = p : l && (t.Stickyfill = p);
 }(window, document), function (t) {
   "use strict";
-  var e = window.location.hash || null,
-      n = t("[data-accordion]"),
-      i = t("[data-accordion-trigger]"),
-      o = t("a", i);if (e) try {
-    t(e).addClass("active"), t("a[href=" + e + "]", i).addClass("active"), r();
-  } catch (t) {}function r() {
-    n.removeClass("active"), o.removeClass("active");
-  }o.on("click", function (e) {
+  var e = [];var n = window.location.hash || null,
+      i = t("[data-accordion]"),
+      o = t(".accordion-filter"),
+      r = t("button", o),
+      s = t("[data-accordion-trigger]"),
+      a = t("> ul > li[data-filter]", i),
+      l = t("a", s);function c() {
+    t(".accordion-filter").removeAttr("hidden");
+  }n && t(n).length && (t("a[href='" + n + "']", s).addClass("active"), t(n).addClass("active"), c()), l.on("click", function (e) {
     var n = t(this),
-        i = n.attr("href");r(), n.hasClass("active") || (n.addClass("active"), t(i).addClass("active"));
+        o = n.attr("href");i.removeClass("active"), l.removeClass("active"), n.hasClass("active") || (n.addClass("active"), t(o).addClass("active"), c());
+  }), r.each(function () {
+    var n = t(this),
+        i = n.data("filter-id");n.on("click", function (o) {
+      n.hasClass("active") ? (n.removeClass("active"), e = e.filter(function (t) {
+        return t !== i;
+      })) : (n.addClass("active"), e.push(i)), console.log(e), e.length ? (a.attr("hidden", !0), a.each(function () {
+        var n = t(this),
+            i = n.data("filter").split(",");for (var _t2 = 0; _t2 < i.length; _t2++) {
+          var _o = i[_t2].trim().toLowerCase();if (_o && -1 !== e.indexOf(_o)) {
+            n.attr("hidden", !1);break;
+          }
+        }
+      })) : a.attr("hidden", !1);
+    });
   });
 }(jQuery), function (t) {
   var e = -1,
@@ -4892,7 +4907,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       i = n.split("/").slice(1).slice(0, -1);if ("/" == n) t.querySelector("li:nth-child(2)").classList.add("active");else if ("/about/" == n) t.querySelector('li[data-alias="about"]').classList.add("active");else if ("/about-us/" == n) t.querySelector('li[data-alias="about-us"]').classList.add("active");else if ("/search/" == n) t.querySelector('li[data-alias="search"]').classList.add("active");else {
     var _e4 = t.querySelector('a[href="' + n + '"]');if (_e4) {
       if (i.length <= 2) {
-        var _t2 = _e4.parentNode.parentNode.parentNode;_t2.classList.contains("lv-topbar") || _t2.classList.add("active");
+        var _t3 = _e4.parentNode.parentNode.parentNode;_t3.classList.contains("lv-topbar") || _t3.classList.add("active");
       }if (i.length <= 3) {
         _e4.parentNode.parentNode.parentNode.parentNode.parentNode.classList.add("active");
       }if (3 == i.length) {
