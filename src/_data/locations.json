@@ -1,0 +1,93 @@
+{
+    "New South Wales": {
+        "id": "nsw",
+        "children": [
+            {
+                "name": "Sydney CBD",
+                "address": "Level 7<br> 68 Grenfell Street<br> Adelaide<br> SA 5000",
+                "phone": "08 8427 2299",
+                "fax": "08 8427 2299",
+                "opening_hours": "Monday: 9am to 5pm<br> Tuesday: 9am to 5pm<br> Wednesday: 9am to 5pm<br> Thursday: 9am to 5pm<br> Friday: 9am to 5pm",
+                "services": [
+                    { "name": "jobactive" },
+                    { "name": "work for the dole" },
+                    { "name": "return to work" }
+                ]
+            },
+            {
+                "name": "Redfern",
+                "address": "Level 7<br> 68 Grenfell Street<br> Adelaide<br> SA 5000",
+                "phone": "08 8427 2299",
+                "fax": "08 8427 2299",
+                "opening_hours": "Monday: 9am to 5pm<br> Tuesday: 9am to 5pm<br> Wednesday: 9am to 5pm<br> Thursday: 9am to 5pm<br> Friday: 9am to 5pm",
+                "services": [
+                    { "name": "disability employment services" },
+                    { "name": "work for the dole" },
+                    { "name": "allied health" }
+                ]
+            },
+            {
+                "name": "Chatswood",
+                "address": "Level 7<br> 68 Grenfell Street<br> Adelaide<br> SA 5000",
+                "phone": "08 8427 2299",
+                "fax": "08 8427 2299",
+                "opening_hours": "Monday: 9am to 5pm<br> Tuesday: 9am to 5pm<br> Wednesday: 9am to 5pm<br> Thursday: 9am to 5pm<br> Friday: 9am to 5pm",
+                "services": [
+                    { "name": "national work experience programme" },
+                    { "name": "disability employment services" },
+                    { "name": "flexible learning options" }
+                ]
+            },
+        ]
+    },
+    "South Australia": {
+        "id": "sa",
+        "children": [
+            {
+                "name": "Adelaide",
+                "address": "Level 7<br> 68 Grenfell Street<br> Adelaide<br> SA 5000",
+                "phone": "08 8427 2299",
+                "fax": "08 8427 2299",
+                "opening_hours": "Monday: 9am to 5pm<br> Tuesday: 9am to 5pm<br> Wednesday: 9am to 5pm<br> Thursday: 9am to 5pm<br> Friday: 9am to 5pm",
+                "services": [
+                    { "name": "Corporate Services" },
+                    { "name": "Transition to Work" },
+                    { "name": "Workskil Indigenous" }
+                ]
+            },
+            {
+                "name": "Elizabeth",
+                "address": "Level 7<br> 68 Grenfell Street<br> Adelaide<br> SA 5000",
+                "phone": "08 8427 2299",
+                "fax": "08 8427 2299",
+                "opening_hours": "Monday: 9am to 5pm<br> Tuesday: 9am to 5pm<br> Wednesday: 9am to 5pm<br> Thursday: 9am to 5pm<br> Friday: 9am to 5pm",
+                "services": [
+                    { "name": "Allied Health" },
+                    { "name": "jobactive" },
+                    { "name": "Return to Work" },
+                    { "name": "Work for the Dole" }
+                ]
+            },
+            {
+                "name": "Enfield",
+                "address": "Level 7<br> 68 Grenfell Street<br> Adelaide<br> SA 5000",
+                "phone": "08 8427 2299",
+                "fax": "08 8427 2299",
+                "opening_hours": "Monday: 9am to 5pm<br> Tuesday: 9am to 5pm<br> Wednesday: 9am to 5pm<br> Thursday: 9am to 5pm<br> Friday: 9am to 5pm",
+                "services": [
+                    { "name": "Allied Health" },
+                    { "name": "jobactive" },
+                    { "name": "Transition to Work" }
+                ]
+            }
+        ]
+    },
+    "Victoria": {
+        "id": "vic",
+        "children": []
+    },
+    "Western Australia": {
+        "id": "wa",
+        "children": []
+    }
+}

@@ -29,8 +29,8 @@
 	&.active {
 		opacity: 1;
 		max-height: none;
-		padding-top: rem-calc(5);
-		border-top: 30px solid $primary;
+		// padding-top: rem-calc(5);
+		// border-top: 30px solid $primary;
 		// max-height: 9999px;
 		// transition-timing-function: cubic-bezier(0.5, 0, 1, 0);
 		// transition-delay: 0s;
@@ -43,13 +43,38 @@
 
 .accordion-block {
 	height: rem-calc(25);
-	background: $primary;
 	margin-bottom: rem-calc(7);
+	background: $primary;
 }
 
 //-----------------------------------------------------------------
 //
 //-----------------------------------------------------------------
+
+.accordion-filter {
+
+	.filter-by-services {
+		min-width: rem-calc(160);
+	}
+
+	button {
+		background: #f1f2f1;
+		padding: rem-calc(0 5);
+		border: 0;
+		margin: rem-calc(0 5 7 0);
+		color: rgba(black, 0.4);
+
+		&:hover {
+			background: darken(#f1f2f1, 5%);
+		}
+
+		&.active {
+			background: $primary;
+			color: white;
+		}
+	}
+}
+
 //=========================================
 //
 //=========================================

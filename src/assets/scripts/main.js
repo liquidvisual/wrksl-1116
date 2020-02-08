@@ -57,6 +57,13 @@ $('a[href*="#"]:not([href="#"], [data-toggle="tab"])')
         var endPos = $(id);
         var headerHeight = $('.global-header').height();
 
+        // For location accordion.
+        if (endPos.length && $(this).parent().parent().parent().hasClass('accordion-trigger')) {
+            $.scrollTo(endPos.offset().top - 220, 800);
+            return false; // don't show hash link in url
+        }
+
+        // For everything else.
         if (endPos.length) {
             $.scrollTo(endPos.offset().top - headerHeight, 800);
             return false; // don't show hash link in url
