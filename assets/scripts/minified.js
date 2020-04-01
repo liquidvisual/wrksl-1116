@@ -12,9 +12,9 @@ function init() {
         var _this = this;
 
         var t = this.jobsData;return "All" !== this.filterLocation && (t = t.filter(function (t, e) {
-          if (0 === e || t[1].includes(_this.filterLocation)) return t;
+          if (0 === e || -1 !== t[1].indexOf(_this.filterLocation)) return t;
         })), "All" !== this.filterVacancyType && (t = t.filter(function (t, e) {
-          if (0 === e || t[2].includes(_this.filterVacancyType) || "Part-time" === _this.filterVacancyType && t[2].includes("P/T")) return t;
+          if (0 === e || -1 !== t[2].indexOf(_this.filterVacancyType) || "Part-time" === _this.filterVacancyType && -1 !== t[2].indexOf("P/T")) return t;
         })), t;
       }
     }, created: function created() {
