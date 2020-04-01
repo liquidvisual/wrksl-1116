@@ -17,8 +17,7 @@ function init() {
           if (0 === e || -1 !== t[2].indexOf(_this.filterVacancyType) || "Part-time" === _this.filterVacancyType && -1 !== t[2].indexOf("P/T")) return t;
         })), t;
       }
-    }, created: function created() {},
-    mounted: function mounted() {
+    }, mounted: function mounted() {
       this.csvPath = this.$el.getAttribute("data-csv-path"), this.csvPath && this.parseCSV(this.csvPath);
     },
     methods: {
