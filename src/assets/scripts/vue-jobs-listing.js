@@ -127,6 +127,8 @@ function init() {
                 filterLocation: 'All',
                 filterVacancyType: 'All',
 
+                csvPath: null,
+
                 locations: [
                     { name: 'All Locations', value: 'All' },
                     { name: 'Western Australia', value: 'WA' },
@@ -167,13 +169,13 @@ function init() {
                 return jobsData;
             }
         },
-        created() {
-            this.parseCSV();
+        mounted() {
+            // Read CSV path from attribute then parse file.
+            this.csvPath = this.$el.getAttribute('data-csv-path');
+            if (this.csvPath) this.parseCSV(this.csvPath);
         },
         methods: {
-            parseCSV() {
-                var url = '/job-vacancies.csv';
-
+            parseCSV(url) {
                 Papa.parse(url, {
                     download: true,
                     before: (file, inputElem) => {
