@@ -6,7 +6,7 @@ function init() {
   Vue.component("jobs-table", { template: '\n            <div class="table-responsive">\n                <table class="table table-bordered">\n                    \x3c!-- <caption>Job Vacancies</caption> --\x3e\n                    <thead>\n                        <tr>\n                            <th\n                                v-for="item in data[0]"\n                                :key="\'th-\'+item"\n                                scope="col"\n                            >\n                                <h4 class="mb-0">\n                                    {{ item }}\n                                </h4>\n                            </th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr\n                            v-for="item in data.slice(1)"\n                            :key="\'tr-\'+item"\n                        >\n                            <td\n                                v-for="item_n in item"\n                                :key="\'td-\'+item_n"\n                            >\n                                {{ item_n }}\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        ', props: { data: { type: Array, required: !0 } } }), Vue.component("select-filter", { template: '\n            <select\n                id="name"\n                class="custom-select mb-3"\n                :name="name"\n                :filter-order="filterOrder"\n                v-model="filterOrder"\n                @change="$emit(\'input\', filterOrder)"\n            >\n                <option\n                    v-for="item in filters"\n                    :value="item.value"\n                    v-text="item.name"\n                >\n                </option>\n            </select>\n        ', props: { filters: { type: Array, required: !0 }, name: { type: String, required: !0 } }, data: function data() {
       return { filterOrder: "All" };
     } }), new Vue({ el: "#vue-jobs-listing-app", data: function data() {
-      return { jobsData: null, filterLocation: "All", filterVacancyType: "All", locations: [{ name: "All Locations", value: "All" }, { name: "Western Australia", value: "WA" }, { name: "South Australia", value: "SA" }, { name: "New South Wales", value: "NSW" }, { name: "Victoria", value: "VIC" }], vacancyTypes: [{ name: "All Types", value: "All" }, { name: "Full-time", value: "Full-time" }, { name: "Part-time", value: "Part-time" }, { name: "Casual", value: "Casual" }] };
+      return { jobsData: null, filterLocation: "All", filterVacancyType: "All", csvPath: null, locations: [{ name: "All Locations", value: "All" }, { name: "Western Australia", value: "WA" }, { name: "South Australia", value: "SA" }, { name: "New South Wales", value: "NSW" }, { name: "Victoria", value: "VIC" }], vacancyTypes: [{ name: "All Types", value: "All" }, { name: "Full-time", value: "Full-time" }, { name: "Part-time", value: "Part-time" }, { name: "Casual", value: "Casual" }] };
     }, computed: {
       jobsDataFiltered: function jobsDataFiltered() {
         var _this = this;
@@ -17,14 +17,15 @@ function init() {
           if (0 === e || -1 !== t[2].indexOf(_this.filterVacancyType) || "Part-time" === _this.filterVacancyType && -1 !== t[2].indexOf("P/T")) return t;
         })), t;
       }
-    }, created: function created() {
-      this.parseCSV();
+    }, created: function created() {},
+    mounted: function mounted() {
+      this.csvPath = this.$el.getAttribute("data-csv-path"), this.csvPath && this.parseCSV(this.csvPath);
     },
     methods: {
-      parseCSV: function parseCSV() {
+      parseCSV: function parseCSV(t) {
         var _this2 = this;
 
-        Papa.parse("/job-vacancies.csv", { download: !0, before: function before(t, e) {}, error: function error(t, e, n, i) {}, complete: function complete(t) {
+        Papa.parse(t, { download: !0, before: function before(t, e) {}, error: function error(t, e, n, i) {}, complete: function complete(t) {
             _this2.jobsData = t.data;
           } });
       }
