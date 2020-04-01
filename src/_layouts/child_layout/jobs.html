@@ -1,0 +1,62 @@
+---
+layout: base__page
+---
+
+{% assign settings = site.data.settings %}
+
+<!-- SECTION -->
+<section
+	id="vue-jobs-listing-app"
+	class="section"
+>
+	<div class="container">
+
+		<!-- LEAD -->
+		<p class="lead">
+			{{ page.lead }}
+		</p>
+
+		<!-- SPACER -->
+		<div class="spacer mb-4 mb-md-5"></div>
+
+		<!-- FILTERS -->
+		<div class="mb-4 mb-md-5">
+	        <div class="row">
+	            <div class="col-sm-6 col-md-4 col-xl-2">
+
+	            	<!-- LOCATION FILTER -->
+	                <label for="location">Location</label>
+
+	                <select-filter
+						v-model="filterLocation"
+						:filters="locations"
+						name="location"
+	                />
+	            </div>
+
+	            <div class="col-sm-6 col-md-4 col-xl-2">
+
+	            	<!-- VACANCY TYPE FILTER -->
+	                <label for="vacancy-type">Vacancy Types</label>
+
+                    <select-filter
+    					v-model="filterVacancyType"
+    					:filters="vacancyTypes"
+    					name="vacancy-type"
+                    />
+	            </div>
+	        </div>
+		</div>
+
+		<!-- JOBS TABLE -->
+		<jobs-table
+			v-if="jobsData"
+			:data="jobsDataFiltered"
+		/>
+
+	</div>
+</section>
+
+{% comment %}
+	DEV NOTE: ADDITONAL STYLES LOCATED IN SPECIAL.CSS
+{% endcomment %}

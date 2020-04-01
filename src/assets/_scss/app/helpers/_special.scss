@@ -57,6 +57,34 @@
 	}
 }
 
+//-----------------------------------------------------------------
+// VUE JOBS TABLE /jobs/
+//-----------------------------------------------------------------
+
+#vue-jobs-listing-app {
+	@include media-breakpoint-up(md) {
+	    .table-responsive {
+	    	position: relative;
+	    	overflow-y: auto;
+	    	height: 60vh;
+	    }
+
+	    th {
+	    	position: sticky;
+	    	top: 0;
+	    	background-color: white;
+	    	box-shadow: 0 0 1px 1px #dee2e6;
+	    }
+	}
+}
+
+// IE11
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	#vue-jobs-listing-app .table-responsive {
+		height: auto !important;
+	}
+}
+
 //=========================================
 //
 //=========================================

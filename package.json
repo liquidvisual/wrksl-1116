@@ -52,6 +52,8 @@
     "jquery.scrollto": "^2.1.2",
     "magnific-popup": "https://github.com/dimsemenov/Magnific-Popup.git#master",
     "moment": "^2.24.0",
-    "social-feed": "github:pavelk2/social-feed#gh-pages"
+    "papaparse": "^5.1.1",
+    "social-feed": "github:pavelk2/social-feed#gh-pages",
+    "vue": "^2.6.11"
   }
 }

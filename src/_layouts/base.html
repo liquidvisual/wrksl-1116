@@ -30,6 +30,11 @@
         })();
     </script>
 
+    <!-- build:js({src,.}) /assets/scripts/vue.js -->
+    <script src="/node_modules/vue/dist/vue{% unless site.environment == 'development' %}.min{% endunless %}.js"></script>
+    <!-- endbuild -->
+    <script>Vue.config.productionTip = false;</script>
+
 </head>
 <body class="{{ page.theme }}">
 
@@ -92,6 +97,7 @@
     <script src="/node_modules/flickity/dist/flickity.pkgd.js"></script>
     <script src="/node_modules/headroom.js/dist/headroom.js"></script>
     <script src="/node_modules/jquery.scrollTo/jquery.scrollTo.js"></script>
+    <script src="/node_modules/papaparse/papaparse.js"></script>
     <script src="/assets/scripts/liquidvisual/responsive-utility.js"></script>
     <script src="/assets/scripts/liquidvisual/utilities.js"></script>
     <script src="/assets/scripts/vendor/image-map-resizer.js"></script>
@@ -103,6 +109,7 @@
     <script src="/assets/scripts/nav.js"></script>
     <script src="/assets/scripts/off-canvas.js"></script>
     <script src="/assets/scripts/search.js"></script>
+    <script src="/assets/scripts/vue-jobs-listing.js"></script>
     <script src="/assets/scripts/main.js"></script>
     <!-- endbuild -->
 
