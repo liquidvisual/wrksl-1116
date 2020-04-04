@@ -61,7 +61,22 @@
 // VUE JOBS TABLE /jobs/
 //-----------------------------------------------------------------
 
-// #vue-jobs-listing-app {
+#vue-jobs-listing-app {
+
+	input[name=keyword-search] {
+		&::-webkit-input-placeholder { /* Edge */
+		  color: rgba(#4a5057, 0.6) !important;
+		}
+
+		&:-ms-input-placeholder { /* Internet Explorer 10-11 */
+		  color: rgba(#4a5057, 0.6) !important;
+		}
+
+		&::placeholder {
+		  color: rgba(#4a5057, 0.6) !important;
+		}
+	}
+
 // 	@include media-breakpoint-up(md) {
 // 	    .table-responsive {
 // 	    	position: relative;
@@ -83,7 +98,7 @@
 // 	#vue-jobs-listing-app .table-responsive {
 // 		height: auto !important;
 // 	}
-// }
+}
 
 //=========================================
 //

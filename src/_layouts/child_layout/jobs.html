@@ -29,9 +29,10 @@ layout: base__page
 	                <label for="location">Location</label>
 
 	                <select-filter
-						v-model="filterLocation"
+	                	id="location"
+	                	class="mb-0"
 						:filters="locations"
-						name="location"
+						v-model="filterLocation"
 	                />
 	            </div>
 
@@ -41,10 +42,23 @@ layout: base__page
 	                <label for="vacancy-type">Vacancy Types</label>
 
                     <select-filter
-    					v-model="filterVacancyType"
+    					id="vacancy-type"
+    					class="mb-0"
     					:filters="vacancyTypes"
-    					name="vacancy-type"
+    					v-model="filterVacancyType"
                     />
+
+	            </div>
+	            <div class="col-sm-12 col-md-4 col-xl-3">
+
+					<!-- KEYWORD SEARCH -->
+				    <label for="keyword-search" class="invisible hidden-sm-down">Search Keywords</label>
+
+                    <keyword-search
+                    	id="keyword-search"
+                    	v-model="filterKeywords"
+                    />
+
 	            </div>
 	        </div>
 		</div>

@@ -82,9 +82,8 @@ function init() {
     Vue.component('select-filter', {
         template: `
             <select
-                id="name"
                 class="custom-select mb-3"
-                :name="name"
+                :name="id"
                 :filter-order="filterOrder"
                 v-model="filterOrder"
                 @change="$emit('input', filterOrder)"
@@ -102,7 +101,7 @@ function init() {
                 type: Array,
                 required: true
             },
-            name: {
+            id: {
                 type: String,
                 required: true
             }
@@ -115,6 +114,33 @@ function init() {
      });
 
     //-----------------------------------------------------------------
+    // KEYWORD SEARCH
+    //-----------------------------------------------------------------
+
+    Vue.component('keyword-search', {
+        template: `
+            <input
+                type="text"
+                class="form-control"
+                placeholder="🔎 Search Keywords"
+                :name="id"
+                :value="value"
+                @input="$emit('input', $event.target.value)"
+            >
+        `,
+        props: {
+            id: {
+                type: String,
+                required: true
+            },
+            value: {
+                type: String,
+                required: true
+            }
+        },
+     });
+
+    //-----------------------------------------------------------------
     // APP
     //-----------------------------------------------------------------
 
@@ -122,12 +148,12 @@ function init() {
         el: '#vue-jobs-listing-app',
         data() {
             return {
+                csvPath: null,
                 jobsData: null, // parsed from CSV
 
                 filterLocation: 'All',
                 filterVacancyType: 'All',
-
-                csvPath: null,
+                filterKeywords: '',
 
                 locations: [
                     { name: 'All Locations', value: 'All' },
@@ -149,12 +175,14 @@ function init() {
 
                 let jobsData = this.jobsData;
 
+                // LOCATION SELECT
                 if (this.filterLocation !== 'All') {
                     jobsData = jobsData.filter((item, index) => {
                         if (index === 0 || item[1].indexOf(this.filterLocation) !== -1) return item;
                     })
                 }
 
+                // VACANCY SELECT
                 if (this.filterVacancyType !== 'All') {
                     jobsData = jobsData.filter((item, index) => {
                         if (index === 0 ||
@@ -164,6 +192,18 @@ function init() {
                             return item;
                         }
                     })
+                }
+
+                // SEARCH
+                if (this.filterKeywords) {
+                    jobsData = jobsData.filter((jobItem, index) => {
+                        if (index === 0 ||
+                            this.filterKeywords.toLowerCase().split(' ')
+                            .every(keyword => jobItem.join(' ').toLowerCase().indexOf(keyword) !== -1)
+                        ) {
+                            return jobItem;
+                        }
+                    });
                 }
 
                 return jobsData;
