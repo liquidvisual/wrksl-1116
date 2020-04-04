@@ -17,7 +17,7 @@ function init() {
           if (0 === e || -1 !== t[2].indexOf(_this.filterVacancyType) || "Part-time" === _this.filterVacancyType && -1 !== t[2].indexOf("P/T")) return t;
         })), this.filterKeywords && (t = t.filter(function (t, e) {
           if (0 === e || _this.filterKeywords.toLowerCase().split(" ").every(function (e) {
-            return -1 !== t.join(" ").toLowerCase().indexOf(e);
+            return -1 !== t[0].toLowerCase().indexOf(e);
           })) return t;
         })), t;
       }
