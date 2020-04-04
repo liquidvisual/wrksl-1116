@@ -960,13 +960,19 @@
 
                                 <!-- LOCATION FILTER -->
                                 <label for="location">Location</label>
-                                <select-filter v-model="filterLocation" :filters="locations" name="location">
+                                <select-filter id="location" class="mb-0" :filters="locations" v-model="filterLocation">
                             </div>
                             <div class="col-sm-6 col-md-4 col-xl-2">
 
                                 <!-- VACANCY TYPE FILTER -->
                                 <label for="vacancy-type">Vacancy Types</label>
-                                <select-filter v-model="filterVacancyType" :filters="vacancyTypes" name="vacancy-type">
+                                <select-filter id="vacancy-type" class="mb-0" :filters="vacancyTypes" v-model="filterVacancyType">
+                            </div>
+                            <div class="col-sm-12 col-md-4 col-xl-3">
+
+                                <!-- KEYWORD SEARCH -->
+                                <label for="keyword-search" class="invisible hidden-sm-down">Search Keywords</label>
+                                <keyword-search id="keyword-search" v-model="filterKeywords">
                             </div>
                         </div>
                     </div>
