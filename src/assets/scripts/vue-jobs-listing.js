@@ -199,7 +199,8 @@ function init() {
                     jobsData = jobsData.filter((jobItem, index) => {
                         if (index === 0 ||
                             this.filterKeywords.toLowerCase().split(' ')
-                            .every(keyword => jobItem.join(' ').toLowerCase().indexOf(keyword) !== -1)
+                            .every(keyword => jobItem[0].toLowerCase().indexOf(keyword) !== -1)
+                            // .every(keyword => jobItem.join(' ').toLowerCase().indexOf(keyword) !== -1)
                         ) {
                             return jobItem;
                         }
