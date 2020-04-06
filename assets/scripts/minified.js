@@ -12,14 +12,16 @@ function init() {
         var _this = this;
 
         var t = this.jobsData;return "All" !== this.filterLocation && (t = t.filter(function (t, e) {
-          if (0 === e || -1 !== t[1].indexOf(_this.filterLocation)) return t;
+          if (0 === e || t[1] && -1 !== t[1].indexOf(_this.filterLocation)) return t;
         })), "All" !== this.filterVacancyType && (t = t.filter(function (t, e) {
-          if (0 === e || -1 !== t[2].indexOf(_this.filterVacancyType) || "Part-time" === _this.filterVacancyType && -1 !== t[2].indexOf("P/T") || "Full-time" === _this.filterVacancyType && -1 !== t[2].indexOf("F/T")) return t;
+          if (0 === e || t[2] && -1 !== t[2].indexOf(_this.filterVacancyType) || "Part-time" === _this.filterVacancyType && t[2] && -1 !== t[2].indexOf("P/T") || "Full-time" === _this.filterVacancyType && t[2] && -1 !== t[2].indexOf("F/T")) return t;
         })), this.filterKeywords && (t = t.filter(function (t, e) {
           if (0 === e || _this.filterKeywords.toLowerCase().split(" ").every(function (e) {
             return -1 !== t[0].toLowerCase().indexOf(e);
           })) return t;
-        })), t;
+        })), t = t.filter(function (t) {
+          return t[0].length;
+        });
       }
     }, mounted: function mounted() {
       this.csvPath = this.$el.getAttribute("data-csv-path"), this.csvPath && this.parseCSV(this.csvPath);
