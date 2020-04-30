@@ -7,7 +7,7 @@ layout: base__page
 <!-- SECTION -->
 <section
 	id="vue-jobs-listing-app"
-	data-csv-path="/job-vacancies.csv"
+	data-csv-path="/test-1.csv"
 	class="section"
 >
 	<div class="container">
@@ -52,11 +52,24 @@ layout: base__page
 	            <div class="col-sm-12 col-md-4 col-xl-3">
 
 					<!-- KEYWORD SEARCH -->
-				    <label for="keyword-search" class="invisible hidden-sm-down">Search Keywords</label>
+				    <label for="keyword-search">Search Job Titles</label>
 
                     <keyword-search
                     	id="keyword-search"
+                    	placeholder="Keywords"
                     	v-model="filterKeywords"
+                    />
+
+	            </div>
+	            <div class="col-sm-12 col-md-4 col-xl-3">
+
+					<!-- LOCATIONS SEARCH -->
+				    <label for="keyword-search">Search Locations</label>
+
+                    <keyword-search
+                    	id="location-search"
+                    	placeholder="Locations"
+                    	v-model="filterLocations"
                     />
 
 	            </div>

@@ -63,7 +63,7 @@
 
 #vue-jobs-listing-app {
 
-	input[name=keyword-search] {
+	input[type=text] {
 		&::-webkit-input-placeholder { /* Edge */
 		  color: rgba(#4a5057, 0.6) !important;
 		}

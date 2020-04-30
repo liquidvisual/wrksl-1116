@@ -121,8 +121,8 @@ function init() {
         template: `
             <input
                 type="text"
-                class="form-control"
-                placeholder="🔎 Search Keywords"
+                class="form-control mb-3"
+
                 :name="id"
                 :value="value"
                 @input="$emit('input', $event.target.value)"
@@ -154,6 +154,7 @@ function init() {
                 filterLocation: 'All',
                 filterVacancyType: 'All',
                 filterKeywords: '',
+                filterLocations: '',
 
                 locations: [
                     { name: 'All Locations', value: 'All' },
@@ -178,7 +179,7 @@ function init() {
                 // LOCATION SELECT
                 if (this.filterLocation !== 'All') {
                     jobsData = jobsData.filter((item, index) => {
-                        if (index === 0 || item[1].indexOf(this.filterLocation) !== -1) return item;
+                        if (index === 0 || item[1] && item[1].indexOf(this.filterLocation) !== -1) return item;
                     })
                 }
 
@@ -186,8 +187,9 @@ function init() {
                 if (this.filterVacancyType !== 'All') {
                     jobsData = jobsData.filter((item, index) => {
                         if (index === 0 ||
-                            item[2].indexOf(this.filterVacancyType) !== -1 ||
-                            this.filterVacancyType === 'Part-time' && item[2].indexOf('P/T') !== -1
+                            item[2] && item[2].indexOf(this.filterVacancyType) !== -1 ||
+                            this.filterVacancyType === 'Part-time' && item[2] && item[2].toLowerCase().indexOf('p/t') !== -1 ||
+                            this.filterVacancyType === 'Full-time' && item[2] && item[2].toLowerCase().indexOf('f/t') !== -1
                         ) {
                             return item;
                         }
@@ -199,13 +201,31 @@ function init() {
                     jobsData = jobsData.filter((jobItem, index) => {
                         if (index === 0 ||
                             this.filterKeywords.toLowerCase().split(' ')
-                            .every(keyword => jobItem[0].toLowerCase().indexOf(keyword) !== -1)
+                            .every(keyword => (jobItem[0] && jobItem[0].toLowerCase().indexOf(keyword) !== -1))
                             // .every(keyword => jobItem.join(' ').toLowerCase().indexOf(keyword) !== -1)
                         ) {
+                            console.log(jobItem)
                             return jobItem;
                         }
                     });
                 }
+
+                // LOCATIONS
+                if (this.filterLocations) {
+                    jobsData = jobsData.filter((jobItem, index) => {
+                        if (index === 0 ||
+                            this.filterLocations.toLowerCase().split(' ')
+                            .every(keyword => (jobItem[1] && jobItem[1].toLowerCase().indexOf(keyword) !== -1))
+                            // .every(keyword => jobItem.join(' ').toLowerCase().indexOf(keyword) !== -1)
+                        ) {
+                            console.log(jobItem)
+                            return jobItem;
+                        }
+                    });
+                }
+
+                // Remove any empty data.
+                jobsData = jobsData.filter(item => item[0].length);
 
                 return jobsData;
             }
