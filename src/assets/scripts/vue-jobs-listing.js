@@ -57,10 +57,17 @@ function init() {
                             :key="'tr-'+item"
                         >
                             <td
-                                v-for="item_n in item"
+                                v-for="(item_n, index) in item"
                                 :key="'td-'+item_n"
                             >
-                                {{ item_n }}
+                                <a
+                                    v-if="index === 0"
+                                    :href="getFormURL(item, item_n)"
+                                >
+                                    {{ item_n }}
+                                </a>
+                                <span v-else>{{ item_n }}</span>
+
                             </td>
                         </tr>
                     </tbody>
@@ -71,6 +78,15 @@ function init() {
             data: {
                 type: Array,
                 required: true
+            },
+            jobFormPath: {
+                type: String,
+                default: ''
+            }
+        },
+        methods: {
+            getFormURL(item, jobTitle) {
+                return this.jobFormPath + '?jobtitle=' + encodeURIComponent(jobTitle) + '&jobref=' + encodeURIComponent(item[4]);
             }
         }
      });
@@ -150,6 +166,7 @@ function init() {
             return {
                 csvPath: null,
                 jobsData: null, // parsed from CSV
+                jobFormPath: '',
 
                 filterLocation: 'All',
                 filterVacancyType: 'All',
@@ -204,7 +221,7 @@ function init() {
                             .every(keyword => (jobItem[0] && jobItem[0].toLowerCase().indexOf(keyword) !== -1))
                             // .every(keyword => jobItem.join(' ').toLowerCase().indexOf(keyword) !== -1)
                         ) {
-                            console.log(jobItem)
+                            // console.log(jobItem)
                             return jobItem;
                         }
                     });
@@ -218,7 +235,7 @@ function init() {
                             .every(keyword => (jobItem[1] && jobItem[1].toLowerCase().indexOf(keyword) !== -1))
                             // .every(keyword => jobItem.join(' ').toLowerCase().indexOf(keyword) !== -1)
                         ) {
-                            console.log(jobItem)
+                            // console.log(jobItem)
                             return jobItem;
                         }
                     });
@@ -234,6 +251,9 @@ function init() {
             // Read CSV path from attribute then parse file.
             this.csvPath = this.$el.getAttribute('data-csv-path');
             if (this.csvPath) this.parseCSV(this.csvPath);
+
+            // Fill in job path for the title hyperlinks.
+            this.jobFormPath = this.$el.getAttribute('data-job-form-path');
         },
         methods: {
             parseCSV(url) {
