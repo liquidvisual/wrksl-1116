@@ -942,7 +942,7 @@
 
             <!-- /.lv-hero-wrapper -->
             
-<!-- SECTION --><section id="vue-jobs-listing-app" data-csv-path="/test-1.csv" class="section">
+<!-- SECTION --><section id="vue-jobs-listing-app" data-job-form-path="https://workskil.com.au/for-individuals/current-customers/job-vacancies-for-workskil-australia-customers/job-vacancy-expression-of-interest/" data-csv-path="/test-1.csv" class="section">
                 <div class="container">
 
                     <!-- LEAD -->
@@ -984,7 +984,7 @@
                     </div>
 
                     <!-- JOBS TABLE -->
-                    <jobs-table v-if="jobsData" :data="jobsDataFiltered">
+                    <jobs-table v-if="jobsData" :data="jobsDataFiltered" :job-form-path="jobFormPath">
                 </div>
             </section>
         </div>
