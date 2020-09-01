@@ -8,7 +8,7 @@ layout: base__page
 <section
 	id="vue-jobs-listing-app"
 	data-job-form-path="https://workskil.com.au/for-individuals/current-customers/job-vacancies-for-workskil-australia-customers/job-vacancy-expression-of-interest/"
-	data-csv-path="/test-1.csv"
+	data-csv-path="/nvb-030820.csv"
 	class="section"
 >
 	<div class="container">
@@ -39,39 +39,39 @@ layout: base__page
 
 	            <div class="col-sm-6 col-md-6 col-xl-2">
 
+					<!-- LOCATIONS SEARCH -->
+				    <label for="keyword-search">Search Locations</label>
+
+	                <keyword-search
+	                	id="location-search"
+	                	placeholder="Locations"
+	                	v-model="filterLocations"
+	                />
+
+	            </div>
+	            <div class="col-sm-12 col-md-6 col-xl-2">
+
 	            	<!-- VACANCY TYPE FILTER -->
 	                <label for="vacancy-type">Vacancy Types</label>
 
-                    <select-filter
-    					id="vacancy-type"
-    					class="mb-0"
-    					:filters="vacancyTypes"
-    					v-model="filterVacancyType"
-                    />
+	                <select-filter
+						id="vacancy-type"
+						class="mb-0"
+						:filters="vacancyTypes"
+						v-model="filterVacancyType"
+	                />
 
 	            </div>
-	            <div class="col-sm-12 col-md-6 col-xl-3">
+	            <div class="col-sm-12 col-md-6 col-xl-2">
 
 					<!-- KEYWORD SEARCH -->
 				    <label for="keyword-search">Search Job Titles</label>
 
-                    <keyword-search
-                    	id="keyword-search"
-                    	placeholder="Keywords"
-                    	v-model="filterKeywords"
-                    />
-
-	            </div>
-	            <div class="col-sm-12 col-md-6 col-xl-3">
-
-					<!-- LOCATIONS SEARCH -->
-				    <label for="keyword-search">Search Locations</label>
-
-                    <keyword-search
-                    	id="location-search"
-                    	placeholder="Locations"
-                    	v-model="filterLocations"
-                    />
+	                <keyword-search
+	                	id="keyword-search"
+	                	placeholder="Keywords"
+	                	v-model="filterKeywords"
+	                />
 
 	            </div>
 	        </div>
@@ -86,6 +86,17 @@ layout: base__page
 
 	</div>
 </section>
+
+<style>
+	#vue-jobs-listing-app .table thead tr th:first-child {
+		/*background: #dee2e6;*/
+	}
+
+	#vue-jobs-listing-app .table tbody tr td:first-child {
+		font-weight: bold;
+		background: #f3f3f5;
+	}
+</style>
 
 {% comment %}
 	DEV NOTE: ADDITONAL STYLES LOCATED IN SPECIAL.CSS

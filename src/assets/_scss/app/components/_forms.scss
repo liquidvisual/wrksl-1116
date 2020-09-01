@@ -24,10 +24,15 @@ textarea,
 	border-radius: 0;
 }
 
-
+// To make checkbox/radios line up vertically
 .custom-control-label:before,
 .custom-control-label:after {
 	margin-top: -2px;
+}
+
+// Grey checkbox lines in contact form
+.custom-radio .custom-control-label:before,
+.custom-radio .custom-control-label:after {
 	border: 2px solid #e2e1e1;
 	border-radius: 100%;
 }

@@ -77,6 +77,33 @@
 		}
 	}
 
+	.jobs-table-submit {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		padding: rem-calc(10 0);
+		background: rgba(#e3e4e6, 0.8);
+		z-index: 1;
+		animation-duration: 400ms;
+
+		// &.has-error {
+		// 	background: rgba($danger, 0.8);
+		// }
+
+		.warning-msg {
+			padding: rem-calc(5 10);
+			border-radius: 3px;
+			background: $danger;
+			font-weight: 500;
+			color: white;
+		}
+
+		.btn {
+			transition: margin ease 200ms;
+		}
+	}
+
 // 	@include media-breakpoint-up(md) {
 // 	    .table-responsive {
 // 	    	position: relative;
@@ -98,6 +125,17 @@
 // 	#vue-jobs-listing-app .table-responsive {
 // 		height: auto !important;
 // 	}
+}
+
+// Move submit button over to make room for 'Back top'
+.headroom--unpinned #vue-jobs-listing-app .jobs-table-submit .btn {
+	@include media-breakpoint-up(md) {
+	    margin-right: rem-calc(40);
+	}
+
+	@media(min-width: 1560px) {
+		margin-right: 0;
+	}
 }
 
 //=========================================

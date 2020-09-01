@@ -35,43 +35,100 @@ function init() {
 
     Vue.component('jobs-table', {
         template: `
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <!-- <caption>Job Vacancies</caption> -->
-                    <thead>
-                        <tr>
-                            <th
-                                v-for="item in data[0]"
-                                :key="'th-'+item"
-                                scope="col"
-                            >
-                                <h4 class="mb-0">
-                                    {{ item }}
-                                </h4>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr
-                            v-for="item in data.slice(1)"
-                            :key="'tr-'+item"
-                        >
-                            <td
-                                v-for="(item_n, index) in item"
-                                :key="'td-'+item_n"
-                            >
-                                <a
-                                    v-if="index === 0"
-                                    :href="getFormURL(item, item_n)"
+            <div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <!-- <caption>Job Vacancies</caption> -->
+                        <thead>
+                            <tr>
+                                <th
+                                    v-for="item in data[0]"
+                                    :key="'th-'+item"
+                                    scope="col"
                                 >
-                                    {{ item_n }}
-                                </a>
-                                <span v-else>{{ item_n }}</span>
+                                    <h4 class="mb-0">
+                                        {{ item }}
+                                    </h4>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                                v-for="item in data.slice(1)"
+                                :key="'tr-'+item"
+                            >
+                                <td
+                                    v-for="(item_n, index) in item"
+                                    :key="'td-'+item_n"
+                                >
+                                    <div v-if="index === 0">
+                                        <label class="d-inline-block custom-control custom-checkbox mb-0">
+                                            <input
+                                                class="custom-control-input"
+                                                name="Job Vacancy"
+                                                type="checkbox"
+                                                :value="{ jobRef: item[4], jobTitle: item_n }"
+                                                v-model="checkedJobs"
+                                            >
+                                            <span class="custom-control-label pl-1">
+                                                {{ item_n }}
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div v-else>
+                                        <span>{{ item_n }}</span>
+                                    </div>
 
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- EXPRESS INTEREST -->
+                <transition
+                    enter-active-class="animated slideInUp"
+                    leave-active-class="animated slideOutDown"
+                >
+                    <div
+                        v-if="checkedJobs.length"
+                        class="jobs-table-submit"
+                        :class="{ 'has-error': checkedLimitReached }"
+                    >
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-md-6 text-center text-md-left">
+
+                                    <!-- CHECKED LIMIT WARNING -->
+                                    <span
+                                        v-if="checkedLimitReached"
+                                        class="d-inline-block warning-msg mb-2 mb-md-0 shake animated"
+                                    >
+                                        <span>
+                                            <i class="fa fa-exclamation-triangle mr-1"></i> Maximum selection reached by {{ checkedJobs.length - checkedLimit }}.
+                                        </span>
+                                    </span>
+
+                                </div>
+                                <div class="col-md-6 text-center text-md-right">
+
+                                    <!-- EXPRESS INTEREST -->
+                                    <button
+                                        type="submit"
+                                        class="font-weight-bold btn btn-primary"
+                                        :disabled="checkedLimitReached"
+                                        @click="onSubmit()"
+                                    >
+                                        Express interest
+                                        <i class="pl-5 fa fa-angle-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </transition>
+
             </div>
         `,
         props: {
@@ -84,9 +141,39 @@ function init() {
                 default: ''
             }
         },
+        data() {
+            return {
+                checkedJobs: [],
+                checkedLimit: 5,
+                checkedLimitReached: null
+            }
+        },
+        computed: {
+            outputURL() {
+                let query = '';
+
+                this.checkedJobs.forEach((item, index) => {
+                    const operator = index === 0 ? '?' : '&';
+                    const jobTitle = encodeURIComponent(item.jobTitle.trim());
+                    const jobRef = encodeURIComponent(item.jobRef.trim());
+                    query += `${operator}jobtitle${index+1}=${jobTitle}&jobref${index+1}=${jobRef}`
+                });
+
+                return this.jobFormPath + query;
+            }
+        },
+        watch: {
+            checkedJobs() {
+                this.checkedLimitReached = this.checkedJobs.length > this.checkedLimit;
+            }
+        },
         methods: {
-            getFormURL(item, jobTitle) {
-                return this.jobFormPath + '?jobtitle=' + encodeURIComponent(jobTitle) + '&jobref=' + encodeURIComponent(item[4]);
+            onSubmit() {
+                if (!checkedLimitReached) {
+                    const url = this.outputURL;
+                    this.checkedJobs = [];
+                    window.location = url;
+                }
             }
         }
      });
@@ -235,7 +322,6 @@ function init() {
                             .every(keyword => (jobItem[1] && jobItem[1].toLowerCase().indexOf(keyword) !== -1))
                             // .every(keyword => jobItem.join(' ').toLowerCase().indexOf(keyword) !== -1)
                         ) {
-                            // console.log(jobItem)
                             return jobItem;
                         }
                     });
