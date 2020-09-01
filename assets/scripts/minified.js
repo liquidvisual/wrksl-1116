@@ -19,7 +19,7 @@ function init() {
       }
     }, methods: {
       onSubmit: function onSubmit() {
-        if (!checkedLimitReached) {
+        if (!this.checkedLimitReached) {
           var t = this.outputURL;this.checkedJobs = [], window.location = t;
         }
       }
