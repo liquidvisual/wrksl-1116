@@ -169,7 +169,7 @@ function init() {
         },
         methods: {
             onSubmit() {
-                if (!checkedLimitReached) {
+                if (!this.checkedLimitReached) {
                     const url = this.outputURL;
                     this.checkedJobs = [];
                     window.location = url;
