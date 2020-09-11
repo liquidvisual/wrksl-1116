@@ -105,7 +105,7 @@ function init() {
                                         class="d-inline-block warning-msg mb-2 mb-md-0 shake animated"
                                     >
                                         <span>
-                                            <i class="fa fa-exclamation-triangle mr-1"></i> Maximum selection reached.
+                                            <i class="fa fa-exclamation-triangle mr-1"></i> The maximum selection is 5
                                         </span>
                                     </span>
 
