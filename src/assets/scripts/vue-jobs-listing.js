@@ -67,7 +67,7 @@ function init() {
                                                 class="custom-control-input"
                                                 name="Job Vacancy"
                                                 type="checkbox"
-                                                :value="{ jobRef: item[4], jobTitle: item_n }"
+                                                :value="{ jobRef: item[4], jobTitle: item_n, jobLocation: item[1] }"
                                                 v-model="checkedJobs"
                                             >
                                             <span class="custom-control-label pl-1">
@@ -155,8 +155,9 @@ function init() {
                 this.checkedJobs.forEach((item, index) => {
                     const operator = index === 0 ? '?' : '&';
                     const jobTitle = encodeURIComponent(item.jobTitle.trim());
+                    const jobLocation = encodeURIComponent(item.jobLocation.trim());
                     const jobRef = encodeURIComponent(item.jobRef.trim());
-                    query += `${operator}jobtitle${index+1}=${jobTitle}&jobref${index+1}=${jobRef}`
+                    query += `${operator}jobtitle${index+1}=${jobTitle}&jobLocation${index+1}=${jobLocation}&jobref${index+1}=${jobRef}`;
                 });
 
                 return this.jobFormPath + query;
@@ -264,6 +265,7 @@ function init() {
                     { name: 'All Locations', value: 'All' },
                     { name: 'Western Australia', value: 'WA' },
                     { name: 'South Australia', value: 'SA' },
+                    { name: 'Queensland', value: 'QLD' },
                     { name: 'New South Wales', value: 'NSW' },
                     { name: 'Victoria', value: 'VIC' },
                 ],
