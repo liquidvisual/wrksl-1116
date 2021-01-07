@@ -1,0 +1,86 @@
+---
+layout: base__page
+---
+
+{% assign settings = site.data.settings %}
+
+<!-- SECTION -->
+<section class="section">
+	<div class="container">
+
+		<!-- LEAD -->
+		<p class="lead">
+			{{ page.lead }}
+		</p>
+
+		<!-- SPACER -->
+		<div class="spacer mb-4 mb-md-5"></div>
+
+		<!-- FILTERS -->
+		<div class="mb-4 mb-md-5">
+	        <div class="row">
+	            <div class="col-sm-6 col-md-4 col-xl-3">
+
+	            	<!-- LOCATION FILTER -->
+	                <label for="location">Location</label>
+
+	                <select
+	                	id="location"
+	                	class="custom-select mb-3"
+	                	name="Location"
+	                >
+	                	<option value="All" selected>All Locations</option>
+	                	<option value="WA">Western Australia</option>
+	                	<option value="SA">South Australia</option>
+	                	<option value="NSW">New South Wales</option>
+	                	<option value="VIC">Victoria</option>
+	                </select>
+
+	            </div>
+
+	            <div class="col-sm-6 col-md-4 col-xl-3">
+
+	            	<!-- VACANCY TYPE FILTER -->
+	                <label for="vacancy-type">Vacancy Types</label>
+
+	                <select
+	                	id="vacancy-type"
+	                	class="custom-select mb-3"
+	                	name="Vacancy Type"
+	                >
+	                	<option value="All">All Types</option>
+	                	<option value="Full-time">Full-time</option>
+	                	<option value="Part-time">Part-time</option>
+	                	<option valud="Casual">Casual</option>
+	                </select>
+	            </div>
+	        </div>
+		</div>
+
+		<!-- JOBS TABLE -->
+		<div class="table-responsive">
+			<table class="table table-bordered">
+				<!-- <caption>Job Vacancies</caption> -->
+				<thead>
+					<tr>
+						<th scope="col"><h4 class="mb-0">Job Title</h4></th>
+						<th scope="col"><h4 class="mb-0">Location</h4></th>
+						<th scope="col"><h4 class="mb-0">Vacancy Type</h4></th>
+						<th scope="col"><h4 class="mb-0">Positions Available</h4></th>
+						<th scope="col"><h4 class="mb-0">Reference Number</h4></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Call Centre Operator</td>
+						<td>PERTH WA</td>
+						<td>Casual</td>
+						<td>40</td>
+						<td>260621</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</section>

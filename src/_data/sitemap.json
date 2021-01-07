@@ -57,21 +57,24 @@
             "Indigenous": {
                 "url": "/indigenous/",
             },
-            "Community": {
-                "url": "/community/",
+            "Customer Information": {
+                "url": "/customer-information/",
                 "children_excluded_from_nav": false,
                 "children": {
                     "Personal Helpers and Mentors": {
-                        "url": "/community/personal-helpers-and-mentors/",
+                        "url": "/customer-information/personal-helpers-and-mentors/",
                     },
                     "Partners in Recovery": {
-                        "url": "/community/partners-in-recovery/",
+                        "url": "/customer-information/partners-in-recovery/",
                     },
                     "Allied Health": {
-                        "url": "/community/allied-health/",
+                        "url": "/customer-information/allied-health/",
                     },
                     "Personal Helpers and Mentors": {
-                        "url": "/community/PartentsNext/",
+                        "url": "/customer-information/PartentsNext/",
+                    },
+                    "Job Vacancies for Workskil Australia Customers": {
+                        "url": "/customer-information/job-vacancies-for-workskil-australia-customers/",
                     },
                 }
             }

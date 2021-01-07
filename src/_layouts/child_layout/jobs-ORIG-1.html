@@ -1,0 +1,248 @@
+---
+layout: base__page
+---
+
+{% assign settings = site.data.settings %}
+
+<!-- SECTION -->
+<section class="section">
+	<div class="container">
+
+		<!-- HEADING -->
+		<h2 class="mb-4">
+			Find a job at Workskil today
+		</h2>
+
+		<!-- LEAD -->
+		<p class="lead">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.
+		</p>
+
+		<div id="vacancy-search-filters" class="row">
+	        <div class="vacancy-search-box pageup global-search-box col-xs-12 col-sm-12 col-md-12">
+
+	            <div class="row align-items-end">
+
+	            	<div class="col-md-3 ">
+
+						{% comment %}
+		            	<form class="global-search-formX" action="/search/" method="get" novalidate>
+		            	    <div class="input-group">
+		            	        <input class="form-control"
+			            	        name="keywords"
+			            	        type="search"
+			            	        placeholder="Enter Keywords"
+			            	        autocomplete="off"
+			            	        autocorrect="off"
+			            	        autocapitalize="off"
+			            	        spellcheck="false"
+		            	        >
+		            	        <div class="input-group-append">
+		            	            <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+		            	        </div>
+		            	    </div>
+		            	</form>
+		            	{% endcomment %}
+
+	            	</div>
+
+					{% comment %}
+	                <div class="search-wrapper col-xs-12 col-sm-12 col-md-3">
+
+	                    <div class="col-xs-10 col-sm-10 col-md-9 search-bar-wrapper">
+	                        <i class="fa fa-search"></i>
+	                        <input type="text" class="search-js-text form-control pull-left" placeholder="Enter keywords" data-filter="keyword">
+	                    </div>
+
+	                    <div class="col-xs-2 col-sm-2 col-md-3 btn-wrapper">
+	                        <button class="search-js-button search-button btn btn-apm-primary">GO</button>
+	                    </div>
+
+	                </div>
+	                {% endcomment %}
+
+	                <div class="col-md-9">
+	                    <div class="row">
+
+	                        <div class="filter-wrapper col-sm-6 col-md-3">
+	                            <label for="workType">Work Type</label>
+	                            <select id="workType" name="workType" data-filter="work-type" class="form-control">
+	                            	<option value="">All Work Types</option>
+	                            	<option>Casual</option>
+	                            	<option>Fixed Term Contract</option>
+	                            	<option>Full Time</option>
+	                            	<option>Part Time</option>
+	                            </select>
+	                        </div>
+
+	                        <div class="filter-wrapper col-sm-6 col-md-3">
+	                            <label for="states">Country / State</label>
+	                            <select id="states" name="states" data-filter="location-group" class="form-control">
+	                            	<option value="">All Countries / States</option>
+	                            	<option>Australian Capital Territory</option>
+	                            	<option>New South Wales</option>
+	                            	<option>Northern Territory</option>
+	                            	<option>Queensland</option>
+	                            	<option>South Australia</option>
+	                            	<option>Tasmania</option>
+	                            	<option>Victoria</option>
+	                            	<option>Western Australia</option>
+	                            	<option>New Zealand</option>
+	                            </select>
+	                        </div>
+
+	                        <div class="filter-wrapper col-sm-6 col-md-3">
+	                            <label for="location">Location</label>
+	                            <select id="location" name="location" data-filter="location" data-groupfilter="location-group" class="form-control">
+	                            	<option value="">All Locations</option>
+	                            	<optgroup label="Australian Capital Territory">
+	                            		<option>ACT</option>
+	                            	</optgroup>
+	                            	<optgroup label="New South Wales">
+	                            		<option>Central West, NSW</option>
+	                            		<option>Central, NSW</option>
+	                            		<option>Hunter, NSW</option>
+	                            		<option>New England, NSW</option>
+	                            		<option>Newcastle, NSW</option>
+	                            		<option>North Coast, NSW</option>
+	                            		<option>Northern, NSW</option>
+	                            		<option>Orana, NSW</option>
+	                            		<option>South Coast, NSW</option>
+	                            		<option>South East, NSW</option>
+	                            		<option>Southern, NSW</option>
+	                            		<option>Sydney, NSW</option>
+	                            		<option>Western Sydney, NSW</option>
+	                            		<option>Western, NSW</option>
+	                            	</optgroup>
+	                            	<optgroup label="Northern Territory">
+	                            		<option>Alice Springs, NT</option>
+	                            		<option>Darwin, NT</option>
+	                            	</optgroup>
+	                            	<optgroup label="Queensland">
+	                            		<option>Brisbane, QLD</option>
+	                            		<option>Bundaberg, QLD</option>
+	                            		<option>Capricornia, QLD</option>
+	                            		<option>Darling Downs, QLD</option>
+	                            		<option>Fitzroy, QLD</option>
+	                            		<option>Fraser Coast, QLD</option>
+	                            		<option>Gladstone, QLD</option>
+	                            		<option>Gold Coast, QLD</option>
+	                            		<option>Gympie, QLD</option>
+	                            		<option>Ipswich, QLD</option>
+	                            		<option>Mackay, QLD</option>
+	                            		<option>North Brisbane, QLD</option>
+	                            		<option>Northern, QLD</option>
+	                            		<option>South Brisbane, QLD</option>
+	                            		<option>Townsville, QLD</option>
+	                            		<option>West QLD</option>
+	                            		<option>Wide Bay &amp; Sunshine Coast, QLD</option>
+	                            	</optgroup>
+	                            	<optgroup label="South Australia">
+	                            		<option>Adelaide Hills, SA</option>
+	                            		<option>Adelaide, SA</option>
+	                            		<option>Barossa Valley, SA</option>
+	                            		<option>Fleurieu and Kangaroo Island, SA</option>
+	                            		<option>Peninsula, SA</option>
+	                            	</optgroup>
+	                            	<optgroup label="Tasmania">
+	                            		<option>Hobart, TAS</option>
+	                            		<option>Launceston, TAS</option>
+	                            		<option>Northern, TAS</option>
+	                            		<option>Southern, TAS</option>
+	                            	</optgroup>
+	                            	<optgroup label="Victoria">
+	                            		<option>Bendigo, VIC</option>
+	                            		<option>Central Highlands, VIC</option>
+	                            		<option>Geelong, VIC</option>
+	                            		<option>Gippsland, VIC</option>
+	                            		<option>Goulburn Valley, VIC</option>
+	                            		<option>Kiewa, VIC</option>
+	                            		<option>Latrobe Valley, VIC</option>
+	                            		<option>Lodden Campaspe, VIC</option>
+	                            		<option>Melbourne, VIC</option>
+	                            		<option>Ovens, VIC</option>
+	                            		<option>South East, VIC</option>
+	                            		<option>South West, VIC</option>
+	                            	</optgroup>
+	                            	<optgroup label="Western Australia">
+	                            		<option>Mid West and Gascoyne, WA</option>
+	                            		<option>Perth, WA</option>
+	                            		<option>South West, WA</option>
+	                            		<option>Southern, WA</option>
+	                            		<option>Wheatbelt, WA</option>
+	                            	</optgroup>
+	                            	<optgroup label="New Zealand">
+	                            		<option>Auckland, NZ</option>
+	                            		<option>Bay of Plenty, NZ</option>
+	                            		<option>Canterbury, NZ</option>
+	                            		<option>Northland, NZ</option>
+	                            		<option>Otago, NZ</option>
+	                            		<option>Southland, NZ</option>
+	                            		<option>Waikato, NZ</option>
+	                            		<option>Whanganui</option>
+	                            	</optgroup>
+	                            </select>
+	                        </div>
+
+	                        <div class="filter-wrapper col-sm-6 col-md-3">
+	                            <label for="category">Category</label>
+	                            <select id="category" name="category" data-filter="category" class="form-control">
+	                            	<option value="">All Categories</option>
+	                            	<option>Administration</option>
+	                            	<option>Aged Care</option>
+	                            	<option>Allied Health</option>
+	                            	<option>Call Centre &amp; Customer Service</option>
+	                            	<option>Community Services &amp; Development</option>
+	                            	<option>Consulting &amp; Strategy</option>
+	                            	<option>Corporate Services</option>
+	                            	<option>Defence</option>
+	                            	<option>Disability Employment Services</option>
+	                            	<option>Education &amp; Training</option>
+	                            	<option>Employment Services</option>
+	                            	<option>Healthcare &amp; Medical</option>
+	                            	<option>Information Technology</option>
+	                            	<option>Management</option>
+	                            	<option>Marketing &amp; Communications</option>
+	                            	<option>National Disability Insurance Scheme</option>
+	                            	<option>Occupational Rehab</option>
+	                            	<option>Occupational Therapy</option>
+	                            	<option>Physiotherapy</option>
+	                            	<option>Psychology</option>
+	                            	<option>Regional Assessment Services</option>
+	                            	<option>Sales</option>
+	                            	<option>Speech Pathology</option>
+	                            	<option>Sport &amp; Recreation</option>
+	                            	<option>WorkCare</option>
+	                            	<option>jobactive</option>
+	                            </select>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+
+	    <br>
+
+	    <div class="job-item card">
+	    	<div class="row">
+	    		<div class="title-wrapper col-md-9">
+	    			<a class="job-link" href="https://careers.apm.net.au/cw/en/job/494244?return-url=https://apm.net.au/jobs?work-type=&amp;location-group=&amp;location=&amp;category=&amp;search-keyword=">
+	    				jobactive Employment Consultant - Morwell
+	    			</a>
+	    		</div>
+	    		<div class="location-wrapper col-md-3">
+	    			<i class="fa fa-map-marker"></i>
+	    			<span class="location">Gippsland, VIC</span>
+	    		</div>
+	    	</div>
+	    	<div class="row">
+	    		<div class="summary">
+	    		Use your case management, networking and marketing skills to secure sustainable employment for our job seekers and support local employers.
+	    	</div>
+	    </div>
+
+
+	</div>
+</section>

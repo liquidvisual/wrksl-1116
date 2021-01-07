@@ -1,12 +1,12 @@
 ---
 layout: child_layout/top_level
-title: Community
-permalink: /community/
+title: Customer Information
+permalink: /customer-information/
 subpage_path:
   - 'For Individuals'
-  - 'Community'
+  - 'Customer Information'
 hero: /assets/img/content/hero/hero-2.jpg
-theme: theme-red
+theme: theme-blue
 ---
 
 ## Building healthy communities

@@ -147,3 +147,11 @@ function resizeFont(target, val) {
 resizeFont(fontResizerDownBtn, -1);
 resizeFont(fontResizerUpBtn, 1);
 */
+
+//-----------------------------------------------------------------
+// TOOLTIPS
+//-----------------------------------------------------------------
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
