@@ -16,6 +16,9 @@
         closedNavConditions ? document.documentElement.classList.add('has-closed-nav') : document.documentElement.classList.remove('has-closed-nav');
     })();
     </script>
+
+    <!-- IE11 - For customer profile Vue form -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser-polyfill.min.js"></script>
     <script src="/assets/scripts/vue.js"></script>
     <script>
     Vue.config.productionTip = false;
@@ -964,12 +967,13 @@
 
             <!-- /.lv-hero-wrapper -->
             
-<!-- SECTION --><section id="vue-jobs-listing-app" data-job-form-path="https://workskil.com.au/for-individuals/current-customers/job-vacancies-for-workskil-australia-customers/job-vacancy-expression-of-interest/" data-csv-path="/nvb-201001.csv" class="section">
+<!-- SECTION --><section id="vue-jobs-listing-app" data-job-form-path="https://workskil.com.au/for-individuals/current-customers/job-vacancies-for-workskil-australia-customers/job-vacancy-expression-of-interest/" data-csv-path="/csv/nvb-201001.csv" class="section">
                 <div class="container">
 
                     <!-- LEAD -->
-                    <p class="lead">__This is a list of the current vacancies we are assisting to fill. If you are a Workskil Australia customer please call your Consultant or local Workskil Australia site and quote the ‘reference number’ of the role you are interested in learning more about. To find the contact number for your local site,
-                        <a href="#">please click here.</a>__</p>
+                    <p class="lead">This is a list of the current vacancies we are assisting to fill. If you are a Workskil Australia customer please call your Consultant or local Workskil Australia site and quote the ‘reference number’ of the role you are interested in learning more about. To find the contact number for your local site,
+                        <a href="#">please click here.</a>
+                    </p>
 
                     <!-- SPACER -->
                     <div class="spacer mb-4 mb-md-5"></div>
