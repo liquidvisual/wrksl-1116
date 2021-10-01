@@ -77,6 +77,14 @@
                         "url": "/customer-information/job-vacancies-for-workskil-australia-customers/",
                     },
                 }
+            },
+            "Customer Profile": {
+                "url": "/customer-profile/",
+                "children_excluded_from_nav": false,
+            },
+            "Jobs": {
+                "url": "/jobs/",
+                "children_excluded_from_nav": false,
             }
         }
     },

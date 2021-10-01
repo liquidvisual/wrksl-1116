@@ -30,6 +30,15 @@
 	}
 }
 
+// Patch for customer profile
+.btn.btn-danger {
+	background-color: $danger;
+
+	&:hover {
+		background-color: darken($danger, 5%);
+	}
+}
+
 //--------------------------------------------------------------------
 // BTN LG (used only on the homepage hero CTA)
 //--------------------------------------------------------------------

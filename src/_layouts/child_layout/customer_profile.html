@@ -1,0 +1,266 @@
+---
+layout: base__page
+---
+
+{% assign settings = site.data.settings %}
+
+<!-- SECTION -->
+<section
+	id="vue-customer-profile-app"
+	class="section"
+	data-csv-courses="/csv/courses.csv"
+	data-csv-industries="/csv/industries.csv"
+	data-csv-jobs="/csv/jobs.csv"
+	data-csv-licences="/csv/licences.csv"
+	data-csv-qualifications="/csv/qualifications.csv"
+	data-csv-skills="/csv/skills.csv"
+	data-redirect-path="https://workskil.com.au/form-test/"
+>
+	<div class="container">
+
+		<!-- WYSIWYG -->
+		<div class="wysiwyg mb-4 mr-md-5">
+			{{ content }}
+		</div>
+
+		<!-- STEP 01. INDUSTRIES -->
+		<div v-show="currentStep === 1">
+
+			<h2>Please select your preferred industries</h2>
+
+			<!-- SPACER -->
+			<div class="spacer mb-4 mb-md-4"></div>
+
+			<!-- FILTERS -->
+	        <div class="row mb-4 mb-md-4">
+	            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+
+					<!-- INDUSTRIES KEYWORD SEARCH -->
+				    <label for="industries-keyword-search">
+				    	Search Industries
+				    </label>
+
+	                <keyword-search
+	                	id="industries-keyword-search"
+	                	placeholder="Keywords"
+	                	v-model="filterKeywordsIndustries"
+	                />
+	            </div>
+	        </div>
+        	<div class="row">
+        		<div class="col-12 col-lg-6 col-xl-5">
+
+        			<!-- INDUSTRIES TABLE -->
+        			<industries-table
+        				:data="industriesFiltered"
+        				@output="step1Params = $event"
+        			/>
+        		</div>
+        	</div>
+		</div>
+
+		<!-- STEP 02. JOBS -->
+		<div v-show="currentStep === 2">
+
+			<h2>Please select jobs suitable for you</h2>
+
+			<!-- SPACER -->
+			<div class="spacer mb-4 mb-md-4"></div>
+
+			<!-- FILTERS -->
+	        <div class="row mb-4 mb-md-4">
+	            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+
+	            	<!-- JOBS KEYWORD SEARCH -->
+				    <label for="jobs-keyword-search">
+				    	Search Job Titles
+				    </label>
+
+	                <keyword-search
+	                	id="jobs-keyword-search"
+	                	placeholder="Keywords"
+	                	v-model="filterKeywordsJobs"
+	                />
+	            </div>
+	        </div>
+        	<div class="row">
+        		<div class="col-12 col-lg-9">
+
+        			<!-- JOBS TABLE -->
+        			<jobs-table
+        				:data="jobsFiltered"
+        				@output="step2Params = $event"
+        			/>
+        		</div>
+        	</div>
+		</div>
+
+		<!-- STEP 03. EDUCATION -->
+		<div v-show="currentStep === 3">
+
+			<h2>Please select your education details</h2>
+
+			<!-- SPACER -->
+			<div class="spacer mb-4 mb-md-5"></div>
+
+			<education-module
+				:data="{
+					qualifications: qualificationsFiltered,
+					courses: coursesFiltered
+				}"
+				@output="step3Params = $event"
+			/>
+		</div>
+
+		<!-- STEP 04. LICENCES -->
+		<div v-show="currentStep === 4">
+
+			<h2>Please select current licences / tickets you hold</h2>
+
+			<!-- SPACER -->
+			<div class="spacer mb-4 mb-md-4"></div>
+
+			<!-- FILTERS -->
+	        <div class="row mb-4 mb-md-4">
+	            <div class="col-12 col-md-6 col-lg-3 col-xl-2">
+
+            		<!-- LICENCE TYPE FILTER -->
+            	    <label for="licence-type">
+            	    	Licence Type
+            	    </label>
+
+	                <select-filter
+						id="licence-type"
+						class="mb-0"
+						:filters="licenceTypes"
+						v-model="filterLicenceType"
+	                />
+
+	            </div>
+	            <div class="col-12 col-md-6 col-lg-3 col-xl-3">
+
+					<!-- LICENCES KEYWORD SEARCH -->
+				    <label for="licences-keyword-search">
+				    	Search Licences
+				    </label>
+
+	                <keyword-search
+	                	id="licences-keyword-search"
+	                	placeholder="Keywords"
+	                	v-model="filterKeywordsLicences"
+	                />
+	            </div>
+	        </div>
+        	<div class="row">
+        		<div class="col-12 col-lg-6 col-xl-5">
+
+        			<!-- LICENCES TABLE -->
+        			<licences-table
+        				:data="licencesFiltered"
+        				@output="step4Params = $event"
+        			/>
+        		</div>
+        	</div>
+		</div>
+
+		<!-- STEP 04. SKILLS -->
+		<div v-show="currentStep === 5">
+
+			<h2>Please select skills relevant to you</h2>
+
+			<!-- SPACER -->
+			<div class="spacer mb-4 mb-md-4"></div>
+
+			<!-- FILTERS -->
+	        <div class="row mb-4 mb-md-4">
+	            <div class="col-12 col-md-6 col-lg-3 col-xl-2">
+
+            		<!-- SKILL TYPE FILTER -->
+            	    <label for="skill-type">
+            	    	Skill Type
+            	    </label>
+
+	                <select-filter
+						id="skill-type"
+						class="mb-0"
+						:filters="skillTypes"
+						v-model="filterSkillType"
+	                />
+
+	            </div>
+	            <div class="col-12 col-md-6 col-lg-3 col-xl-3">
+
+					<!-- SKILLS KEYWORD SEARCH -->
+				    <label for="skills-keyword-search">
+				    	Search Skills
+				    </label>
+
+	                <keyword-search
+	                	id="skills-keyword-search"
+	                	placeholder="Keywords"
+	                	v-model="filterKeywordsSkills"
+	                />
+	            </div>
+	        </div>
+        	<div class="row">
+        		<div class="col-12 col-lg-6 col-xl-5">
+
+        			<!-- SKILLS TABLE -->
+        			<skills-table
+        				:data="skillsFiltered"
+        				@output="step5Params = $event"
+        			/>
+        		</div>
+        	</div>
+		</div>
+
+		<!-- DEV TOOL (REMOVE IN PROD) -->
+		<div
+			class="shadow hidden-sm-down"
+			style="position: fixed; top: 0; right: 0;  background-color: rgb(000,000,000, 0.8); z-index: 9999;"
+			:style="isDevToolActive && { width: '60%' }">
+			<div class="d-flex mr-auto">
+				<button v-show="isDevToolActive" :class="currentStep === 1 && 'btn-success'" @click="currentStep = 1">1. Industries</button>
+				<button v-show="isDevToolActive" :class="currentStep === 2 && 'btn-success'" @click="currentStep = 2">2. Jobs</button>
+				<button v-show="isDevToolActive" :class="currentStep === 3 && 'btn-success'" @click="currentStep = 3">3. Education</button>
+				<button v-show="isDevToolActive" :class="currentStep === 4 && 'btn-success'" @click="currentStep = 4">4. Licences</button>
+				<button v-show="isDevToolActive" :class="currentStep === 5 && 'btn-success'" @click="currentStep = 5">5. Skills</button>
+				<button class="ml-auto btn-danger" @click="isDevToolActive = !isDevToolActive">
+					<i :class="isDevToolActive ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
+				</button>
+			</div>
+			<textarea
+				v-show="isDevToolActive"
+				class="form-control mb-1"
+				style="background: rgb(0,0,0,0.6); border: 0; color: #b2d584"
+				:value="finalQueryString"
+				rows="3"
+			>
+			</textarea>
+		</div>
+
+	</div>
+</section>
+
+<style>
+	#vue-customer-profile-app .table tbody tr td:first-child {
+		font-weight: bold;
+		background: #f3f3f5;
+	}
+
+	#vue-customer-profile-app .custom-control-input[disabled] ~ .custom-control-label, .custom-control-input:disabled ~ .custom-control-label {
+		color: #dee2e6;
+	}
+
+	#vue-customer-profile-app .btn:disabled {
+		opacity: 0.3;
+	}
+
+	#vue-customer-profile-app .badge {
+		border: 0;
+	}
+</style>
+
+{% comment %}
+	DEV NOTE: ADDITONAL STYLES LOCATED IN SPECIAL.CSS
+{% endcomment %}
