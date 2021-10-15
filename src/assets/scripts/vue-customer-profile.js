@@ -634,7 +634,7 @@ function initCustomerProfileApp() {
                         <tbody>
                             <tr
                                 v-for="(item, index) in data"
-                                :key="item.licence"
+                                :key="item+index"
                             >
                                 <td>
                                     <div>
@@ -766,7 +766,7 @@ function initCustomerProfileApp() {
                         <tbody>
                             <tr
                                 v-for="(item, index) in data"
-                                :key="item.skill"
+                                :key="item+index"
                             >
                                 <td>
                                     <div>
@@ -964,7 +964,7 @@ function initCustomerProfileApp() {
                 return this.step1Params || this.step2Params || this.step3Params || this.step4Params || this.step5Params;
             },
             industriesFiltered() {
-                let data = this.csvData && this.csvData.industries && this.csvData.industries.map(arr => arr[0]) || [];
+                let data = this.csvData && this.csvData.industries && this.csvData.industries.filter(industry => industry[0] !== "Industry").map(arr => arr[0]) || [];
 
                 // SEARCH
                 if (this.filterKeywordsIndustries) {
@@ -977,7 +977,7 @@ function initCustomerProfileApp() {
                 return data;
             },
             jobsFiltered() {
-                let data = this.csvData && this.csvData.jobs && this.csvData.jobs.map(arr => arr[0]) || [];
+                let data = this.csvData && this.csvData.jobs && this.csvData.jobs.filter(job => job[0] !== "Job Title").map(arr => arr[0]) || [];
 
                 // SEARCH
                 if (this.filterKeywordsJobs) {
@@ -995,7 +995,7 @@ function initCustomerProfileApp() {
                 }).slice(1) || [];
             },
             coursesFiltered() {
-                return this.csvData && this.csvData.courses && this.csvData.courses.map((item) => {
+                return this.csvData && this.csvData.courses && this.csvData.courses.filter(course => course[0] !== "Course Title" && course[0] !== "Course" && course[0] !== "Course Name").map((item) => {
                     return { name: item[0], value: item[0] };
                 }).slice(1) || [];
             },
