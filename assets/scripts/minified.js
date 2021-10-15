@@ -239,7 +239,9 @@ function initJobsListingApp() {
       industriesFiltered: function industriesFiltered() {
         var _this3 = this;
 
-        var e = this.csvData && this.csvData.industries && this.csvData.industries.map(function (e) {
+        var e = this.csvData && this.csvData.industries && this.csvData.industries.filter(function (e) {
+          return "Industry" !== e[0];
+        }).map(function (e) {
           return e[0];
         }) || [];return this.filterKeywordsIndustries && (e = e.filter(function (e, t) {
           return _this3.filterKeywordsIndustries.toLowerCase().split(" ").every(function (t) {
@@ -250,7 +252,9 @@ function initJobsListingApp() {
       jobsFiltered: function jobsFiltered() {
         var _this4 = this;
 
-        var e = this.csvData && this.csvData.jobs && this.csvData.jobs.map(function (e) {
+        var e = this.csvData && this.csvData.jobs && this.csvData.jobs.filter(function (e) {
+          return "Job Title" !== e[0];
+        }).map(function (e) {
           return e[0];
         }) || [];return this.filterKeywordsJobs && (e = e.filter(function (e, t) {
           return _this4.filterKeywordsJobs.toLowerCase().split(" ").every(function (t) {
@@ -264,7 +268,9 @@ function initJobsListingApp() {
         }).slice(1) || [];
       },
       coursesFiltered: function coursesFiltered() {
-        return this.csvData && this.csvData.courses && this.csvData.courses.map(function (e) {
+        return this.csvData && this.csvData.courses && this.csvData.courses.filter(function (e) {
+          return "Course Title" !== e[0] && "Course" !== e[0] && "Course Name" !== e[0];
+        }).map(function (e) {
           return { name: e[0], value: e[0] };
         }).slice(1) || [];
       },
