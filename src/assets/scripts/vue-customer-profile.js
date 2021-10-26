@@ -1092,7 +1092,8 @@ function initCustomerProfileApp() {
                     Papa.parse(value, {
                         download: true,
                         complete: (data) => {
-                            Vue.set(this.csvData, key, data.data);
+                            const fullDataOnly = data.data.filter((item) => item[0]);
+                            Vue.set(this.csvData, key, fullDataOnly);
                         },
                         error: (err, file, inputElem, reason) => {
                           alert(`Oops! There was a CSV parsing error with ${key}.csv. Please ensure the format is correct and try again. Additional info: ${err}.`);
