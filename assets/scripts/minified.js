@@ -336,7 +336,9 @@ function initJobsListingApp() {
 
         var _loop = function _loop(t, n) {
           Papa.parse(n, { download: !0, complete: function complete(e) {
-              Vue.set(_this8.csvData, t, e.data);
+              var n = e.data.filter(function (e) {
+                return e[0];
+              });Vue.set(_this8.csvData, t, n);
             }, error: function error(e, n, i, o) {
               alert("Oops! There was a CSV parsing error with " + t + ".csv. Please ensure the format is correct and try again. Additional info: " + e + ".");
             } });
