@@ -178,7 +178,7 @@ function initCustomerProfileApp() {
         template: `
             <div>
                 <label :class="{ 'mb-4': !checkedJobs.length }">
-                    Please select up to {{ checkedLimit }} industries.
+                    Please select up to {{ checkedLimit }} jobs by selecting the suitability level next to the job.
                 </label>
 
                 <!-- YOUR SELECTIONS -->
@@ -221,29 +221,18 @@ function initCustomerProfileApp() {
                                 :key="'tr-'+index+item"
                             >
                                 <td>
-                                    <label class="d-inline-block custom-control custom-checkbox mb-0">
-                                        <input
-                                            class="custom-control-input"
-                                            name="jobTitle"
-                                            type="checkbox"
-                                            :value="item"
-                                            v-model="checkedJobs"
-                                        >
-                                        <span class="custom-control-label pl-1">
-                                            {{ item.name }}
-                                        </span>
-                                    </label>
+                                    {{ item.name }}
                                 </td>
                                 <td>
                                     <div>
                                         <label class="d-inline-block custom-control custom-radio mb-0">
                                             <input
                                                 class="custom-control-input customer-profile-radio-input"
-                                                :disabled="disable(item)"
-                                                :name="'suitability'+index"
-                                                type="radio"
-                                                value="isSuitable"
-                                                v-model="item.suitability"
+                                                :name="item.name+'-'+item.suitability"
+                                                type="checkbox"
+                                                :value="{ name: item.name, suitability: 'isSuitable' }"
+                                                v-model="checkedJobs"
+                                                @change="selectJob(item.name, 'isSuitable')"
                                             >
                                             <span class="custom-control-label pl-1">
                                                 Suitable
@@ -256,11 +245,11 @@ function initCustomerProfileApp() {
                                         <label class="d-inline-block custom-control custom-radio mb-0">
                                             <input
                                                 class="custom-control-input customer-profile-radio-input"
-                                                :disabled="disable(item)"
-                                                :name="'suitability'+index"
-                                                type="radio"
-                                                value="isTrainingRequired"
-                                                v-model="item.suitability"
+                                                :name="item.name+'-'+item.suitability"
+                                                type="checkbox"
+                                                :value="{ name: item.name, suitability: 'isTrainingRequired' }"
+                                                v-model="checkedJobs"
+                                                @change="selectJob(item.name, 'isTrainingRequired')"
                                             >
                                             <span class="custom-control-label pl-1">
                                                 Training Required
@@ -369,17 +358,22 @@ function initCustomerProfileApp() {
             }
         },
         methods: {
-            disable(item) {
-                return !this.checkedJobs.find(job => job.name === item.name);
-            },
-            removeItem(index) {
-                this.checkedJobs.splice(index, 1);
-            },
             handleNext() {
                 customerProfileBus.$emit('nextStep');
             },
             handlePrev() {
                 customerProfileBus.$emit('prevStep');
+            },
+            removeItem(index) {
+                this.checkedJobs.splice(index, 1);
+            },
+            selectJob(name, suitability) {
+                this.checkedJobs.forEach(job => {
+                    const jobSelectedInSameGroup = job.name === name && job.suitability !== suitability;
+                    if (jobSelectedInSameGroup) {
+                        this.checkedJobs = this.checkedJobs.filter(item => item !== job);
+                    }
+                });
             }
         }
      });
