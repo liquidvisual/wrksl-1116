@@ -88,7 +88,7 @@ function initJobsListingApp() {
       handleNext: function handleNext() {
         e.$emit("nextStep");
       }
-    } }), Vue.component("jobs-table", { template: '\n            <div>\n                <label :class="{ \'mb-4\': !checkedJobs.length }">\n                    Please select up to {{ checkedLimit }} industries.\n                </label>\n\n                \x3c!-- YOUR SELECTIONS --\x3e\n                <div v-if="checkedJobs.length" class="mb-4">\n                    <button\n                        v-for="(item, index) in checkedJobs"\n                        :key="item.name"\n                        class="badge badge-pill mr-1"\n                        :class="item.suitability ? \'badge-primary\' : \'badge-dark\'"\n                        title="Remove"\n                        @click="removeItem(index)"\n                    >\n                       <i class="fa fa-close mr-1"></i>\n                       {{ item.name }}\n                       <i v-if="!item.suitability"  class="fa fa-spinner mx-1"></i>\n                    </button>\n                </div>\n\n                <div class="table-responsive">\n                    <table class="table table-bordered">\n                        <thead>\n                            <tr>\n                                <th>\n                                    <h4 class="mb-0">\n                                        Job Title\n                                    </h4>\n                                </th>\n                                <th style="border-right: none">\n                                    <h4 class="mb-0">\n                                        Suitability Level\n                                    </h4>\n                                </th>\n                                <th style="border-left: none">\n                                </th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr\n                                v-for="(item, index) in dataFormatted"\n                                :key="\'tr-\'+index+item"\n                            >\n                                <td>\n                                    <label class="d-inline-block custom-control custom-checkbox mb-0">\n                                        <input\n                                            class="custom-control-input"\n                                            name="jobTitle"\n                                            type="checkbox"\n                                            :value="item"\n                                            v-model="checkedJobs"\n                                        >\n                                        <span class="custom-control-label pl-1">\n                                            {{ item.name }}\n                                        </span>\n                                    </label>\n                                </td>\n                                <td>\n                                    <div>\n                                        <label class="d-inline-block custom-control custom-radio mb-0">\n                                            <input\n                                                class="custom-control-input customer-profile-radio-input"\n                                                :disabled="disable(item)"\n                                                :name="\'suitability\'+index"\n                                                type="radio"\n                                                value="isSuitable"\n                                                v-model="item.suitability"\n                                            >\n                                            <span class="custom-control-label pl-1">\n                                                Suitable\n                                            </span>\n                                        </label>\n                                    </div>\n                                </td>\n                                <td>\n                                    <div>\n                                        <label class="d-inline-block custom-control custom-radio mb-0">\n                                            <input\n                                                class="custom-control-input customer-profile-radio-input"\n                                                :disabled="disable(item)"\n                                                :name="\'suitability\'+index"\n                                                type="radio"\n                                                value="isTrainingRequired"\n                                                v-model="item.suitability"\n                                            >\n                                            <span class="custom-control-label pl-1">\n                                                Training Required\n                                            </span>\n                                        </label>\n                                    </div>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </div>\n\n                \x3c!-- FORM NAVIGATOR --\x3e\n                <div\n                    class="jobs-table-submit"\n                    :class="{ \'has-error\': isCheckedLimitReached }"\n                >\n                    <div class="container">\n                        <div class="row align-items-center">\n                            <div class="col-md-6 text-center text-md-left">\n\n                                \x3c!-- CHECKED LIMIT WARNING --\x3e\n                                <span\n                                    v-if="isCheckedLimitReached"\n                                    class="d-inline-block warning-msg mb-2 mb-md-0 shake animated"\n                                >\n                                    <span>\n                                        <i class="fa fa-exclamation-triangle mr-1"></i> The maximum selection is {{ checkedLimit }}\n                                    </span>\n                                </span>\n\n                            </div>\n                            <div class="col-md-6 text-center text-md-right">\n\n                                \x3c!-- BACK --\x3e\n                                <button\n                                    class="font-weight-bold btn btn-primary px-4 mr-4"\n                                    @click="handlePrev()"\n                                >\n                                    <i class="mr-2 fa fa-angle-left"></i>Back\n                                </button>\n\n                                \x3c!-- NEXT --\x3e\n                                <button\n                                    class="font-weight-bold btn btn-primary px-4"\n                                    :disabled="!canProceed"\n                                    @click="handleNext()"\n                                >\n                                    Next<i class="ml-2 fa fa-angle-right"></i>\n                                </button>\n                            </div>\n                        </div>\n\n                    </div>\n                </div>\n            </div>\n        ', props: { data: { type: Array, required: !0 } }, data: function data() {
+    } }), Vue.component("jobs-table", { template: '\n            <div>\n                <label :class="{ \'mb-4\': !checkedJobs.length }">\n                    Please select up to {{ checkedLimit }} jobs by selecting the suitability level next to the job.\n                </label>\n\n                \x3c!-- YOUR SELECTIONS --\x3e\n                <div v-if="checkedJobs.length" class="mb-4">\n                    <button\n                        v-for="(item, index) in checkedJobs"\n                        :key="item.name"\n                        class="badge badge-pill mr-1"\n                        :class="item.suitability ? \'badge-primary\' : \'badge-dark\'"\n                        title="Remove"\n                        @click="removeItem(index)"\n                    >\n                       <i class="fa fa-close mr-1"></i>\n                       {{ item.name }}\n                       <i v-if="!item.suitability"  class="fa fa-spinner mx-1"></i>\n                    </button>\n                </div>\n\n                <div class="table-responsive">\n                    <table class="table table-bordered">\n                        <thead>\n                            <tr>\n                                <th>\n                                    <h4 class="mb-0">\n                                        Job Title\n                                    </h4>\n                                </th>\n                                <th style="border-right: none">\n                                    <h4 class="mb-0">\n                                        Suitability Level\n                                    </h4>\n                                </th>\n                                <th style="border-left: none">\n                                </th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr\n                                v-for="(item, index) in dataFormatted"\n                                :key="\'tr-\'+index+item"\n                            >\n                                <td>\n                                    {{ item.name }}\n                                </td>\n                                <td>\n                                    <div>\n                                        <label class="d-inline-block custom-control custom-radio mb-0">\n                                            <input\n                                                class="custom-control-input customer-profile-radio-input"\n                                                :name="item.name+\'-\'+item.suitability"\n                                                type="checkbox"\n                                                :value="{ name: item.name, suitability: \'isSuitable\' }"\n                                                v-model="checkedJobs"\n                                                @change="selectJob(item.name, \'isSuitable\')"\n                                            >\n                                            <span class="custom-control-label pl-1">\n                                                Suitable\n                                            </span>\n                                        </label>\n                                    </div>\n                                </td>\n                                <td>\n                                    <div>\n                                        <label class="d-inline-block custom-control custom-radio mb-0">\n                                            <input\n                                                class="custom-control-input customer-profile-radio-input"\n                                                :name="item.name+\'-\'+item.suitability"\n                                                type="checkbox"\n                                                :value="{ name: item.name, suitability: \'isTrainingRequired\' }"\n                                                v-model="checkedJobs"\n                                                @change="selectJob(item.name, \'isTrainingRequired\')"\n                                            >\n                                            <span class="custom-control-label pl-1">\n                                                Training Required\n                                            </span>\n                                        </label>\n                                    </div>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </div>\n\n                \x3c!-- FORM NAVIGATOR --\x3e\n                <div\n                    class="jobs-table-submit"\n                    :class="{ \'has-error\': isCheckedLimitReached }"\n                >\n                    <div class="container">\n                        <div class="row align-items-center">\n                            <div class="col-md-6 text-center text-md-left">\n\n                                \x3c!-- CHECKED LIMIT WARNING --\x3e\n                                <span\n                                    v-if="isCheckedLimitReached"\n                                    class="d-inline-block warning-msg mb-2 mb-md-0 shake animated"\n                                >\n                                    <span>\n                                        <i class="fa fa-exclamation-triangle mr-1"></i> The maximum selection is {{ checkedLimit }}\n                                    </span>\n                                </span>\n\n                            </div>\n                            <div class="col-md-6 text-center text-md-right">\n\n                                \x3c!-- BACK --\x3e\n                                <button\n                                    class="font-weight-bold btn btn-primary px-4 mr-4"\n                                    @click="handlePrev()"\n                                >\n                                    <i class="mr-2 fa fa-angle-left"></i>Back\n                                </button>\n\n                                \x3c!-- NEXT --\x3e\n                                <button\n                                    class="font-weight-bold btn btn-primary px-4"\n                                    :disabled="!canProceed"\n                                    @click="handleNext()"\n                                >\n                                    Next<i class="ml-2 fa fa-angle-right"></i>\n                                </button>\n                            </div>\n                        </div>\n\n                    </div>\n                </div>\n            </div>\n        ', props: { data: { type: Array, required: !0 } }, data: function data() {
       return { checkedJobs: [], checkedLimit: 5 };
     }, computed: {
       canProceed: function canProceed() {
@@ -119,19 +119,23 @@ function initJobsListingApp() {
         this.$emit("output", this.outputParams);
       }
     }, methods: {
-      disable: function disable(e) {
-        return !this.checkedJobs.find(function (t) {
-          return t.name === e.name;
-        });
-      },
-      removeItem: function removeItem(e) {
-        this.checkedJobs.splice(e, 1);
-      },
       handleNext: function handleNext() {
         e.$emit("nextStep");
       },
       handlePrev: function handlePrev() {
         e.$emit("prevStep");
+      },
+      removeItem: function removeItem(e) {
+        this.checkedJobs.splice(e, 1);
+      },
+      selectJob: function selectJob(e, t) {
+        var _this3 = this;
+
+        this.checkedJobs.forEach(function (n) {
+          n.name === e && n.suitability !== t && (_this3.checkedJobs = _this3.checkedJobs.filter(function (e) {
+            return e !== n;
+          }));
+        });
       }
     } }), Vue.component("education-module", { template: '\n            <div>\n                <div\n                    v-for="(item, index) in courseItems"\n                    :key="item.id"\n                    class="row"\n                >\n                    <div class="col-sm-12 col-md-3 col-xl-2">\n\n                        \x3c!-- QUALIFICATION TYPE SELECT --\x3e\n                        <label for="qualification-type">\n                            Qualification Type\n                        </label>\n\n                        <select-filter\n                            id="qualification-type"\n                            class="mb-0"\n                            :filters="data.qualifications"\n                            v-model="courseItems[index].qualificationType"\n                        />\n                    </div>\n\n                    <div class="col-sm-12 col-md-2 col-xl-2">\n\n                        \x3c!-- COURSE NAME SELECT --\x3e\n                        <label for="course-name">\n                            Course Name\n                        </label>\n\n                        <select-filter\n                            id="course-name"\n                            class="mb-0"\n                            :filters="data.courses"\n                            :disabled="!courseItems[index].qualificationType"\n                            v-model="courseItems[index].courseName"\n                        />\n\n                    </div>\n                    <div class="col-sm-12 col-md-2 col-xl-2">\n\n                        \x3c!-- INSTITUTION --\x3e\n                        <label for="institution">Institution</label>\n\n                        <keyword-search\n                            id="institution"\n                            v-model="courseItems[index].institution"\n                            :disabled="!courseItems[index].qualificationType"\n                        />\n\n                    </div>\n                    <div class="col-sm-12 col-md-2 col-xl-2">\n\n                        \x3c!-- COMPLETED --\x3e\n                        <label for="completed-status">Completed?</label>\n\n                        <select-filter\n                            id="completed-status"\n                            :filters="optionsCompleted"\n                            :disabled="!courseItems[index].qualificationType"\n                            v-model="courseItems[index].completed"\n                        />\n\n                    </div>\n                    <div class="col-sm-12 col-md-3 col-xl-4">\n\n                    <label class="d-block invisible hidden-sm-down">Add / Remove</label>\n\n                        \x3c!-- REMOVE --\x3e\n                        <button\n                            v-if="courseItems.length > 1"\n                            class="btn btn-danger px-0 mb-4 mr-2 text-center"\n                            @click="removeCourseItem(index)"\n                        >\n                            <i class="fa fa-trash m-0 px-3"></i>\n                        </button>\n\n                        \x3c!-- ADD --\x3e\n                        <button\n                            v-if="index === courseItems.length - 1"\n                            class="btn btn-primary font-weight-bold text-center mb-4"\n                            :disabled="!courseItems[index].qualificationType"\n                            @click="addCourseItem()"\n                        >\n                            <i class="fa fa-plus m-0 mr-2"></i> Add More\n                        </button>\n\n                    </div>\n                </div>\n\n                \x3c!-- FORM NAVIGATOR --\x3e\n                <div\n                    class="jobs-table-submit"\n                    :class="{ \'has-error\': false }"\n                >\n                    <div class="container">\n                        <div class="row align-items-center">\n                            <div class="col-md-6 text-center text-md-left">\n\n                                \x3c!-- CHECKED LIMIT WARNING --\x3e\n                                <span\n                                    v-if="false"\n                                    class="d-inline-block warning-msg mb-2 mb-md-0 shake animated"\n                                >\n                                    <span>\n                                        <i class="fa fa-exclamation-triangle mr-1"></i> This is an error.\n                                    </span>\n                                </span>\n\n                            </div>\n                            <div class="col-md-6 text-center text-md-right">\n\n                                \x3c!-- BACK --\x3e\n                                <button\n                                    class="font-weight-bold btn btn-primary px-4 mr-4"\n                                    @click="handlePrev()"\n                                >\n                                    <i class="mr-2 fa fa-angle-left"></i>Back\n                                </button>\n\n                                \x3c!-- NEXT --\x3e\n                                <button\n                                    class="font-weight-bold btn btn-primary px-4"\n                                    :disabled="!canProceed"\n                                    @click="handleNext()"\n                                >\n                                    Next<i class="ml-2 fa fa-angle-right"></i>\n                                </button>\n                            </div>\n                        </div>\n\n                    </div>\n                </div>\n            </div>\n        ', props: { data: { type: Object, required: !0 } }, data: function data() {
       return { courseItems: [], optionsCompleted: [{ name: "Yes", value: "Yes" }, { name: "No", value: "No" }, { name: "Deferred", value: "Deferred" }, { name: "In Progress", value: "In Progress" }] };
@@ -237,27 +241,27 @@ function initJobsListingApp() {
         return this.step1Params || this.step2Params || this.step3Params || this.step4Params || this.step5Params;
       },
       industriesFiltered: function industriesFiltered() {
-        var _this3 = this;
+        var _this4 = this;
 
         var e = this.csvData && this.csvData.industries && this.csvData.industries.filter(function (e) {
           return "Industry" !== e[0];
         }).map(function (e) {
           return e[0];
         }) || [];return this.filterKeywordsIndustries && (e = e.filter(function (e, t) {
-          return _this3.filterKeywordsIndustries.toLowerCase().split(" ").every(function (t) {
+          return _this4.filterKeywordsIndustries.toLowerCase().split(" ").every(function (t) {
             return e && -1 !== e.toLowerCase().indexOf(t);
           });
         })), e;
       },
       jobsFiltered: function jobsFiltered() {
-        var _this4 = this;
+        var _this5 = this;
 
         var e = this.csvData && this.csvData.jobs && this.csvData.jobs.filter(function (e) {
           return "Job Title" !== e[0];
         }).map(function (e) {
           return e[0];
         }) || [];return this.filterKeywordsJobs && (e = e.filter(function (e, t) {
-          return _this4.filterKeywordsJobs.toLowerCase().split(" ").every(function (t) {
+          return _this5.filterKeywordsJobs.toLowerCase().split(" ").every(function (t) {
             return e && -1 !== e.toLowerCase().indexOf(t);
           });
         })), e || [];
@@ -282,14 +286,14 @@ function initJobsListingApp() {
         }, [{ name: "All Types", value: "All" }]) || [];
       },
       licencesFiltered: function licencesFiltered() {
-        var _this5 = this;
+        var _this6 = this;
 
         var e = this.csvData && this.csvData.licences && this.csvData.licences.filter(function (e) {
           return "Group" !== e[0];
         });return "All" !== this.filterLicenceType && (e = e.filter(function (e, t) {
-          return e[0] === _this5.filterLicenceType;
+          return e[0] === _this6.filterLicenceType;
         })), this.filterKeywordsLicences && (e = e.filter(function (e, t) {
-          return e && _this5.filterKeywordsLicences && _this5.filterKeywordsLicences.toLowerCase().split(" ").every(function (t) {
+          return e && _this6.filterKeywordsLicences && _this6.filterKeywordsLicences.toLowerCase().split(" ").every(function (t) {
             return -1 !== e.join(" ").toLowerCase().indexOf(t);
           });
         })), e && e.map(function (e) {
@@ -304,14 +308,14 @@ function initJobsListingApp() {
         }, [{ name: "All Types", value: "All" }]) || [];
       },
       skillsFiltered: function skillsFiltered() {
-        var _this6 = this;
+        var _this7 = this;
 
         var e = this.csvData && this.csvData.skills && this.csvData.skills.filter(function (e) {
           return "Group" !== e[0];
         });return "All" !== this.filterSkillType && (e = e.filter(function (e, t) {
-          return e[0] === _this6.filterSkillType;
+          return e[0] === _this7.filterSkillType;
         })), this.filterKeywordsSkills && (e = e.filter(function (e, t) {
-          return e && _this6.filterKeywordsSkills && _this6.filterKeywordsSkills.toLowerCase().split(" ").every(function (t) {
+          return e && _this7.filterKeywordsSkills && _this7.filterKeywordsSkills.toLowerCase().split(" ").every(function (t) {
             return -1 !== e.join(" ").toLowerCase().indexOf(t);
           });
         })), e && e.map(function (e) {
@@ -319,12 +323,12 @@ function initJobsListingApp() {
         }) || [];
       }
     }, created: function created() {
-      var _this7 = this;
+      var _this8 = this;
 
       e.$on("nextStep", function () {
-        window.scrollTo({ top: 0, left: 0, behavior: "smooth" }), _this7.currentStep < _this7.maxSteps ? _this7.currentStep += 1 : window.location = _this7.finalQueryString;
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" }), _this8.currentStep < _this8.maxSteps ? _this8.currentStep += 1 : window.location = _this8.finalQueryString;
       }), e.$on("prevStep", function () {
-        window.scrollTo({ top: 0, left: 0, behavior: "smooth" }), _this7.currentStep > 1 && (_this7.currentStep -= 1);
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" }), _this8.currentStep > 1 && (_this8.currentStep -= 1);
       });
     },
     mounted: function mounted() {
@@ -332,13 +336,13 @@ function initJobsListingApp() {
     },
     methods: {
       parseCSV: function parseCSV(e) {
-        var _this8 = this;
+        var _this9 = this;
 
         var _loop = function _loop(t, n) {
           Papa.parse(n, { download: !0, complete: function complete(e) {
               var n = e.data.filter(function (e) {
                 return e[0];
-              });Vue.set(_this8.csvData, t, n);
+              });Vue.set(_this9.csvData, t, n);
             }, error: function error(e, n, i, o) {
               alert("Oops! There was a CSV parsing error with " + t + ".csv. Please ensure the format is correct and try again. Additional info: " + e + ".");
             } });
@@ -6066,13 +6070,13 @@ function initJobsListingApp() {
     }
   }t.forEach(function (e) {
     var n = e.querySelector("a");n && n.addEventListener("click", function (n) {
-      var _this9 = this;
+      var _this10 = this;
 
       var i = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : e;
       n.preventDefault();var o = this.href.indexOf("#") > -1;o || (t.forEach(function (e) {
         e.classList.remove("active");
       }), i.classList.add("active")), i.classList.contains("has-dropdown") || o ? o || document.documentElement.classList.remove("has-closed-nav") : (document.documentElement.classList.add("has-closed-nav"), setTimeout(function () {
-        window.location = _this9.href;
+        window.location = _this10.href;
       }, 150));
     });
   });
