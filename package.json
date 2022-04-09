@@ -53,7 +53,7 @@
     "jquery.scrollto": "^2.1.2",
     "jquery.transit": "~0.9.12",
     "magnific-popup": "https://github.com/dimsemenov/Magnific-Popup.git#master",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "social-feed": "github:pavelk2/social-feed#gh-pages",
     "tether": "^1.2.0"
   }
