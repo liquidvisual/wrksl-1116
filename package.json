@@ -6,7 +6,7 @@
     "autoprefixer": "^7.2.6",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "grunt": "^1.0.3",
+    "grunt": "^1.5.2",
     "grunt-babel": "^7.0.0",
     "grunt-browser-sync": "^2.2.0",
     "grunt-build-control": "~0.7.1",
