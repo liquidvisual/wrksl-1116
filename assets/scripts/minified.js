@@ -6132,4 +6132,15 @@ function initJobsListingApp() {
   isFirefox || isIE11 ? (currFFZoom -= .02, $("body").css("transform", "scale(" + currFFZoom + ")")) : (currIEZoom -= 2, $("body").css("zoom", " " + currIEZoom + "%"));
 }), $(function () {
   $('[data-toggle="tooltip"]').tooltip();
-});
+});var $isMobile = $(window).width() < 768;function $resourceTiles() {
+  var e = $("[data-resource-btn]"),
+      t = $("[data-resource-btn-hover-menu]");e.each(function () {
+    var n = $(this),
+        i = $("[data-resource-btn-hover-menu]", n),
+        o = $("[data-resource-btn-hover-menu-close]", n);n.on("click", function () {
+      var o = n.hasClass("is-active");$isMobile && (e.removeClass("is-active"), t.css({ display: "none" }), o || (n.addClass("is-active"), i.css({ display: "flex" })));
+    }), o.on("click", function (n) {
+      n.stopPropagation(), console.log("close", o), e.removeClass("is-active"), t.css({ display: "none" });
+    });
+  });
+}$resourceTiles();
