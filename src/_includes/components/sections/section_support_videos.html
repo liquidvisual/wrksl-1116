@@ -1,0 +1,26 @@
+{% assign videos = page.videos %}
+
+<!-- SECTION SUPPORT VIDEOS -->
+<section class="mb-4 mb-xl-5">
+
+	<!-- HEADING -->
+	<h2 class="mb-4">Support Videos</h2>
+
+	<!-- VIDEOS -->
+	<ul class="block-grid-xs-1 block-grid-md-3 block-grid-condensed">
+		{% for item in videos %}
+			<li>
+				<div class="embed-responsive embed-responsive-16by9 mb-md-0">
+					<iframe
+						class="embed-responsive-item"
+						src="{{ item }}"
+						title="YouTube video player"
+						allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen
+					>
+					</iframe>
+				</div>
+			</li>
+		{% endfor %}
+	</ul>
+</section>

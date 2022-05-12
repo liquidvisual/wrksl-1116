@@ -1,0 +1,40 @@
+{% assign contact_wysiwyg_1 = page.contact_wysiwyg_1 %}
+{% assign contact_wysiwyg_2 = page.contact_wysiwyg_2 %}
+
+<!-- SECTION CONTACT WORKSKIL FOR SUPPORT -->
+<section class="mb-4 mb-xl-5">
+
+	<!-- HEADING -->
+	<h2 class="mb-4">Contact Workskil for Support</h2>
+
+	<!-- GREY BOX -->
+	<div class="section-contact-workskil-for-support px-4 py-4">
+
+		<!-- WYSIWYG #1 -->
+		<div class="wysiwyg mb-3">
+			{{ contact_wysiwyg_1 | markdownify }}
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+
+				<!-- WYSIWYG #2 -->
+				<div class="wysiwyg">
+					{{ contact_wysiwyg_2 | markdownify }}
+				</div>
+
+			</div>
+			<div class="col-md-8">
+
+				<!-- BOOK AN APPOINTMENT -->
+				<div class="section-contact-workskil-for-support-box px-4 py-4">
+					<i class="text-quinary fa fa-comments-o mr-4"></i>
+					<span class="h3">
+						To book an appointment with your Coach call 1800 125 555 or <a href="#">click here <i class="fa fa-angle-right"></i></a>
+					</span>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>

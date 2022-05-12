@@ -1,0 +1,23 @@
+{% assign service_contact_numbers = page.service_contact_numbers  %}
+
+<!-- SECTION SERVICE CONTACT NUMBERS -->
+<section class="mb-4 mb-xl-5">
+
+	<!-- HEADING -->
+	<h2 class="mb-4">Service Contact Numbers</h2>
+
+	<!-- CONTACT BUTTONS -->
+	<ul class="block-grid-xs-1 block-grid-md-2 block-grid-xl-3 block-grid-condensed">
+		{% for item in service_contact_numbers %}
+			<li>
+				<a href="tel:{{ item.phone }}" class="btn btn-quinary btn-service-contact-number">
+					<span class="d-block font-weight-bold">{{ item.title }}</span>
+					<div class="d-flex align-items-center">
+						<i class="fa fa-phone"></i>&nbsp;
+						<span class="h3 text-white">{{ item.phone }}</span>
+					</div>
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+</section>

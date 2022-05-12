@@ -1,0 +1,35 @@
+{% assign cover_letter_templates = page.cover_letter_templates %}
+
+<!-- SECTION COVER LETTER TEMPLATES -->
+<section class="mb-4 mb-xl-5">
+
+	<!-- HEADING -->
+	<h2 class="mb-4">Cover Letter Templates</h2>
+
+	<!-- TEMPLATES -->
+	<ul class="block-grid-xs-1 block-grid-md-2 block-grid-xl-3 block-grid-condensed">
+		{% for item in cover_letter_templates %}
+			<li>
+				<!-- BUTTON TILE DOWNLOAD -->
+				<a class="btn-tile btn-tile-download" href="#download" target="_blank">
+
+					<!-- ICON -->
+					<div class="btn-tile-download-type-icon">
+						<i class="fa {{ item.icon }}"></i>
+					</div>
+
+					<!-- BODY -->
+					<div class="btn-tile-download-body">
+						<span class="h4 text d-block">{{ item.title }}</span>
+						<span class="text text-uppercase">({{ item.type }})</span>
+					</div>
+
+					<!-- ARROW -->
+					<div class="btn-tile-download-arrow-icon">
+						<i class="fa fa-angle-right"></i>
+					</div>
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+</section>

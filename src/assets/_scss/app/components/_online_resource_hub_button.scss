@@ -1,0 +1,220 @@
+/*
+    BTN-RESOURCE
+
+    - Last updated: 11.05.22
+    - Extends upon btn-tile used for /online-resource-hub.
+	- Desperately needs a refactor, clunkily extends btn-tile.
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// BTN-RESOURCES
+//-----------------------------------------------------------------
+
+ul.btn-resources {
+	overflow: visible;
+
+	// LEFT
+	@include media-breakpoint-only(md) {
+		li:nth-child(2n-1) .btn-resource-hover-menu {
+			left: calc(100% - 15px);
+			display: none;
+		}
+	}
+
+	// RIGHT
+	@include media-breakpoint-only(md) {
+		li:nth-child(2n) .btn-resource-hover-menu {
+			right: calc(100% - 15px);
+			transform: scaleX(-1);
+
+			> ul {
+				transform: scaleX(-1);
+			}
+		}
+	}
+
+	// LARGE UP BREAK-POINT
+
+	// LEFT
+	@include media-breakpoint-up(lg) {
+		li:nth-child(4n-1) .btn-resource-hover-menu,
+		li:nth-child(4n-2) .btn-resource-hover-menu,
+		li:nth-child(4n-3) .btn-resource-hover-menu,
+		li:nth-child(4n-4) .btn-resource-hover-menu {
+			left: calc(100% - 15px);
+		}
+	}
+
+	// RIGHT
+	@include media-breakpoint-up(lg) {
+		li:nth-child(4n) .btn-resource-hover-menu {
+			left: auto;
+			right: calc(100% - 15px);
+			transform: scaleX(-1);
+
+			> ul {
+				transform: scaleX(-1);
+			}
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// RESOURCE BUTTON (Extends btn-tile)
+//-----------------------------------------------------------------
+
+.btn-tile.btn-resource {
+	display: flex;
+	position: relative;
+	height: rem-calc(373);
+	overflow: visible;
+	background: lighten($quinary, 10%);
+	transition: 150ms ease background-color;
+
+	.btn-tile-bg {
+		position: static;
+		background-size: 30%;
+
+		@include media-breakpoint-up(lg) {
+		    background-size: 60%;
+		}
+	}
+
+	.btn-tile-title {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: static;
+		padding: 0;
+		margin-bottom: 0;
+		text-align: center;
+	}
+}
+
+//-----------------------------------------------------------------
+// HOVER
+//-----------------------------------------------------------------
+
+.btn-tile.btn-resource:hover {
+	background-color: $primary;
+	box-shadow: 1px 2px 5px rgba(black, 0.8);
+
+	@include media-breakpoint-up(md) {
+		.btn-resource-hover-menu {
+			display: block; // IE11 - no flex.
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// HOVER MENU
+//-----------------------------------------------------------------
+
+.btn-resource-hover-menu {
+	display: none;
+	// display: block;
+	flex-direction: column;
+	position: absolute;
+	top: 20px;
+	width: 85%;
+	max-width: rem-calc(294);
+	box-shadow: 1px 2px 5px rgba(black, 0.5);
+	color: white;
+	z-index: 1;
+
+	@include media-breakpoint-up(md) {
+		top: -10px;
+		min-height: rem-calc(84);
+	}
+
+	.btn-resource-hover-menu-bg {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		flex-basis: 100%;
+		background-color: darken($primary, 2%);
+	}
+
+	li:not(:last-child) {
+		border-bottom: 1px solid rgba(white, 0.3);
+	}
+
+	a {
+		display: flex;
+		padding: rem-calc(8 15);
+		font-size: rem-calc(16);
+		font-weight: 500;
+		color: white;
+
+		&:hover {
+			background-color: rgba(black, 0.05);
+		}
+	}
+
+	.fa-angle-right {
+		position: static !important;
+		padding-left: rem-calc(10);
+		margin-left: auto;
+		color: rgba(white, 0.4);
+	}
+}
+
+//-----------------------------------------------------------------
+// TRIANGLE
+//-----------------------------------------------------------------
+
+.btn-resource-hover-menu-triangle {
+	position: absolute;
+	top: rem-calc(4);
+	left: rem-calc(-34); // 1px safety
+	width: rem-calc(35);
+	height: rem-calc(35);
+	// border: 1px solid yellow;
+	overflow: hidden;
+
+	@include media-breakpoint-up(md) {
+		top: rem-calc(25);
+	}
+
+	.btn-resource-hover-menu-triangle-fill {
+		position: absolute;
+		top: 0;
+		left: 70%;
+		width: rem-calc(35);
+		height: rem-calc(35);
+		background-color: darken($primary, 2%);
+		box-shadow: 2px 1px 5px rgba(black, 0.5);
+		transform: rotate(45deg);
+	}
+}
+
+//-----------------------------------------------------------------
+// CLOSE BUTTON
+//-----------------------------------------------------------------
+
+.btn-resource-hover-menu-close {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	position: absolute;
+	bottom: 100%;
+	width: 100%;
+	height: rem-calc(35);
+	padding-right: rem-calc(10);
+	font-size: rem-calc(10);
+	background-color: darken($primary, 6%);
+	box-shadow: 1px 2px 5px rgba(black, 0.5);
+	z-index: -1;
+
+	.fa-close {
+		position: static;
+		font-size: rem-calc(16);
+		color: rgba(white, 0.5);
+	}
+
+	@include media-breakpoint-up(md) {
+		display: none;
+	}
+}

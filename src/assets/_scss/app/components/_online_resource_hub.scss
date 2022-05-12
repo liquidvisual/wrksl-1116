@@ -1,0 +1,152 @@
+/*
+    ONLINE RESOURCE HUB
+
+    - Last updated: 11.05.22
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// SECTION CTA
+//-----------------------------------------------------------------
+
+.section-cta {
+  padding: rem-calc(50 20);
+  background: url('/assets/img/layout/icons-bg.png') no-repeat center center;
+  background-color: lighten($quinary, 10%);
+  color: white;
+
+  @include media-breakpoint-up(md) {
+    padding: rem-calc(50);
+  }
+
+  .lead {
+    font-weight: 400;
+  }
+}
+
+//--------------------------------------------------------------------
+// BUTTON TILE DOWNLOAD
+//--------------------------------------------------------------------
+
+.btn-tile-download {
+  display: flex;
+  flex-direction: row;
+  min-height: rem-calc(160);
+  background-color: $quinary-light;
+
+  @include media-breakpoint-up(xl) {
+      min-height: rem-calc(160);
+  }
+
+  .btn-tile-download-type-icon {
+    margin-right: rem-calc(15);
+    // border: 1px dashed orange;
+
+    .fa {
+      font-size: rem-calc(30);
+    }
+  }
+
+  .btn-tile-download-body {
+    position: relative;
+    top: -2px;
+    // border: 1px dashed yellow;
+    padding-right: rem-calc(15);
+  }
+
+  .btn-tile-download-arrow-icon {
+    position: relative;
+    top: -5px;
+    margin-left: auto;
+    // border: 1px dashed aqua;
+
+    .fa {
+      font-size: rem-calc(35);
+    }
+  }
+
+  .text {
+    color: white;
+    margin: 0;
+
+    @include media-breakpoint-down(md) {
+        font-size: rem-calc(18);
+    }
+  }
+
+  .fa {
+    position: static;
+  }
+}
+
+//--------------------------------------------------------------------
+// ONLINE RESOURCE CONTENT (RESOURCES)
+//--------------------------------------------------------------------
+
+.online-resource-content {
+  border-top: 1px solid #d6d6d6;
+
+  .online-resource-content-heading,
+  .online-resource-content-subheading {
+    color: #444242;
+  }
+
+  .wysiwyg {
+    p {
+      margin-bottom: rem-calc(10);
+    }
+
+    ul,
+    ol,
+    {
+      padding: 0;
+      margin: 0;
+      list-style-position: inside;
+    }
+  }
+}
+
+//--------------------------------------------------------------------
+// SERVICE CONTACT NUMBER
+//--------------------------------------------------------------------
+
+.btn-service-contact-number {
+  flex-direction: column;
+  width: 100%;
+  background-color: $quinary-light;
+}
+
+//--------------------------------------------------------------------
+// SECTION CONTACT WORKSKIL FOR SUPPORT
+//--------------------------------------------------------------------
+
+.section-contact-workskil-for-support {
+  background-color: #f0f0f0;
+
+  .wysiwyg {
+    p {
+      margin-bottom: rem-calc(10);
+    }
+
+    ul,
+    ol,
+    {
+      padding-left: 10px;
+      margin: 0;
+      list-style-position: inside;
+    }
+  }
+
+  .fa-comments-o {
+    position: relative;
+    top: -10px;
+    font-size: rem-calc(85);
+  }
+
+  .section-contact-workskil-for-support-box {
+    display: flex;
+    align-items: flex-start;
+    background-color: #e2e2e2;
+  }
+}

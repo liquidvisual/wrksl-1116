@@ -7,43 +7,42 @@
 // PROBLEMS WITH MODAL - hot patch
 //-----------------------------------------------------------------
 
-$('#modal-newsletter').on('shown.bs.modal', function() {
-    $(this).find('form').validator('destroy').validator()
+$("#modal-newsletter").on("shown.bs.modal", function () {
+    $(this).find("form").validator("destroy").validator();
 });
 
 //-----------------------------------------------------------------
 // STICKY POLYFIL
 //-----------------------------------------------------------------
 
-var elements = $('.is-sticky');
+var elements = $(".is-sticky");
 Stickyfill.add(elements);
 
 //-----------------------------------------------------------------
 // EQUAL HEIGHT
 //-----------------------------------------------------------------
 
-$('[data-equal-height]').matchHeight(
- {
-     byRow: false,
-     property: 'height',
-     target: null,
-     remove: false,
-     mq: "(min-width: 768px)"
- });
+$("[data-equal-height]").matchHeight({
+    byRow: false,
+    property: "height",
+    target: null,
+    remove: false,
+    mq: "(min-width: 768px)",
+});
 
 //-----------------------------------------------------------------
 // IMAGE MAP RESZIER
 //-----------------------------------------------------------------
 
-$('#aus-map').imageMapResize();
+$("#aus-map").imageMapResize();
 
 //-----------------------------------------------------------------
 // SITEMAP TRIGGER - 2019
 //-----------------------------------------------------------------
 
-$('[data-sitemap-trigger]').on('click', function(event){
-    $('.fa', $(this)).toggleClass('fa-angle-down');
-    $('[data-sitemap]').toggleClass('is-collapsed');
+$("[data-sitemap-trigger]").on("click", function (event) {
+    $(".fa", $(this)).toggleClass("fa-angle-down");
+    $("[data-sitemap]").toggleClass("is-collapsed");
 });
 
 //-----------------------------------------------------------------
@@ -51,31 +50,32 @@ $('[data-sitemap-trigger]').on('click', function(event){
 // Exclude empty links, sitemap and tabs
 //-----------------------------------------------------------------
 
-$('a[href*="#"]:not([href="#"], [data-toggle="tab"])')
-    .on('click', function() {
-        var id = $(this).attr('href');
-        var endPos = $(id);
-        var headerHeight = $('.global-header').height();
+$('a[href*="#"]:not([href="#"], [data-toggle="tab"])').on("click", function () {
+    var id = $(this).attr("href");
+    var endPos = $(id);
+    var headerHeight = $(".global-header").height();
 
-        // For location accordion.
-        if (endPos.length && $(this).parent().parent().parent().hasClass('accordion-trigger')) {
-            $.scrollTo(endPos.offset().top - 220, 800);
-            return false; // don't show hash link in url
-        }
-
-        // For everything else.
-        if (endPos.length) {
-            $.scrollTo(endPos.offset().top - headerHeight, 800);
-            return false; // don't show hash link in url
-        }
+    // For location accordion.
+    if (
+        endPos.length &&
+        $(this).parent().parent().parent().hasClass("accordion-trigger")
+    ) {
+        $.scrollTo(endPos.offset().top - 220, 800);
+        return false; // don't show hash link in url
     }
-);
+
+    // For everything else.
+    if (endPos.length) {
+        $.scrollTo(endPos.offset().top - headerHeight, 800);
+        return false; // don't show hash link in url
+    }
+});
 
 //-----------------------------------------------------------------
 // SCROLL TOP
 //-----------------------------------------------------------------
 
-$('[data-back-top]').click(function() {
+$("[data-back-top]").click(function () {
     $.scrollTo(0, 500);
 });
 
@@ -88,38 +88,37 @@ $('[data-back-top]').click(function() {
 
 var currFFZoom = 1;
 var currIEZoom = 100;
-var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+var isFirefox = navigator.userAgent.toLowerCase().indexOf("firefox") > -1;
 var isIE11 = ieVersion() === 11 || false;
 
 function ieVersion(uaString) {
     uaString = uaString || navigator.userAgent;
     var match = /\b(MSIE |Trident.*?rv:|Edge\/)(\d+)/.exec(uaString);
-    if (match) return parseInt(match[2])
+    if (match) return parseInt(match[2]);
 }
 
-$('[data-resize-up]').on('click',function(){
-    if (isFirefox || isIE11){
+$("[data-resize-up]").on("click", function () {
+    if (isFirefox || isIE11) {
         var step = 0.02;
         currFFZoom += step;
-        $('body').css('transform', 'scale(' + currFFZoom + ')');
-        $('body').css('transform-origin', 'top center');
+        $("body").css("transform", "scale(" + currFFZoom + ")");
+        $("body").css("transform-origin", "top center");
     } else {
         var step = 2;
         currIEZoom += step;
-        $('body').css('zoom', ' ' + currIEZoom + '%');
+        $("body").css("zoom", " " + currIEZoom + "%");
     }
 });
 
-$('[data-resize-down]').on('click',function(){
-    if (isFirefox || isIE11){
+$("[data-resize-down]").on("click", function () {
+    if (isFirefox || isIE11) {
         var step = 0.02;
         currFFZoom -= step;
-        $('body').css('transform', 'scale(' + currFFZoom + ')');
-
+        $("body").css("transform", "scale(" + currFFZoom + ")");
     } else {
         var step = 2;
         currIEZoom -= step;
-        $('body').css('zoom', ' ' + currIEZoom + '%');
+        $("body").css("zoom", " " + currIEZoom + "%");
     }
 });
 
@@ -153,5 +152,49 @@ resizeFont(fontResizerUpBtn, 1);
 //-----------------------------------------------------------------
 
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
+    $('[data-toggle="tooltip"]').tooltip();
+});
+
+//-----------------------------------------------------------------
+// RESOURCE BTNS
+// for-individuals/online-resource-hub/
+//-----------------------------------------------------------------
+
+var $isMobile = $(window).width() < 768;
+
+function $resourceTiles() {
+    var $resourceBtns = $("[data-resource-btn]");
+    var $menus = $("[data-resource-btn-hover-menu]");
+
+    $resourceBtns.each(function () {
+        var $this = $(this);
+        var $menu = $("[data-resource-btn-hover-menu]", $this);
+        var $closeBtn = $("[data-resource-btn-hover-menu-close]", $this);
+
+        $this.on("click", function () {
+            var isActive = $this.hasClass("is-active");
+
+            if (!$isMobile) {
+                return;
+            }
+
+            $resourceBtns.removeClass("is-active");
+            $menus.css({ display: "none" });
+
+            if (isActive) {
+                return;
+            }
+
+            $this.addClass("is-active");
+            $menu.css({ display: "flex" });
+        });
+
+        $closeBtn.on("click", function (e) {
+            e.stopPropagation();
+            $resourceBtns.removeClass("is-active");
+            $menus.css({ display: "none" });
+        });
+    });
+}
+
+$resourceTiles();

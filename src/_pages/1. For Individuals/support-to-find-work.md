@@ -1,15 +1,12 @@
 ---
 layout: child_layout/top_level
-title: Our Employment Services
-permalink: /for-employers/our-employment-services/
+title: Support to Find Work
+permalink: /for-individuals/support-to-find-work/
 subpage_path:
-  - 'For Employers'
-  - 'Our Employment Services'
+  - 'For Individuals'
+  - 'Support to Find Work'
 hero: /assets/img/content/hero/hero-2.jpg
-subheading: Browse our Services
 ---
-
-## Looking for work?
 
 ## Did you know that Workskil Australia places 1300+ people into employment every month?
 
@@ -21,7 +18,8 @@ Services are tailored to your needs, to help you identify vacancies, get to that
 
 ### How can we help you?
 
-* Resumes, cover letters, and job search training.
+Resumes, cover letters, and job search training.
+
 * Links with real employers for real jobs.
 * Sourcing appropriate training for your career path.
 * Work experience opportunities to help you gain the skills you need to succeed.

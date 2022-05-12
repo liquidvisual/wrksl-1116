@@ -1,0 +1,25 @@
+---
+layout: child_layout/top_level
+---
+
+{% contentfor below_fold %}
+	<section class="mb-5" style="margin-top: -30px">
+		<div class="container">
+
+			<h2 class="h1 mb-3">Finding a Job</h2>
+
+			{% include resource_tiles.html category="Finding a Job" %}
+
+			<h2 class="h1 mb-3">Personal Support</h2>
+
+			{% include resource_tiles.html category="Personal Support" %}
+
+			{% include components/sections/section_cta.html %}
+
+			<div class="spacer mb-4 mb-xl-5"></div>
+
+		</div>
+	</section>
+{% endcontentfor %}
+
+{{ content }}

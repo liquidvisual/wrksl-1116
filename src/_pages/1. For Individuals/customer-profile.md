@@ -1,10 +1,11 @@
 ---
 layout: child_layout/customer_profile
-title: Customer Profile
-permalink: /customer-profile/
+title: Career Profile
+permalink: /for-individuals/customer-profile/your-career-profile/
 subpage_path:
   - 'For Individuals'
   - 'Customer Profile'
+  - 'Your Career Profile'
 hero: /assets/img/content/hero/hero-2.jpg
 theme: theme-blue
 ---

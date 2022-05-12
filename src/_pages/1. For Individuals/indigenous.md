@@ -1,7 +1,7 @@
 ---
 layout: child_layout/top_level
 title: Indigenous
-permalink: /indigenous/
+permalink: /for-individuals/indigenous/
 hero: /assets/img/content/hero/hero-2.jpg
 theme: theme-orange
 subheading: A Dedicated National Service

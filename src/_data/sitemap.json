@@ -1,90 +1,336 @@
 {
     "Home": {
-        "url": "/",
+        "url": "/"
     },
     "For Individuals": {
         "url": "",
         "children_excluded_from_nav": false,
         "children": {
-            "Job Seekers": {
-                "url": "/job-seekers/",
+            "Looking for Work": {
+                "url": "/for-individuals/looking-for-work/",
                 "children_excluded_from_nav": false,
                 "children": {
                     "jobactive": {
-                        "url": "/job-seekers/jobactive/",
+                        "url": "/for-individuals/looking-for-work/jobactive/"
                     },
                     "Return to Work": {
-                        "url": "/job-seekers/return-to-work/",
+                        "url": "/for-individuals/looking-for-work/return-to-work/"
                     },
                     "Work for the Dole": {
-                        "url": "/job-seekers/work-for-the-dole/",
+                        "url": "/for-individuals/looking-for-work/work-for-the-dole/"
                     },
                     "National Work Experience Program (NWEP)": {
-                        "url": "/job-seekers/jobactive/national-work-experience-program",
+                        "url": "/for-individuals/looking-for-work/jobactive/national-work-experience-program"
+                    }
+                }
+            },
+            "Support to Find Work": {
+                "url": "/for-individuals/support-to-find-work/",
+                "children_excluded_from_nav": false,
+                "children": {
+                    "Career Transition Assistance": {
+                        "url": "/for-individuals/support-to-find-work/career-transition-assistance/"
+                    },
+                    "ParentsNext": {
+                        "url": "/for-individuals/support-to-find-work/parentsnext/"
+                    },
+                    "Disability Employment Services": {
+                        "url": "/for-individuals/support-to-find-work/disability-employment-services/"
+                    },
+                    "Work Assist": {
+                        "url": "/for-individuals/support-to-find-work/work-assist/"
+                    },
+                    "Allied Health": {
+                        "url": "/for-individuals/support-to-find-work/allied-health/"
+                    },
+                    "Return to Work": {
+                        "url": "/for-individuals/support-to-find-work/return-to-work/"
+                    },
+                    "Work Ready, Release Ready": {
+                        "url": "/for-individuals/support-to-find-work/work-ready-release-ready/"
                     }
                 }
             },
             "Disability, Injury or Health Condition": {
-                "url": "/disability-injury-or-health-condition/",
+                "url": "/for-individuals/disability-injury-or-health-condition/",
                 "children_excluded_from_nav": false,
                 "children": {
                     "Disability Employment Services": {
-                        "url": "/disability-injury-or-health-condition/disability-employment-services/",
+                        "url": "/for-individuals/disability-injury-or-health-condition/disability-employment-services/"
                     },
                     "Work Assist": {
-                        "url": "/disability-injury-or-health-condition/work-assist/",
+                        "url": "/for-individuals/disability-injury-or-health-condition/work-assist/"
                     }
                 }
             },
             "Youth": {
-                "url": "/youth/",
+                "url": "/for-individuals/youth/",
                 "children_excluded_from_nav": false,
                 "children": {
                     "Get Moving": {
-                        "url": "/youth/get-moving/",
+                        "url": "/for-individuals/youth/get-moving/"
                     },
                     "Flexible Learning Options (FLO)": {
-                        "url": "/youth/flexible-learning-options/",
+                        "url": "/for-individuals/youth/flexible-learning-options/"
                     },
                     "Transition to Work": {
-                        "url": "/youth/flexible-learning-options/",
+                        "url": "/for-individuals/youth/flexible-learning-options/"
                     },
                     "Youth Jobs Path Internships": {
-                        "url": "/youth/youth-jobs-path-internships/",
-                    },
+                        "url": "/for-individuals/youth/youth-jobs-path-internships/"
+                    }
                 }
             },
             "Indigenous": {
-                "url": "/indigenous/",
+                "url": "/for-individuals/indigenous/"
             },
             "Customer Information": {
-                "url": "/customer-information/",
+                "url": "/for-individuals/customer-information/",
                 "children_excluded_from_nav": false,
                 "children": {
                     "Personal Helpers and Mentors": {
-                        "url": "/customer-information/personal-helpers-and-mentors/",
+                        "url": "/for-individuals/customer-information/personal-helpers-and-mentors/"
                     },
                     "Partners in Recovery": {
-                        "url": "/customer-information/partners-in-recovery/",
+                        "url": "/for-individuals/customer-information/partners-in-recovery/"
                     },
                     "Allied Health": {
-                        "url": "/customer-information/allied-health/",
-                    },
-                    "Personal Helpers and Mentors": {
-                        "url": "/customer-information/PartentsNext/",
+                        "url": "/for-individuals/customer-information/allied-health/"
                     },
                     "Job Vacancies for Workskil Australia Customers": {
-                        "url": "/customer-information/job-vacancies-for-workskil-australia-customers/",
+                        "url": "/for-individuals/customer-information/job-vacancies-for-workskil-australia-customers/"
                     },
+                    "Career Profile": {
+                        "url": "/for-individuals/customer-profile/your-career-profile/"
+                    }
                 }
             },
-            "Customer Profile": {
-                "url": "/customer-profile/",
+            "Resource Hub": {
+                "url": "/for-individuals/online-resource-hub/",
                 "children_excluded_from_nav": false,
-            },
-            "Jobs": {
-                "url": "/jobs/",
-                "children_excluded_from_nav": false,
+                "classes": "is-excluded-from-nav",
+                "children": {
+                    "Crisis and Emergency Numbers": {
+                        "url": "/for-individuals/online-resource-hub/crisis-and-emergency-numbers/",
+                        "category": "Personal Support",
+                        "icon": "/assets/img/content/resource-icon-1@2x.png",
+                        "is_hyperlink": true
+                    },
+                    "Housing and Stability": {
+                        "url": "/for-individuals/online-resource-hub/general-health-or-injury/",
+                        "category": "Personal Support",
+                        "icon": "/assets/img/content/resource-icon-2@2x.png",
+                        "children": {
+                            "Emergency Accommodation": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Low Cost Private Housing": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Community and Public Housing": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Food and Clothing": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            }
+                        }
+                    },
+                    "Relationships and Safety": {
+                        "url": "/for-individuals/online-resource-hub/general-health-or-injury/",
+                        "category": "Personal Support",
+                        "icon": "/assets/img/content/resource-icon-3@2x.png",
+                        "children_excluded_from_nav": true,
+                        "children": {
+                            "Domestic or Family Violence": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Family Conflict / Relationship Break up": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Family Expectations": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Caring Responsibilities": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            }
+                        }
+                    },
+                    "Managing Money": {
+                        "url": "/for-individuals/online-resource-hub/general-health-or-injury/",
+                        "category": "Personal Support",
+                        "children_excluded_from_nav": true,
+                        "icon": "/assets/img/content/resource-icon-4@2x.png",
+                        "children": {
+                            "Managing Your Money": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "How to Pay Bills": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Financial Assistance": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Centrepay": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "More Time to Pay Fines": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            }
+                        }
+                    },
+                    "Transport": {
+                        "url": "/for-individuals/online-resource-hub/general-health-or-injury/",
+                        "category": "Personal Support",
+                        "icon": "/assets/img/content/resource-icon-1@2x.png",
+                        "children_excluded_from_nav": true,
+                        "children": {
+                            "Using Public Transport": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Getting my Learners Permit": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Getting my Provisional Licence": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Getting a Car": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            }
+                        }
+                    },
+                    "Health and Wellbeing": {
+                        "url": "/for-individuals/online-resource-hub/general-health-or-injury/",
+                        "category": "Personal Support",
+                        "icon": "/assets/img/content/resource-icon-2@2x.png",
+                        "children_excluded_from_nav": true,
+                        "children": {
+                            "General Health or Injury": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Disability": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Mental Health": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Support for Addiction": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Support for LGBTIQA+": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Dealing with Grief and Loss": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Dealing with Trauma": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Isolated or Lonely": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            }
+                        }
+                    },
+                    "Additional Support": {
+                        "url": "/for-individuals/online-resource-hub/general-health-or-injury/",
+                        "category": "Personal Support",
+                        "icon": "/assets/img/content/resource-icon-3@2x.png",
+                        "children_excluded_from_nav": true,
+                        "children": {
+                            "Access to Technology": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Using Technology": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Government Services and Apps": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Legal Help": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "English as a Second Language": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Help Reading and Writing English": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Proof of Identity Documents": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            }
+                        }
+                    },
+                    "Learning, Training and Licenses": {
+                        "url": "/for-individuals/online-resource-hub/general-health-or-injury/",
+                        "category": "Finding a Job",
+                        "icon": "/assets/img/content/resource-icon-4@2x.png",
+                        "children_excluded_from_nav": true,
+                        "children": {
+                            "Finding Study or Training": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Finding Apprenticeships or Traineeships": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Workskil Online Learning": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            }
+                        }
+                    },
+                    "Finding the Right Job for Me": {
+                        "url": "/for-individuals/online-resource-hub/general-health-or-injury/",
+                        "category": "Finding a Job",
+                        "icon": "/assets/img/content/resource-icon-2@2x.png",
+                        "children_excluded_from_nav": true,
+                        "children": {
+                            "Finding the Right Job for Me": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Finding Work Experience": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Help Staring My Own Business": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Job Vacancies for Workskil Australia Customers": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            }
+                        }
+                    },
+                    "Applying for a Job": {
+                        "url": "/for-individuals/online-resource-hub/general-health-or-injury/",
+                        "category": "Finding a Job",
+                        "icon": "/assets/img/content/resource-icon-3@2x.png",
+                        "children_excluded_from_nav": true,
+                        "children": {
+                            "Writing a Cover Letter": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Writing or Updating a Resume": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Applying for Jobs Online": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Attending a Job Interview": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            }
+                        }
+                    },
+                    "Starting Work": {
+                        "url": "/for-individuals/online-resource-hub/general-health-or-injury/",
+                        "category": "Finding a Job",
+                        "icon": "/assets/img/content/resource-icon-4@2x.png",
+                        "children_excluded_from_nav": true,
+                        "children": {
+                            "Understanding Work Conditions": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            },
+                            "Expectations at Work or Study": {
+                                "url": "/for-individuals/online-resource-hub/general-health-or-injury/"
+                            }
+                        }
+                    }
+                }
             }
         }
     },
@@ -93,64 +339,64 @@
         "children_excluded_from_nav": false,
         "children": {
             "Why Employ Our People?": {
-                "url": "/why-employ-our-people/",
+                "url": "/for-employers/why-employ-our-people/"
             },
             "Our Employment Services": {
-                "url": "/our-employment-services/",
+                "url": "/for-employers/our-employment-services/",
                 "children_excluded_from_nav": false,
                 "children": {
                     "Job Seekers": {
-                        "url": "/our-employment-services/job-seekers/",
+                        "url": "/for-employers/our-employment-services/job-seekers/",
                         "children_excluded_from_nav": false,
                         "children": {
                             "Jobactive": {
-                                "url": "/our-employment-services/job-seekers/job-active/",
+                                "url": "/for-employers/our-employment-services/job-seekers/job-active/"
                             },
                             "Work for the Dole": {
-                                "url": "/our-employment-services/job-seekers/work-for-the-dole/",
+                                "url": "/for-employers/our-employment-services/job-seekers/work-for-the-dole/"
                             },
                             "Work Ready, Release Ready": {
-                                "url": "/our-employment-services/job-seekers/work-ready-release-ready/",
+                                "url": "/for-employers/our-employment-services/job-seekers/work-ready-release-ready/"
                             }
                         }
                     },
                     "Disability, Injury of Health Condition": {
-                        "url": "/our-employment-services/disability-injury-or-health-condition/",
+                        "url": "/for-employers/our-employment-services/disability-injury-or-health-condition/",
                         "children_excluded_from_nav": false,
                         "children": {
                             "Disability Employment Services": {
-                                "url": "/our-employment-services/disability-injury-or-health-condition/disability-employment-services/",
+                                "url": "/for-employers/our-employment-services/disability-injury-or-health-condition/disability-employment-services/"
                             },
                             "Work Assist": {
-                                "url": "/our-employment-services/disability-injury-or-health-condition/work-assist/",
+                                "url": "/for-employers/our-employment-services/disability-injury-or-health-condition/work-assist/"
                             }
                         }
                     },
                     "Youth": {
-                        "url": "/our-employment-services/youth/",
+                        "url": "/for-employers/our-employment-services/youth/",
                         "children_excluded_from_nav": false,
                         "children": {
                             "Youth Jobs Path Internships": {
-                                "url": "/our-employment-services/youth/youth-jobs-path-internships/",
+                                "url": "/for-employers/our-employment-services/youth/youth-jobs-path-internships/"
                             },
                             "Get Moving": {
-                                "url": "/our-employment-services/youth/get-moving/",
+                                "url": "/for-employers/our-employment-services/youth/get-moving/"
                             }
                         }
                     },
                     "Indigenous": {
-                        "url": "/our-employment-services/indigenous/",
+                        "url": "/for-employers/our-employment-services/indigenous/",
                         "children_excluded_from_nav": false,
                         "children": {
                             "Cultural Awareness Training": {
-                                "url": "/our-employment-services/indigenous/cultural-awareness-training/",
+                                "url": "/for-employers/our-employment-services/indigenous/cultural-awareness-training/"
                             }
                         }
-                    },
+                    }
                 }
             },
             "Register Your Job Vacancies": {
-                "url": "/register-your-job-vacancies/",
+                "url": "/for-employers/register-your-job-vacancies/"
             }
         }
     },
@@ -181,10 +427,10 @@
                 }
             },
             "Our Locations": {
-                "url": "/about-us/our-locations/",
+                "url": "/about-us/our-locations/"
             },
             "Careers": {
-                "url": "/about-us/careers/",
+                "url": "/about-us/careers/"
             },
             "Quality, Safety and Risk": {
                 "url": "/about-us/quality-safety-and-risk/",
@@ -202,7 +448,7 @@
                 }
             },
             "Funding Partners": {
-                "url": "/about-us/funding-partners/",
+                "url": "/about-us/funding-partners/"
             },
             "Events Calendar": {
                 "url": "/about-us/events-calendar/",
@@ -210,7 +456,7 @@
                 "children": {
                     "Events Calendar Item": {
                         "url": "/about-us/events-calendar/events-calendar-item/"
-                    },
+                    }
                 }
             },
             "News": {
@@ -219,18 +465,18 @@
                 "children": {
                     "News Item": {
                         "url": "/about-us/news/news-item/"
-                    },
+                    }
                 }
             },
             "Testimonials": {
-                "url": "/about-us/testimonials/",
+                "url": "/about-us/testimonials/"
             }
         }
     },
     "Contact Us": {
-        "url": "/contact-us/",
+        "url": "/contact-us/"
     },
     "Search": {
-        "url": "#/search/",
+        "url": "#/search/"
     }
 }

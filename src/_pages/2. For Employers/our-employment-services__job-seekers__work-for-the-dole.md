@@ -1,7 +1,7 @@
 ---
 layout: child_layout/text_page
 title: Work for the Dole
-permalink: /our-employment-services/job-seekers/work-for-the-dole/
+permalink: /for-employers/our-employment-services/job-seekers/work-for-the-dole/
 subpage_path:
   - 'For Employers'
   - 'Our Employment Services'

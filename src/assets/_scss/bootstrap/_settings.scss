@@ -77,6 +77,7 @@ $secondary:           #96c550 !default;
 $tertiary:            #f6a331 !default;
 $quaternary:          #eb5544 !default;
 $quinary:             #03314e !default;
+$quinary-light:     lighten($quinary, 10%);
 
 $success:             #5cb85c !default;
 $danger:              #d9534f !default;

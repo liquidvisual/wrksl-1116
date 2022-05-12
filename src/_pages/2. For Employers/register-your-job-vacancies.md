@@ -1,7 +1,7 @@
 ---
 layout: child_layout/text_page
 title: Register Your Job Vacancies
-permalink: /register-your-job-vacancies/
+permalink: /for-employers/register-your-job-vacancies/
 hero: /assets/img/content/hero/hero-2.jpg
 subpage_path:
   - 'For Employers'

@@ -1,14 +1,12 @@
 ---
 layout: child_layout/top_level
-title: Job Seekers
-permalink: /job-seekers/
+title: Looking for Work
+permalink: /for-individuals/looking-for-work/
 subpage_path:
   - 'For Individuals'
-  - 'Job Seekers'
+  - 'Looking for Work'
 hero: /assets/img/content/hero/hero-2.jpg
 ---
-
-## Looking for work?
 
 ## Did you know that Workskil Australia places 1300+ people into employment every month?
 

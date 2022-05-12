@@ -1,0 +1,39 @@
+{% assign resources = page.resources %}
+
+<!-- SECTION RESOURCES -->
+<section class="mb-4 mb-xl-5">
+
+	<!-- HEADING -->
+	<h2 class="mb-4">Resources</h2>
+
+	<!-- RESOURCES -->
+	<div class="row">
+		{% for item in resources %}
+			<div class="col-md-6 col-xl-4">
+				<div class="online-resource-content py-3">
+
+					<!-- TITLE -->
+					<h3 class="online-resource-content-heading">
+						{{ item.title }}
+					</h3>
+
+					<!-- SUBTITLE -->
+					<h4 class="online-resource-content-subheading h5">
+						{{ item.subtitle }}
+					</h4>
+
+					<!-- WYSIWYG -->
+					<div class="wysiwyg">
+						{{ item.wysiwyg | markdownify }}
+					</div>
+
+					<!-- LINK -->
+					<a href="{{ item.link }}" class="font-weight-bold" _target="blank">
+						{{ item.link }}
+					</a>
+
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</section>

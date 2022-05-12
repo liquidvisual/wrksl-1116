@@ -85,7 +85,7 @@ module.exports = function (grunt) {
           notify: false,
           // Here you can disable/enable each feature individually
           ghostMode: {
-              clicks: true,
+              clicks: false,
               forms: true,
               scroll: false
           },

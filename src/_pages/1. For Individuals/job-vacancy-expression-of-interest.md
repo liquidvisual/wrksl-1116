@@ -1,7 +1,7 @@
 ---
 layout: child_layout/text_page
 title: Job Vacancy Expression of Interest
-permalink: /customer-information/job-vacancies-for-workskil-australia-customers/
+permalink: /for-individuals/customer-information/job-vacancy-expression-of-interest/
 subpage_path:
   - 'For Individuals'
   - 'Customer Information'

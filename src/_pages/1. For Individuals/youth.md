@@ -1,7 +1,7 @@
 ---
 layout: child_layout/top_level
 title: Youth
-permalink: /youth/
+permalink: /for-individuals/youth/
 subpage_path:
   - 'For Individuals'
   - 'Youth'

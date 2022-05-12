@@ -1,7 +1,7 @@
 ---
 layout: child_layout/top_level
 title: Disability, Injury or Health Condition
-permalink: /disability-injury-or-health-condition/
+permalink: /for-individuals/disability-injury-or-health-condition/
 subpage_path:
   - 'For Individuals'
   - 'Disability, Injury or Health Condition'

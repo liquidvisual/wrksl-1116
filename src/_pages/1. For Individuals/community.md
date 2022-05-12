@@ -1,7 +1,7 @@
 ---
 layout: child_layout/top_level
 title: Customer Information
-permalink: /customer-information/
+permalink: /for-individuals/customer-information/
 subpage_path:
   - 'For Individuals'
   - 'Customer Information'

@@ -151,6 +151,15 @@
 											{% for item in item[1].children %}
 												<li>
 													<a href="{{ item[1].url }}">{{ item[0] }}</a>
+													<!-- {% if item[1].children %}
+														<ul>
+															{% for item in item[1].children %}
+																<li>
+																	<a href="{{ item[1].url }}">{{ item[0] }}</a>
+																</li>
+															{% endfor %}
+														</ul>
+													{% endif %} -->
 												</li>
 											{% endfor %}
 										</ul>

@@ -1,7 +1,7 @@
 ---
 layout: child_layout/text_page
 title: Job Seekers
-permalink: /our-employment-services/job-seekers/
+permalink: /for-employers/our-employment-services/job-seekers/
 subpage_path:
   - 'For Employers'
   - 'Our Employment Services'

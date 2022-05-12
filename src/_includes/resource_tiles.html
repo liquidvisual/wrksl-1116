@@ -1,0 +1,52 @@
+{% assign resource_hub_pages = site.data.sitemap["For Individuals"].children["Resource Hub"].children %}
+{% assign category = include.category %}
+
+<!-- RESOURCE TILES -->
+<div class="section py-0 mb-3 mb-md-5">
+	<ul class="btn-resources block-grid-xs-1 block-grid-md-2 block-grid-lg-4 mb-3">
+		{% for item in resource_hub_pages %}
+			{% if item[1].category == category %}
+				<li>
+					<div class="btn-tile btn-resource" data-resource-btn>
+
+						<!-- IF HYPERLINK (NO HOVER MENU) - WRAP IN ANCHOR -->
+						{% if item[1].is_hyperlink %}
+							<a href="{{ item[1].url }}" class="d-flex flex-column h-100">
+								<span class="btn-tile-bg" style="background-image: url('{{ item[1].icon }}')"></span>
+								<h3 class="btn-tile-title">{{ item[0] }}</h3>
+							</a>
+						{% else %}
+							<!-- IMAGE ICON -->
+							<span class="btn-tile-bg" style="background-image: url('{{ item[1].icon }}')"></span>
+
+							<!-- HEADING -->
+							<h3 class="btn-tile-title">{{ item[0] }}</h3>
+						{% endif %}
+
+						{% if item[1].children %}
+							<!-- HOVER MENU -->
+							<div class="btn-resource-hover-menu" data-resource-btn-hover-menu>
+								<div class="btn-resource-hover-menu-close" data-resource-btn-hover-menu-close><i class="fa fa-close"></i></div>
+
+								<!-- TRIANGLE -->
+								<div class="btn-resource-hover-menu-triangle">
+									<div class="btn-resource-hover-menu-triangle-fill"></div>
+								</div>
+
+								<!-- CHILDREN -->
+								<ul class="btn-resource-hover-menu-bg list-unstyled">
+									{% for item in item[1].children %}
+										<li>
+											<a href="{{ item[1].url }}"><span class="text">{{ item[0] }}</span> <i class="fa fa-angle-right"></i></a>
+										</li>
+									{% endfor %}
+								</ul>
+							</div>
+						{% endif %}
+					</a>
+				</div>
+				</li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+</div>

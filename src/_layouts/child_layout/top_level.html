@@ -3,6 +3,8 @@ layout: base__page
 ---
 
 {% assign settings = site.data.settings %}
+{% assign video_embed_above_fold = page.video_embed_above_fold %}
+{% assign is_page_heading_excluded = page.is_page_heading_excluded %}
 {% assign sub_levels = page.subpage_path %}
 {% assign level_1 = sub_levels[0] %}
 {% assign level_2 = sub_levels[1] %}
@@ -61,14 +63,34 @@ layout: base__page
 			</div>
 			<div class="col-lg-6 pt-4 pt-md-5">
 
-				<!-- HEADING -->
-				<h2 class="mb-4">
-					{% if page.subheading %}
-						{{ page.subheading }}
-					{% else %}
-						Services provided by Workskil {{ page.title }} include:
-					{% endif %}
-				</h2>
+				{% unless is_page_heading_excluded %}
+
+					<!-- HEADING -->
+					<h2 class="mb-4">
+						{% if page.subheading %}
+							{{ page.subheading }}
+						{% else %}
+							Services provided by Workskil {{ page.title }} include:
+						{% endif %}
+					</h2>
+
+				{% endunless %}
+
+				{% if video_embed_above_fold %}
+
+					<!-- VIDEO EMBED -->
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe
+							class="embed-responsive-item"
+							src="{{ video_embed_above_fold }}"
+							title="YouTube video player"
+							allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen
+						>
+						</iframe>
+					</div>
+
+				{% endif %}
 
 				{% if sub_levels %}
 
@@ -107,3 +129,7 @@ layout: base__page
 		</div>
 	</div>
 </section>
+
+{% ifhascontent below_fold %}
+	{% contentblock below_fold no-convert %}
+{% endifhascontent %}
