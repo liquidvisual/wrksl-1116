@@ -6126,7 +6126,13 @@ function initJobsListingApp() {
     isFirefox = navigator.userAgent.toLowerCase().indexOf("firefox") > -1,
     isIE11 = 11 === ieVersion() || !1;function ieVersion(e) {
   e = e || navigator.userAgent;var t = /\b(MSIE |Trident.*?rv:|Edge\/)(\d+)/.exec(e);if (t) return parseInt(t[2]);
-}function $resourceTiles() {
+}$("[data-resize-up]").on("click", function () {
+  isFirefox || isIE11 ? (currFFZoom += .02, $("body").css("transform", "scale(" + currFFZoom + ")"), $("body").css("transform-origin", "top center")) : (currIEZoom += 2, $("body").css("zoom", " " + currIEZoom + "%"));
+}), $("[data-resize-down]").on("click", function () {
+  isFirefox || isIE11 ? (currFFZoom -= .02, $("body").css("transform", "scale(" + currFFZoom + ")")) : (currIEZoom -= 2, $("body").css("zoom", " " + currIEZoom + "%"));
+}), $(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});var $isMobile = $(window).width() < 768;function $resourceTiles() {
   var e = $("[data-resource-btn]"),
       t = $("[data-resource-btn-hover-menu]");e.each(function () {
     var n = $(this),
@@ -6137,10 +6143,4 @@ function initJobsListingApp() {
       n.stopPropagation(), e.removeClass("is-active"), t.css({ display: "none" });
     });
   });
-}$("[data-resize-up]").on("click", function () {
-  isFirefox || isIE11 ? (currFFZoom += .02, $("body").css("transform", "scale(" + currFFZoom + ")"), $("body").css("transform-origin", "top center")) : (currIEZoom += 2, $("body").css("zoom", " " + currIEZoom + "%"));
-}), $("[data-resize-down]").on("click", function () {
-  isFirefox || isIE11 ? (currFFZoom -= .02, $("body").css("transform", "scale(" + currFFZoom + ")")) : (currIEZoom -= 2, $("body").css("zoom", " " + currIEZoom + "%"));
-}), $(function () {
-  $('[data-toggle="tooltip"]').tooltip();
-}), $resourceTiles();
+}$resourceTiles();
