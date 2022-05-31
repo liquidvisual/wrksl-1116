@@ -1,7 +1,7 @@
 /*
     BTN-RESOURCE
 
-    - Last updated: 11.05.22
+    - Last updated: 17.05.22
     - Extends upon btn-tile used for /online-resource-hub.
 	- Desperately needs a refactor, clunkily extends btn-tile.
 */
@@ -15,16 +15,14 @@
 ul.btn-resources {
 	overflow: visible;
 
-	// LEFT
-	@include media-breakpoint-only(md) {
+	@include media-breakpoint-down(sm) {
+		// LEFT
 		li:nth-child(2n-1) .btn-resource-hover-menu {
 			left: calc(100% - 15px);
 			display: none;
 		}
-	}
 
-	// RIGHT
-	@include media-breakpoint-only(md) {
+		// RIGHT
 		li:nth-child(2n) .btn-resource-hover-menu {
 			right: calc(100% - 15px);
 			transform: scaleX(-1);
@@ -35,20 +33,42 @@ ul.btn-resources {
 		}
 	}
 
-	// LARGE UP BREAK-POINT
+	//================================================
+	// MEDIUM BREAK-POINT
+	//================================================
 
-	// LEFT
+	@include media-breakpoint-only(md) {
+		// LEFT
+		li:nth-child(2n-1) .btn-resource-hover-menu {
+			left: calc(100% - 15px);
+			display: none;
+		}
+
+		// RIGHT
+		li:nth-child(2n) .btn-resource-hover-menu {
+			right: calc(100% - 15px);
+			transform: scaleX(-1);
+
+			> ul {
+				transform: scaleX(-1);
+			}
+		}
+	}
+
+	//================================================
+	// LARGE UP BREAK-POINT
+	//================================================
+
 	@include media-breakpoint-up(lg) {
+		// LEFT
 		li:nth-child(4n-1) .btn-resource-hover-menu,
 		li:nth-child(4n-2) .btn-resource-hover-menu,
 		li:nth-child(4n-3) .btn-resource-hover-menu,
 		li:nth-child(4n-4) .btn-resource-hover-menu {
 			left: calc(100% - 15px);
 		}
-	}
 
-	// RIGHT
-	@include media-breakpoint-up(lg) {
+		// RIGHT
 		li:nth-child(4n) .btn-resource-hover-menu {
 			left: auto;
 			right: calc(100% - 15px);
@@ -62,20 +82,48 @@ ul.btn-resources {
 }
 
 //-----------------------------------------------------------------
+// BLOCK GRID CONDENSED
+//-----------------------------------------------------------------
+
+ul.btn-resources {
+	margin: -10px;
+	> li {
+		padding: 10px;
+	}
+}
+
+//-----------------------------------------------------------------
 // RESOURCE BUTTON (Extends btn-tile)
 //-----------------------------------------------------------------
 
 .btn-tile.btn-resource {
 	display: flex;
+	flex-direction: column;
 	position: relative;
-	height: rem-calc(373);
+	height: rem-calc(255);
 	overflow: visible;
 	background: lighten($quinary, 10%);
 	transition: 150ms ease background-color;
 
+	@include media-breakpoint-down(sm) {
+	    padding-left: rem-calc(15);
+	    padding-right: rem-calc(15);
+	}
+
+	@include media-breakpoint-up(md) {
+	    height: rem-calc(373);
+	}
+
 	.btn-tile-bg {
 		position: static;
-		background-size: 30%;
+		background-size: contain;
+		margin-bottom: rem-calc(15);
+		// border: 1px dashed yellow;
+
+		@include media-breakpoint-up(md) {
+		    background-size: 30%;
+		    margin-bottom: 0;
+		}
 
 		@include media-breakpoint-up(lg) {
 		    background-size: 60%;
@@ -88,8 +136,16 @@ ul.btn-resources {
 		justify-content: center;
 		position: static;
 		padding: 0;
-		margin-bottom: 0;
+		// border: 1px dashed lime;
 		text-align: center;
+
+		@include media-breakpoint-down(sm) {
+		    font-size: rem-calc(22);
+		}
+
+		@include media-breakpoint-up(md) {
+		    margin-bottom: 0;
+		}
 	}
 }
 
@@ -118,7 +174,7 @@ ul.btn-resources {
 	flex-direction: column;
 	position: absolute;
 	top: 20px;
-	width: 85%;
+	width: 100%;
 	max-width: rem-calc(294);
 	box-shadow: 1px 2px 5px rgba(black, 0.5);
 	color: white;
@@ -126,6 +182,7 @@ ul.btn-resources {
 
 	@include media-breakpoint-up(md) {
 		top: -10px;
+		width: 85%;
 		min-height: rem-calc(84);
 	}
 
