@@ -13,14 +13,14 @@
 						{% if item[1].is_hyperlink %}
 							<a href="{{ item[1].url }}" class="d-flex flex-column h-100">
 								<span class="btn-tile-bg" style="background-image: url('{{ item[1].icon }}')"></span>
-								<h3 class="btn-tile-title">{{ item[0] }}</h3>
+								<h3 class="btn-tile-title h4">{{ item[0] }}</h3>
 							</a>
 						{% else %}
 							<!-- IMAGE ICON -->
 							<span class="btn-tile-bg" style="background-image: url('{{ item[1].icon }}')"></span>
 
 							<!-- HEADING -->
-							<h3 class="btn-tile-title">{{ item[0] }}</h3>
+							<h3 class="btn-tile-title h4">{{ item[0] }}</h3>
 						{% endif %}
 
 						{% if item[1].children %}

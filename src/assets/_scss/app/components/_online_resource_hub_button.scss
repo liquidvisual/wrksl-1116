@@ -111,7 +111,7 @@ ul.btn-resources {
 	}
 
 	@include media-breakpoint-up(md) {
-	    height: rem-calc(373);
+	    height: rem-calc(230);
 	}
 
 	.btn-tile-bg {
@@ -121,12 +121,12 @@ ul.btn-resources {
 		// border: 1px dashed yellow;
 
 		@include media-breakpoint-up(md) {
-		    background-size: 30%;
+		    background-size: 20%;
 		    margin-bottom: 0;
 		}
 
 		@include media-breakpoint-up(lg) {
-		    background-size: 60%;
+		    background-size: 35%;
 		}
 	}
 
